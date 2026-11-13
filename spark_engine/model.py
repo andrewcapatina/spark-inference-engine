@@ -10,39 +10,15 @@ from .ops import rms_norm
 
 
 def _load_safetensors(path):
-    """Minimal safetensors loader using only the standard library + torch."""
-    with open(path, "rb") as f:
-        header_size = int.from_bytes(f.read(8), "little")
-        header = json.loads(f.read(header_size).decode("utf-8"))
-    tensors = {}
-    for name, info in header.items():
-        if name == "__metadata__":
-            continue
-        f.seek(info["data_offsets"][0])
-        raw = f.read(info["data_offsets"][1] - info["data_offsets"][0])
-        dtype = info["dtype"]
-        shape = info["shape"]
-        if dtype == "F32":
-            t = torch.frombuffer(raw, dtype=torch.float32)
-        elif dtype == "F16":
-            t = torch.frombuffer(raw, dtype=torch.float16)
-        elif dtype == "BF16":
-            t = torch.frombuffer(raw, dtype=torch.bfloat16)
-        elif dtype == "I64":
-            t = torch.frombuffer(raw, dtype=torch.int64)
-        elif dtype == "I32":
-            t = torch.frombuffer(raw, dtype=torch.int32)
-        else:
-            raise ValueError(f"unsupported dtype {dtype}")
-        tensors[name] = t.reshape(shape)
-    return tensors
+    """Load safetensors using the installed safetensors library."""
+    from safetensors.torch import load_file
+    return load_file(path)
 
 
 def _apply_rope(q, k, positions, head_dim, theta=10000.0):
     """Apply rotary embeddings to query and key tensors."""
-    inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32) / head_dim))
-    inv_freq = inv_freq.to(q.device)
-    freqs = torch.outer(positions.float(), inv_freq)
+    inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32, device=q.device) / head_dim))
+    freqs = positions.float().unsqueeze(-1) * inv_freq.unsqueeze(0)
     cos = torch.cos(freqs).unsqueeze(0).unsqueeze(0)
     sin = torch.sin(freqs).unsqueeze(0).unsqueeze(0)
 
@@ -163,7 +139,10 @@ class CausalLM(nn.Module):
             layer.mlp.down_proj.weight.data.copy_(mapping[prefix + "mlp.down_proj.weight"])
         self.norm.data.copy_(mapping["model.norm.weight"])
         if not self.config.get("tie_word_embeddings", False):
-            self.lm_head.weight.data.copy_(mapping["lm_head.weight"])
+            if "lm_head.weight" in mapping:
+                self.lm_head.weight.data.copy_(mapping["lm_head.weight"])
+            else:
+                self.lm_head.weight.data.copy_(mapping["model.embed_tokens.weight"])
 
     def forward(self, input_ids):
         positions = torch.arange(input_ids.shape[1], device=input_ids.device).unsqueeze(0)

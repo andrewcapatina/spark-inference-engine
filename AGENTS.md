@@ -23,3 +23,7 @@ and a small reference checkpoint are supplied. Do not spawn other agents.
 
 At the end of each turn, update PROGRESS.md with completed work, actual commands
 and results, remaining failures, and the next step. Keep progress reproducible.
+
+Short-turn protocol: one focused fix (at most 50 changed lines), one targeted
+check, a brief progress note, then finish. The controller checkpoints each turn
+and chooses the next failure. Avoid investigating multiple issues in one turn.

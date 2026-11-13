@@ -43,3 +43,8 @@ User requested resumption. Fixture paths and independent acceptance contract are
 User requested CUDA execution for the prototype. Runtime now uses the existing
 source-built PyTorch CUDA 13.0 image. Acceptance checks require CUDA tensors.
 The partial stage-2 model.py is preserved; it still needs independent validation.
+
+## Short-turn loop
+User requested one fix, one targeted check, then checkpoint. Coding turns now
+have a 300-second limit. Current target: RoPE broadcasting in tiny forward.
+Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
