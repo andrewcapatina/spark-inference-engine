@@ -1,0 +1,183 @@
+import json
+import math
+import os
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from .ops import rms_norm
+
+
+def _load_safetensors(path):
+    """Minimal safetensors loader using only the standard library + torch."""
+    with open(path, "rb") as f:
+        header_size = int.from_bytes(f.read(8), "little")
+        header = json.loads(f.read(header_size).decode("utf-8"))
+    tensors = {}
+    for name, info in header.items():
+        if name == "__metadata__":
+            continue
+        f.seek(info["data_offsets"][0])
+        raw = f.read(info["data_offsets"][1] - info["data_offsets"][0])
+        dtype = info["dtype"]
+        shape = info["shape"]
+        if dtype == "F32":
+            t = torch.frombuffer(raw, dtype=torch.float32)
+        elif dtype == "F16":
+            t = torch.frombuffer(raw, dtype=torch.float16)
+        elif dtype == "BF16":
+            t = torch.frombuffer(raw, dtype=torch.bfloat16)
+        elif dtype == "I64":
+            t = torch.frombuffer(raw, dtype=torch.int64)
+        elif dtype == "I32":
+            t = torch.frombuffer(raw, dtype=torch.int32)
+        else:
+            raise ValueError(f"unsupported dtype {dtype}")
+        tensors[name] = t.reshape(shape)
+    return tensors
+
+
+def _apply_rope(q, k, positions, head_dim, theta=10000.0):
+    """Apply rotary embeddings to query and key tensors."""
+    inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32) / head_dim))
+    inv_freq = inv_freq.to(q.device)
+    freqs = torch.outer(positions.float(), inv_freq)
+    cos = torch.cos(freqs).unsqueeze(0).unsqueeze(0)
+    sin = torch.sin(freqs).unsqueeze(0).unsqueeze(0)
+
+    def rotate(x):
+        x1, x2 = x[..., :head_dim // 2], x[..., head_dim // 2:]
+        return torch.cat([-x2, x1], dim=-1)
+
+    q = q * cos + rotate(q) * sin
+    k = k * cos + rotate(k) * sin
+    return q, k
+
+
+class Attention(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.hidden_size = config["hidden_size"]
+        self.num_heads = config["num_attention_heads"]
+        self.num_kv_heads = config.get("num_key_value_heads", self.num_heads)
+        self.head_dim = self.hidden_size // self.num_heads
+        self.num_kv_groups = self.num_heads // self.num_kv_heads
+        self.rope_theta = config.get("rope_theta", 10000.0)
+
+        self.q_proj = nn.Linear(self.hidden_size, self.num_heads * self.head_dim, bias=False)
+        self.k_proj = nn.Linear(self.hidden_size, self.num_kv_heads * self.head_dim, bias=False)
+        self.v_proj = nn.Linear(self.hidden_size, self.num_kv_heads * self.head_dim, bias=False)
+        self.o_proj = nn.Linear(self.num_heads * self.head_dim, self.hidden_size, bias=False)
+
+    def forward(self, hidden_states, positions, attention_mask=None):
+        bsz, seq_len, _ = hidden_states.shape
+        q = self.q_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+        k = self.k_proj(hidden_states).view(bsz, seq_len, self.num_kv_heads, self.head_dim).transpose(1, 2)
+        v = self.v_proj(hidden_states).view(bsz, seq_len, self.num_kv_heads, self.head_dim).transpose(1, 2)
+
+        q, k = _apply_rope(q, k, positions, self.head_dim, self.rope_theta)
+
+        if self.num_kv_groups > 1:
+            k = k.repeat_interleave(self.num_kv_groups, dim=1)
+            v = v.repeat_interleave(self.num_kv_groups, dim=1)
+
+        scores = torch.matmul(q, k.transpose(2, 3)) / math.sqrt(self.head_dim)
+        if attention_mask is not None:
+            scores = scores + attention_mask
+        attn_weights = F.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
+        attn_output = torch.matmul(attn_weights, v)
+        attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, -1)
+        return self.o_proj(attn_output)
+
+
+class MLP(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.gate_proj = nn.Linear(config["hidden_size"], config["intermediate_size"], bias=False)
+        self.up_proj = nn.Linear(config["hidden_size"], config["intermediate_size"], bias=False)
+        self.down_proj = nn.Linear(config["intermediate_size"], config["hidden_size"], bias=False)
+
+    def forward(self, x):
+        return self.down_proj(F.silu(self.gate_proj(x)) * self.up_proj(x))
+
+
+class DecoderLayer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.self_attn = Attention(config)
+        self.mlp = MLP(config)
+        self.input_layernorm = nn.Parameter(torch.ones(config["hidden_size"]))
+        self.post_attention_layernorm = nn.Parameter(torch.ones(config["hidden_size"]))
+        self.rms_norm_eps = config.get("rms_norm_eps", 1e-5)
+
+    def forward(self, hidden_states, positions, attention_mask=None):
+        residual = hidden_states
+        hidden_states = rms_norm(hidden_states, self.input_layernorm, self.rms_norm_eps)
+        hidden_states = self.self_attn(hidden_states, positions, attention_mask)
+        hidden_states = residual + hidden_states
+
+        residual = hidden_states
+        hidden_states = rms_norm(hidden_states, self.post_attention_layernorm, self.rms_norm_eps)
+        hidden_states = self.mlp(hidden_states)
+        return residual + hidden_states
+
+
+class CausalLM(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.config = config
+        self.vocab_size = config["vocab_size"]
+        self.hidden_size = config["hidden_size"]
+        self.num_layers = config["num_hidden_layers"]
+        self.rms_norm_eps = config.get("rms_norm_eps", 1e-5)
+
+        self.embed_tokens = nn.Embedding(self.vocab_size, self.hidden_size)
+        self.layers = nn.ModuleList([DecoderLayer(config) for _ in range(self.num_layers)])
+        self.norm = nn.Parameter(torch.ones(self.hidden_size))
+        self.lm_head = nn.Linear(self.hidden_size, self.vocab_size, bias=False)
+
+        if config.get("tie_word_embeddings", False):
+            self.lm_head.weight = self.embed_tokens.weight
+
+    def load_hf_state_dict(self, state_dict):
+        mapping = {}
+        for name, param in state_dict.items():
+            if name.startswith("model."):
+                mapping[name] = param
+            else:
+                mapping["model." + name] = param
+
+        self.embed_tokens.weight.data.copy_(mapping["model.embed_tokens.weight"])
+        for i in range(self.num_layers):
+            layer = self.layers[i]
+            prefix = f"model.layers.{i}."
+            layer.input_layernorm.data.copy_(mapping[prefix + "input_layernorm.weight"])
+            layer.self_attn.q_proj.weight.data.copy_(mapping[prefix + "self_attn.q_proj.weight"])
+            layer.self_attn.k_proj.weight.data.copy_(mapping[prefix + "self_attn.k_proj.weight"])
+            layer.self_attn.v_proj.weight.data.copy_(mapping[prefix + "self_attn.v_proj.weight"])
+            layer.self_attn.o_proj.weight.data.copy_(mapping[prefix + "self_attn.o_proj.weight"])
+            layer.post_attention_layernorm.data.copy_(mapping[prefix + "post_attention_layernorm.weight"])
+            layer.mlp.gate_proj.weight.data.copy_(mapping[prefix + "mlp.gate_proj.weight"])
+            layer.mlp.up_proj.weight.data.copy_(mapping[prefix + "mlp.up_proj.weight"])
+            layer.mlp.down_proj.weight.data.copy_(mapping[prefix + "mlp.down_proj.weight"])
+        self.norm.data.copy_(mapping["model.norm.weight"])
+        if not self.config.get("tie_word_embeddings", False):
+            self.lm_head.weight.data.copy_(mapping["lm_head.weight"])
+
+    def forward(self, input_ids):
+        positions = torch.arange(input_ids.shape[1], device=input_ids.device).unsqueeze(0)
+        hidden_states = self.embed_tokens(input_ids)
+        for layer in self.layers:
+            hidden_states = layer(hidden_states, positions)
+        hidden_states = rms_norm(hidden_states, self.norm, self.rms_norm_eps)
+        return self.lm_head(hidden_states)
+
+    @classmethod
+    def from_pretrained(cls, directory):
+        with open(os.path.join(directory, "config.json"), "r") as f:
+            config = json.load(f)
+        model = cls(config)
+        weights = _load_safetensors(os.path.join(directory, "model.safetensors"))
+        model.load_hf_state_dict(weights)
+        return model.eval()

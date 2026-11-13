@@ -1,7 +1,8 @@
 # Minimum prototype contract
 
-Implement this interface with your own PyTorch forward pass. CPU FP32 is the
-first target. Read-only acceptance tests are at `/workspace/acceptance`.
+Implement this interface with your own PyTorch forward pass. CUDA FP32 on the GB10 is the
+first target. Implement modules that support `.to(device)` and keep tensor
+allocations on the input device. Read-only acceptance tests are at `/workspace/acceptance`.
 
 ## Stage 1: small verified component
 
@@ -21,7 +22,7 @@ In `spark_engine/model.py`, provide `CausalLM(torch.nn.Module)`:
 - `load_hf_state_dict(state_dict)` maps Transformers Llama weights into it.
 - `forward(input_ids)` returns logits shaped `[batch, sequence, vocabulary]`.
 - `CausalLM.from_pretrained(directory)` reads local config and Safetensors,
-  including tied embeddings, and returns a CPU FP32 model.
+  including tied embeddings, and returns an FP32 model that supports `.to("cuda")`.
 
 Implement GQA, RoPE, RMSNorm, gated SiLU MLPs, residuals and the output head.
 Validate both tiny random models and the supplied SmolLM2 checkpoint.
@@ -35,7 +36,7 @@ Validate both tiny random models and the supplied SmolLM2 checkpoint.
 - `generate(input_ids, max_new_tokens, eos_token_id=None)` returns the prompt
   concatenated with generated IDs. Greedy selection; stop after emitting EOS
   when supplied. None disables EOS stopping; zero new tokens returns the input.
-- `python3 -m spark_engine --model PATH --prompt TEXT --max-new-tokens N`
+- `python3 -m spark_engine --model PATH --prompt TEXT --max-new-tokens N --device cuda`
   runs offline using the local tokenizer and prints generated text.
 
 Reference path: `/workspace/reference/smollm2`.
@@ -45,3 +46,6 @@ Controller feedback: `/workspace/run_feedback/latest.txt`.
 The controller rechecks previous stages before advancing. Acceptance tests are
 fixed outside your writable project. Add your own tests under `tests/` too.
 Full Qwen hybrid support, CUDA performance and multiple Sparks remain later work.
+
+CUDA is required in the controller acceptance checks. Both reference and engine
+run on the GPU. Use --device cuda for the CLI and report the actual device.

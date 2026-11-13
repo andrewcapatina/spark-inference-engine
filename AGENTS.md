@@ -13,7 +13,7 @@ small Llama-style model, not the full hybrid Qwen architecture.
 Do not change the existing component diagram's meaning or remove source notes.
 Do not replace the engine with a call to Transformers.generate, Ollama, vLLM,
 or another serving engine. Those are references/backends for the coding agent.
-Use existing tensor operations for the first implementation; custom CUDA and
+Use PyTorch CUDA tensor operations on the GB10 for the first implementation; custom kernels and
 multi-Spark execution are later milestones.
 
 Keep model weights, caches, and generated bulk output out of Git. Do not access

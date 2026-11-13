@@ -38,3 +38,8 @@ User requested resumption. Fixture paths and independent acceptance contract are
 - Added 6 unit tests covering shape, dtype, unit/weighted scaling, noncontiguous input, zeros, and input preservation.
 - Command: `python3 -m pytest -q tests/` → 6 passed in 0.45s.
 - Next: Stage 2 — Llama forward pass and local weight loading.
+
+## GPU runtime requested
+User requested CUDA execution for the prototype. Runtime now uses the existing
+source-built PyTorch CUDA 13.0 image. Acceptance checks require CUDA tensors.
+The partial stage-2 model.py is preserved; it still needs independent validation.

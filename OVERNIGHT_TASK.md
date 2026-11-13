@@ -14,7 +14,7 @@ experiment: a partial, tested implementation is useful; unsupported claims are n
   NumPy 2.2.6, and pytest 8.4.2 are supplied.
 - Small reference checkpoint: `/workspace/reference/smollm2` (read-only), a snapshot of
   HuggingFaceTB/SmolLM2-135M-Instruct. Record the exact revision from its manifest.
-- Test on CPU. The coding model uses the Spark GPU in a separate server.
+- Test on CUDA. The coding model uses the Spark GPU in a separate server.
 - Network and other host projects are unavailable to the agent.
 
 ## Milestones, in order
@@ -36,7 +36,7 @@ stage in run_feedback/latest.txt. Repair reported failures before advancing.
 5. Add explicit KV cache state, prompt prefill, and incremental decode. Compare
    cached and uncached results; test positions, reset, and separate requests.
 6. Add a small benchmark reporting prompt and decode timing, environment, input
-   lengths, and clear CPU-only limitations. Optimize only after profiling.
+   lengths, and clear CUDA-only limitations. Optimize only after profiling.
 7. If all core checks pass, document the adapter work needed for the downloaded
    Qwen hybrid models. Treat full Qwen support, GGUF quantized kernels, vision,
    MTP, custom CUDA, multiple requests, and multiple Sparks as later work.
@@ -46,6 +46,6 @@ stage in run_feedback/latest.txt. Repair reported failures before advancing.
 Keep tests small enough to run repeatedly. Prefer fixed seeds and numerical
 tolerances to full generated-text equality. Include a real-checkpoint comparison
 when the loader is ready. Record failures rather than loosening tests to hide
-them. Run tests with a bounded CPU thread count (for example OMP_NUM_THREADS=4).
+them. Run tests with a bounded CUDA thread count (for example OMP_NUM_THREADS=4).
 After each turn write PROGRESS.md with what exists, exact checks and outcomes,
 known gaps, and the next task. Finish with a concise report in that file.
