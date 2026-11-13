@@ -1,7 +1,8 @@
-"""Qwen3.5 attention layer. Same named weights as official Qwen3_5Attention."""
+"""Qwen3.5 attention and linear-attention layers. Same named weights as official."""
 import torch
 import torch.nn as nn
-from spark_engine.qwen_ops import qwen_rms_norm, apply_partial_rope
+import torch.nn.functional as F
+from spark_engine.qwen_ops import qwen_rms_norm, apply_partial_rope, gated_delta_rule
 
 
 class QwenRMSNorm(nn.Module):
@@ -51,3 +52,37 @@ class QwenAttention(nn.Module):
         out = out * torch.sigmoid(gate)
         out = out.reshape(bsz, seq, -1)
         return self.o_proj(out)
+
+
+class QwenGatedDeltaNet(nn.Module):
+    """Qwen3.5 linear-attention layer with gated delta rule."""
+
+    def __init__(self, config):
+        super().__init__()
+        self.hidden_size = config["hidden_size"]
+        self.num_k_heads = config["linear_num_key_heads"]
+        self.num_v_heads = config["linear_num_value_heads"]
+        self.k_dim = config["linear_key_head_dim"]
+        self.v_dim = config["linear_value_head_dim"]
+        self.conv_kernel = config["linear_conv_kernel_dim"]
+        self.q_proj = nn.Linear(self.hidden_size, self.num_k_heads * self.k_dim, bias=False)
+        self.k_proj = nn.Linear(self.hidden_size, self.num_k_heads * self.k_dim, bias=False)
+        self.v_proj = nn.Linear(self.hidden_size, self.num_v_heads * self.v_dim, bias=False)
+        self.g_proj = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
+        self.beta_proj = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
+        self.conv1d = nn.Conv1d(
+            self.hidden_size, self.hidden_size, kernel_size=self.conv_kernel,
+            groups=self.hidden_size, padding=self.conv_kernel - 1, bias=False,
+        )
+        self.o_proj = nn.Linear(self.num_v_heads * self.v_dim, self.hidden_size, bias=False)
+
+    def forward(self, hidden):
+        bsz, seq, _ = hidden.shape
+        conv = F.silu(self.conv1d(hidden.transpose(1, 2))[:, :, :seq]).transpose(1, 2)
+        q = self.q_proj(conv).view(bsz, seq, self.num_k_heads, self.k_dim)
+        k = self.k_proj(conv).view(bsz, seq, self.num_k_heads, self.k_dim)
+        v = self.v_proj(conv).view(bsz, seq, self.num_v_heads, self.v_dim)
+        g = self.g_proj(conv)
+        beta = torch.sigmoid(self.beta_proj(conv))
+        out, _ = gated_delta_rule(q, k, v, g, beta)
+        return self.o_proj(out.view(bsz, seq, -1))
