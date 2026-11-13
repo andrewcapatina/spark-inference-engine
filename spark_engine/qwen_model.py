@@ -47,7 +47,7 @@ class QwenCausalLM(nn.Module):
         self.config = config
         self.embed_tokens = nn.Embedding(config["vocab_size"], config["hidden_size"])
         self.layers = nn.ModuleList(
-            QwenDecoderLayer(config, config["layer_types"][i % len(config["layer_types"])])
+            QwenDecoderLayer(config, config["layer_types"][i])
             for i in range(config["num_hidden_layers"])
         )
         self.norm = QwenRMSNorm(config["hidden_size"], eps=config["rms_norm_eps"])
