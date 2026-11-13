@@ -28,3 +28,4 @@ Turn: made QwenRMSNorm.forward accept optional z for gated norm; QwenGatedDeltaN
 Checks: test_qwen_delta_block PASSED.
 Blocker: none for this task.
 Next: controller checkpoint and next queue task.
+test_qwen_weight_loading: rewrote load_hf_state_dict to map checkpoint names explicitly, copy tensors, and raise on missing/unexpected keys. PASSED.

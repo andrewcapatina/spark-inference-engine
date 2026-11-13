@@ -54,7 +54,24 @@ class QwenCausalLM(nn.Module):
         self.lm_head = nn.Linear(config["hidden_size"], config["vocab_size"], bias=False)
 
     def load_hf_state_dict(self, state):
-        self.load_state_dict(state, strict=False)
+        engine_keys = set(self.state_dict().keys())
+        loaded = set()
+        for name, tensor in state.items():
+            if name == "lm_head.weight":
+                target = "lm_head.weight"
+            elif name.startswith("model."):
+                target = name[6:]
+            else:
+                target = name
+            if target in engine_keys:
+                self.state_dict()[target].copy_(tensor.to(self.state_dict()[target].device))
+                loaded.add(target)
+        missing = engine_keys - loaded
+        if missing:
+            raise RuntimeError(f"Checkpoint missing {len(missing)} engine weights: {sorted(missing)[:5]}")
+        unexpected = set(state.keys()) - {"model." + k if k != "lm_head.weight" else "lm_head.weight" for k in engine_keys}
+        if unexpected:
+            raise RuntimeError(f"Unexpected checkpoint keys: {sorted(unexpected)[:5]}")
 
     def forward(self, ids):
         bsz, seq = ids.shape
