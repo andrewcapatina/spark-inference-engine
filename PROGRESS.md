@@ -61,3 +61,8 @@ Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
 - Extended Attention.forward with past_key_value/use_cache; RoPE on new q/k only, concat old/new k/v, store unrepeated KV, expand for attention math.
 - pytest -k test_attention_kv_cache PASSED.
 - Next: test_incremental_cache_and_request_isolation (DecoderLayer + CausalLM prefill/decode).
+
+## 2026-11-13 10:05 UTC — Stage 3: Incremental cache and request isolation
+- Extended DecoderLayer.forward with cache args; added CausalLM.prefill and CausalLM.decode with per-request cache list and position offset from past keys.
+- pytest -k test_incremental_cache_and_request_isolation PASSED.
+- Next: test_greedy_generation_and_stop (CausalLM.generate loop).

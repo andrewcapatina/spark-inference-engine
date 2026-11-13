@@ -102,16 +102,19 @@ class DecoderLayer(nn.Module):
         self.post_attention_layernorm = nn.Parameter(torch.ones(config["hidden_size"]))
         self.rms_norm_eps = config.get("rms_norm_eps", 1e-5)
 
-    def forward(self, hidden_states, positions, attention_mask=None):
+    def forward(self, hidden_states, positions, attention_mask=None, past_key_value=None, use_cache=False):
         residual = hidden_states
         hidden_states = rms_norm(hidden_states, self.input_layernorm, self.rms_norm_eps)
-        hidden_states = self.self_attn(hidden_states, positions, attention_mask)
-        hidden_states = residual + hidden_states
+        attn_out, kv = self.self_attn(hidden_states, positions, attention_mask, past_key_value, use_cache)
+        hidden_states = residual + attn_out
 
         residual = hidden_states
         hidden_states = rms_norm(hidden_states, self.post_attention_layernorm, self.rms_norm_eps)
         hidden_states = self.mlp(hidden_states)
-        return residual + hidden_states
+        out = residual + hidden_states
+        if use_cache:
+            return out, kv
+        return out
 
 
 class CausalLM(nn.Module):
@@ -160,6 +163,32 @@ class CausalLM(nn.Module):
             hidden_states = layer(hidden_states, positions, causal_mask)
         hidden_states = rms_norm(hidden_states, self.norm, self.rms_norm_eps)
         return self.lm_head(hidden_states)
+
+    def prefill(self, input_ids):
+        bsz, seq_len = input_ids.shape
+        positions = torch.arange(seq_len, device=input_ids.device).unsqueeze(0).expand(bsz, -1)
+        hidden_states = self.embed_tokens(input_ids)
+        causal_mask = torch.triu(torch.ones(seq_len, seq_len, device=input_ids.device, dtype=torch.bool), diagonal=1)
+        cache = []
+        for layer in self.layers:
+            hidden_states, kv = layer(hidden_states, positions, causal_mask, use_cache=True)
+            cache.append(kv)
+        hidden_states = rms_norm(hidden_states, self.norm, self.rms_norm_eps)
+        logits = self.lm_head(hidden_states)
+        return logits, cache
+
+    def decode(self, input_ids, cache):
+        bsz = input_ids.shape[0]
+        past_len = cache[0][0].shape[2]
+        positions = torch.tensor([past_len], device=input_ids.device).unsqueeze(0).expand(bsz, -1)
+        hidden_states = self.embed_tokens(input_ids)
+        new_cache = []
+        for i, layer in enumerate(self.layers):
+            hidden_states, kv = layer(hidden_states, positions, past_key_value=cache[i], use_cache=True)
+            new_cache.append(kv)
+        hidden_states = rms_norm(hidden_states, self.norm, self.rms_norm_eps)
+        logits = self.lm_head(hidden_states)
+        return logits, new_cache
 
     @classmethod
     def from_pretrained(cls, directory):
