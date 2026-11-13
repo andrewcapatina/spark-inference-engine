@@ -100,7 +100,7 @@ class QwenGatedDeltaNet(nn.Module):
         if self.num_v_heads // self.num_k_heads > 1:
             q = q.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
             k = k.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
-        out, _ = gated_delta_rule(q, k, v, g, beta, use_qk_l2norm=True)
+        out, _ = gated_delta_rule(q, k, v, g, beta)
         out = out.view(-1, self.v_dim)
         z = z.view(-1, self.v_dim)
         out = self.norm(out, z)
