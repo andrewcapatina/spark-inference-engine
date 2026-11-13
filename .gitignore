@@ -10,3 +10,6 @@ checkpoints/
 *.gguf
 .overnight-tool-smoke
 OVERNIGHT_RUN_REPORT.txt
+reference/
+acceptance/
+run_feedback/

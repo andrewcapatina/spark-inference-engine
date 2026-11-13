@@ -1,6 +1,7 @@
 # Overnight prototype progress
 
-Experiment prepared on November 13, 2026; automatic stop at 8:00 AM Pacific.
+Experiment prepared on November 13, 2026. Stopped at the user's request for
+Astra review before proceeding; both experiment containers are stopped.
 
 ## Setup verified
 
@@ -17,9 +18,23 @@ Experiment prepared on November 13, 2026; automatic stop at 8:00 AM Pacific.
 
 ## Implementation
 
-The coding loop is starting. The first task is a minimal package and tested
-reference forward pass, following `OVERNIGHT_TASK.md`.
+The first coding turn was interrupted before completion. No prototype changes
+were present in the worktree when the run stopped. The setup and logs are
+preserved. Do not resume until the user requests it after review.
+
+Review `OVERNIGHT_TASK.md` and the controller/configuration under
+`/home/cap/spark-inference-overnight-20261113/` before restarting. The existing
+8:00 AM stop target must be checked against the intended resumed run time.
 
 Controller state and logs: `/home/cap/spark-inference-overnight-20261113/`.
 The controller saves per-turn logs and checkpoints and records test exit codes.
 Replace this setup note with evidence of actual work as the experiment proceeds.
+
+## Authorized minimum run
+User requested resumption. Fixture paths and independent acceptance contract are corrected. Start stage 1 and follow controller feedback.
+
+## Stage 1: RMSNorm (completed)
+- Implemented `spark_engine/ops.rms_norm` with manual math (no nn.RMSNorm).
+- Added 6 unit tests covering shape, dtype, unit/weighted scaling, noncontiguous input, zeros, and input preservation.
+- Command: `python3 -m pytest -q tests/` → 6 passed in 0.45s.
+- Next: Stage 2 — Llama forward pass and local weight loading.

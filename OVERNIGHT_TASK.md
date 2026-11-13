@@ -12,12 +12,15 @@ experiment: a partial, tested implementation is useful; unsupported claims are n
 - Worktree: `/workspace` in an isolated OpenClaw container.
 - Python 3.11, PyTorch 2.9.1, Transformers 4.57.3, Safetensors 0.6.2,
   NumPy 2.2.6, and pytest 8.4.2 are supplied.
-- Small reference checkpoint: `/fixtures/smollm2` (read-only), a snapshot of
+- Small reference checkpoint: `/workspace/reference/smollm2` (read-only), a snapshot of
   HuggingFaceTB/SmolLM2-135M-Instruct. Record the exact revision from its manifest.
 - Test on CPU. The coding model uses the Spark GPU in a separate server.
 - Network and other host projects are unavailable to the agent.
 
 ## Milestones, in order
+
+Follow ENGINE_CONTRACT.md for exact interfaces and the controller's current
+stage in run_feedback/latest.txt. Repair reported failures before advancing.
 
 1. Create a minimal Python package, README, CLI, and meaningful smoke tests.
    Document how to run from a checkout without installing more dependencies.

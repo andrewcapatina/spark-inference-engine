@@ -1,7 +1,10 @@
 # Inference-engine prototype workspace
 
 Work only on this project's inference-engine prototype and its documentation.
-The surrounding infrastructure ideas are future work. Read OVERNIGHT_TASK.md.
+The surrounding infrastructure ideas are future work. Read OVERNIGHT_TASK.md,
+ENGINE_CONTRACT.md, and run_feedback/latest.txt. Reference files are mounted
+read-only at /workspace/reference/smollm2; the design document is
+/workspace/INFERENCE_ENGINE_DIAGRAM.txt. These paths work with the file tools.
 
 Implement, run checks, and record evidence in PROGRESS.md. Prefer small modules
 with explicit tensor shapes and clear state ownership. The first target is a
