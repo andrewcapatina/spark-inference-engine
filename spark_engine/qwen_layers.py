@@ -11,8 +11,11 @@ class QwenRMSNorm(nn.Module):
         self.weight = nn.Parameter(torch.ones(dim))
         self.eps = eps
 
-    def forward(self, x):
-        return qwen_rms_norm(x, self.weight, self.eps)
+    def forward(self, x, z=None):
+        if z is None:
+            return qwen_rms_norm(x, self.weight, self.eps)
+        from spark_engine.qwen_ops import gated_rms_norm
+        return gated_rms_norm(x, self.weight, z, self.eps)
 
 
 class QwenAttention(nn.Module):

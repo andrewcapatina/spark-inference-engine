@@ -24,3 +24,7 @@ Turn: repaired dimension bookkeeping in gated_delta_rule (heads/time swap).
 Checks: test_qwen_delta_layout PASSED; test_qwen_delta_rule PASSED.
 Blocker: none for this task.
 Next: controller checkpoint and next queue task.
+Turn: made QwenRMSNorm.forward accept optional z for gated norm; QwenGatedDeltaNet now passes.
+Checks: test_qwen_delta_block PASSED.
+Blocker: none for this task.
+Next: controller checkpoint and next queue task.
