@@ -48,3 +48,11 @@ The partial stage-2 model.py is preserved; it still needs independent validation
 User requested one fix, one targeted check, then checkpoint. Coding turns now
 have a 300-second limit. Current target: RoPE broadcasting in tiny forward.
 Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
+
+## Verified forward baseline (direct repair)
+- Repaired RoPE rank/frequency ordering, duplicate GQA expansion, and untied output-head mapping.
+- GPU acceptance: 9 passed in 2.59s, including tiny tied/untied parity, real SmolLM2 parity, nonzero-position RoPE, and batched causal masking.
+- Existing unit tests: 6 passed in 0.50s.
+- Reference loading now explicitly starts on CPU before moving to CUDA; this avoids requiring accelerate for global-device dispatch. All forward comparisons execute on CUDA.
+- Next local-model task: Attention.forward KV caching only. Follow LOCAL_TASK_GUIDE.md.
+- Controller now stops for review after two identical failures, three turns without newly passed checks, unrelated function edits, or any forward-baseline regression.

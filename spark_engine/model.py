@@ -19,8 +19,11 @@ def _apply_rope(q, k, positions, head_dim, theta=10000.0):
     """Apply rotary embeddings to query and key tensors."""
     inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32, device=q.device) / head_dim))
     freqs = positions.float().unsqueeze(-1) * inv_freq.unsqueeze(0)
-    cos = torch.cos(freqs).unsqueeze(0).unsqueeze(0).repeat_interleave(2, dim=-1)
-    sin = torch.sin(freqs).unsqueeze(0).unsqueeze(0).repeat_interleave(2, dim=-1)
+    # Llama rotates the two halves of each head, so duplicate the frequency
+    # vector by concatenation, then broadcast across attention heads.
+    angles = torch.cat((freqs, freqs), dim=-1)  # [batch, sequence, head_dim]
+    cos = angles.cos().unsqueeze(1).to(q.dtype)
+    sin = angles.sin().unsqueeze(1).to(q.dtype)
 
     def rotate(x):
         x1, x2 = x[..., :head_dim // 2], x[..., head_dim // 2:]
@@ -117,12 +120,7 @@ class CausalLM(nn.Module):
             self.lm_head.weight = self.embed_tokens.weight
 
     def load_hf_state_dict(self, state_dict):
-        mapping = {}
-        for name, param in state_dict.items():
-            if name.startswith("model."):
-                mapping[name] = param
-            else:
-                mapping["model." + name] = param
+        mapping = state_dict
 
         self.embed_tokens.weight.data.copy_(mapping["model.embed_tokens.weight"])
         for i in range(self.num_layers):
@@ -139,10 +137,7 @@ class CausalLM(nn.Module):
             layer.mlp.down_proj.weight.data.copy_(mapping[prefix + "mlp.down_proj.weight"])
         self.norm.data.copy_(mapping["model.norm.weight"])
         if not self.config.get("tie_word_embeddings", False):
-            if "lm_head.weight" in mapping:
-                self.lm_head.weight.data.copy_(mapping["lm_head.weight"])
-            else:
-                self.lm_head.weight.data.copy_(mapping["model.embed_tokens.weight"])
+            self.lm_head.weight.data.copy_(mapping["lm_head.weight"])
 
     def forward(self, input_ids):
         bsz, seq_len = input_ids.shape

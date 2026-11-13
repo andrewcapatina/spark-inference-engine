@@ -27,3 +27,7 @@ and results, remaining failures, and the next step. Keep progress reproducible.
 Short-turn protocol: one focused fix (at most 50 changed lines), one targeted
 check, a brief progress note, then finish. The controller checkpoints each turn
 and chooses the next failure. Avoid investigating multiple issues in one turn.
+
+The forward baseline is verified. Follow LOCAL_TASK_GUIDE.md for the named task.
+Only edit the functions that task names; the controller checks function changes
+and runs forward regression checks every turn. A repeated failure stops for review.
