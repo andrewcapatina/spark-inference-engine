@@ -46,5 +46,6 @@ no blocked dependency is silently skipped or counted as passed.
 
 Use BF16 and stream checkpoint shards for real models. No two copies of the
 whole 27B model in memory. Free unused tensors. A cold NAS load can be slow.
-Stop at 8 AM Pacific, or earlier on a containment/regression error. Leave a
+Run without a scheduled deadline until the queued work completes, the user
+requests a stop, or a containment/regression/dependency problem requires review. Leave a
 checkpoint and precise report even if Qwen remains incomplete.
