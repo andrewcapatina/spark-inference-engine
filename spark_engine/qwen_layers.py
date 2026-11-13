@@ -55,7 +55,7 @@ class QwenAttention(nn.Module):
 
 
 class QwenGatedDeltaNet(nn.Module):
-    """Qwen3.5 linear-attention layer with gated delta rule."""
+    """Qwen3.5 linear-attention layer with gated delta rule. Official weight names."""
 
     def __init__(self, config):
         super().__init__()
@@ -64,25 +64,42 @@ class QwenGatedDeltaNet(nn.Module):
         self.num_v_heads = config["linear_num_value_heads"]
         self.k_dim = config["linear_key_head_dim"]
         self.v_dim = config["linear_value_head_dim"]
+        self.key_dim = self.num_k_heads * self.k_dim
+        self.value_dim = self.num_v_heads * self.v_dim
         self.conv_kernel = config["linear_conv_kernel_dim"]
-        self.q_proj = nn.Linear(self.hidden_size, self.num_k_heads * self.k_dim, bias=False)
-        self.k_proj = nn.Linear(self.hidden_size, self.num_k_heads * self.k_dim, bias=False)
-        self.v_proj = nn.Linear(self.hidden_size, self.num_v_heads * self.v_dim, bias=False)
-        self.g_proj = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
-        self.beta_proj = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
+        self.conv_dim = self.key_dim * 2 + self.value_dim
+        self.in_proj_qkv = nn.Linear(self.hidden_size, self.conv_dim, bias=False)
+        self.in_proj_z = nn.Linear(self.hidden_size, self.value_dim, bias=False)
+        self.in_proj_b = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
+        self.in_proj_a = nn.Linear(self.hidden_size, self.num_v_heads, bias=False)
         self.conv1d = nn.Conv1d(
-            self.hidden_size, self.hidden_size, kernel_size=self.conv_kernel,
-            groups=self.hidden_size, padding=self.conv_kernel - 1, bias=False,
+            self.conv_dim, self.conv_dim, kernel_size=self.conv_kernel,
+            groups=self.conv_dim, padding=self.conv_kernel - 1, bias=False,
         )
-        self.o_proj = nn.Linear(self.num_v_heads * self.v_dim, self.hidden_size, bias=False)
+        self.dt_bias = nn.Parameter(torch.ones(self.num_v_heads))
+        A = torch.empty(self.num_v_heads).uniform_(0.01, 16)
+        self.A_log = nn.Parameter(torch.log(A))
+        self.norm = QwenRMSNorm(self.v_dim, eps=1e-6)
+        self.out_proj = nn.Linear(self.value_dim, self.hidden_size, bias=False)
 
     def forward(self, hidden):
         bsz, seq, _ = hidden.shape
-        conv = F.silu(self.conv1d(hidden.transpose(1, 2))[:, :, :seq]).transpose(1, 2)
-        q = self.q_proj(conv).view(bsz, seq, self.num_k_heads, self.k_dim)
-        k = self.k_proj(conv).view(bsz, seq, self.num_k_heads, self.k_dim)
-        v = self.v_proj(conv).view(bsz, seq, self.num_v_heads, self.v_dim)
-        g = self.g_proj(conv)
-        beta = torch.sigmoid(self.beta_proj(conv))
+        mixed = self.in_proj_qkv(hidden).transpose(1, 2)
+        mixed = F.silu(self.conv1d(mixed)[:, :, :seq]).transpose(1, 2)
+        q, k, v = torch.split(mixed, [self.key_dim, self.key_dim, self.value_dim], dim=-1)
+        q = q.view(bsz, seq, self.num_k_heads, self.k_dim)
+        k = k.view(bsz, seq, self.num_k_heads, self.k_dim)
+        v = v.view(bsz, seq, self.num_v_heads, self.v_dim)
+        z = self.in_proj_z(hidden).view(bsz, seq, self.num_v_heads, self.v_dim)
+        beta = torch.sigmoid(self.in_proj_b(hidden))
+        a = self.in_proj_a(hidden)
+        g = -self.A_log.float().exp() * F.softplus(a.float() + self.dt_bias)
+        if self.num_v_heads // self.num_k_heads > 1:
+            q = q.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
+            k = k.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
         out, _ = gated_delta_rule(q, k, v, g, beta)
-        return self.o_proj(out.view(bsz, seq, -1))
+        out = out.view(-1, self.v_dim)
+        z = z.view(-1, self.v_dim)
+        out = self.norm(out, z)
+        out = out.view(bsz, seq, -1)
+        return self.out_proj(out)
