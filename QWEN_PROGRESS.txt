@@ -16,3 +16,7 @@ Turn 2: fixed apply_partial_rope broadcast (cos/sin [batch,seq,rotary_dim] -> un
 Target test_qwen_partial_rope now passes; 4/14 Qwen milestones pass (config, rms_norm, gated_norm, partial_rope)
 Remaining: delta_rule precision, full_attention/delta_block (need qwen_layers), hybrid forward/cache/generation, real9b, gguf
 Next: test_qwen_delta_rule
+Turn 7: added QwenRMSNorm wrapper class to qwen_layers.py for attention QK norms.
+Ran: test_qwen_full_attention (PASS), prior 4 Qwen checks (PASS), 15 Llama checks (PASS).
+Blocker: none for this task; attention layer now matches official weight names.
+Next: test_qwen_delta_block (QwenGatedDeltaNet layer).

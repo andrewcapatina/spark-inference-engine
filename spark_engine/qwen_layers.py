@@ -4,6 +4,16 @@ import torch.nn as nn
 from spark_engine.qwen_ops import qwen_rms_norm, apply_partial_rope
 
 
+class QwenRMSNorm(nn.Module):
+    def __init__(self, dim, eps=1e-6):
+        super().__init__()
+        self.weight = nn.Parameter(torch.ones(dim))
+        self.eps = eps
+
+    def forward(self, x):
+        return qwen_rms_norm(x, self.weight, self.eps)
+
+
 class QwenAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
