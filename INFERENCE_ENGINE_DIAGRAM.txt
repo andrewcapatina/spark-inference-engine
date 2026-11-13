@@ -1,0 +1,294 @@
+SPARK INFERENCE ENGINE - COMPONENT MAP
+======================================
+Created: 2026-11-13
+
+Purpose: build an engine that loads model weights and generates tokens on your
+DGX Sparks. This file is a design guide; the engine is not implemented yet.
+
+Start with one Spark, one model, one request, and text-only generation. Build a
+correct reference implementation before adding custom kernels or distribution.
+
+
+1. MODEL STARTUP: LOAD ONCE, REUSE FOR MANY REQUESTS
+-------------------------------------------------
+
+  +---------------------------------------------------------------------+
+  | NAS: /mnt/nas-aimodels/huggingface/<owner>/<model>                  |
+  | Model weights + config + tokenizer + chat template                  |
+  +----------------------------------+----------------------------------+
+                                     |
+                                     v
+  +---------------------------------------------------------------------+
+  | MODEL LOADER                                                        |
+  | Read tensor names, shapes, types, and architecture configuration    |
+  | Safetensors first; GGUF reader / quantized tensor support later     |
+  +----------------------------------+----------------------------------+
+                                     |
+                 +-------------------+--------------------+
+                 v                                        v
+  +--------------------------------+  +---------------------------------+
+  | MODEL / TOKENIZER REGISTRY     |  | DEVICE AND MEMORY MANAGER       |
+  | Tokenizer and chat template    |  | Allocate weights, work buffers, |
+  | Layer definitions and metadata |  | and a budget for sequence state |
+  +----------------+---------------+  +----------------+----------------+
+                   |                                   |
+                   +------------------+----------------+
+                                      v
+                         [ READY MODEL EXECUTOR ]
+
+Weights and sequence state must be accessible to the compute device. NAS storage
+is not GPU working memory. A local SSD copy is an optional startup optimization.
+
+
+2. REQUEST AND GENERATION FLOW
+------------------------------
+
+  [ CLI / application / optional HTTP API ]
+                      |
+                      v
+  +----------------------------------------------------------+
+  | REQUEST VALIDATION + CHAT TEMPLATE + TOKENIZER           |
+  | Messages -> formatted prompt -> input token IDs          |
+  | Check context limits and generation settings             |
+  +---------------------------+------------------------------+
+                              |
+                              v
+  +----------------------------------------------------------+
+  | REQUEST QUEUE + SCHEDULER                                |
+  | Admit requests, reserve memory, choose work to execute   |
+  | First version: one request at a time                     |
+  +---------------------------+------------------------------+
+                              |
+                              v
+  +----------------------------------------------------------+
+  | PREFILL                                                  |
+  | Process prompt tokens; initialize sequence state;        |
+  | produce logits for the first generated token             |
+  +---------------------------+------------------------------+
+                              |
+                              v
+  +----------------------------------------------------------+
+  | SAMPLER                                                  |
+  | Logits -> next token ID                                  |
+  | Start with greedy selection; add temperature/top-p later |
+  +---------------------------+------------------------------+
+                              |
+                              v
+  +----------------------------------------------------------+
+  | OUTPUT + STOP CONTROLLER                                 |
+  | Incremental detokenization, text streaming, end tokens,  |
+  | stop strings, length limits, and cancellation            |
+  +---------------------------+------------------------------+
+                              |
+                     [ Finished? ]
+                       /       \
+                     yes        no
+                      |          |
+                      v          v
+         [ Release request   +--------------------------------+
+           state; return ]   | DECODE                         |
+                             | Feed the selected token back;  |
+                             | update state; produce logits   |
+                             +---------------+----------------+
+                                             |
+                                             +--> back to SAMPLER
+
+Prefill and decode call the same model executor with different input lengths.
+The tokenizer stays consistent with the model's vocabulary and chat template.
+
+
+3. WHAT SITS INSIDE PREFILL AND DECODE
+-------------------------------------
+
+  [ Token IDs + positions + request-specific state ]
+                         |
+                         v
+                 [ Token embeddings ]
+                         |
+                         v
+  +----------------------------------------------------------+
+  | REPEATED MODEL LAYERS (exact order comes from the model) |
+  |                                                          |
+  | Normalization -> token-mixing block -> residual path     |
+  | Normalization -> feed-forward block -> residual path     |
+  |                                                          |
+  | Token-mixing block may use:                              |
+  | Full attention: Q/K/V projections, positional encoding,  |
+  | causal attention, output projection                      |
+  | Linear attention: architecture-specific recurrent math   |
+  +---------------------------+------------------------------+
+                              |
+                              v
+            [ Final normalization + vocabulary head ]
+                              |
+                              v
+                           [ Logits ]
+
+  MODEL EXECUTOR <---------> SEQUENCE STATE MANAGER
+       |                    - KV cache for full-attention layers
+       |                    - Recurrent / convolution state where required
+       |                    - Positions, lengths, allocation and cleanup
+       v
+  COMPUTE BACKEND <--------> DEVICE AND MEMORY MANAGER
+  - Tensor operations, matrix multiplication, attention and reductions
+  - Reference path: PyTorch with a compatible CUDA build
+  - Optimized path: selected C++/CUDA kernels and existing GPU libraries
+  - Streams/events and synchronization when execution becomes asynchronous
+
+Memory budget = weights + sequence state + temporary buffers + runtime overhead.
+On Spark, CPU and GPU share physical memory; count that capacity once.
+
+
+4. CROSS-CUTTING COMPONENTS
+--------------------------
+
+  Configuration and capabilities
+    Record model revision, tokenizer, data type, context limit, device, and seed.
+    Reject unsupported architectures or weight formats with clear errors.
+
+  Correctness checks
+    Compare layer outputs and logits with an established reference. Check cached
+    decoding against uncached decoding, state isolation, and stop handling.
+    Use numerical tolerances; different GPU kernels may change rounding.
+
+  Profiling and benchmarks
+    Measure time to first token, prompt tokens/sec, generated tokens/sec,
+    peak memory, and latency. Synchronize GPU work when measuring timings.
+
+  Request lifecycle and recovery
+    Report failures, handle cancellation, and free state after completion or
+    errors. Later, ensure one failed request does not stop all other requests.
+
+
+5. BUILD ORDER
+--------------
+
+  [1] Tiny supported model + tokenizer + weight loading
+       |
+       v
+  [2] Reference forward pass + logits comparison
+       |
+       v
+  [3] Greedy generation loop + text output + stop handling
+       |
+       v
+  [4] KV / recurrent state + prefill/decode correctness checks
+       |
+       v
+  [5] Profile one Spark; optimize the measured bottlenecks
+       |
+       v
+  [6] Add the chosen downloaded model's complete architecture
+       |
+       v
+  [7] Add sampling options, streaming, and an optional HTTP API
+       |
+       v
+  [8] Add selected advanced features when benchmarks justify them
+
+Advanced features are separate projects within the engine:
+  - GGUF loading and kernels for each supported quantization format.
+  - Continuous batching and paged KV allocation for multiple requests.
+  - Prefix caching with correct request isolation and eviction.
+  - Speculative decoding / MTP, including verification and state rollback.
+  - Vision encoder, projector, and image processing for multimodal input.
+  - CUDA graphs or kernel fusion where useful.
+  - Multiple Sparks: worker coordination, weight partitioning, collectives,
+    interconnect setup, and distributed failure handling.
+
+Each downloaded model can fit on one 128 GB Spark with an appropriate context
+and memory budget. Start there before adding communication between machines.
+
+
+6. NOTES FOR YOUR DOWNLOADED MODELS
+----------------------------------
+
+DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic
+  - Safetensors checkpoint; approximately 19.3 GB of repository files.
+  - Its downloaded config identifies Qwen3_5ForConditionalGeneration and mixes
+    linear_attention with full_attention layers. A basic attention-only engine
+    is not enough: implement the exact layer math and required recurrent state.
+  - Text-only inference can come before vision support or MTP acceleration.
+
+DavidAU Qwen3.8-27B ... NEO-CODER-MAX-MTP-GGUF
+  - The repository contains alternative GGUF versions; load one chosen version.
+  - A GGUF parser alone is insufficient: support its architecture, tensor
+    layouts, chat template, and chosen quantization's compute operations.
+  - Establish normal decoding before implementing MTP acceleration.
+
+Useful validation references:
+  - Transformers for a supported Safetensors checkpoint.
+  - A compatible CUDA-enabled llama.cpp build for a chosen GGUF checkpoint.
+These can provide known-good comparisons while this project's executor grows.
+
+
+7. REFERENCE DOCUMENTATION
+--------------------------
+
+Serving architecture (frontend, scheduling, execution):
+https://docs.vllm.ai/en/latest/design/arch_overview/
+
+Attention KV caching:
+https://huggingface.co/docs/transformers/en/cache_explanation
+
+llama.cpp builds and CUDA backend:
+https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md
+
+Model-specific evidence: downloaded config.json and model cards under
+/mnt/nas-aimodels/huggingface/xtools-at/ and /mnt/nas-aimodels/huggingface/DavidAU/.
+
+The diagrams and build order above are a proposed design for this project.
+
+
+8. FUTURE INFRASTRUCTURE AND HELPERS
+-----------------------------------
+Noted: 2026-11-13. Ideas for future work; these helpers are not implemented.
+
+Build a small management toolkit around the Sparks to make models easier to
+start, access, monitor, and stop. It should support existing engines such as
+llama.cpp and vLLM, with an adapter for this project's engine when ready.
+
+Model catalog
+  Inventory NAS models, revisions, quantizations, download progress, and local
+  copies on each Spark. Support resumable downloads and optional SSD staging.
+
+Launch profiles
+  Save the engine, model path, context size, memory settings, and port so a
+  known configuration can be started with one command.
+
+Spark resource manager
+  Track host availability and reserve estimated memory before launch to avoid
+  competing workloads overcommitting the same Spark.
+
+API gateway
+  Provide one stable endpoint and friendly model names; route requests to the
+  appropriate running model on a Spark.
+
+Service supervisor
+  Start configured services after reboot, collect logs, restart failed
+  processes, and check model readiness before accepting requests.
+
+Status dashboard
+  Show loaded models, host memory usage, downloads, request activity, inference
+  speed, and errors. Begin with terminal status output; add a dashboard later.
+
+Chat and test clients
+  Connect a browser chat interface and provide a simple request command to
+  check that a model responds. Add a repeatable benchmark helper for comparing
+  configurations on the same workload.
+
+Suggested first priorities: model catalog, launch profiles, and status commands.
+Later additions: supervision, resource reservations, gateway, and browser UI.
+
+Proposed CLI interface (examples only; sparkctl does not exist yet):
+  sparkctl models
+  sparkctl status
+  sparkctl start qwen27b --host spark1
+  sparkctl logs qwen27b
+  sparkctl stop qwen27b
+
+Implementation references:
+  Docker Compose readiness and startup dependencies:
+  https://docs.docker.com/compose/how-tos/startup-order/
+  NVIDIA's Open WebUI guide for DGX Spark:
+  https://build.nvidia.com/spark/open-webui

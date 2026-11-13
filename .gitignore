@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+models/
+checkpoints/
+*.safetensors
+*.gguf
+.overnight-tool-smoke
