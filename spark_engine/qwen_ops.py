@@ -34,3 +34,35 @@ def apply_partial_rope(q, k, cos, sin):
     q_out = torch.cat([q_embed, q_pass], dim=-1)
     k_out = torch.cat([k_embed, k_pass], dim=-1)
     return q_out, k_out
+
+
+def _l2norm(x, dim=-1, eps=1e-6):
+    inv = torch.rsqrt((x * x).sum(dim=dim, keepdim=True) + eps)
+    return x * inv
+
+
+def gated_delta_rule(q, k, v, g, beta, initial_state=None):
+    """Gated delta rule linear attention (pure PyTorch recurrence)."""
+    dtype = q.dtype
+    q = q.transpose(1, 2).float()
+    k = k.transpose(1, 2).float()
+    v = v.transpose(1, 2).float()
+    beta = beta.transpose(1, 2).float()
+    g = g.transpose(1, 2).float()
+    q = _l2norm(q, dim=-1)
+    k = _l2norm(k, dim=-1)
+    q = q / (q.shape[-1] ** 0.5)
+    bsz, seq, nvh, vdim = v.shape
+    if initial_state is None:
+        state = torch.zeros((bsz, nvh, k.shape[-1], vdim), dtype=v.dtype, device=v.device)
+    else:
+        state = initial_state.to(v)
+    out = torch.zeros_like(v)
+    for i in range(seq):
+        decay = g[:, :, i].exp()[..., None, None]
+        state = state * decay
+        kv_mem = (state * k[:, :, i].unsqueeze(-1)).sum(dim=-2)
+        delta = (v[:, :, i] - kv_mem) * beta[:, :, i].unsqueeze(-1)
+        state = state + k[:, :, i].unsqueeze(-1) * delta.unsqueeze(-2)
+        out[:, :, i] = (state * q[:, :, i].unsqueeze(-1)).sum(dim=-2)
+    return out.transpose(1, 2).contiguous().to(dtype), state
