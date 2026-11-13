@@ -49,7 +49,7 @@ class Attention(nn.Module):
         self.v_proj = nn.Linear(self.hidden_size, self.num_kv_heads * self.head_dim, bias=False)
         self.o_proj = nn.Linear(self.num_heads * self.head_dim, self.hidden_size, bias=False)
 
-    def forward(self, hidden_states, positions, attention_mask=None):
+    def forward(self, hidden_states, positions, attention_mask=None, past_key_value=None, use_cache=False):
         bsz, seq_len, _ = hidden_states.shape
         q = self.q_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
         k = self.k_proj(hidden_states).view(bsz, seq_len, self.num_kv_heads, self.head_dim).transpose(1, 2)
@@ -57,17 +57,29 @@ class Attention(nn.Module):
 
         q, k = _apply_rope(q, k, positions, self.head_dim, self.rope_theta)
 
-        if self.num_kv_groups > 1:
-            k = k.repeat_interleave(self.num_kv_groups, dim=1)
-            v = v.repeat_interleave(self.num_kv_groups, dim=1)
+        if past_key_value is not None:
+            old_k, old_v = past_key_value
+            k = torch.cat([old_k, k], dim=2)
+            v = torch.cat([old_v, v], dim=2)
 
-        scores = torch.matmul(q, k.transpose(2, 3)) / math.sqrt(self.head_dim)
+        if self.num_kv_groups > 1:
+            k_expanded = k.repeat_interleave(self.num_kv_groups, dim=1)
+            v_expanded = v.repeat_interleave(self.num_kv_groups, dim=1)
+        else:
+            k_expanded = k
+            v_expanded = v
+
+        scores = torch.matmul(q, k_expanded.transpose(2, 3)) / math.sqrt(self.head_dim)
         if attention_mask is not None:
             scores = scores.masked_fill(attention_mask.unsqueeze(0).unsqueeze(0), float('-inf'))
         attn_weights = F.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
-        attn_output = torch.matmul(attn_weights, v)
+        attn_output = torch.matmul(attn_weights, v_expanded)
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, -1)
-        return self.o_proj(attn_output)
+        output = self.o_proj(attn_output)
+
+        if use_cache:
+            return output, (k, v)
+        return output
 
 
 class MLP(nn.Module):

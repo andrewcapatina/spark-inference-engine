@@ -56,3 +56,8 @@ Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
 - Reference loading now explicitly starts on CPU before moving to CUDA; this avoids requiring accelerate for global-device dispatch. All forward comparisons execute on CUDA.
 - Next local-model task: Attention.forward KV caching only. Follow LOCAL_TASK_GUIDE.md.
 - Controller now stops for review after two identical failures, three turns without newly passed checks, unrelated function edits, or any forward-baseline regression.
+
+## 2026-11-13 10:00 UTC — Stage 3: Attention KV cache
+- Extended Attention.forward with past_key_value/use_cache; RoPE on new q/k only, concat old/new k/v, store unrepeated KV, expand for attention math.
+- pytest -k test_attention_kv_cache PASSED.
+- Next: test_incremental_cache_and_request_isolation (DecoderLayer + CausalLM prefill/decode).
