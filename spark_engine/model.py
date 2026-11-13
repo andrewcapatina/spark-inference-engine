@@ -194,6 +194,19 @@ class CausalLM(nn.Module):
         logits = self.lm_head(hidden_states)
         return logits, new_cache
 
+    def generate(self, input_ids, max_new_tokens=4, eos_token_id=None):
+        bsz = input_ids.shape[0]
+        device = input_ids.device
+        generated = input_ids
+        logits, cache = self.prefill(input_ids)
+        for _ in range(max_new_tokens):
+            next_token = logits[:, -1].argmax(-1, keepdim=True)
+            generated = torch.cat([generated, next_token], dim=1)
+            if eos_token_id is not None and (next_token == eos_token_id).all():
+                break
+            logits, cache = self.decode(next_token, cache)
+        return generated
+
     @classmethod
     def from_pretrained(cls, directory):
         with open(os.path.join(directory, "config.json"), "r") as f:
