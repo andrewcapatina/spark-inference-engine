@@ -71,3 +71,4 @@ Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
 - Fixed DecoderLayer.forward to conditionally unpack Attention result only when use_cache=True, restoring tensor-only return for ordinary forward.
 - pytest -k test_decoder_return_contract PASSED (batch sizes 1 and 2).
 - Next: test_greedy_generation_and_stop.
+Stage 3: added spark_engine/__main__.py CLI with argparse, AutoTokenizer(local_files_only=True), CausalLM.generate, --device cuda; test_cli_runs_offline now passes.
