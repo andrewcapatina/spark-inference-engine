@@ -37,3 +37,8 @@ Work through these tasks in order, one named check at a time:
 One focused edit, one targeted check, a brief PROGRESS.md note, then end the turn.
 If two attempts produce the same failure, the controller stops for review.
 A checkpoint means code was saved; only passing checks count as validated progress.
+
+When the selected target is test_decoder_return_contract, edit ONLY DecoderLayer.forward
+to preserve the documented return contract in both cache modes. The fixed test
+covers batch sizes 1 and 2. Do not modify Attention.forward or model-level cache
+methods during this repair. This recovery guidance applies only to that target.
