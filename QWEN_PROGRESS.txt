@@ -1,0 +1,6 @@
+QWEN OVERNIGHT PHASE
+Goal: full Qwen support, native 9B then 27B text paths first.
+Starting point: validated Llama baseline 5ac4a6c.
+Only the local model writes engine implementation; supervisor supplies harness and fixtures.
+No Qwen implementation milestones have passed yet.
+Vision/video, MTP, additional quantizations and performance remain unvalidated.
