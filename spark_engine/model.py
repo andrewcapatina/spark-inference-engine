@@ -105,7 +105,11 @@ class DecoderLayer(nn.Module):
     def forward(self, hidden_states, positions, attention_mask=None, past_key_value=None, use_cache=False):
         residual = hidden_states
         hidden_states = rms_norm(hidden_states, self.input_layernorm, self.rms_norm_eps)
-        attn_out, kv = self.self_attn(hidden_states, positions, attention_mask, past_key_value, use_cache)
+        attn_result = self.self_attn(hidden_states, positions, attention_mask, past_key_value, use_cache)
+        if use_cache:
+            attn_out, kv = attn_result
+        else:
+            attn_out = attn_result
         hidden_states = residual + attn_out
 
         residual = hidden_states

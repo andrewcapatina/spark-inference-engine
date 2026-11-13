@@ -66,3 +66,8 @@ Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
 - Extended DecoderLayer.forward with cache args; added CausalLM.prefill and CausalLM.decode with per-request cache list and position offset from past keys.
 - pytest -k test_incremental_cache_and_request_isolation PASSED.
 - Next: test_greedy_generation_and_stop (CausalLM.generate loop).
+
+## 2026-11-13 10:14 UTC — Stage 3: Decoder return-contract repair
+- Fixed DecoderLayer.forward to conditionally unpack Attention result only when use_cache=True, restoring tensor-only return for ordinary forward.
+- pytest -k test_decoder_return_contract PASSED (batch sizes 1 and 2).
+- Next: test_greedy_generation_and_stop.
