@@ -60,7 +60,7 @@ class Attention(nn.Module):
 
         scores = torch.matmul(q, k.transpose(2, 3)) / math.sqrt(self.head_dim)
         if attention_mask is not None:
-            scores = scores + attention_mask
+            scores = scores.masked_fill(attention_mask.unsqueeze(0).unsqueeze(0), float('-inf'))
         attn_weights = F.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
         attn_output = torch.matmul(attn_weights, v)
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, -1)
@@ -145,10 +145,12 @@ class CausalLM(nn.Module):
                 self.lm_head.weight.data.copy_(mapping["model.embed_tokens.weight"])
 
     def forward(self, input_ids):
-        positions = torch.arange(input_ids.shape[1], device=input_ids.device).unsqueeze(0)
+        bsz, seq_len = input_ids.shape
+        positions = torch.arange(seq_len, device=input_ids.device).unsqueeze(0).expand(bsz, -1)
         hidden_states = self.embed_tokens(input_ids)
+        causal_mask = torch.triu(torch.ones(seq_len, seq_len, device=input_ids.device, dtype=torch.bool), diagonal=1)
         for layer in self.layers:
-            hidden_states = layer(hidden_states, positions)
+            hidden_states = layer(hidden_states, positions, causal_mask)
         hidden_states = rms_norm(hidden_states, self.norm, self.rms_norm_eps)
         return self.lm_head(hidden_states)
 
