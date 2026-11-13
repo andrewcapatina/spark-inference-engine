@@ -19,8 +19,8 @@ def _apply_rope(q, k, positions, head_dim, theta=10000.0):
     """Apply rotary embeddings to query and key tensors."""
     inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32, device=q.device) / head_dim))
     freqs = positions.float().unsqueeze(-1) * inv_freq.unsqueeze(0)
-    cos = torch.cos(freqs).unsqueeze(0).unsqueeze(0)
-    sin = torch.sin(freqs).unsqueeze(0).unsqueeze(0)
+    cos = torch.cos(freqs).unsqueeze(0).unsqueeze(0).repeat_interleave(2, dim=-1)
+    sin = torch.sin(freqs).unsqueeze(0).unsqueeze(0).repeat_interleave(2, dim=-1)
 
     def rotate(x):
         x1, x2 = x[..., :head_dim // 2], x[..., head_dim // 2:]
