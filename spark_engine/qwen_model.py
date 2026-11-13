@@ -83,8 +83,8 @@ class QwenCausalLM(nn.Module):
                           (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
         positions = torch.arange(seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        cos = freqs.cos().unsqueeze(0).repeat(2, 1, 1)
-        sin = freqs.sin().unsqueeze(0).repeat(2, 1, 1)
+        cos = freqs.cos().unsqueeze(0)
+        sin = freqs.sin().unsqueeze(0)
         position_embeddings = (cos, sin)
         for layer in self.layers:
             hidden = layer(hidden, position_embeddings)
