@@ -20,3 +20,7 @@ Turn 7: added QwenRMSNorm wrapper class to qwen_layers.py for attention QK norms
 Ran: test_qwen_full_attention (PASS), prior 4 Qwen checks (PASS), 15 Llama checks (PASS).
 Blocker: none for this task; attention layer now matches official weight names.
 Next: test_qwen_delta_block (QwenGatedDeltaNet layer).
+Turn: repaired dimension bookkeeping in gated_delta_rule (heads/time swap).
+Checks: test_qwen_delta_layout PASSED; test_qwen_delta_rule PASSED.
+Blocker: none for this task.
+Next: controller checkpoint and next queue task.

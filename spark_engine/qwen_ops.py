@@ -54,17 +54,24 @@ def _l2norm(x, dim=-1, eps=1e-6):
 
 
 def gated_delta_rule(q, k, v, g, beta, initial_state=None):
-    """Gated delta rule linear attention (pure PyTorch recurrence)."""
+    """Gated delta rule linear attention (pure PyTorch recurrence).
+
+    Layout: q/k/v [batch,time,heads,feature]; g/beta [batch,time,heads];
+    state [batch,heads,key_dim,value_dim]. Transpose to [batch,heads,time,feature]
+    for the recurrence, then transpose back.
+    """
     dtype = q.dtype
+    # [batch,time,heads,feature] -> [batch,heads,time,feature]
     q = q.transpose(1, 2).float()
     k = k.transpose(1, 2).float()
     v = v.transpose(1, 2).float()
+    # [batch,time,heads] -> [batch,heads,time]
     beta = beta.transpose(1, 2).float()
     g = g.transpose(1, 2).float()
     q = _l2norm(q, dim=-1)
     k = _l2norm(k, dim=-1)
     q = q / (q.shape[-1] ** 0.5)
-    bsz, seq, nvh, vdim = v.shape
+    bsz, nvh, seq, vdim = v.shape
     if initial_state is None:
         state = torch.zeros((bsz, nvh, k.shape[-1], vdim), dtype=v.dtype, device=v.device)
     else:
@@ -77,4 +84,5 @@ def gated_delta_rule(q, k, v, g, beta, initial_state=None):
         delta = (v[:, :, i] - kv_mem) * beta[:, :, i].unsqueeze(-1)
         state = state + k[:, :, i].unsqueeze(-1) * delta.unsqueeze(-2)
         out[:, :, i] = (state * q[:, :, i].unsqueeze(-1)).sum(dim=-2)
+    # [batch,heads,time,feature] -> [batch,time,heads,feature]
     return out.transpose(1, 2).contiguous().to(dtype), state
