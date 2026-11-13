@@ -2,6 +2,17 @@
 import torch
 
 
+def gated_rms_norm(x, weight, z, eps=1e-6):
+    """Qwen3.5 gated RMSNorm: norm(x) * weight * silu(z)."""
+    dtype = x.dtype
+    x = x.float()
+    variance = x.pow(2).mean(-1, keepdim=True)
+    x = x * torch.rsqrt(variance + eps)
+    x = (x * weight.float()).to(dtype)
+    z = torch.nn.functional.silu(z.float())
+    return (x * z).to(dtype)
+
+
 def qwen_rms_norm(x, weight, eps=1e-6):
     """Qwen offset-weight RMSNorm: (x * w).to(dtype) with w = 1 + offset."""
     dtype = x.dtype

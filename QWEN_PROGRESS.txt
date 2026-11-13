@@ -8,3 +8,7 @@ test_qwen_config: parse_config implemented for nested and flat configs
 checks: manual inline test passed (all 13 key assertions + tiny layer_types)
 blocker: none for this task
 next: controller runs acceptance test_qwen_config and Llama regressions
+test_qwen_gated_norm: added gated_rms_norm(x,weight,z,eps) to qwen_ops.py matching Qwen3_5RMSNormGated (norm then weight then silu gate)
+checks: test_qwen_gated_norm, test_qwen_config, test_qwen_rms_norm all passed
+blocker: none
+next: test_qwen_partial_rope
