@@ -12,3 +12,7 @@ test_qwen_gated_norm: added gated_rms_norm(x,weight,z,eps) to qwen_ops.py matchi
 checks: test_qwen_gated_norm, test_qwen_config, test_qwen_rms_norm all passed
 blocker: none
 next: test_qwen_partial_rope
+Turn 2: fixed apply_partial_rope broadcast (cos/sin [batch,seq,rotary_dim] -> unsqueeze(1))
+Target test_qwen_partial_rope now passes; 4/14 Qwen milestones pass (config, rms_norm, gated_norm, partial_rope)
+Remaining: delta_rule precision, full_attention/delta_block (need qwen_layers), hybrid forward/cache/generation, real9b, gguf
+Next: test_qwen_delta_rule

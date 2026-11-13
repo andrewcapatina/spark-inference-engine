@@ -32,12 +32,12 @@ def _rotate_half(x):
 def apply_partial_rope(q, k, cos, sin):
     """Apply rotary position embedding to the leading rotary width only.
 
-    cos/sin shape: [seq, rotary_dim]. q/k shape: [batch, seq, heads, head_dim].
+    cos/sin shape: [batch, seq, rotary_dim]. q/k shape: [batch, heads, seq, head_dim].
     Only the first rotary_dim features are rotated; the suffix is preserved.
     """
-    # cos/sin: [seq, rotary_dim] -> [1, seq, 1, rotary_dim] for broadcast
-    cos = cos.unsqueeze(0).unsqueeze(2)
-    sin = sin.unsqueeze(0).unsqueeze(2)
+    # cos/sin: [batch, seq, rotary_dim] -> [batch, 1, seq, rotary_dim] for broadcast
+    cos = cos.unsqueeze(1)
+    sin = sin.unsqueeze(1)
     rotary_dim = cos.shape[-1]
     q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]
     k_rot, k_pass = k[..., :rotary_dim], k[..., rotary_dim:]
