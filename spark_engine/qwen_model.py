@@ -76,8 +76,10 @@ class QwenCausalLM(nn.Module):
     def forward(self, ids):
         bsz, seq = ids.shape
         hidden = self.embed_tokens(ids)
-        rotary_dim = int(self.config["head_dim"] * self.config["rope_parameters"]["partial_rotary_factor"])
-        inv_freq = 1.0 / (self.config["rope_parameters"]["rope_theta"] **
+        rope = self.config["rope_parameters"]
+        head_dim = self.config["head_dim"]
+        rotary_dim = int(head_dim * rope["partial_rotary_factor"])
+        inv_freq = 1.0 / (rope["rope_theta"] **
                           (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
         positions = torch.arange(seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
