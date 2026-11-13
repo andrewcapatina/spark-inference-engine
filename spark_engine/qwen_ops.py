@@ -35,8 +35,9 @@ def apply_partial_rope(q, k, cos, sin):
     cos/sin shape: [seq, rotary_dim]. q/k shape: [batch, seq, heads, head_dim].
     Only the first rotary_dim features are rotated; the suffix is preserved.
     """
-    cos = cos.unsqueeze(1).unsqueeze(2)  # [seq, 1, 1, rotary_dim]
-    sin = sin.unsqueeze(1).unsqueeze(2)
+    # cos/sin: [seq, rotary_dim] -> [1, seq, 1, rotary_dim] for broadcast
+    cos = cos.unsqueeze(0).unsqueeze(2)
+    sin = sin.unsqueeze(0).unsqueeze(2)
     rotary_dim = cos.shape[-1]
     q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]
     k_rot, k_pass = k[..., :rotary_dim], k[..., rotary_dim:]
