@@ -17,7 +17,7 @@ def read_metadata(path):
 
         meta = {}
         for _ in range(metadata_count):
-            key_len = struct.unpack('<I', f.read(4))[0]
+            key_len = struct.unpack('<Q', f.read(8))[0]
             key = f.read(key_len).decode('utf-8')
             val_type = struct.unpack('<I', f.read(4))[0]
 
@@ -52,6 +52,8 @@ def read_metadata(path):
                         arr.append(struct.unpack('<q', f.read(8))[0])
                     elif arr_type == 5:  # float32 array
                         arr.append(struct.unpack('<f', f.read(4))[0])
+                        elif arr_type == 6:  # float64 array
+                            arr.append(struct.unpack('<d', f.read(8))[0])
                     else:
                         raise ValueError(f"Unsupported array element type {arr_type}")
                 val = arr
