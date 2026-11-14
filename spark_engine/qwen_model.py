@@ -95,37 +95,43 @@ class QwenCausalLM(nn.Module):
         }
         model = cls(engine_cfg).to(dtype=dtype, device=device)
         index_path = os.path.join(directory, "model.safetensors.index.json")
+        engine_keys = set(model.state_dict().keys())
+        loaded = set()
         if os.path.exists(index_path):
             with open(index_path) as f:
                 index = json.load(f)
             shard_map = index["weight_map"]
-            shards = {}
-            for name, shard in shard_map.items():
-                if name.startswith("model.visual") or name.startswith("model.mtp"):
-                    continue
-                if shard not in shards:
-                    shards[shard] = load_file(os.path.join(directory, shard))
-            state = {}
-            for name, shard in shard_map.items():
-                if name.startswith("model.visual") or name.startswith("model.mtp"):
-                    continue
-                state[name] = shards[shard][name]
+            for shard_name in sorted(set(shard_map.values())):
+                shard_path = os.path.join(directory, shard_name)
+                shard = load_file(shard_path)
+                for name, tensor in shard.items():
+                    if name.startswith("model.visual") or name.startswith("model.mtp"):
+                        continue
+                    if name == "lm_head.weight":
+                        target = "lm_head.weight"
+                    elif name.startswith("model.language_model."):
+                        target = name[21:]
+                    elif name.startswith("model."):
+                        target = name[6:]
+                    else:
+                        target = name
+                    if target in engine_keys:
+                        model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
+                        loaded.add(target)
+                del shard
         else:
             state = load_file(os.path.join(directory, "model.safetensors"))
-        engine_keys = set(model.state_dict().keys())
-        loaded = set()
-        for name, tensor in state.items():
-            if name == "lm_head.weight":
-                target = "lm_head.weight"
-            elif name.startswith("model.language_model."):
-                target = name[21:]
-            elif name.startswith("model."):
-                target = name[6:]
-            else:
-                target = name
-            if target in engine_keys:
-                model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
-                loaded.add(target)
+            for name, tensor in state.items():
+                if name == "lm_head.weight":
+                    target = "lm_head.weight"
+                elif name.startswith("model."):
+                    target = name[6:]
+                else:
+                    target = name
+                if target in engine_keys:
+                    model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
+                    loaded.add(target)
+            del state
         missing = engine_keys - loaded
         if missing:
             raise RuntimeError(f"Checkpoint missing {len(missing)} engine weights: {sorted(missing)[:5]}")
