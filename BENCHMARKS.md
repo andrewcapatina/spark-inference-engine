@@ -85,3 +85,9 @@ measurement-harness test, not a full-model performance result.
 
 Reference APIs: [CUDA execution/timing semantics](https://docs.pytorch.org/docs/stable/notes/cuda.html)
 and [PyTorch Profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profiler_recipe.html).
+
+## Shutdown recovery diagnostics
+
+The interrupted November 14 run is preserved in [the partial report](benchmarks/results/2026-11-14-interrupted/README.md). Subsequent harness revisions flush and fsync results and phase/sample telemetry (`phases.jsonl`). Telemetry runs outside measured generation intervals, but changes the protocol and must be reported separately from the original baseline.
+
+`--cuda-limit-gib` optionally sets the PyTorch caching allocator limit before loading. This does not limit CPU, driver or other non-PyTorch allocations and is not a guarantee against host shutdown. `--min-available-gib` (default 16) rejects work when system available memory is below that threshold at stage boundaries; it cannot catch a fast allocation spike inside a native call. These controls have not yet been GPU validated. See the [PyTorch allocator API](https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.set_per_process_memory_fraction.html). The heavy run remains stopped.

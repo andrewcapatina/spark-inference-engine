@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 import gc
 import hashlib
 import json
+import os
 from pathlib import Path
 import platform
 import statistics
@@ -30,8 +31,16 @@ def positive(value):
 
 def write_json(path, value):
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(value, indent=2) + "\n")
+    with temporary.open("w") as stream:
+        stream.write(json.dumps(value, indent=2) + "\n")
+        stream.flush()
+        os.fsync(stream.fileno())
     temporary.replace(path)
+    descriptor = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
 
 
 def proc_memory():
@@ -202,10 +211,28 @@ def run(args):
     started = time.perf_counter()
     torch.cuda.init()
     torch.cuda.synchronize()
+    if args.cuda_limit_gib is not None:
+        total = torch.cuda.get_device_properties(0).total_memory
+        fraction = args.cuda_limit_gib * 1024 ** 3 / total
+        if not 0 < fraction <= 1:
+            raise ValueError("CUDA limit must be positive and no larger than device capacity")
+        torch.cuda.set_per_process_memory_fraction(fraction)
+    def checkpoint(phase, **details):
+        row = {"time": datetime.now(timezone.utc).isoformat(), "phase": phase,
+               "boot_id": Path('/proc/sys/kernel/random/boot_id').read_text().strip(),
+               "memory": memory(torch), **details}
+        with (args.output_dir / "phases.jsonl").open("a") as stream:
+            stream.write(json.dumps(row) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        if row["memory"]["MemAvailable_bytes"] < args.min_available_gib * 1024 ** 3:
+            raise MemoryError("System available memory below diagnostic headroom threshold")
     context_init_ms = (time.perf_counter() - started) * 1000
     result = {"schema_version": 1, "started": datetime.now(timezone.utc).isoformat(),
               "model": str(args.model.resolve()), "source": source_info(),
-              "settings": {"prompt_lengths": args.prompt_lengths, "new_tokens": args.new_tokens,
+              "settings": {"cuda_limit_gib": args.cuda_limit_gib,
+                           "min_available_gib": args.min_available_gib,
+                           "prompt_lengths": args.prompt_lengths, "new_tokens": args.new_tokens,
                            "repetitions": args.repetitions, "warmups": args.warmups,
                            "batch_size": 1, "dtype": "bfloat16", "eos_enabled": False,
                            "prompt_recipe": PROMPT, "prompt_kind": "repeated raw-text token IDs, truncated to exact length"},
@@ -226,6 +253,7 @@ def run(args):
     result["cuda_context_init_ms"] = context_init_ms
     result["before_load_memory"] = memory(torch)
     torch.cuda.reset_peak_memory_stats()
+    checkpoint("before_load")
     started = time.perf_counter()
     text = _load_qwen(args.model, _model_kind(args.model, "auto"), "cuda")
     torch.cuda.synchronize()
@@ -249,9 +277,11 @@ def run(args):
                 ids = input_ids(length)
                 print("WARMUP " + str(length), flush=True)
                 for _ in range(args.warmups):
+                    checkpoint("before_warmup", prompt_tokens=length)
                     warm = text.engine.generate(ids, max_new_tokens=args.new_tokens, eos_token_id=None)
                     del warm
                 torch.cuda.synchronize()
+                checkpoint("after_warmup", prompt_tokens=length)
                 case = {"prompt_tokens": length,
                         "input_sha256": hashlib.sha256(ids.cpu().numpy().tobytes()).hexdigest(),
                         "samples": []}
@@ -259,6 +289,7 @@ def run(args):
                     gc.collect()
                     torch.cuda.synchronize()
                     torch.cuda.reset_peak_memory_stats()
+                    checkpoint("before_sample", prompt_tokens=length, repetition=repetition)
                     started = time.perf_counter()
                     generated = text.engine.generate(ids, max_new_tokens=args.new_tokens, eos_token_id=None)
                     torch.cuda.synchronize()
@@ -269,9 +300,11 @@ def run(args):
                         "generated_tokens_per_second": args.new_tokens * 1000 / elapsed,
                         "output_sha256": output_digest(generated, length), "memory": memory(torch)})
                     del generated
+                    checkpoint("after_sample", prompt_tokens=length, sample=case["samples"][-1])
                     print("SAMPLE " + json.dumps({"prompt_tokens": length, "repetition": repetition,
                                                  "wall_ms": elapsed}), flush=True)
                 case["summary"] = summarize(case["samples"])
+                checkpoint("before_events", prompt_tokens=length)
                 case["event_diagnostic"] = timed_diagnostic(torch, text.engine, ids, args.new_tokens)
                 case["event_diagnostic"]["output_matches_baseline"] = (
                     case["event_diagnostic"]["output_sha256"] == case["samples"][0]["output_sha256"])
@@ -279,6 +312,7 @@ def run(args):
                 write_json(result_path, result)
                 del ids
             if args.profile:
+                checkpoint("before_profile")
                 result["status"] = "profiling"
                 write_json(result_path, result)
                 print("PROFILING", flush=True)
@@ -314,6 +348,9 @@ def main(argv=None):
     parser.add_argument("--repetitions", type=positive, default=3)
     parser.add_argument("--warmups", type=positive, default=1)
     parser.add_argument("--threads", type=positive, default=4)
+    parser.add_argument("--cuda-limit-gib", type=positive,
+                        help="Optional PyTorch CUDA allocator cap; not a whole-system memory limit")
+    parser.add_argument("--min-available-gib", type=positive, default=16)
     parser.add_argument("--profile", action="store_true")
     parser.add_argument("--profile-length", type=positive, default=256)
     parser.add_argument("--profile-new-tokens", type=positive, default=8)

@@ -1,0 +1,81 @@
+{
+  "updated_at": "2026-11-14T20:17:29.704218+00:00",
+  "status": "bounded_diagnostics_passed",
+  "cause_of_original_shutdown": "unproven",
+  "native_inference_unchanged": true,
+  "tiny_allocator_cap_probe_passed": true,
+  "runs": [
+    {
+      "label": "short",
+      "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/bounded-memory-20261114T195423Z",
+      "worker_exit_code": 0,
+      "boot_id": "d0cd60f1-285b-4e95-b4e7-e5789131d3ec",
+      "min_host_available_gib": 51.485721588134766,
+      "max_swap_used_bytes": 0,
+      "cuda_limit_gib": 56,
+      "cases": [
+        {
+          "prompt_tokens": 512,
+          "new_tokens": 8,
+          "summary": {
+            "repetitions": 1,
+            "median_wall_ms": 2712.9029459999856,
+            "min_wall_ms": 2712.9029459999856,
+            "max_wall_ms": 2712.9029459999856,
+            "median_generated_tokens_per_second": 2.9488706965339566,
+            "peak_cuda_allocated_bytes": 54752473088,
+            "peak_cuda_reserved_bytes": 56377737216,
+            "repeated_outputs_match": true
+          }
+        },
+        {
+          "prompt_tokens": 1024,
+          "new_tokens": 8,
+          "summary": {
+            "repetitions": 1,
+            "median_wall_ms": 3726.5474779999295,
+            "min_wall_ms": 3726.5474779999295,
+            "max_wall_ms": 3726.5474779999295,
+            "median_generated_tokens_per_second": 2.146759177825817,
+            "peak_cuda_allocated_bytes": 55546993152,
+            "peak_cuda_reserved_bytes": 56377737216,
+            "repeated_outputs_match": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "full-length",
+      "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/bounded-memory-20261114T195901Z",
+      "worker_exit_code": 0,
+      "boot_id": "d0cd60f1-285b-4e95-b4e7-e5789131d3ec",
+      "min_host_available_gib": 49.29859161376953,
+      "max_swap_used_bytes": 0,
+      "cuda_limit_gib": 56,
+      "cases": [
+        {
+          "prompt_tokens": 1024,
+          "new_tokens": 128,
+          "summary": {
+            "repetitions": 3,
+            "median_wall_ms": 31618.78195600002,
+            "min_wall_ms": 31613.298156000157,
+            "max_wall_ms": 31619.619352999962,
+            "median_generated_tokens_per_second": 4.048226784261389,
+            "peak_cuda_allocated_bytes": 55546993152,
+            "peak_cuda_reserved_bytes": 56346279936,
+            "repeated_outputs_match": true
+          }
+        }
+      ]
+    }
+  ],
+  "current_boot_kernel_filter": "No NVRM/Xid/OOM/thermal/error/fail matches since 11:54 PST",
+  "cleanup": {
+    "agent_running": false,
+    "model_server_running": false,
+    "agent_container_exit_code": 137,
+    "agent_container_oom_killed": false,
+    "explanation": "Diagnostic worker exit0 preceded explicit docker stop; container init required stop-timeout SIGKILL. This is separate from workload failure."
+  }
+}
