@@ -129,3 +129,58 @@ def read_metadata(path):
             metadata[key] = value
 
         return metadata
+
+
+def read_tensor_directory(path):
+    """Read GGUF metadata and tensor directory without loading tensor payloads."""
+    with open(path, 'rb') as f:
+        magic = _read_u32(f)
+        if magic != GGUF_MAGIC:
+            raise ValueError(f"Invalid GGUF magic: {magic:#x}")
+        version = _read_u32(f)
+        if version != GGUF_VERSION:
+            raise ValueError(f"Unsupported GGUF version: {version}")
+        n_tensors = _read_u64(f)
+        n_kv = _read_u64(f)
+
+        metadata = {}
+        for _ in range(n_kv):
+            key = _read_string(f)
+            type_code = _read_u32(f)
+            value = _read_value(f, type_code)
+            metadata[key] = value
+
+        alignment = 32
+        if 'general.alignment' in metadata:
+            alignment = int(metadata['general.alignment'])
+
+        def align_up(offset):
+            remainder = offset % alignment
+            if remainder == 0:
+                return offset
+            return offset + (alignment - remainder)
+
+        tensors = {}
+        data_offset = 0
+        for _ in range(n_tensors):
+            name = _read_string(f)
+            n_dims = _read_u32(f)
+            dimensions = []
+            for _ in range(n_dims):
+                dimensions.append(_read_u64(f))
+            tensor_type = _read_u32(f)
+            offset = _read_u64(f)
+            tensors[name] = {
+                'dimensions': dimensions,
+                'type': tensor_type,
+                'offset': offset,
+            }
+            data_offset = offset
+
+        data_offset = align_up(data_offset)
+
+        return {
+            'metadata': metadata,
+            'data_offset': data_offset,
+            'tensors': tensors,
+        }
