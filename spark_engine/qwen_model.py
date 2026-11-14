@@ -73,23 +73,74 @@ class QwenCausalLM(nn.Module):
         if unexpected:
             raise RuntimeError(f"Unexpected checkpoint keys: {sorted(unexpected)[:5]}")
 
-    def forward(self, ids):
-        bsz, seq = ids.shape
-        hidden = self.embed_tokens(ids)
+    def _rope_embeddings(self, seq_len, device, dtype):
         rope = self.config["rope_parameters"]
         head_dim = self.config["head_dim"]
         rotary_dim = int(head_dim * rope["partial_rotary_factor"])
         inv_freq = 1.0 / (rope["rope_theta"] **
-                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
+                          (torch.arange(0, rotary_dim, 2, device=device, dtype=torch.float) / rotary_dim))
         inv_freq = inv_freq.repeat(2)
-        positions = torch.arange(seq, device=ids.device, dtype=torch.float)
+        positions = torch.arange(seq_len, device=device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        cos = freqs.cos().unsqueeze(0)
-        sin = freqs.sin().unsqueeze(0)
-        position_embeddings = (cos, sin)
+        cos = freqs.cos().unsqueeze(0).to(dtype)
+        sin = freqs.sin().unsqueeze(0).to(dtype)
+        return (cos, sin)
+
+    def forward(self, ids):
+        bsz, seq = ids.shape
+        hidden = self.embed_tokens(ids)
+        position_embeddings = self._rope_embeddings(seq, ids.device, hidden.dtype)
         causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
         causal_mask = torch.triu(causal_mask, diagonal=1)
         for layer in self.layers:
             hidden = layer(hidden, position_embeddings, causal_mask)
         hidden = self.norm(hidden)
         return self.lm_head(hidden)
+
+    def prefill(self, ids):
+        bsz, seq = ids.shape
+        hidden = self.embed_tokens(ids)
+        position_embeddings = self._rope_embeddings(seq, ids.device, hidden.dtype)
+        causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
+        causal_mask = torch.triu(causal_mask, diagonal=1)
+        cache = []
+        for layer in self.layers:
+            if layer.layer_type == "full_attention":
+                attn_out, layer_cache = layer.self_attn.prefill(hidden, position_embeddings, causal_mask)
+            else:
+                attn_out, layer_cache = layer.linear_attn.prefill(hidden)
+            hidden = layer.input_layernorm(hidden)
+            hidden = layer.input_layernorm(hidden)
+            hidden = residual + attn_out
+            residual = hidden
+            hidden = layer.post_attention_layernorm(hidden)
+            hidden = layer.mlp(hidden)
+            hidden = residual + hidden
+            cache.append(layer_cache)
+        hidden = self.norm(hidden)
+        logits = self.lm_head(hidden)
+        return logits, cache
+
+    def decode(self, new_ids, cache):
+        bsz = new_ids.shape[0]
+        hidden = self.embed_tokens(new_ids)
+        seq = new_ids.shape[1]
+        position_embeddings = self._rope_embeddings(seq, new_ids.device, hidden.dtype)
+        new_cache = []
+        for i, layer in enumerate(self.layers):
+            layer_cache = cache[i]
+            if layer.layer_type == "full_attention":
+                attn_out, new_layer_cache = layer.self_attn.decode(hidden, position_embeddings, layer_cache)
+            else:
+                attn_out, new_layer_cache = layer.linear_attn.decode(hidden, layer_cache)
+            residual = hidden
+            hidden = layer.input_layernorm(hidden)
+            hidden = residual + attn_out
+            residual = hidden
+            hidden = layer.post_attention_layernorm(hidden)
+            hidden = layer.mlp(hidden)
+            hidden = residual + hidden
+            new_cache.append(new_layer_cache)
+        hidden = self.norm(hidden)
+        logits = self.lm_head(hidden)
+        return logits, new_cache
