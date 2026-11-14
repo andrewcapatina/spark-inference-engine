@@ -57,6 +57,30 @@ class QwenAttention(nn.Module):
         out = out.reshape(bsz, seq, -1)
         return self.o_proj(out), (cache_k, cache_v)
 
+    def decode(self, hidden, position_embeddings, cache):
+        bsz, seq, _ = hidden.shape
+        qg = self.q_proj(hidden).view(bsz, seq, self.num_heads, self.head_dim * 2)
+        q, gate = qg[..., :self.head_dim], qg[..., self.head_dim:]
+        k = self.k_proj(hidden).view(bsz, seq, self.num_kv_heads, self.head_dim)
+        v = self.v_proj(hidden).view(bsz, seq, self.num_kv_heads, self.head_dim)
+        q = self.q_norm(q).transpose(1, 2)
+        k = self.k_norm(k).transpose(1, 2)
+        v = v.transpose(1, 2)
+        cos, sin = position_embeddings
+        q, k = apply_partial_rope(q, k, cos, sin)
+        cache_k, cache_v = cache
+        k = torch.cat([cache_k, k], dim=2)
+        v = torch.cat([cache_v, v], dim=2)
+        if self.num_groups > 1:
+            k = k.repeat_interleave(self.num_groups, dim=1)
+            v = v.repeat_interleave(self.num_groups, dim=1)
+        scores = torch.matmul(q, k.transpose(-2, -1)) * self.scaling
+        attn = torch.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
+        out = torch.matmul(attn, v).transpose(1, 2)
+        out = out * torch.sigmoid(gate)
+        out = out.reshape(bsz, seq, -1)
+        return self.o_proj(out), (k, v)
+
     def forward(self, hidden, position_embeddings, attention_mask=None):
         bsz, seq, _ = hidden.shape
         qg = self.q_proj(hidden).view(bsz, seq, self.num_heads, self.head_dim * 2)
