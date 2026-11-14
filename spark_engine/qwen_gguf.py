@@ -100,11 +100,13 @@ def dequantize_q8_0(raw_bytes):
     if n % block_size != 0:
         raise ValueError(f"Q8_0 payload must be a multiple of {block_size} bytes, got {n}")
     num_blocks = n // block_size
-    scales = np.frombuffer(raw_bytes, dtype=np.float16, count=num_blocks, offset=0)
-    scales = scales.reshape(num_blocks, 1)
-    ints = np.frombuffer(raw_bytes, dtype=np.int8, count=n)
-    ints = ints.reshape(num_blocks, block_size)[:, 2:]
-    result = (ints.astype(np.float32) * scales).ravel()
+    scales = np.empty(num_blocks, dtype=np.float32)
+    ints = np.empty((num_blocks, 32), dtype=np.int8)
+    for i in range(num_blocks):
+        row = raw_bytes[i * block_size : (i + 1) * block_size]
+        scales[i] = struct.unpack('<e', row[0:2])[0]
+        ints[i] = np.frombuffer(row[2:34], dtype=np.int8)
+    result = (ints.astype(np.float32) * scales[:, np.newaxis]).ravel()
     return torch.tensor(result, dtype=torch.float32)
 
 def read_metadata(path):
