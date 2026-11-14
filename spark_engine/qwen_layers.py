@@ -154,9 +154,6 @@ class QwenGatedDeltaNet(nn.Module):
         out = self.out_proj(out)
         conv_state = torch.zeros(bsz, self.conv_dim, self.conv_kernel, device=hidden.device, dtype=hidden.dtype)
         conv_state[:, :, :seq] = self.in_proj_qkv(hidden).transpose(1, 2)[:, :, :seq]
-        recurrent_state = {
-            "k": torch.zeros(bsz, self.num_v_heads, self.k_dim, device=hidden.device, dtype=hidden.dtype),
-            "v": torch.zeros(bsz, self.num_v_heads, self.v_dim, device=hidden.device, dtype=hidden.dtype),
-        }
+        recurrent_state = torch.zeros(bsz, self.num_v_heads, self.k_dim, self.v_dim, device=hidden.device, dtype=hidden.dtype)
         cache = {"conv_state": conv_state, "recurrent_state": recurrent_state, "length": seq}
         return out, cache
