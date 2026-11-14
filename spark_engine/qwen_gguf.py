@@ -129,6 +129,58 @@ def read_metadata(path):
         return metadata
 
 
+def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
+    """Read a single tensor payload from a GGUF file using a pre-parsed directory."""
+    tensor_info = directory["tensors"].get(name)
+    if tensor_info is None:
+        raise ValueError(f"Tensor {name} not found in GGUF directory")
+
+    dims = tensor_info["dimensions"]
+    tensor_type = tensor_info["type"]
+    offset = tensor_info["offset"]
+
+    # Compute element count and payload size
+    n_elements = 1
+    for d in dims:
+        n_elements *= d
+
+    if tensor_type == 0:  # F32
+        payload_size = n_elements * 4
+    elif tensor_type == 30:  # BF16
+        payload_size = n_elements * 2
+    elif tensor_type == 8:  # Q8_0
+        payload_size = (n_elements // 32) * 34
+    else:
+        raise ValueError(f"Unsupported tensor type: {tensor_type}")
+
+    with open(path, "rb") as f:
+        f.seek(directory["data_offset"] + offset)
+        raw = f.read(payload_size)
+        if len(raw) != payload_size:
+            raise ValueError(f"Truncated tensor {name}: expected {payload_size} bytes, got {len(raw)}")
+
+    # Decode based on type
+    if tensor_type == 0:  # F32
+        arr = np.frombuffer(raw, dtype=np.float32)
+    elif tensor_type == 30:  # BF16 -> reinterpret as F32 upper bits
+        # BF16: 16 bits are the upper 16 bits of an IEEE float32
+        # Read as uint16, shift left 16, reinterpret as float32
+        bf16_vals = np.frombuffer(raw, dtype=np.uint16)
+        f32_bits = (bf16_vals.astype(np.uint32)) << 16
+        arr = f32_bits.view(np.float32)
+    elif tensor_type == 8:  # Q8_0
+        arr = dequantize_q8_0(raw).numpy()
+    else:
+        raise ValueError(f"Unsupported tensor type: {tensor_type}")
+
+    # Reverse GGML dimensions for PyTorch (GGML is column-major)
+    shape = tuple(reversed(dims))
+    arr = arr.reshape(shape)
+
+    tensor = torch.tensor(arr, dtype=dtype, device=device)
+    return tensor
+
+
 def read_tensor_directory(path):
     """Read GGUF metadata and tensor directory without loading tensor payloads."""
     with open(path, 'rb') as f:
