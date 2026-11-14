@@ -73,3 +73,9 @@ places your text verbatim into the one permitted engine function. It does not
 repair syntax or author replacement code. All implementation remains your work,
 and unchanged signature/other-definition guards plus normal acceptance checks
 still apply. Candidate placement alone is never an inference-validation claim.
+
+The first unvalidated real27B loader candidate is retained before a Codex
+supervisor source review of streaming, BF16 allocation and native backend use.
+This is an unattended harness handoff, not a request for user confirmation. Do
+not modify review decisions or the harness. After review, the unchanged real
+checkpoint target and all protected regression checks determine validation.
