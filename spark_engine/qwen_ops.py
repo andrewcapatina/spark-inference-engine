@@ -8,8 +8,8 @@ def gated_rms_norm(x, weight, z, eps=1e-6):
     x = x.float()
     variance = x.pow(2).mean(-1, keepdim=True)
     x = x * torch.rsqrt(variance + eps)
-    x = (x * weight.float()).to(dtype)
-    z = torch.nn.functional.silu(z.float())
+    x = (weight.float() * x).to(dtype)
+    z = torch.nn.functional.silu(z)
     return (x * z).to(dtype)
 
 
