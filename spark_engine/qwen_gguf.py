@@ -401,8 +401,7 @@ def tokenizer_from_gguf(metadata):
             bpe_vocab[token] = len(bpe_vocab)
             tokenizer.model.add_token(token, len(bpe_vocab) - 1)
 
-    # Update vocab after adding special tokens
-    tokenizer.model.set_vocab(bpe_vocab)
+    # Special tokens already added via add_token; no set_vocab call needed
 
     # Wrap in PreTrainedTokenizerFast for return_tensors support
     fast_tokenizer = PreTrainedTokenizerFast(
