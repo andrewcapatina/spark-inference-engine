@@ -77,6 +77,7 @@ class QwenCausalLM(nn.Module):
         text_cfg = cfg.get("text_config", cfg)
         rope = text_cfg.get("rope_parameters", {"rope_theta": 10000000.0, "partial_rotary_factor": 0.25})
         rope_theta = float(rope.get("rope_theta", 10000000.0))
+        head_dim = text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"])
         engine_cfg = {
             "vocab_size": text_cfg["vocab_size"],
             "hidden_size": text_cfg["hidden_size"],
@@ -87,10 +88,10 @@ class QwenCausalLM(nn.Module):
             "linear_num_key_heads": text_cfg.get("linear_num_key_heads", text_cfg.get("num_key_value_heads", text_cfg["num_attention_heads"])),
             "linear_num_value_heads": text_cfg.get("linear_num_value_heads", text_cfg.get("num_key_value_heads", text_cfg["num_attention_heads"])),
             "linear_num_heads": text_cfg.get("linear_num_heads", text_cfg.get("num_attention_heads", text_cfg["linear_num_value_heads"])),
-            "linear_key_head_dim": text_cfg.get("linear_key_head_dim", text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"])),
-            "linear_value_head_dim": text_cfg.get("linear_value_head_dim", text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"])),
+            "linear_key_head_dim": text_cfg.get("linear_key_head_dim", head_dim),
+            "linear_value_head_dim": text_cfg.get("linear_value_head_dim", head_dim),
             "linear_conv_kernel_dim": text_cfg.get("linear_conv_kernel_dim", 4),
-            "head_dim": text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"]),
+            "head_dim": head_dim,
             "rms_norm_eps": text_cfg["rms_norm_eps"],
             "layer_types": text_cfg.get("layer_types", ["dense"] * text_cfg["num_hidden_layers"]),
             "rope_parameters": rope,
