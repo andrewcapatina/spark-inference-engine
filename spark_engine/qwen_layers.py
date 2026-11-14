@@ -130,3 +130,33 @@ class QwenGatedDeltaNet(nn.Module):
         out = self.norm(out, z)
         out = out.view(bsz, seq, -1)
         return self.out_proj(out)
+
+    def prefill(self, hidden):
+        bsz, seq, _ = hidden.shape
+        mixed = self.in_proj_qkv(hidden).transpose(1, 2)
+        mixed = F.silu(self.conv1d(mixed)[:, :, :seq]).transpose(1, 2)
+        q, k, v = torch.split(mixed, [self.key_dim, self.key_dim, self.value_dim], dim=-1)
+        q = q.view(bsz, seq, self.num_k_heads, self.k_dim)
+        k = k.view(bsz, seq, self.num_k_heads, self.k_dim)
+        v = v.view(bsz, seq, self.num_v_heads, self.v_dim)
+        z = self.in_proj_z(hidden).view(bsz, seq, self.num_v_heads, self.v_dim)
+        beta = torch.sigmoid(self.in_proj_b(hidden))
+        a = self.in_proj_a(hidden)
+        g = -self.A_log.float().exp() * F.softplus(a.float() + self.dt_bias)
+        if self.num_v_heads // self.num_k_heads > 1:
+            q = q.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
+            k = k.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
+        out, _ = gated_delta_rule(q, k, v, g, beta)
+        out = out.view(-1, self.v_dim)
+        z = z.view(-1, self.v_dim)
+        out = self.norm(out, z)
+        out = out.view(bsz, seq, -1)
+        out = self.out_proj(out)
+        conv_state = torch.zeros(bsz, self.conv_dim, self.conv_kernel, device=hidden.device, dtype=hidden.dtype)
+        conv_state[:, :, :seq] = self.in_proj_qkv(hidden).transpose(1, 2)[:, :, :seq]
+        recurrent_state = {
+            "k": torch.zeros(bsz, self.num_v_heads, self.k_dim, device=hidden.device, dtype=hidden.dtype),
+            "v": torch.zeros(bsz, self.num_v_heads, self.v_dim, device=hidden.device, dtype=hidden.dtype),
+        }
+        cache = {"conv_state": conv_state, "recurrent_state": recurrent_state, "length": seq}
+        return out, cache
