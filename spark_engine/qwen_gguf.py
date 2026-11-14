@@ -133,7 +133,7 @@ def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
     """Read a single tensor payload from a GGUF file using a pre-parsed directory."""
     tensor_info = directory["tensors"].get(name)
     if tensor_info is None:
-        raise ValueError(f"Tensor {name} not found in GGUF directory")
+        raise KeyError(f"Tensor {name} not found in GGUF directory")
 
     dims = tensor_info["dimensions"]
     tensor_type = tensor_info["type"]
