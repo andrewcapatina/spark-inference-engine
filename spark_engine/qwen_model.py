@@ -75,6 +75,7 @@ class QwenCausalLM(nn.Module):
         with open(os.path.join(directory, "config.json")) as f:
             cfg = json.load(f)
         text_cfg = cfg.get("text_config", cfg)
+        rope = text_cfg.get("rope_parameters", {"rope_theta": 1000000.0, "partial_rotary_factor": 1.0})
         engine_cfg = {
             "vocab_size": text_cfg["vocab_size"],
             "hidden_size": text_cfg["hidden_size"],
@@ -91,7 +92,7 @@ class QwenCausalLM(nn.Module):
             "head_dim": text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"]),
             "rms_norm_eps": text_cfg["rms_norm_eps"],
             "layer_types": text_cfg.get("layer_types", ["dense"] * text_cfg["num_hidden_layers"]),
-            "rope_parameters": text_cfg.get("rope_parameters", {"rope_theta": 1000000.0, "partial_rotary_factor": 1.0}),
+            "rope_parameters": rope,
         }
         model = cls(engine_cfg).to(dtype=dtype, device=device)
         index_path = os.path.join(directory, "model.safetensors.index.json")
