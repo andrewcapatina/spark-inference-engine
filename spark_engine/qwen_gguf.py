@@ -129,53 +129,6 @@ def read_metadata(path):
         return metadata
 
 
-TENSOR_TYPE_F32 = 0
-TENSOR_TYPE_BF16 = 30
-TENSOR_TYPE_Q8_0 = 8
-
-def _tensor_element_size(type_code):
-    if type_code == TENSOR_TYPE_F32:
-        return 4
-    if type_code == TENSOR_TYPE_BF16:
-        return 2
-    if type_code == TENSOR_TYPE_Q8_0:
-        return 34
-    raise ValueError(f"Unsupported tensor type: {type_code}")
-
-def _tensor_nelements(dimensions):
-    n = 1
-    for d in dimensions:
-        n *= d
-    return n
-
-def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
-    """Read a single tensor payload from a GGUF file using verified directory offsets."""
-    if name not in directory['tensors']:
-        raise KeyError(f"Tensor '{name}' not found in GGUF file")
-    info = directory['tensors'][name]
-    dimensions = info['dimensions']
-    type_code = info['type']
-    offset = directory['data_offset'] + info['offset']
-    nelements = _tensor_nelements(dimensions)
-    esize = _tensor_element_size(type_code)
-    payload_size = nelements * esize
-    with open(path, 'rb') as f:
-        f.seek(offset)
-        raw = f.read(payload_size)
-    if len(raw) < payload_size:
-        raise ValueError(f"Truncated payload for tensor '{name}': expected {payload_size} bytes, got {len(raw)}")
-    if type_code == TENSOR_TYPE_F32:
-        arr = np.frombuffer(raw, dtype=np.float32)
-    elif type_code == TENSOR_TYPE_BF16:
-        arr = np.frombuffer(raw, dtype=np.float16).astype(np.float32)
-    elif type_code == TENSOR_TYPE_Q8_0:
-        arr = dequantize_q8_0(raw).numpy()
-    else:
-        raise ValueError(f"Unsupported tensor type: {type_code}")
-    shape = tuple(reversed(dimensions))
-    arr = arr.reshape(shape)
-    return torch.tensor(arr, dtype=dtype, device=device)
-
 def read_tensor_directory(path):
     """Read GGUF metadata and tensor directory without loading tensor payloads."""
     with open(path, 'rb') as f:
