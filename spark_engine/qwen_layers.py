@@ -170,10 +170,7 @@ class QwenGatedDeltaNet(nn.Module):
 
     def decode(self, new_hidden, cache):
         bsz = new_hidden.shape[0]
-        mixed = self.in_proj_qkv(new_hidden).transpose(1, 2)
-        conv_state = cache["conv_state"]
-        conv_state = torch.cat([conv_state[:, :, 1:], mixed], dim=2)
-        mixed = F.silu(conv_state).transpose(1, 2)
+        mixed, conv_state = self._conv_step(new_hidden, cache["conv_state"])
         q, k, v = torch.split(mixed, [self.key_dim, self.key_dim, self.value_dim], dim=-1)
         q = q.view(bsz, 1, self.num_k_heads, self.k_dim)
         k = k.view(bsz, 1, self.num_k_heads, self.k_dim)
