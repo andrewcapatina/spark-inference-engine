@@ -34,3 +34,7 @@ Turn 4: Added additive causal mask to QwenCausalLM.forward; passed to full-atten
 Ran test_qwen_forward_mask (PASSED), test_qwen_hybrid_forward (PASSED), test_qwen_forward_rope (PASSED).
 No regressions; mask dtype matches attention API (floating-point additive).
 Next: continue with next queued task from run_feedback/latest.txt.
+Added dequantize_q8_0 to qwen_gguf.py: FP16 scale + 32 signed int8 -> FP32 tensor.
+Ran test_qwen_gguf_decode: PASSED.
+No remaining blocker for this task.
+Next: await controller checkpoint and next queued task.

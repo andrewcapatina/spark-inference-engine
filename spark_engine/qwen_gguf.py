@@ -1,7 +1,8 @@
-"""GGUF reader for Qwen3.5 models. Metadata only; no model loading yet."""
+"""GGUF reader for Qwen3.5 models. Metadata and Q8_0 dequantization."""
 import struct
 import json
 import numpy as np
+import torch
 
 GGUF_MAGIC = 0x46554747
 GGUF_VERSION = 3
@@ -91,6 +92,13 @@ def _read_value(f, type_code):
         return _read_f64(f)
     else:
         raise ValueError(f"Unknown GGUF type: {type_code}")
+
+def dequantize_q8_0(raw_bytes):
+    """Decode one Q8_0 GGML block: FP16 scale then 32 signed int8 values."""
+    scale = struct.unpack('<e', raw_bytes[0:2])[0]
+    ints = struct.unpack('<32b', raw_bytes[2:34])
+    tensor = torch.tensor(ints, dtype=torch.float32) * scale
+    return tensor
 
 def read_metadata(path):
     """Read GGUF metadata, returning a dict of key -> value."""
