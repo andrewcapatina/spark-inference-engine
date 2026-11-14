@@ -186,55 +186,53 @@ def config_from_gguf(metadata):
     def get(key, default=None):
         return metadata.get(key, default)
 
-    hidden_size = int(get("llama.embedding_length", 0))
-    num_layers = int(get("llama.block_count", 0))
-    num_heads = int(get("llama.attention.head_count", 0))
-    num_kv_heads = int(get("llama.attention.head_count_kv", 0))
-    # Qwen3.5 uses explicit key_length for head_dim, not hidden_size/heads
-    head_dim = int(get("llama.attention.key_length", hidden_size // num_heads))
-    intermediate_size = int(get("llama.feed_forward_length", 0))
-    vocab_size = int(get("llama.vocab_size", 0))
-    rope_theta = float(get("llama.rope.freq_base", 10000.0))
-    rms_eps = float(get("llama.rms_norm_eps", 1e-6))
+    hidden_size = int(get("qwen35.embedding_length", 0))
+    num_layers = int(get("qwen35.block_count", 0))
+    num_heads = int(get("qwen35.attention.head_count", 0))
+    num_kv_heads = int(get("qwen35.attention.head_count_kv", 0))
+    head_dim = int(get("qwen35.attention.key_length", 0))
+    intermediate_size = int(get("qwen35.feed_forward_length", 0))
+    vocab_size = len(get("tokenizer.ggml.tokens", []))
+    rope_theta = float(get("qwen35.rope.freq_base", 10000.0))
+    rms_eps = float(get("qwen35.attention.layer_norm_rms_epsilon", 1e-6))
 
-    # SSM (Mamba) parameters
-    ssm_group_count = int(get("llama.ssm.group_count", 0))
-    ssm_state_size = int(get("llama.ssm.state_size", 0))
-    ssm_time_step_rank = int(get("llama.ssm.time_step_rank", 0))
-    ssm_inner_size = int(get("llama.ssm.inner_size", 0))
+    ssm_group_count = int(get("qwen35.ssm.group_count", 0))
+    ssm_state_size = int(get("qwen35.ssm.state_size", 0))
+    ssm_time_step_rank = int(get("qwen35.ssm.time_step_rank", 0))
+    ssm_inner_size = int(get("qwen35.ssm.inner_size", 0))
+    ssm_conv_kernel = int(get("qwen35.ssm.conv_kernel", 4))
 
-    # Rotary fraction: rope.dimension_count / head_dim
-    rope_dim = int(get("llama.rope.dimension_count", head_dim))
+    full_attention_interval = int(get("qwen35.full_attention_interval", 0))
+
+    rope_dim = int(get("qwen35.rope.dimension_count", head_dim))
     rotary_fraction = rope_dim / head_dim if head_dim > 0 else 1.0
 
-    # Full attention interval
-    full_attention_interval = int(get("llama.attention.full_interval", 0))
-
-    # Build per-layer types
     layer_types = []
     for i in range(num_layers):
         if full_attention_interval > 0 and (i + 1) % full_attention_interval == 0:
             layer_types.append("full_attention")
         else:
-            layer_types.append("ssm")
+            layer_types.append("linear_attention")
 
     return {
         "hidden_size": hidden_size,
-        "num_layers": num_layers,
-        "num_heads": num_heads,
-        "num_kv_heads": num_kv_heads,
-        "head_dim": head_dim,
+        "num_hidden_layers": num_layers,
         "intermediate_size": intermediate_size,
+        "num_attention_heads": num_heads,
+        "num_key_value_heads": num_kv_heads,
+        "head_dim": head_dim,
+        "rms_norm_eps": rms_eps,
         "vocab_size": vocab_size,
-        "rope_theta": rope_theta,
-        "rms_eps": rms_eps,
-        "ssm_group_count": ssm_group_count,
-        "ssm_state_size": ssm_state_size,
-        "ssm_time_step_rank": ssm_time_step_rank,
-        "ssm_inner_size": ssm_inner_size,
-        "rotary_fraction": rotary_fraction,
-        "full_attention_interval": full_attention_interval,
+        "linear_num_key_heads": ssm_group_count,
+        "linear_key_head_dim": ssm_state_size,
+        "linear_num_value_heads": ssm_time_step_rank,
+        "linear_value_head_dim": ssm_inner_size // ssm_time_step_rank if ssm_time_step_rank > 0 else 0,
+        "linear_conv_kernel_dim": ssm_conv_kernel,
         "layer_types": layer_types,
+        "rope_parameters": {
+            "rope_theta": rope_theta,
+            "partial_rotary_factor": rotary_fraction,
+        },
     }
 
 
