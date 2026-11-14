@@ -99,7 +99,8 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         v_c = v[:, :, start:end]
         beta_c = beta[:, :, start:end]
         g_c = g[:, :, start:end]
-        cum_decay_c = cum_decay[:, :, start:end]
+        # Compute cumulative decay independently within each chunk
+        cum_decay_c = g_c.cumsum(dim=-1)
         # Pairwise decay: exp(cum_decay[j] - cum_decay[i]) for j <= i
         pairwise_decay = cum_decay_c.unsqueeze(-1) - cum_decay_c.unsqueeze(-2)
         # Causal mask: strictly upper triangle gets -inf
@@ -118,8 +119,8 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         # Use torch.linalg.solve_triangular for unitriangular system
         v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
         k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
-        # Inter-chunk attention with previous state
-        inter_chunk_attn = q_c @ state
+        # Inter-chunk attention with previous state (apply within-chunk decay to query)
+        inter_chunk_attn = (q_c * cum_decay_c.exp().unsqueeze(-1)) @ state
         # Correct intra-chunk values with carried state
         v_corrected = v_new - k_cumdecay @ state
         # Compute output for chunk
@@ -131,8 +132,6 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         chunk_decay = cum_decay_c[:, :, -1].exp()
         decayed_k_c = k_c * (cum_decay_c[:, :, -1:] - cum_decay_c).exp().unsqueeze(-1)
         state = state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + decayed_k_c.transpose(-2, -1) @ v_corrected
-        # Apply remaining within-chunk decay to state for next chunk
-        state = state * (cum_decay_c[:, :, -1:] - cum_decay_c[:, :, -1:]).exp().unsqueeze(-1).unsqueeze(-1)
     # Trim padding
     out = out[:, :, :time]
     # [batch,heads,time,feature] -> [batch,time,heads,feature]
