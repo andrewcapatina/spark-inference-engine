@@ -68,6 +68,47 @@ class QwenMLP(nn.Module):
 
 
 class QwenCausalLM(nn.Module):
+    @classmethod
+    def from_pretrained(cls, directory, dtype=torch.bfloat16, device="cuda"):
+        import json, os
+        from safetensors.torch import load_file
+        with open(os.path.join(directory, "config.json")) as f:
+            cfg = json.load(f)
+        text_cfg = cfg.get("text_config", cfg)
+        engine_cfg = {
+            "vocab_size": text_cfg["vocab_size"],
+            "hidden_size": text_cfg["hidden_size"],
+            "intermediate_size": text_cfg["intermediate_size"],
+            "num_hidden_layers": text_cfg["num_hidden_layers"],
+            "num_attention_heads": text_cfg["num_attention_heads"],
+            "num_key_value_heads": text_cfg["num_key_value_heads"],
+            "head_dim": text_cfg.get("head_dim", text_cfg["hidden_size"] // text_cfg["num_attention_heads"]),
+            "rms_norm_eps": text_cfg["rms_norm_eps"],
+            "layer_types": text_cfg.get("layer_types", ["dense"] * text_cfg["num_hidden_layers"]),
+            "rope_parameters": text_cfg.get("rope_parameters", {"rope_theta": 1000000.0, "partial_rotary_factor": 1.0}),
+        }
+        model = cls(engine_cfg).to(dtype=dtype, device=device)
+        index_path = os.path.join(directory, "model.safetensors.index.json")
+        if os.path.exists(index_path):
+            with open(index_path) as f:
+                index = json.load(f)
+            shard_map = index["weight_map"]
+            shards = {}
+            for name, shard in shard_map.items():
+                if name.startswith("model.visual") or name.startswith("model.mtp"):
+                    continue
+                if shard not in shards:
+                    shards[shard] = load_file(os.path.join(directory, shard))
+            state = {}
+            for name, shard in shard_map.items():
+                if name.startswith("model.visual") or name.startswith("model.mtp"):
+                    continue
+                state[name] = shards[shard][name]
+        else:
+            state = load_file(os.path.join(directory, "model.safetensors"))
+        model.load_hf_state_dict(state)
+        return model
+
     def __init__(self, config):
         super().__init__()
         self.config = config
