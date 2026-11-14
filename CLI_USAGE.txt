@@ -1,0 +1,49 @@
+NATIVE INFERENCE CLI
+
+Run from the project root in an environment with the engine's PyTorch CUDA and
+tokenizer dependencies. No downloads or reference inference service are needed.
+
+Interactive Qwen chat (model stays loaded between turns):
+  python3 -m spark_engine --model /path/to/qwen-safetensors-directory --chat
+  python3 -m spark_engine --model /path/to/qwen35-model.gguf --chat
+
+Omitting both --prompt and --chat also starts Qwen chat.
+Commands: /help, /reset, /exit, /quit. Bare exit and quit also leave the session.
+/reset clears the conversation while preserving an optional --system message.
+Ctrl-C during a reply cancels it and discards the unfinished turn; at the input
+prompt Ctrl-C or EOF exits. A cancelled reply is not included in later history.
+
+Options:
+  --system "Be concise."       Set a system message for chat.
+  --max-new-tokens 128         Maximum new tokens per reply (chat default: 128).
+  --chat --prompt "Hello"      Start a chat with this first question.
+  --device cuda:0              Choose a CUDA device (default: cuda).
+  --architecture qwen         Explicit selection for compatible custom configs.
+
+One-shot raw text completion (default: 4 new tokens):
+  python3 -m spark_engine --model /path/to/qwen-model --prompt "Hello" --max-new-tokens 32
+
+The original Llama completion command remains supported:
+  python3 -m spark_engine --model /path/to/llama-model --prompt "Hello" --max-new-tokens 4
+
+The CLI detects Qwen3.5 Safetensors directories, Qwen3.5 GGUF files and Llama
+directories. Other architectures are not automatically supported. Qwen runs in
+CUDA BF16 through the existing native engine. Generation is greedy; replies are
+printed after generation completes. The CLI does not add token streaming or
+sampling. Conversation history is held in memory for this session only.
+
+USING THE EXISTING EXPERIMENT CONTAINER ON THIS MACHINE
+
+From the host, start the agent container if it is stopped:
+  docker start spark-prototype-agent
+
+9B Safetensors:
+  docker exec -it -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen9b --chat
+
+27B GGUF:
+  docker exec -it -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen27b.gguf --chat
+
+Optional short replies for either command: append --max-new-tokens 32.
+The model server and overnight controller are not needed for native CLI chat.
+When finished, exit chat and stop the container if you started it:
+  docker stop spark-prototype-agent

@@ -72,3 +72,9 @@ Preserved loader/RoPE draft; tiny-forward baseline still has 2 failures.
 - pytest -k test_decoder_return_contract PASSED (batch sizes 1 and 2).
 - Next: test_greedy_generation_and_stop.
 Stage 3: added spark_engine/__main__.py CLI with argparse, AutoTokenizer(local_files_only=True), CausalLM.generate, --device cuda; test_cli_runs_offline now passes.
+
+## 2026-11-14T08:16:32-08:00 — Qwen CLI (directly authorized by user)
+- Added spark_engine/cli.py and routed python -m spark_engine through it. Qwen Safetensors/GGUF auto-detection, interactive history, system prompt, /reset, /exit, EOF and Ctrl-C cancellation; original Llama completion behavior preserved. Native model/math/loader modules unchanged.
+- Validation: python3 -m unittest discover -s tests -p test_cli.py -v: 16 passed. Existing CUDA acceptance/test_contract.py: all 15 passed. Actual 9B and 27B CLI subprocesses each passed two conversational turns plus reset/repeat with one model load per session.
+- Evidence: /home/cap/spark-inference-overnight-20261113/feedback/cli-validation.json; logs: /home/cap/spark-inference-overnight-20261113/runs/cli-20261114T081009. Container restored to stopped; overnight controller not restarted.
+- Usage: CLI_USAGE.txt. Greedy generation; replies appear after completion. Token streaming and sampling remain future work.
