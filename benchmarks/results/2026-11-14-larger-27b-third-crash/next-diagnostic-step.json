@@ -1,0 +1,26 @@
+{
+  "status": "prepared_not_executed",
+  "collector_path": "/home/cap/spark-inference-overnight-20261113/collect-third-crash-report.sh",
+  "sha256": "d7fd1492cb4a899c97c3c674b03ff0a3e182c0224ae39f42b2528fc1f9d951bb",
+  "installed_vendor_tool": "/usr/bin/nvidia-bug-report.sh",
+  "flags": [
+    "--safe-mode"
+  ],
+  "root_requirement_verified_from_installed_script": true,
+  "requires_user_terminal_sudo": true,
+  "includes": [
+    "previous kernel journal",
+    "copy of persistent kernel crash storage",
+    "NVIDIA safe-mode diagnostic report"
+  ],
+  "excludes": [
+    "model workloads",
+    "field diagnostic stress tests",
+    "package installs",
+    "driver/firmware updates",
+    "global memory/swap settings",
+    "uploads to third parties"
+  ],
+  "output_permissions": "private, owned by invoking sudo user",
+  "field_diag_installed": false
+}

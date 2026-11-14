@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Local diagnostic collection only. No model loads, installations or setting changes.
+set -u
+if [ "$(id -u)" -ne 0 ]; then
+  echo 'This collector requires root for NVIDIA diagnostics and persistent kernel crash logs.' >&2
+  exit 1
+fi
+report_root=/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z
+report_dir="$report_root/system-report-$(date -u +%Y%m%dT%H%M%SZ)"
+umask 077
+mkdir -p "$report_dir/pstore"
+journalctl --utc -k -b -1 --no-pager > "$report_dir/kernel-previous-boot.log" 2>&1
+cp -a /sys/fs/pstore/. "$report_dir/pstore/" 2> "$report_dir/pstore-copy-status.log"
+report_exit=0
+(cd "$report_dir" && timeout --kill-after=10 180 /usr/bin/nvidia-bug-report.sh --safe-mode --output-file "$report_dir/nvidia-bug-report.log") > "$report_dir/collector.stdout.log" 2>&1 || report_exit=$?
+printf 'collector_exit_code=%s\n' "$report_exit" > "$report_dir/collection-status.txt"
+# Let the invoking user and their assistant inspect the local private files.
+if [[ "${SUDO_UID:-}" =~ ^[0-9]+$ ]] && [[ "${SUDO_GID:-}" =~ ^[0-9]+$ ]]; then
+  chown -R "$SUDO_UID:$SUDO_GID" "$report_dir"
+fi
+printf 'Report directory: %s\nCollector exit code: %s\n' "$report_dir" "$report_exit"
+exit "$report_exit"

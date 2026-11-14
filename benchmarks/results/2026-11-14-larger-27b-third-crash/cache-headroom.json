@@ -1,0 +1,64 @@
+{
+  "status": "headroom_checked",
+  "before": {
+    "host": {
+      "MemFree": 70781480960,
+      "MemAvailable": 123903967232,
+      "Cached": 51463970816,
+      "SwapTotal": 17179865088,
+      "SwapFree": 17179865088
+    },
+    "gpu": {
+      "free_bytes": 70228836352,
+      "total_bytes": 130661142528,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0
+    }
+  },
+  "after": {
+    "host": {
+      "MemFree": 88735162368,
+      "MemAvailable": 123918741504,
+      "Cached": 33525071872,
+      "SwapTotal": 17179865088,
+      "SwapFree": 17179865088
+    },
+    "gpu": {
+      "free_bytes": 88169934848,
+      "total_bytes": 130661142528,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0
+    }
+  },
+  "advice": "POSIX_FADV_DONTNEED for inactive experiment9B Safetensors files only",
+  "files": [
+    {
+      "file": "model-00001-of-00004.safetensors",
+      "size": 4942706120,
+      "mtime_ns_unchanged": true
+    },
+    {
+      "file": "model-00002-of-00004.safetensors",
+      "size": 4987757928,
+      "mtime_ns_unchanged": true
+    },
+    {
+      "file": "model-00003-of-00004.safetensors",
+      "size": 4954810240,
+      "mtime_ns_unchanged": true
+    },
+    {
+      "file": "model-00004-of-00004.safetensors",
+      "size": 3934446832,
+      "mtime_ns_unchanged": true
+    },
+    {
+      "file": "model-mtp.safetensors",
+      "size": 486583016,
+      "mtime_ns_unchanged": true
+    }
+  ],
+  "weights_opened_read_only": true,
+  "no_global_cache_flush": true,
+  "no_engine_changes": true
+}

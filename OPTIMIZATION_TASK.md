@@ -1,6 +1,6 @@
 # Local Qwen task: skip the final unused decode
 
-Status: local-Qwen implementation `18894a8` passes protected correctness; performance acceptance is incomplete after a second host reboot. GPU work is held. See [evidence](benchmarks/results/2026-11-14-final-decode/README.md).
+Status: local-Qwen implementation `18894a8` passes protected correctness. Larger-workload stability remains unresolved after repeated host power-offs, including clean isolated trials. Performance acceptance is incomplete; GPU work is held. See [latest evidence](benchmarks/results/2026-11-14-larger-27b-third-crash/README.md).
 Selection evidence: [performance report](PERFORMANCE.md#selected-first-optimization-remove-the-unused-final-decode).
 
 ## Problem and scope

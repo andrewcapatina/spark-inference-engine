@@ -4,6 +4,8 @@ No new optimization is selected. GPU experiments are held after two host shutdow
 
 Later small clean-shutdown trials passed for both [9B](benchmarks/results/2026-11-14-clean-shutdown/README.md) and [27B](benchmarks/results/2026-11-14-clean-shutdown-27b/README.md), with normal worker/container exits and recovered host available memory. OS file cache remained after exit and CUDA-global free stayed lower. These short trials do not resolve the earlier 27B shutdowns at the longer workload.
 
+The [larger isolated 27B attempt](benchmarks/results/2026-11-14-larger-27b-third-crash/README.md) subsequently reproduced spontaneous host power-off at 1024 prompt/128 output, despite one-model isolation, clean stage boundaries and unused 9B cache release. The user confirms the original adapter/cable. The next step is local system-diagnostic collection; further GPU stress/retries and new optimizations are held.
+
 ## Reliability comes first
 
 | Option | What it would establish | Limitation / decision needed |

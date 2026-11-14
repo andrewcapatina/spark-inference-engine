@@ -1,0 +1,32 @@
+{
+  "status": "larger_27b_workload_incomplete_host_poweroff",
+  "native_engine_changed": false,
+  "native_engine_commit": "18894a8",
+  "256_prompt_128_output": {
+    "status": "passed",
+    "timed_repetitions": 3,
+    "median_generation_ms": 29799.071938000452,
+    "output_tokens_per_second": 4.295435786265931,
+    "clean_shutdown_verified": true
+  },
+  "1024_prompt_128_output": {
+    "status": "interrupted_by_spontaneous_host_poweroff",
+    "warmup_completed": true,
+    "timed_samples_completed": 1,
+    "completed_sample_ms": 31800.47933700007,
+    "next_repetition_index": 1,
+    "teardown_not_verified": true
+  },
+  "last_host_available_gib": 59.069053649902344,
+  "last_cuda_global_free_before_failed_sample_gib": 26.294483184814453,
+  "last_recorded_gpu_temperature_c": 79.0,
+  "last_recorded_gpu_power_w": 84.45,
+  "recorded_swap_use_bytes": 0,
+  "user_confirms_original_adapter_and_cable": true,
+  "previous_unused9b_cache_advice": "POSIX_FADV_DONTNEED for inactive experiment9B Safetensors files only",
+  "same_workload_retry_held": true,
+  "hardware_root_cause_not_established": true,
+  "diagnostic_collector_installed": "/usr/bin/nvidia-bug-report.sh",
+  "diagnostic_collector_requires_root": true,
+  "field_diagnostics_package_installed": false
+}

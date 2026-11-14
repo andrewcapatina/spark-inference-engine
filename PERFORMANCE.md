@@ -83,3 +83,7 @@ Further GPU experiments are halted after the second host shutdown. The caps and 
 ## Later small trials with clean shutdown
 
 Separate one-model trials used 256 raw prompt tokens, 8 output tokens, 1 warmup and 3 timed repetitions, with explicit model release after timing and verified normal process/container exits. The 9B median was 0.809 s; the 27B median was 2.098 s. These are short post-change cleanup measurements, not the missing longer-workload baseline or a new before/after comparison. Both had matching outputs, no swap growth, and same-boot completion. See [9B evidence](benchmarks/results/2026-11-14-clean-shutdown/README.md) and [27B evidence](benchmarks/results/2026-11-14-clean-shutdown-27b/README.md). Earlier shutdowns remain unexplained and no further optimization has been selected.
+
+## Latest larger-workload result
+
+The isolated 27B 256-prompt/128-output stage passed three timed repetitions (median 29.799 s) and verified clean teardown. The fresh 1024-prompt/128-output stage completed warmup and one 31.800 s timed reply, then the host powered off spontaneously just after the next repetition began. The user confirms original NVIDIA adapter/cable. One model, no profiler, clean stage boundaries and recovered headroom did not prevent the failure. Larger work is held; no complete baseline or blanket speedup is claimed. See [third-crash evidence](benchmarks/results/2026-11-14-larger-27b-third-crash/README.md).

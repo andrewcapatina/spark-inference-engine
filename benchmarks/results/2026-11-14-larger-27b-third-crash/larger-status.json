@@ -1,0 +1,30 @@
+{
+  "status": "interrupted_by_third_host_reboot",
+  "started": "2026-11-14T23:27:26.474438+00:00",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z",
+  "boot_id": "c7a27d76-0d0b-44bf-a860-709525b7582e",
+  "completed_stages": [
+    {
+      "prompt_tokens": 256,
+      "state_file": "/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z/prompt-256/trial-status.json",
+      "results_file": "/home/cap/Projects/spark-inference-engine/benchmark_runs/prompt-256/27b/results.json"
+    }
+  ],
+  "model": "27B only",
+  "output_tokens": 128,
+  "prompt_stages": [
+    256,
+    1024
+  ],
+  "profiler": false,
+  "global_gpu_hold_retained": true,
+  "current_prompt_tokens": 1024,
+  "current_stage": "/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z/prompt-1024",
+  "updated": "2026-11-14T23:32:30.922599+00:00",
+  "worker_status": "running",
+  "elapsed_seconds": 103.7,
+  "observed_at": "2026-11-14T23:40:00.901567+00:00",
+  "new_boot_id": "761dc008-6038-4238-b04f-95058c87ce87",
+  "overall_workload_complete": false,
+  "automatic_retry_held": true
+}

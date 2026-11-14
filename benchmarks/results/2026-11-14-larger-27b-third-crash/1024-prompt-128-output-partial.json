@@ -1,0 +1,114 @@
+{
+  "status": "interrupted_by_host_poweroff",
+  "timed_repetitions_planned": 3,
+  "timed_repetitions_completed": 1,
+  "completed_timed_samples_from_durable_phase_log": [
+    {
+      "repetition": 0,
+      "wall_ms": 31800.47933700007,
+      "generated_tokens_per_second": 4.025096560449362,
+      "output_sha256": "85c78cdb4d3363161be19cd210a185eace53ab08397de97a8fc20e52c4023fce",
+      "memory": {
+        "cuda_allocated_bytes": 53800586240,
+        "cuda_reserved_bytes": 56346279936,
+        "cuda_peak_allocated_bytes": 55546993152,
+        "cuda_peak_reserved_bytes": 56346279936,
+        "cuda_global_free_bytes": 28233486336,
+        "cuda_total_bytes": 130661142528,
+        "VmHWM_bytes": 17830862848,
+        "VmRSS_bytes": 3013459968,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63434268672,
+        "SwapFree_bytes": 17179865088
+      }
+    }
+  ],
+  "median_or_complete_case_not_established": true,
+  "last_worker_snapshot": {
+    "schema_version": 2,
+    "started": "2026-11-14T23:30:45.327619+00:00",
+    "model": "/workspace/reference/qwen27b.gguf",
+    "source": {
+      "sha256": {
+        "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+        "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+        "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+        "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+        "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+        "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+        "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+        "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+        "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+        "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+        "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762",
+        "tools/benchmark_qwen.py": "1f4252ced839d889ef56ec4db64f3318bf4026bbbfbd80e19a8fab3718f54d21"
+      },
+      "git_commit": "67e6dfa6de98e18a85aaf8b7ddbcb778da1e64f1",
+      "git_dirty": false
+    },
+    "settings": {
+      "cuda_limit_gib": 56,
+      "min_available_gib": 32,
+      "prompt_lengths": [
+        1024
+      ],
+      "new_tokens": 128,
+      "repetitions": 3,
+      "warmups": 1,
+      "batch_size": 1,
+      "dtype": "bfloat16",
+      "eos_enabled": false,
+      "prompt_recipe": "Explain how a computer turns a question into an answer. Discuss memory, arithmetic, and clear examples.\n",
+      "prompt_kind": "repeated raw-text token IDs, truncated to exact length"
+    },
+    "environment": {
+      "python": "3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]",
+      "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.35",
+      "torch": "2.11.0a0+gita370667",
+      "cuda": "13.0",
+      "gpu": "NVIDIA GB10",
+      "cpu_threads": 4,
+      "interop_threads": 20,
+      "allow_tf32": false,
+      "cudnn_benchmark": false
+    },
+    "methodology": {
+      "load": "Fresh process/model; OS/NAS cache state uncontrolled, not guaranteed disk-cold",
+      "baseline": "Unmodified native generate; wall timing synchronized before/after, input IDs already on CUDA",
+      "events": "Separate observed run; first-token and decode throughput use CUDA stream event markers, exclude text I/O",
+      "memory": "CUDA peaks per phase include weights; VmHWM is process-lifetime peak RSS; global free memory is shared, do not sum capacities",
+      "work": "Fixed output length with EOS disabled; performance workload, not response-quality validation"
+    },
+    "cases": [],
+    "status": "benchmarking",
+    "cuda_context_init_ms": 167.83244399994146,
+    "before_load_memory": {
+      "cuda_allocated_bytes": 0,
+      "cuda_reserved_bytes": 0,
+      "cuda_peak_allocated_bytes": 0,
+      "cuda_peak_reserved_bytes": 0,
+      "cuda_global_free_bytes": 88113250304,
+      "cuda_total_bytes": 130661142528,
+      "VmHWM_bytes": 557453312,
+      "VmRSS_bytes": 557453312,
+      "VmSwap_bytes": 0,
+      "MemAvailable_bytes": 123305607168,
+      "SwapFree_bytes": 17179865088
+    },
+    "model_tokenizer_load_ms": 40293.958332999864,
+    "loaded_memory": {
+      "cuda_allocated_bytes": 53792049152,
+      "cuda_reserved_bytes": 56342085632,
+      "cuda_peak_allocated_bytes": 56334845952,
+      "cuda_peak_reserved_bytes": 56342085632,
+      "cuda_global_free_bytes": 26890633216,
+      "cuda_total_bytes": 130661142528,
+      "VmHWM_bytes": 17830862848,
+      "VmRSS_bytes": 2210177024,
+      "VmSwap_bytes": 0,
+      "MemAvailable_bytes": 62087884800,
+      "SwapFree_bytes": 17179865088
+    },
+    "parameter_bytes": 53791996928
+  }
+}
