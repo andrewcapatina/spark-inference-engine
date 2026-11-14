@@ -395,8 +395,20 @@ def tokenizer_from_gguf(metadata):
     # Decoder
     tokenizer.decoder = decoders.ByteLevel()
 
-    # Add special tokens
-    pass
+    # Register atomic tokens from GGUF metadata
+    from tokenizers import AddedToken
+    special_added = []
+    user_added = []
+    for i, token in enumerate(tokens):
+        ttype = token_types[i] if i < len(token_types) else 1
+        if ttype == 3:
+            special_added.append(AddedToken(token, id=i, special=True))
+        elif ttype == 4:
+            user_added.append(AddedToken(token, id=i, special=False))
+    if special_added:
+        tokenizer.add_special_tokens(special_added)
+    if user_added:
+        tokenizer.add_tokens(user_added)
 
     # Wrap in PreTrainedTokenizerFast for return_tensors support
     fast_tokenizer = PreTrainedTokenizerFast(
