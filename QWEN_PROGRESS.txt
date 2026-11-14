@@ -30,3 +30,7 @@ Blocker: none for this task.
 Next: controller checkpoint and next queue task.
 test_qwen_weight_loading: rewrote load_hf_state_dict to map checkpoint names explicitly, copy tensors, and raise on missing/unexpected keys. PASSED.
 2026-11-13 16:59 UTC - QwenGatedDeltaNet.forward: removed use_qk_l2norm=True arg from gated_delta_rule call (callee already normalizes QK). test_qwen_delta_block PASSED; 7/16 Qwen checks pass, test_qwen_hybrid_forward still fails (next task).
+Turn 4: Added additive causal mask to QwenCausalLM.forward; passed to full-attention layers.
+Ran test_qwen_forward_mask (PASSED), test_qwen_hybrid_forward (PASSED), test_qwen_forward_rope (PASSED).
+No regressions; mask dtype matches attention API (floating-point additive).
+Next: continue with next queued task from run_feedback/latest.txt.

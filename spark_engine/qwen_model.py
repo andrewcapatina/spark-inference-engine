@@ -87,7 +87,9 @@ class QwenCausalLM(nn.Module):
         cos = freqs.cos().unsqueeze(0)
         sin = freqs.sin().unsqueeze(0)
         position_embeddings = (cos, sin)
+        causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
+        causal_mask = torch.triu(causal_mask, diagonal=1)
         for layer in self.layers:
-            hidden = layer(hidden, position_embeddings)
+            hidden = layer(hidden, position_embeddings, causal_mask)
         hidden = self.norm(hidden)
         return self.lm_head(hidden)
