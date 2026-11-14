@@ -166,3 +166,16 @@ class QwenCausalLM(nn.Module):
             hidden, layer_caches[i] = layer.decode(hidden, position_embeddings, layer_caches[i])
         hidden = self.norm(hidden)
         return self.lm_head(hidden), layer_caches
+
+    def generate(self, ids, max_new_tokens, eos_token_id=None):
+        bsz, seq = ids.shape
+        generated = ids.clone()
+        logits, layer_caches = self.prefill(generated)
+        for _ in range(max_new_tokens):
+            next_logits = logits[:, -1, :]
+            if eos_token_id is not None:
+                next_logits[:, eos_token_id] = float('-inf')
+            next_token = next_logits.argmax(dim=-1, keepdim=True)
+            generated = torch.cat([generated, next_token], dim=1)
+            logits, layer_caches = self.decode(next_token, layer_caches)
+        return generated
