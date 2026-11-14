@@ -453,20 +453,20 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
 
     model = model.to_empty(device=device)
 
-    key_heads = config.linear_num_key_heads
-    value_heads = config.linear_num_value_heads
-    value_dim = config.linear_value_head_dim
+    key_heads = config["linear_num_key_heads"]
+    value_heads = config["linear_num_value_heads"]
+    value_dim = config["linear_value_head_dim"]
     ratio = value_heads // key_heads
 
-    def head_order_tensor():
+    def load_head_order_tensor():
         order = []
-        for slot in range(ratio):
-            for key in range(key_heads):
+        for key in range(key_heads):
+            for slot in range(ratio):
                 order.append(key * ratio + slot)
         return torch.tensor(order, dtype=torch.long)
 
-    def v_rows_tensor():
-        order = head_order_tensor()
+    def load_v_rows_tensor():
+        order = load_head_order_tensor()
         rows = []
         for head in order:
             for element in range(value_dim):
@@ -484,8 +484,8 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
         suffix = m.group(1) if m else gguf_name
 
         if suffix in ("attn_qkv.weight", "ssm_conv1d.weight"):
-            qk_rows = 2 * key_heads * config.linear_key_head_dim
-            v_rows = v_rows_tensor()
+            qk_rows = 2 * key_heads * config["linear_key_head_dim"]
+            v_rows = load_v_rows_tensor()
             prefix = tensor[:qk_rows]
             v_part = tensor[qk_rows:]
             if v_part.dim() == 2:
@@ -494,13 +494,13 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
                 v_native = v_part.index_select(0, v_rows)
             tensor = torch.cat((prefix, v_native), dim=0)
         elif suffix == "attn_gate.weight":
-            rows = v_rows_tensor()
+            rows = load_v_rows_tensor()
             tensor = tensor.index_select(0, rows)
         elif suffix in ("ssm_alpha.weight", "ssm_beta.weight", "ssm_a", "ssm_dt.bias"):
-            order = head_order_tensor()
+            order = load_head_order_tensor()
             tensor = tensor.index_select(0, order)
         elif suffix == "ssm_out.weight":
-            rows = v_rows_tensor()
+            rows = load_v_rows_tensor()
             tensor = tensor.index_select(1, rows)
 
         param = model.get_parameter(native_name)
