@@ -78,3 +78,9 @@ Stage 3: added spark_engine/__main__.py CLI with argparse, AutoTokenizer(local_f
 - Validation: python3 -m unittest discover -s tests -p test_cli.py -v: 16 passed. Existing CUDA acceptance/test_contract.py: all 15 passed. Actual 9B and 27B CLI subprocesses each passed two conversational turns plus reset/repeat with one model load per session.
 - Evidence: /home/cap/spark-inference-overnight-20261113/feedback/cli-validation.json; logs: /home/cap/spark-inference-overnight-20261113/runs/cli-20261114T081009. Container restored to stopped; overnight controller not restarted.
 - Usage: CLI_USAGE.txt. Greedy generation; replies appear after completion. Token streaming and sampling remain future work.
+
+## 2026-11-14T10:52:59-08:00 — CLI checkpoint and architecture walkthrough
+- Checkpointed the directly authorized CLI in a9e75e6 and configured origin as https://github.com/andrewcapatina/spark-inference-engine.git. Remote inspection found no existing refs.
+- Added README.md and ARCHITECTURE.md with the implemented request flow, source map, model loaders, hybrid layers, cache ownership, memory behavior, validation scope and unmeasured profiling candidates. Preserved INFERENCE_ENGINE_DIAGRAM.txt byte-for-byte as the original roadmap.
+- Checks: 16 CLI unit tests pass; documentation links/anchors and checkpoint dimensions verified; native inference source hashes still match the validated engine; git diff --check passes. Existing CUDA/real-model validation is cited, not rerun for documentation. Git history contains no model-weight files.
+- No inference changes or benchmark runs in this step. Next phase can measure the documented profiling candidates.
