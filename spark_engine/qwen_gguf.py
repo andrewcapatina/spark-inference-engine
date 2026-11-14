@@ -327,6 +327,100 @@ def config_from_gguf(metadata):
     }
 
 
+def tokenizer_from_gguf(metadata):
+    """Build a tokenizer from GGUF metadata using the installed tokenizers library.
+
+    Constructs a BPE tokenizer from the GGUF vocabulary/merges, applies the
+    model's chat template, and returns a PreTrainedTokenizerFast-compatible
+    object with encode/decode and callable return_tensors support.
+    """
+    from tokenizers import Tokenizer, models, pre_tokenizers, normalizers, decoders
+    from transformers import PreTrainedTokenizerFast
+
+    # Extract vocabulary and merges from GGUF metadata
+    tokens = metadata.get("tokenizer.tokens", [])
+    scores = metadata.get("tokenizer.scores", [])
+    token_types = metadata.get("tokenizer.token_type", [])
+
+    # Build vocab dict: only type 1 (normal) and type 4 (user-defined) are real tokens
+    # Type 3 = control/special, type 5 = unused
+    vocab = {}
+    for i, (token, score, ttype) in enumerate(zip(tokens, scores, token_types)):
+        if ttype in (1, 4):
+            vocab[token] = score
+
+    # Build merges list from scores (sorted by score descending = merge order)
+    merge_pairs = sorted(vocab.items(), key=lambda x: x[1], reverse=True)
+    merges = [f"{p[0]} {p[1]}" for p in merge_pairs]
+
+    # Build vocab for BPE model (token -> index)
+    bpe_vocab = {}
+    for i, (token, score) in enumerate(merge_pairs):
+        bpe_vocab[token] = i
+
+    # Add special tokens from GGUF metadata
+    special_tokens = {}
+    eos_id = metadata.get("tokenizer.eos_token_id")
+    bos_id = metadata.get("tokenizer.bos_token_id")
+    pad_id = metadata.get("tokenizer.pad_token_id")
+
+    if eos_id is not None and eos_id < len(tokens):
+        special_tokens["eos_token"] = tokens[eos_id]
+    if bos_id is not None and bos_id < len(tokens):
+        special_tokens["bos_token"] = tokens[bos_id]
+    if pad_id is not None and pad_id < len(tokens):
+        special_tokens["pad_token"] = tokens[pad_id]
+
+    # Build BPE model
+    bpe_model = models.BPE(
+        vocab=bpe_vocab,
+        merges=merges,
+        unk_token=special_tokens.get("eos_token", "<|endoftext|>"),
+        byte_fallback=True,
+    )
+
+    # Build tokenizer
+    tokenizer = Tokenizer(bpe_model)
+
+    # Qwen3.5 uses byte-level BPE with specific preprocessing
+    # Check metadata for normalizer settings; default to no NFC (actual GGUF lacks it)
+    normalizer_name = metadata.get("tokenizer.normalizer", "")
+    if "nfc" in normalizer_name.lower():
+        tokenizer.normalizer = normalizers.NFC()
+    # No normalizer by default (matches actual GGUF metadata)
+
+    # Byte-level pre-tokenizer for Qwen3.5
+    tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
+
+    # Decoder
+    tokenizer.decoder = decoders.ByteLevel()
+
+    # Add special tokens
+    for name, token in special_tokens.items():
+        if token not in bpe_vocab:
+            bpe_vocab[token] = len(bpe_vocab)
+            tokenizer.model.add_token(token, len(bpe_vocab) - 1)
+
+    # Update vocab after adding special tokens
+    tokenizer.model.set_vocab(bpe_vocab)
+
+    # Wrap in PreTrainedTokenizerFast for return_tensors support
+    fast_tokenizer = PreTrainedTokenizerFast(
+        tokenizer_object=tokenizer,
+        eos_token=special_tokens.get("eos_token"),
+        bos_token=special_tokens.get("bos_token"),
+        pad_token=special_tokens.get("pad_token"),
+        unk_token=special_tokens.get("eos_token"),
+    )
+
+    # Apply chat template from GGUF metadata
+    chat_template = metadata.get("tokenizer.chat_template", "")
+    if chat_template:
+        fast_tokenizer.chat_template = chat_template
+
+    return fast_tokenizer
+
+
 def read_tensor_directory(path):
     """Read GGUF metadata and tensor directory without loading tensor payloads."""
     with open(path, 'rb') as f:
