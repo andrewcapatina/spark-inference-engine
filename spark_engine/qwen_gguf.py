@@ -102,8 +102,8 @@ def dequantize_q8_0(raw_bytes):
     num_blocks = n // block_size
     scales = np.frombuffer(raw_bytes, dtype=np.float16, count=num_blocks, offset=0)
     scales = scales.reshape(num_blocks, 1)
-    ints = np.frombuffer(raw_bytes, dtype=np.int8, count=num_blocks * 32, offset=2)
-    ints = ints.reshape(num_blocks, 32)
+    ints = np.frombuffer(raw_bytes, dtype=np.int8, count=n)
+    ints = ints.reshape(num_blocks, block_size)[:, 2:]
     result = (ints.astype(np.float32) * scales).ravel()
     return torch.tensor(result, dtype=torch.float32)
 
