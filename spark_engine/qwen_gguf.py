@@ -459,11 +459,14 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
     ratio = value_heads // key_heads
 
     def load_head_order_tensor():
-        order = []
+        export_order = []
         for slot in range(ratio):
             for key in range(key_heads):
-                order.append(key * ratio + slot)
-        return torch.tensor(order, dtype=torch.long)
+                export_order.append(key * ratio + slot)
+        inverse = [0] * len(export_order)
+        for j, src in enumerate(export_order):
+            inverse[src] = j
+        return torch.tensor(inverse, dtype=torch.long)
 
     def load_v_rows_tensor():
         order = load_head_order_tensor()

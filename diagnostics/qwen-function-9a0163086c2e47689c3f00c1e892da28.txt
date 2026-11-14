@@ -1,0 +1,86 @@
+def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
+    """Load a Qwen3.5 GGUF model into a shared NativeQwenText engine instance."""
+    from spark_engine.qwen_model import QwenCausalLM
+    from spark_engine.qwen_text import NativeQwenText
+
+    metadata = read_metadata(path)
+    directory = read_tensor_directory(path)
+    config = config_from_gguf(metadata)
+    tokenizer = tokenizer_from_gguf(metadata)
+
+    if device == "cpu" and dtype == torch.float32:
+        raise ValueError("CPU/FP32 construction not supported for large Qwen models")
+
+    with torch.device("meta"):
+        model = QwenCausalLM(config)
+        for p in model.parameters():
+            p.data = p.data.to(dtype=dtype)
+
+    model = model.to_empty(device=device)
+
+    key_heads = config["linear_num_key_heads"]
+    value_heads = config["linear_num_value_heads"]
+    value_dim = config["linear_value_head_dim"]
+    ratio = value_heads // key_heads
+
+    def load_head_order_tensor():
+        export_order = []
+        for slot in range(ratio):
+            for key in range(key_heads):
+                export_order.append(key * ratio + slot)
+        inverse = [0] * len(export_order)
+        for j, src in enumerate(export_order):
+            inverse[src] = j
+        return torch.tensor(inverse, dtype=torch.long)
+
+    def load_v_rows_tensor():
+        order = load_head_order_tensor()
+        rows = []
+        for head in order:
+            for element in range(value_dim):
+                rows.append(head * value_dim + element)
+        return torch.tensor(rows, dtype=torch.long)
+
+    loaded = set()
+    for gguf_name in directory["tensors"]:
+        tensor = read_tensor(path, directory, gguf_name, device="cpu", dtype=torch.float32)
+        tensor = restore_tensor_value(gguf_name, tensor)
+        native_name = map_tensor_name(gguf_name)
+
+        import re
+        m = re.match(r"blk\.[0-9]+\.(.+)", gguf_name)
+        suffix = m.group(1) if m else gguf_name
+
+        if suffix in ("attn_qkv.weight", "ssm_conv1d.weight"):
+            qk_rows = 2 * key_heads * config["linear_key_head_dim"]
+            v_rows = load_v_rows_tensor()
+            prefix = tensor[:qk_rows]
+            v_part = tensor[qk_rows:]
+            if v_part.dim() == 2:
+                v_native = v_part.index_select(0, v_rows)
+            else:
+                v_native = v_part.index_select(0, v_rows)
+            tensor = torch.cat((prefix, v_native), dim=0)
+        elif suffix == "attn_gate.weight":
+            rows = load_v_rows_tensor()
+            tensor = tensor.index_select(0, rows)
+        elif suffix in ("ssm_alpha.weight", "ssm_beta.weight", "ssm_a", "ssm_dt.bias"):
+            order = load_head_order_tensor()
+            tensor = tensor.index_select(0, order)
+        elif suffix == "ssm_out.weight":
+            rows = load_v_rows_tensor()
+            tensor = tensor.index_select(1, rows)
+
+        param = model.get_parameter(native_name)
+        with torch.no_grad():
+            param.copy_(tensor.to(dtype=dtype, device=device))
+        del tensor
+        loaded.add(native_name)
+
+    expected = set(model.state_dict().keys())
+    missing = expected - loaded
+    if missing:
+        raise ValueError(f"Missing tensors: {missing}")
+
+    model.eval()
+    return NativeQwenText(model, tokenizer)
