@@ -112,7 +112,21 @@ class QwenCausalLM(nn.Module):
                 state[name] = shards[shard][name]
         else:
             state = load_file(os.path.join(directory, "model.safetensors"))
-        model.load_hf_state_dict(state)
+        engine_keys = set(model.state_dict().keys())
+        loaded = set()
+        for name, tensor in state.items():
+            if name == "lm_head.weight":
+                target = "lm_head.weight"
+            elif name.startswith("model."):
+                target = name[6:]
+            else:
+                target = name
+            if target in engine_keys:
+                model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
+                loaded.add(target)
+        missing = engine_keys - loaded
+        if missing:
+            raise RuntimeError(f"Checkpoint missing {len(missing)} engine weights: {sorted(missing)[:5]}")
         return model
 
     def __init__(self, config):
