@@ -73,101 +73,23 @@ class QwenCausalLM(nn.Module):
         if unexpected:
             raise RuntimeError(f"Unexpected checkpoint keys: {sorted(unexpected)[:5]}")
 
-    def _make_rope(self, seq, device):
+    def forward(self, ids):
+        bsz, seq = ids.shape
+        hidden = self.embed_tokens(ids)
         rope = self.config["rope_parameters"]
         head_dim = self.config["head_dim"]
         rotary_dim = int(head_dim * rope["partial_rotary_factor"])
         inv_freq = 1.0 / (rope["rope_theta"] **
-                          (torch.arange(0, rotary_dim, 2, device=device, dtype=torch.float) / rotary_dim))
+                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
         inv_freq = inv_freq.repeat(2)
-        positions = torch.arange(seq, device=device, dtype=torch.float)
+        positions = torch.arange(seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        return freqs.cos().unsqueeze(0), freqs.sin().unsqueeze(0)
-
-    def forward(self, ids):
-        bsz, seq = ids.shape
-        hidden = self.embed_tokens(ids)
-        cos, sin = self._make_rope(seq, ids.device)
+        cos = freqs.cos().unsqueeze(0)
+        sin = freqs.sin().unsqueeze(0)
+        position_embeddings = (cos, sin)
         causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
         causal_mask = torch.triu(causal_mask, diagonal=1)
         for layer in self.layers:
-            hidden = layer(hidden, (cos, sin), causal_mask)
+            hidden = layer(hidden, position_embeddings, causal_mask)
         hidden = self.norm(hidden)
         return self.lm_head(hidden)
-
-    def prefill(self, ids):
-        bsz, seq = ids.shape
-        hidden = self.embed_tokens(ids)
-        cos, sin = self._make_rope(seq, ids.device)
-        causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
-        causal_mask = torch.triu(causal_mask, diagonal=1)
-        cache = []
-        for layer in self.layers:
-            if layer.layer_type == "full_attention":
-                qg = layer.self_attn.q_proj(hidden).view(bsz, seq, layer.self_attn.num_heads, layer.self_attn.head_dim * 2)
-                q, gate = qg[..., :layer.self_attn.head_dim], qg[..., layer.self_attn.head_dim:]
-                k = layer.self_attn.k_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-                v = layer.self_attn.v_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-                q = layer.self_attn.q_norm(q).transpose(1, 2)
-                k = layer.self_attn.k_norm(k).transpose(1, 2)
-                v = v.transpose(1, 2)
-                q, k = apply_partial_rope(q, k, cos, sin)
-                if layer.self_attn.num_groups > 1:
-                    k = k.repeat_interleave(layer.self_attn.num_groups, dim=1)
-                    v = v.repeat_interleave(layer.self_attn.num_groups, dim=1)
-                scores = torch.matmul(q, k.transpose(-2, -1)) * layer.self_attn.scaling
-                scores = scores + causal_mask
-                attn = torch.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
-                out = torch.matmul(attn, v).transpose(1, 2)
-                out = out * torch.sigmoid(gate)
-                out = out.reshape(bsz, seq, -1)
-                out = layer.self_attn.o_proj(out)
-                cache.append({"type": "attn", "k": k, "v": v})
-            else:
-                out = layer.linear_attn(hidden)
-                cache.append({"type": "linear", "state": layer.linear_attn._last_state})
-            hidden = layer.input_layernorm(hidden)
-            hidden = hidden + out
-            hidden = hidden + layer.mlp(layer.post_attention_layernorm(hidden))
-        hidden = self.norm(hidden)
-        logits = self.lm_head(hidden)
-        return logits, cache
-
-    def decode(self, new_ids, cache):
-        bsz = new_ids.shape[0]
-        hidden = self.embed_tokens(new_ids)
-        seq = 1
-        cos, sin = self._make_rope(seq, new_ids.device)
-        new_cache = []
-        for i, layer in enumerate(self.layers):
-            if layer.layer_type == "full_attention":
-                qg = layer.self_attn.q_proj(hidden).view(bsz, seq, layer.self_attn.num_heads, layer.self_attn.head_dim * 2)
-                q, gate = qg[..., :layer.self_attn.head_dim], qg[..., layer.self_attn.head_dim:]
-                k = layer.self_attn.k_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-                v = layer.self_attn.v_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-                q = layer.self_attn.q_norm(q).transpose(1, 2)
-                k = layer.self_attn.k_norm(k).transpose(1, 2)
-                v = v.transpose(1, 2)
-                q, k = apply_partial_rope(q, k, cos, sin)
-                prev = cache[i]
-                k_full = torch.cat([prev["k"], k], dim=-1)
-                v_full = torch.cat([prev["v"], v], dim=-1)
-                if layer.self_attn.num_groups > 1:
-                    k_full = k_full.repeat_interleave(layer.self_attn.num_groups, dim=1)
-                    v_full = v_full.repeat_interleave(layer.self_attn.num_groups, dim=1)
-                scores = torch.matmul(q, k_full.transpose(-2, -1)) * layer.self_attn.scaling
-                attn = torch.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
-                out = torch.matmul(attn, v_full).transpose(1, 2)
-                out = out * torch.sigmoid(gate)
-                out = out.reshape(bsz, seq, -1)
-                out = layer.self_attn.o_proj(out)
-                new_cache.append({"type": "attn", "k": k_full, "v": v_full})
-            else:
-                out = layer.linear_attn(hidden)
-                new_cache.append({"type": "linear", "state": layer.linear_attn._last_state})
-            hidden = layer.input_layernorm(hidden)
-            hidden = hidden + out
-            hidden = hidden + layer.mlp(layer.post_attention_layernorm(hidden))
-        hidden = self.norm(hidden)
-        logits = self.lm_head(hidden)
-        return logits, new_cache
