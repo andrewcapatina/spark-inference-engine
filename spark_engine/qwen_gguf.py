@@ -94,11 +94,18 @@ def _read_value(f, type_code):
         raise ValueError(f"Unknown GGUF type: {type_code}")
 
 def dequantize_q8_0(raw_bytes):
-    """Decode one Q8_0 GGML block: FP16 scale then 32 signed int8 values."""
-    scale = struct.unpack('<e', raw_bytes[0:2])[0]
-    ints = struct.unpack('<32b', raw_bytes[2:34])
-    tensor = torch.tensor(ints, dtype=torch.float32) * scale
-    return tensor
+    """Decode one or more Q8_0 GGML blocks: each has FP16 scale then 32 signed int8 values."""
+    block_size = 34
+    n = len(raw_bytes)
+    if n % block_size != 0:
+        raise ValueError(f"Q8_0 payload must be a multiple of {block_size} bytes, got {n}")
+    num_blocks = n // block_size
+    scales = np.frombuffer(raw_bytes, dtype=np.float16, count=num_blocks, offset=0)
+    scales = scales.reshape(num_blocks, 1)
+    ints = np.frombuffer(raw_bytes, dtype=np.int8, count=num_blocks * 32, offset=2)
+    ints = ints.reshape(num_blocks, 32)
+    result = (ints.astype(np.float32) * scales).ravel()
+    return torch.tensor(result, dtype=torch.float32)
 
 def read_metadata(path):
     """Read GGUF metadata, returning a dict of key -> value."""
