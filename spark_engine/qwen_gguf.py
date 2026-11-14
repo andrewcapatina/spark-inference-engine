@@ -460,8 +460,8 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
 
     def load_head_order_tensor():
         order = []
-        for key in range(key_heads):
-            for slot in range(ratio):
+        for slot in range(ratio):
+            for key in range(key_heads):
                 order.append(key * ratio + slot)
         return torch.tensor(order, dtype=torch.long)
 
