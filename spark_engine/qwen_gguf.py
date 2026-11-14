@@ -181,6 +181,63 @@ def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
     return tensor
 
 
+def config_from_gguf(metadata):
+    """Build a flat QwenCausalLM config dict from GGUF metadata."""
+    def get(key, default=None):
+        return metadata.get(key, default)
+
+    hidden_size = int(get("llama.embedding_length", 0))
+    num_layers = int(get("llama.block_count", 0))
+    num_heads = int(get("llama.attention.head_count", 0))
+    num_kv_heads = int(get("llama.attention.head_count_kv", 0))
+    # Qwen3.5 uses explicit key_length for head_dim, not hidden_size/heads
+    head_dim = int(get("llama.attention.key_length", hidden_size // num_heads))
+    intermediate_size = int(get("llama.feed_forward_length", 0))
+    vocab_size = int(get("llama.vocab_size", 0))
+    rope_theta = float(get("llama.rope.freq_base", 10000.0))
+    rms_eps = float(get("llama.rms_norm_eps", 1e-6))
+
+    # SSM (Mamba) parameters
+    ssm_group_count = int(get("llama.ssm.group_count", 0))
+    ssm_state_size = int(get("llama.ssm.state_size", 0))
+    ssm_time_step_rank = int(get("llama.ssm.time_step_rank", 0))
+    ssm_inner_size = int(get("llama.ssm.inner_size", 0))
+
+    # Rotary fraction: rope.dimension_count / head_dim
+    rope_dim = int(get("llama.rope.dimension_count", head_dim))
+    rotary_fraction = rope_dim / head_dim if head_dim > 0 else 1.0
+
+    # Full attention interval
+    full_attention_interval = int(get("llama.attention.full_interval", 0))
+
+    # Build per-layer types
+    layer_types = []
+    for i in range(num_layers):
+        if full_attention_interval > 0 and (i + 1) % full_attention_interval == 0:
+            layer_types.append("full_attention")
+        else:
+            layer_types.append("ssm")
+
+    return {
+        "hidden_size": hidden_size,
+        "num_layers": num_layers,
+        "num_heads": num_heads,
+        "num_kv_heads": num_kv_heads,
+        "head_dim": head_dim,
+        "intermediate_size": intermediate_size,
+        "vocab_size": vocab_size,
+        "rope_theta": rope_theta,
+        "rms_eps": rms_eps,
+        "ssm_group_count": ssm_group_count,
+        "ssm_state_size": ssm_state_size,
+        "ssm_time_step_rank": ssm_time_step_rank,
+        "ssm_inner_size": ssm_inner_size,
+        "rotary_fraction": rotary_fraction,
+        "full_attention_interval": full_attention_interval,
+        "layer_types": layer_types,
+    }
+
+
 def read_tensor_directory(path):
     """Read GGUF metadata and tensor directory without loading tensor payloads."""
     with open(path, 'rb') as f:
