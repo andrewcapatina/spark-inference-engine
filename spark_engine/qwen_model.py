@@ -76,6 +76,8 @@ class QwenCausalLM(nn.Module):
             cfg = json.load(f)
         text_cfg = cfg.get("text_config", cfg)
         rope = text_cfg.get("rope_parameters", {"rope_theta": 10000000.0, "partial_rotary_factor": 0.25})
+        rope_theta = rope.get("rope_theta", 10000000.0)
+        rope_theta = float(rope_theta)
         engine_cfg = {
             "vocab_size": text_cfg["vocab_size"],
             "hidden_size": text_cfg["hidden_size"],
