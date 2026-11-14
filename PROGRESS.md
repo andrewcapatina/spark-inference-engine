@@ -84,3 +84,8 @@ Stage 3: added spark_engine/__main__.py CLI with argparse, AutoTokenizer(local_f
 - Added README.md and ARCHITECTURE.md with the implemented request flow, source map, model loaders, hybrid layers, cache ownership, memory behavior, validation scope and unmeasured profiling candidates. Preserved INFERENCE_ENGINE_DIAGRAM.txt byte-for-byte as the original roadmap.
 - Checks: 16 CLI unit tests pass; documentation links/anchors and checkpoint dimensions verified; native inference source hashes still match the validated engine; git diff --check passes. Existing CUDA/real-model validation is cited, not rerun for documentation. Git history contains no model-weight files.
 - No inference changes or benchmark runs in this step. Next phase can measure the documented profiling candidates.
+
+## 2026-11-14T11:09:53-08:00 — Performance harness, before full-model runs
+- Added tools/benchmark_qwen.py with synchronized uninstrumented repetitions, separate CUDA-event diagnostics, memory accounting, fixed token workloads and separate bounded profiler capture. BENCHMARKS.md defines metric boundaries and cache-state limits. Raw runs/traces ignored by Git.
+- Seven accounting/isolation tests pass. Existing tiny native CUDA Qwen probe preserves outputs under event observation and profiling; profiler GPU timing is available on installed PyTorch2.11.0a0/CUDA13.0/GB10. No inference source changes.
+- User closed the active27B chat; process inspection confirmed no active model session and inactive controller. Full9B/27B benchmark matrix is next, sequentially; no baseline performance result claimed yet.
