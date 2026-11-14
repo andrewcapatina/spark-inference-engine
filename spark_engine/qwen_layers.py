@@ -44,6 +44,7 @@ class QwenAttention(nn.Module):
         v = v.transpose(1, 2)
         cos, sin = position_embeddings
         q, k = apply_partial_rope(q, k, cos, sin)
+        cache_k, cache_v = k, v
         if self.num_groups > 1:
             k = k.repeat_interleave(self.num_groups, dim=1)
             v = v.repeat_interleave(self.num_groups, dim=1)
@@ -54,7 +55,7 @@ class QwenAttention(nn.Module):
         out = torch.matmul(attn, v).transpose(1, 2)
         out = out * torch.sigmoid(gate)
         out = out.reshape(bsz, seq, -1)
-        return self.o_proj(out), (k, v)
+        return self.o_proj(out), (cache_k, cache_v)
 
     def forward(self, hidden, position_embeddings, attention_mask=None):
         bsz, seq, _ = hidden.shape
