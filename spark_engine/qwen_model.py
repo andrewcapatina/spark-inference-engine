@@ -120,6 +120,9 @@ class QwenCausalLM(nn.Module):
                     if target in engine_keys:
                         model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
                         loaded.add(target)
+                    elif target == "model.embed_tokens.weight":
+                        model.state_dict()["embed_tokens.weight"].copy_(tensor.to(dtype=dtype, device=device))
+                        loaded.add("embed_tokens.weight")
                 del shard
         else:
             state = load_file(os.path.join(directory, "model.safetensors"))
