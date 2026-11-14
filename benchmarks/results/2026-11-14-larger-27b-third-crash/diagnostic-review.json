@@ -1,0 +1,47 @@
+{
+  "reviewed_at": "2026-11-14T23:52:44.942298+00:00",
+  "collection_status": "completed_exit0",
+  "report_private_path": "/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z/system-report-20261114T234742Z/nvidia-bug-report.log.gz",
+  "report_sha256": "99af8643b1a448a58b41895bc884d7da02bf15d2b58932629b8bce1b3566df0a",
+  "pstore_copy_errors": "",
+  "pstore_files": [],
+  "recorded_fault_counts": {
+    "nvidia_xid": 0,
+    "oom_kill": 0,
+    "kernel_panic": 0
+  },
+  "historical_nvrm_0x56": "Earlier11:01/11:08/11:16 messages predate latest two failures; not a newly recorded latest-crash cause",
+  "diagnostic_stack_traces": "Boot-time SysRq backtraces show nvidia-bug-report initiating capture after reboot, not a failure-time panic",
+  "safe_mode_omissions": [
+    "nvidia-smi/vulkaninfo dynamic queries",
+    "InfiniBand commands"
+  ],
+  "firmware_before_update": {
+    "ec_reported": "3.5.8",
+    "ec_fwupd_raw": "0x03000508",
+    "uefi_inventory_reported": "R:1.110.13",
+    "pd_inventory_reported": "5.22",
+    "soc_fwupd_raw": "0x02009b0b",
+    "driver": "580.178.04",
+    "kernel": "7.0.0-1019-nvidia",
+    "latest_os_ota_record": "7.6.0"
+  },
+  "official_published_versions_checked": {
+    "EC": "3.13.7",
+    "UEFI": "1.111.17",
+    "USB_PD": "0.5.25",
+    "SoC": "2.158.15",
+    "driver": "580.178.04",
+    "kernel": "7.0.0-1019",
+    "DGX_OS": "7.6.0",
+    "url": "https://docs.nvidia.com/dgx/dgx-spark/release-notes.html"
+  },
+  "bios_metadata_note": "SMBIOS type0 says5.36_0ACUM018; firmware inventory says5.36_0ACUM027. Do not treat these different fields as proof of a bad flash.",
+  "dashboard_firmware_update_available": "User confirmed",
+  "firmware_update_executed_by_assistant": false,
+  "post_update_versions_verified": false,
+  "get_updates_command_aborted": "No output file or surviving fwupdmgr process found; no refresh/install/update command was issued",
+  "gpu_workloads_restarted": false,
+  "root_cause": "unproven",
+  "recommended_next_step": "Use official DGX Dashboard update path, follow its instructions and reboot when prompted, then verify versions before considering GPU tests"
+}
