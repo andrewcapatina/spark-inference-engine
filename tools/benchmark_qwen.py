@@ -340,6 +340,28 @@ def run(args):
         result["finished"] = datetime.now(timezone.utc).isoformat()
         result["final_memory"] = memory(torch)
         write_json(result_path, result)
+        if args.clean_release:
+            try:
+                checkpoint("before_model_release")
+                del text
+                gc.collect()
+                torch.cuda.synchronize()
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()
+                result["released_memory"] = memory(torch)
+                checkpoint("after_model_release")
+                write_json(result_path, result)
+                if result["released_memory"]["cuda_allocated_bytes"] > 16 * 1024 ** 2:
+                    raise RuntimeError("CUDA tensors remain after explicit model release")
+                if result["released_memory"]["cuda_reserved_bytes"] > 64 * 1024 ** 2:
+                    raise RuntimeError("CUDA allocator reservation remains after release")
+                print("MODEL_RELEASED " + json.dumps(result["released_memory"]), flush=True)
+            except BaseException as cleanup_error:
+                result["cleanup_error"] = {"type": type(cleanup_error).__name__,
+                                           "message": str(cleanup_error)}
+                write_json(result_path, result)
+                if "error" not in result:
+                    raise
         if result["cases"]:
             with (args.output_dir / "samples.csv").open("w", newline="") as stream:
                 fields = ["prompt_tokens", "repetition", "wall_ms", "generated_tokens_per_second",
@@ -365,6 +387,8 @@ def main(argv=None):
                         help="Optional PyTorch CUDA allocator cap; not a whole-system memory limit")
     parser.add_argument("--min-available-gib", type=positive, default=16)
     parser.add_argument("--profile", action="store_true")
+    parser.add_argument("--clean-release", action="store_true",
+                        help="Explicitly release the model and verify allocator recovery after timing")
     parser.add_argument("--profile-length", type=positive, default=256)
     parser.add_argument("--profile-new-tokens", type=positive, default=8)
     args = parser.parse_args(argv)
