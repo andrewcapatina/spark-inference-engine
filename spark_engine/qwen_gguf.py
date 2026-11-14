@@ -181,6 +181,73 @@ def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
     return tensor
 
 
+def map_tensor_name(gguf_name):
+    """Map a GGUF tensor name to the engine's native state_dict name.
+
+    Raises ValueError for unknown names instead of silently skipping.
+    """
+    if gguf_name == "token_embd.weight":
+        return "model.embed_tokens.weight"
+    if gguf_name == "output.weight":
+        return "lm_head.weight"
+    if gguf_name == "output_norm.weight":
+        return "model.norm.weight"
+
+    import re
+    m = re.match(r"blk\.([0-9]+)\.(.+)", gguf_name)
+    if not m:
+        raise ValueError(f"Unknown GGUF tensor name: {gguf_name}")
+
+    layer = int(m.group(1))
+    rest = m.group(2)
+    prefix = f"model.layers.{layer}."
+
+    if rest == "attn_norm.weight":
+        return prefix + "input_layernorm.weight"
+    if rest == "ffn_norm.weight":
+        return prefix + "post_attention_layernorm.weight"
+    if rest == "ffn_gate.weight":
+        return prefix + "mlp.gate_proj.weight"
+    if rest == "ffn_up.weight":
+        return prefix + "mlp.up_proj.weight"
+    if rest == "ffn_down.weight":
+        return prefix + "mlp.down_proj.weight"
+
+    if rest == "attn_q.weight":
+        return prefix + "self_attn.q_proj.weight"
+    if rest == "attn_k.weight":
+        return prefix + "self_attn.k_proj.weight"
+    if rest == "attn_v.weight":
+        return prefix + "self_attn.v_proj.weight"
+    if rest == "attn_output.weight":
+        return prefix + "self_attn.o_proj.weight"
+    if rest == "attn_q_norm.weight":
+        return prefix + "self_attn.q_norm.weight"
+    if rest == "attn_k_norm.weight":
+        return prefix + "self_attn.k_norm.weight"
+
+    if rest == "attn_ssm_x.weight":
+        return prefix + "linear_attn.x_proj.weight"
+    if rest == "attn_ssm_z.weight":
+        return prefix + "linear_attn.z_proj.weight"
+    if rest == "attn_ssm_dt.weight":
+        return prefix + "linear_attn.dt_proj.weight"
+    if rest == "attn_ssm_a":
+        return prefix + "linear_attn.A_log"
+    if rest == "attn_ssm_d":
+        return prefix + "linear_attn.D"
+    if rest == "attn_ssm_conv1d.weight":
+        return prefix + "linear_attn.conv1d.weight"
+    if rest == "attn_ssm_conv1d.bias":
+        return prefix + "linear_attn.conv1d.bias"
+    if rest == "attn_ssm_out.weight":
+        return prefix + "linear_attn.out_proj.weight"
+    if rest == "attn_ssm_norm.weight":
+        return prefix + "linear_attn.norm.weight"
+
+    raise ValueError(f"Unknown GGUF tensor name: {gguf_name}")
+
+
 def config_from_gguf(metadata):
     """Build a flat QwenCausalLM config dict from GGUF metadata."""
     def get(key, default=None):
