@@ -159,7 +159,6 @@ def read_tensor_directory(path):
             return offset + (alignment - remainder)
 
         tensors = {}
-        data_offset = 0
         for _ in range(n_tensors):
             name = _read_string(f)
             n_dims = _read_u32(f)
@@ -173,9 +172,8 @@ def read_tensor_directory(path):
                 'type': tensor_type,
                 'offset': offset,
             }
-            data_offset = offset
 
-        data_offset = align_up(data_offset)
+        data_offset = align_up(f.tell())
 
         return {
             'metadata': metadata,
