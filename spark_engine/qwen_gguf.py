@@ -204,7 +204,7 @@ def map_tensor_name(gguf_name):
 
     if rest == "attn_norm.weight":
         return prefix + "input_layernorm.weight"
-    if rest == "ffn_norm.weight":
+    if rest == "post_attention_norm.weight":
         return prefix + "post_attention_layernorm.weight"
     if rest == "ffn_gate.weight":
         return prefix + "mlp.gate_proj.weight"
@@ -226,24 +226,24 @@ def map_tensor_name(gguf_name):
     if rest == "attn_k_norm.weight":
         return prefix + "self_attn.k_norm.weight"
 
-    if rest == "attn_ssm_x.weight":
-        return prefix + "linear_attn.x_proj.weight"
-    if rest == "attn_ssm_z.weight":
-        return prefix + "linear_attn.z_proj.weight"
-    if rest == "attn_ssm_dt.weight":
-        return prefix + "linear_attn.dt_proj.weight"
-    if rest == "attn_ssm_a":
+    if rest == "attn_qkv.weight":
+        return prefix + "linear_attn.in_proj_qkv.weight"
+    if rest == "attn_gate.weight":
+        return prefix + "linear_attn.in_proj_z.weight"
+    if rest == "ssm_alpha.weight":
+        return prefix + "linear_attn.in_proj_a.weight"
+    if rest == "ssm_beta.weight":
+        return prefix + "linear_attn.in_proj_b.weight"
+    if rest == "ssm_a":
         return prefix + "linear_attn.A_log"
-    if rest == "attn_ssm_d":
-        return prefix + "linear_attn.D"
-    if rest == "attn_ssm_conv1d.weight":
+    if rest == "ssm_dt.bias":
+        return prefix + "linear_attn.dt_bias"
+    if rest == "ssm_conv1d.weight":
         return prefix + "linear_attn.conv1d.weight"
-    if rest == "attn_ssm_conv1d.bias":
-        return prefix + "linear_attn.conv1d.bias"
-    if rest == "attn_ssm_out.weight":
-        return prefix + "linear_attn.out_proj.weight"
-    if rest == "attn_ssm_norm.weight":
+    if rest == "ssm_norm.weight":
         return prefix + "linear_attn.norm.weight"
+    if rest == "ssm_out.weight":
+        return prefix + "linear_attn.out_proj.weight"
 
     raise ValueError(f"Unknown GGUF tensor name: {gguf_name}")
 
