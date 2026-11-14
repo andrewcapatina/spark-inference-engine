@@ -62,3 +62,5 @@ work instead of stopping at the first blocker and permits two automatic recovery
 rounds with revised focused prompts. Regressions are saved and rolled back;
 failed restoration or exhausted recovery can still require review. GGUF fixtures
 follow the published GGUF v3 specification linked in their source manifest.
+
+Native text adapters now have explicit queue tasks in spark_engine/qwen_text.py. They may use the supplied serialized tokenizer through PreTrainedTokenizerFast for offline encoding/decoding and chat-template rendering only. All forward/generation calls must use the native QwenCausalLM; no serving or reference inference backend. Tiny adapter tests and real-checkpoint conversation smoke tests are distinct from full-logit parity. Each named method and its allowed files remain the task boundary.
