@@ -38,3 +38,7 @@ Added dequantize_q8_0 to qwen_gguf.py: FP16 scale + 32 signed int8 -> FP32 tenso
 Ran test_qwen_gguf_decode: PASSED.
 No remaining blocker for this task.
 Next: await controller checkpoint and next queued task.
+Added QwenDecoderLayer.decode dispatching to mixer decode API.
+Target test_qwen_decoder_decode: PASSED.
+All 29 prior Qwen checks pass; 15 Llama baseline checks pass.
+Next: model-level prefill/decode methods.

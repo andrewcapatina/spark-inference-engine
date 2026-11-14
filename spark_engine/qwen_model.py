@@ -42,6 +42,19 @@ class QwenDecoderLayer(nn.Module):
         hidden = self.mlp(hidden)
         return residual + hidden, mixer_cache
 
+    def decode(self, hidden, position_embeddings, mixer_cache):
+        residual = hidden
+        hidden = self.input_layernorm(hidden)
+        if self.layer_type == "full_attention":
+            hidden, mixer_cache = self.self_attn.decode(hidden, position_embeddings, mixer_cache)
+        else:
+            hidden, mixer_cache = self.linear_attn.decode(hidden, mixer_cache)
+        hidden = residual + hidden
+        residual = hidden
+        hidden = self.post_attention_layernorm(hidden)
+        hidden = self.mlp(hidden)
+        return residual + hidden, mixer_cache
+
 
 class QwenMLP(nn.Module):
     def __init__(self, config):
