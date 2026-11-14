@@ -79,7 +79,7 @@ class QwenAttention(nn.Module):
         out = torch.matmul(attn, v_full).transpose(1, 2)
         out = out * torch.sigmoid(gate)
         out = out.reshape(bsz, seq, -1)
-        return self.o_proj(out), (k_full, v_full)
+        return self.o_proj(out), (torch.cat([cache_k, k], dim=2), torch.cat([cache_v, v], dim=2))
 
     def forward(self, hidden, position_embeddings, attention_mask=None):
         bsz, seq, _ = hidden.shape
