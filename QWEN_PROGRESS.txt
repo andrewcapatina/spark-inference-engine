@@ -48,3 +48,6 @@ Turn: sharded streaming loader (stream one shard, copy, del)
 Checks: test_qwen_sharded_streaming PASSED; sharded_loading/weight_loading/hybrid_forward PASSED; 15 Llama PASSED
 Blocker: none for this task
 Next: controller picks next queue task
+Added NativeQwenText.chat(messages, max_new_tokens, temperature) using apply_chat_template + native engine.generate; decodes only new tokens.
+test_qwen_text_chat passes. No shared conversation cache; caller passes explicit history.
+Next: controller regression sweep.

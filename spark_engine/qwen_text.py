@@ -14,3 +14,18 @@ class NativeQwenText:
             out = self.engine.generate(input_ids, max_new_tokens=max_new_tokens, eos_token_id=self.tokenizer.eos_token_id)
         new_ids = out[:, input_ids.shape[1]:]
         return self.tokenizer.decode(new_ids[0], skip_special_tokens=True)
+
+    def chat(self, messages, max_new_tokens=32, temperature=0):
+        device = next(self.engine.parameters()).device
+        ids = self.tokenizer.apply_chat_template(
+            messages, tokenize=True, return_tensors="pt",
+            add_generation_prompt=True, enable_thinking=False
+        )
+        input_ids = ids.to(device)
+        with torch.inference_mode():
+            out = self.engine.generate(
+                input_ids, max_new_tokens=max_new_tokens,
+                eos_token_id=self.tokenizer.eos_token_id
+            )
+        new_ids = out[:, input_ids.shape[1]:]
+        return self.tokenizer.decode(new_ids[0], skip_special_tokens=True)
