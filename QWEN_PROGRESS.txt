@@ -42,3 +42,4 @@ Added QwenDecoderLayer.decode dispatching to mixer decode API.
 Target test_qwen_decoder_decode: PASSED.
 All 29 prior Qwen checks pass; 15 Llama baseline checks pass.
 Next: model-level prefill/decode methods.
+2026-11-14 03:37 UTC - Added QwenCausalLM.prefill(ids) returning (logits, layer_caches). Matches forward positions/rotary/mask; calls each decoder prefill. test_qwen_model_prefill passes; 30/34 Qwen + 15/15 Llama pass (hybrid_cache/generation/real9b/real27b need decode). Next: test_qwen_model_decode.
