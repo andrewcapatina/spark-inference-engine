@@ -187,11 +187,11 @@ def map_tensor_name(gguf_name):
     Raises ValueError for unknown names instead of silently skipping.
     """
     if gguf_name == "token_embd.weight":
-        return "model.embed_tokens.weight"
+        return "embed_tokens.weight"
     if gguf_name == "output.weight":
         return "lm_head.weight"
     if gguf_name == "output_norm.weight":
-        return "model.norm.weight"
+        return "norm.weight"
 
     import re
     m = re.match(r"blk\.([0-9]+)\.(.+)", gguf_name)
@@ -200,7 +200,7 @@ def map_tensor_name(gguf_name):
 
     layer = int(m.group(1))
     rest = m.group(2)
-    prefix = f"model.layers.{layer}."
+    prefix = f"layers.{layer}."
 
     if rest == "attn_norm.weight":
         return prefix + "input_layernorm.weight"
