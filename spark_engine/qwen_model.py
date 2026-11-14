@@ -73,56 +73,23 @@ class QwenCausalLM(nn.Module):
         if unexpected:
             raise RuntimeError(f"Unexpected checkpoint keys: {sorted(unexpected)[:5]}")
 
-    def _rope_embeddings(self, seq, device):
+    def forward(self, ids):
+        bsz, seq = ids.shape
+        hidden = self.embed_tokens(ids)
         rope = self.config["rope_parameters"]
         head_dim = self.config["head_dim"]
         rotary_dim = int(head_dim * rope["partial_rotary_factor"])
         inv_freq = 1.0 / (rope["rope_theta"] **
-                          (torch.arange(0, rotary_dim, 2, device=device, dtype=torch.float) / rotary_dim))
+                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
         inv_freq = inv_freq.repeat(2)
-        positions = torch.arange(seq, device=device, dtype=torch.float)
+        positions = torch.arange(seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        return freqs.cos().unsqueeze(0), freqs.sin().unsqueeze(0)
-
-    def _make_cache(self, bsz, seq, device, dtype):
-        cache = []
-        for layer in self.layers:
-            if layer.layer_type == "full_attention":
-                cache.append({"type": "attn", "k": None, "v": None})
-            else:
-                cache.append({"type": "linear", "state": None})
-        return cache
-
-    def prefill(self, ids):
-        bsz, seq = ids.shape
-        device = ids.device
-        hidden = self.embed_tokens(ids)
-        cos, sin = self._rope_embeddings(seq, device)
-        causal_mask = torch.full((seq, seq), float('-inf'), device=device, dtype=hidden.dtype)
+        cos = freqs.cos().unsqueeze(0)
+        sin = freqs.sin().unsqueeze(0)
+        position_embeddings = (cos, sin)
+        causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
         causal_mask = torch.triu(causal_mask, diagonal=1)
-        cache = self._make_cache(bsz, seq, device, hidden.dtype)
-        for i, layer in enumerate(self.layers):
-            if layer.layer_type == "full_attention":
-                hidden = layer(hidden, (cos, sin), causal_mask)
-                cache[i]["k"] = layer.self_attn.k_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-                cache[i]["v"] = layer.self_attn.v_proj(hidden).view(bsz, seq, layer.self_attn.num_kv_heads, layer.self_attn.head_dim)
-            else:
-                hidden = layer(hidden)
+        for layer in self.layers:
+            hidden = layer(hidden, position_embeddings, causal_mask)
         hidden = self.norm(hidden)
-        return self.lm_head(hidden), cache
-
-    def decode(self, new_ids, cache):
-        bsz = new_ids.shape[0]
-        device = new_ids.device
-        hidden = self.embed_tokens(new_ids)
-        for i, layer in enumerate(self.layers):
-            if layer.layer_type == "full_attention":
-                hidden = layer(hidden, None, None)
-            else:
-                hidden = layer(hidden)
-        hidden = self.norm(hidden)
-        return self.lm_head(hidden), cache
-
-    def forward(self, ids):
-        logits, _ = self.prefill(ids)
-        return logits
+        return self.lm_head(hidden)
