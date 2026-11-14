@@ -117,6 +117,8 @@ class QwenCausalLM(nn.Module):
         for name, tensor in state.items():
             if name == "lm_head.weight":
                 target = "lm_head.weight"
+            elif name.startswith("model.language_model."):
+                target = name[21:]
             elif name.startswith("model."):
                 target = name[6:]
             else:
