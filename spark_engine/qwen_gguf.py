@@ -181,6 +181,27 @@ def read_tensor(path, directory, name, device="cpu", dtype=torch.float32):
     return tensor
 
 
+def restore_tensor_value(gguf_name, tensor):
+    """Invert Qwen3.5 GGUF export conventions back to native PyTorch values.
+
+    Input tensor must already be decoded and have GGML dimensions reversed.
+    Operates in FP32 internally; preserves device and final dtype.
+    """
+    if tensor.dtype != torch.float32:
+        tensor = tensor.to(torch.float32)
+
+    if gguf_name in ("output_norm.weight", "attn_norm.weight",
+                     "post_attention_norm.weight", "attn_q_norm.weight",
+                     "attn_k_norm.weight"):
+        tensor = tensor - 1.0
+    elif gguf_name == "ssm_a":
+        tensor = torch.log(-tensor)
+    elif gguf_name == "ssm_conv1d.weight":
+        tensor = tensor.unsqueeze(1)
+
+    return tensor
+
+
 def map_tensor_name(gguf_name):
     """Map a GGUF tensor name to the engine's native state_dict name.
 
