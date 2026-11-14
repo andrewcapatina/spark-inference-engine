@@ -436,7 +436,7 @@ def tokenizer_from_gguf(metadata):
 def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
     """Load a Qwen3.5 GGUF model into a shared NativeQwenText engine instance."""
     from spark_engine.qwen_model import QwenCausalLM
-    from spark_engine.qwen_engine import NativeQwenText
+    from spark_engine.qwen_text import NativeQwenText
 
     metadata = read_metadata(path)
     directory = read_tensor_directory(path)
@@ -448,8 +448,10 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
 
     with torch.device("meta"):
         model = QwenCausalLM(config)
+        for p in model.parameters():
+            p.data = p.data.to(dtype=dtype)
 
-    model.to(dtype=dtype, device=device)
+    model = model.to_empty(device=device)
 
     loaded = set()
     for gguf_name in directory["tensors"]:
@@ -457,7 +459,8 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
         tensor = restore_tensor_value(gguf_name, tensor)
         native_name = map_tensor_name(gguf_name)
         param = model.get_parameter(native_name)
-        param.copy_(tensor.to(dtype=dtype, device=device))
+        with torch.no_grad():
+            param.copy_(tensor.to(dtype=dtype, device=device))
         del tensor
         loaded.add(native_name)
 
