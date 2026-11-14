@@ -115,7 +115,7 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         # v_new = solve(ut_system, v_c * beta_c)
         # k_cumdecay = solve(ut_system, k_c * cum_decay.exp())
         v_beta = v_c * beta_c.unsqueeze(-1)
-        decayed_k = k_c * cum_decay_c.exp().unsqueeze(-1)
+        decayed_k = (k_c * beta_c.unsqueeze(-1)) * cum_decay_c.exp().unsqueeze(-1)
         # Use torch.linalg.solve_triangular for unitriangular system
         v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
         k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
