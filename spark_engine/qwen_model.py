@@ -29,19 +29,6 @@ class QwenDecoderLayer(nn.Module):
         hidden = self.mlp(hidden)
         return residual + hidden
 
-    def prefill(self, hidden, position_embeddings=None, attention_mask=None):
-        residual = hidden
-        hidden = self.input_layernorm(hidden)
-        if self.layer_type == "full_attention":
-            hidden, cache = self.self_attn.prefill(hidden, position_embeddings, attention_mask)
-        else:
-            hidden, cache = self.linear_attn.prefill(hidden)
-        hidden = residual + hidden
-        residual = hidden
-        hidden = self.post_attention_layernorm(hidden)
-        hidden = self.mlp(hidden)
-        return residual + hidden, cache
-
 
 class QwenMLP(nn.Module):
     def __init__(self, config):
@@ -106,27 +93,3 @@ class QwenCausalLM(nn.Module):
             hidden = layer(hidden, position_embeddings, causal_mask)
         hidden = self.norm(hidden)
         return self.lm_head(hidden)
-
-    def prefill(self, ids):
-        bsz, seq = ids.shape
-        hidden = self.embed_tokens(ids)
-        rope = self.config["rope_parameters"]
-        head_dim = self.config["head_dim"]
-        rotary_dim = int(head_dim * rope["partial_rotary_factor"])
-        inv_freq = 1.0 / (rope["rope_theta"] **
-                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
-        inv_freq = inv_freq.repeat(2)
-        positions = torch.arange(seq, device=ids.device, dtype=torch.float)
-        freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        cos = freqs.cos().unsqueeze(0)
-        sin = freqs.sin().unsqueeze(0)
-        position_embeddings = (cos, sin)
-        causal_mask = torch.full((seq, seq), float('-inf'), device=ids.device, dtype=hidden.dtype)
-        causal_mask = torch.triu(causal_mask, diagonal=1)
-        layer_caches = []
-        for layer in self.layers:
-            hidden, cache = layer.prefill(hidden, position_embeddings, causal_mask)
-            layer_caches.append(cache)
-        hidden = self.norm(hidden)
-        logits = self.lm_head(hidden)
-        return logits, layer_caches
