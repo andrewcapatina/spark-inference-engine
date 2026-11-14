@@ -100,11 +100,10 @@ def dequantize_q8_0(raw_bytes):
     if n % block_size != 0:
         raise ValueError(f"Q8_0 payload must be a multiple of {block_size} bytes, got {n}")
     num_blocks = n // block_size
-    raw = np.frombuffer(raw_bytes, dtype=np.uint8)
-    blocks = raw.reshape(num_blocks, block_size)
-    scale_bytes = blocks[:, :2].view(np.float16).astype(np.float32)
-    ints = blocks[:, 2:].view(np.int8).astype(np.float32)
-    result = (ints * scale_bytes[:, None]).ravel()
+    scales = np.frombuffer(raw_bytes, dtype=np.float16, count=num_blocks, offset=0)
+    scales = scales.reshape(num_blocks, 1)
+    ints = np.frombuffer(raw_bytes, dtype=np.int8, count=n)
+    ints = ints.reshape(num_blocks, block_size)[:, 2:]
     result = (ints.astype(np.float32) * scales).ravel()
     return torch.tensor(result, dtype=torch.float32)
 
