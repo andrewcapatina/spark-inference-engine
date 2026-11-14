@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-11-14T21:32:26.178654+00:00",
+  "user_constraint": "One large model at a time; no9B/27B/coding-model overlap",
+  "second_crash_scheduling": {
+    "native_checkpoint": "27B only",
+    "previous9B_worker_completed": true,
+    "coding_server_stopped_before_native_validation": true,
+    "full_process_inventory_at_crash": "not recorded; cannot rule out unrecorded external processes or driver retention"
+  },
+  "initial_aggregate_regression": "Multiple actual-checkpoint tests shared a Python process; retention risk, no proof of simultaneous live checkpoints",
+  "future_preflight": "Refuse an active coding/reference server for native tests, refuse pre-existing Python workers, reject aggregate multi-checkpoint regression, fresh agent container before each large-checkpoint worker",
+  "guard_cpu_tests_passed": 7,
+  "new_guard_runtime_gpu_validation": "not attempted; crash hold remains active",
+  "engine_implementation_changed": false
+}

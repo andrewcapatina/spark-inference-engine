@@ -99,3 +99,9 @@ The interrupted November 14 run is preserved in [the partial report](benchmarks/
 ## Event accounting, schema 2
 
 Returned output length is authoritative for the number of selected tokens. Decode entry marks each preceding selection. When generation returns without a decode for its final selection (including early EOS or a one-token reply), the final CUDA event recorded after `generate` returns supplies that marker. This includes the small return/marker-submission interval; the marker kind is recorded explicitly. A final unused decode is reported only when there is a decode call for every returned token. One-token output has no decode-throughput interval. The same revised observer must measure both sides of an optimization comparison.
+
+## One large checkpoint at a time
+
+The experiment policy requires one actual9B or27B checkpoint per fresh worker/container boundary, with the coding/reference model server stopped during native tests. Each command preflight rejects existing Python workers in the dedicated agent container. The former aggregate multi-checkpoint regression path is disabled in the optimization runner; the full numerical gate set is scheduled as small checks plus isolated real-checkpoint cases. Reference tokenizers and saved golden tensors do not require loading another full Qwen model.
+
+The second crash occurred in a27B-only scheduled worker after9B exited and the coding server stopped. This does not prove that all driver allocations or filesystem caches were released: no complete per-process inventory was retained at the instant of failure. See the [isolation audit](benchmarks/results/2026-11-14-final-decode/model-isolation-audit.json). New guards pass seven CPU tests but have not been GPU tested; the crash hold remains active.
