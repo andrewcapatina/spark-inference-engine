@@ -2,7 +2,7 @@
 
 No new optimization is selected. GPU experiments are held after two host shutdowns. The current local-Qwen change passes protected correctness, but [performance validation is incomplete](benchmarks/results/2026-11-14-final-decode/README.md). Short token-limited replies improved in saved measurements; longer results were mixed/slower. The pending paired diagnostic did not run.
 
-A later [small 9B clean-shutdown trial](benchmarks/results/2026-11-14-clean-shutdown/README.md) passed with normal worker/container exits and recovered host available memory. OS cache grew by about 17 GiB and CUDA-global free stayed lower; review that physical-memory headroom before another large-model run. This has not resolved the 27B shutdowns.
+Later small clean-shutdown trials passed for both [9B](benchmarks/results/2026-11-14-clean-shutdown/README.md) and [27B](benchmarks/results/2026-11-14-clean-shutdown-27b/README.md), with normal worker/container exits and recovered host available memory. OS file cache remained after exit and CUDA-global free stayed lower. These short trials do not resolve the earlier 27B shutdowns at the longer workload.
 
 ## Reliability comes first
 

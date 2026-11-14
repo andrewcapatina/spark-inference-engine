@@ -79,3 +79,7 @@ Original workers recorded clean benchmark commit `19afb7987d601b4a5035c82eb41047
 ## Current hold
 
 Further GPU experiments are halted after the second host shutdown. The caps and external watchdog did not prevent it. Review the [partial optimization report](benchmarks/results/2026-11-14-final-decode/README.md) and [options](OPTIMIZATION_OPTIONS.md) before choosing further work. No blanket speedup or host-stability fix is claimed.
+
+## Later small trials with clean shutdown
+
+Separate one-model trials used 256 raw prompt tokens, 8 output tokens, 1 warmup and 3 timed repetitions, with explicit model release after timing and verified normal process/container exits. The 9B median was 0.809 s; the 27B median was 2.098 s. These are short post-change cleanup measurements, not the missing longer-workload baseline or a new before/after comparison. Both had matching outputs, no swap growth, and same-boot completion. See [9B evidence](benchmarks/results/2026-11-14-clean-shutdown/README.md) and [27B evidence](benchmarks/results/2026-11-14-clean-shutdown-27b/README.md). Earlier shutdowns remain unexplained and no further optimization has been selected.

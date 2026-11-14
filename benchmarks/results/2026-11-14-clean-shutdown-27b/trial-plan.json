@@ -1,0 +1,16 @@
+{
+  "authorization": "User explicitly requested 27B trial now",
+  "model": "27B GGUF only",
+  "prompt_tokens": 256,
+  "new_tokens": 8,
+  "warmups": 1,
+  "timed_repetitions": 3,
+  "separate_cuda_events": true,
+  "profiler": false,
+  "cuda_limit_gib": 56,
+  "minimum_host_available_gib": 32,
+  "max_new_swap_mib": 256,
+  "previous_9b_trial": "/home/cap/spark-inference-overnight-20261113/runs/clean-shutdown-retry-20261114T230656Z",
+  "same_clean_container": true,
+  "global_gpu_hold_retained": true
+}
