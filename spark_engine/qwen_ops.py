@@ -131,6 +131,8 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         chunk_decay = cum_decay_c[:, :, -1].exp()
         decayed_k_c = k_c * (cum_decay_c[:, :, -1:] - cum_decay_c).exp().unsqueeze(-1)
         state = state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + decayed_k_c.transpose(-2, -1) @ v_corrected
+        # Apply remaining within-chunk decay to state for next chunk
+        state = state * (cum_decay_c[:, :, -1:] - cum_decay_c[:, :, -1:]).exp().unsqueeze(-1).unsqueeze(-1)
     # Trim padding
     out = out[:, :, :time]
     # [batch,heads,time,feature] -> [batch,time,heads,feature]
