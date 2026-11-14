@@ -157,3 +157,29 @@ class QwenGatedDeltaNet(nn.Module):
         recurrent_state = torch.zeros(bsz, self.num_v_heads, self.k_dim, self.v_dim, device=hidden.device, dtype=hidden.dtype)
         cache = {"conv_state": conv_state, "recurrent_state": recurrent_state, "length": seq}
         return out, cache
+
+    def decode(self, new_hidden, cache):
+        bsz = new_hidden.shape[0]
+        mixed = self.in_proj_qkv(new_hidden).transpose(1, 2)
+        conv_state = cache["conv_state"]
+        conv_state = torch.cat([conv_state[:, :, 1:], mixed], dim=2)
+        mixed = F.silu(conv_state).transpose(1, 2)
+        q, k, v = torch.split(mixed, [self.key_dim, self.key_dim, self.value_dim], dim=-1)
+        q = q.view(bsz, 1, self.num_k_heads, self.k_dim)
+        k = k.view(bsz, 1, self.num_k_heads, self.k_dim)
+        v = v.view(bsz, 1, self.num_v_heads, self.v_dim)
+        z = self.in_proj_z(new_hidden).view(bsz, 1, self.num_v_heads, self.v_dim)
+        beta = torch.sigmoid(self.in_proj_b(new_hidden))
+        a = self.in_proj_a(new_hidden)
+        g = -self.A_log.float().exp() * F.softplus(a.float() + self.dt_bias)
+        if self.num_v_heads // self.num_k_heads > 1:
+            q = q.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
+            k = k.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
+        out, new_recurrent = gated_delta_rule(q, k, v, g, beta, cache["recurrent_state"])
+        out = out.view(-1, self.v_dim)
+        z = z.view(-1, self.v_dim)
+        out = self.norm(out, z)
+        out = out.view(bsz, 1, -1)
+        out = self.out_proj(out)
+        new_cache = {"conv_state": conv_state, "recurrent_state": new_recurrent, "length": cache["length"] + 1}
+        return out, new_cache
