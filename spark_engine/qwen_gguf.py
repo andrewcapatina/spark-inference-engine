@@ -384,13 +384,19 @@ def tokenizer_from_gguf(metadata):
 
     # Qwen3.5 uses byte-level BPE with specific preprocessing
     # Check metadata for normalizer settings; default to no NFC (actual GGUF lacks it)
-    normalizer_name = metadata.get("tokenizer.normalizer", "")
-    if "nfc" in normalizer_name.lower():
+    if metadata.get("tokenizer.ggml.normalizer.nfc", False):
         tokenizer.normalizer = normalizers.NFC()
-    # No normalizer by default (matches actual GGUF metadata)
 
-    # Byte-level pre-tokenizer for Qwen3.5
-    tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
+    # Canonical Qwen3.5 pre-tokenizer: Split with GPT2-style regex (isolated),
+    # then ByteLevel without regex. Matches the downloaded 9B tokenizer.json.
+    from tokenizers import Regex
+    qwen_split_pattern = Regex(
+        "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?[\\p{L}\\p{M}]+|\\p{N}| ?[^\\s\\p{L}\\p{M}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+"
+    )
+    tokenizer.pre_tokenizer = pre_tokenizers.Sequence([
+        pre_tokenizers.Split(qwen_split_pattern, behavior="isolated", invert=False),
+        pre_tokenizers.ByteLevel(add_prefix_space=False, use_regex=False),
+    ])
 
     # Decoder
     tokenizer.decoder = decoders.ByteLevel()
@@ -402,9 +408,9 @@ def tokenizer_from_gguf(metadata):
     for i, token in enumerate(tokens):
         ttype = token_types[i] if i < len(token_types) else 1
         if ttype == 3:
-            special_added.append(AddedToken(token, id=i, special=True))
+            special_added.append(AddedToken(token, special=True))
         elif ttype == 4:
-            user_added.append(AddedToken(token, id=i, special=False))
+            user_added.append(AddedToken(token, special=False))
     if special_added:
         tokenizer.add_special_tokens(special_added)
     if user_added:
