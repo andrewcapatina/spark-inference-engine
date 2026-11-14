@@ -1,0 +1,6 @@
+{
+  "decision": "allow_scoped_placement_for_testing",
+  "reviewer": "Codex supervisor",
+  "candidate_sha256": "5ff2f78ad1ac294e15f12a61aef82125a6db94ac486381160efd939ceb5ce457",
+  "findings": "Only loop index and decode guard change; signature, token append, EOS condition, prefill and output return preserved. No math, other functions or imports changed. Native implementation authored entirely by local Qwen. Correctness verification still pending."
+}

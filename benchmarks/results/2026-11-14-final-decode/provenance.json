@@ -1,0 +1,60 @@
+{
+  "implementation_author": "local Qwen model",
+  "coding_runtime": {
+    "image": "ollama/ollama:0.30.0",
+    "source_repo": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+    "source_revision": "36116c48f4e81b4c66a9c63da13a72959999a5f6",
+    "source_file": "Qwen3.8-27B-TurboFCFusion-735-882-Here-Uncen-NEO-CODER-MAX-Q8_0.gguf",
+    "model": "prototype-qwen27b-q8",
+    "renderer": "qwen3.5",
+    "parser": "qwen3.5",
+    "context": 32768,
+    "thinking": false
+  },
+  "local_response_sha256": "0930f3fefe7fe1a84d0a690211e7913d49714250241cfb138d8d686994738f2a",
+  "candidate_sha256": "5ff2f78ad1ac294e15f12a61aef82125a6db94ac486381160efd939ceb5ce457",
+  "placement": {
+    "origin": "local_Qwen_candidate_verbatim",
+    "candidate_sha256": "5ff2f78ad1ac294e15f12a61aef82125a6db94ac486381160efd939ceb5ce457",
+    "before_sha256": "cb5d7dee1daa32e2cec6e960a69d2a8a2de74d46a7c24e62abfcf64239d0e315",
+    "after_sha256": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762",
+    "outside_method_bytes_unchanged": true
+  },
+  "root_authored_engine_implementation": false,
+  "root_changes": "Harness, diagnostics, tests, scheduling and documentation only",
+  "request_options": {
+    "num_ctx": 4096,
+    "num_predict": 1400,
+    "temperature": 0,
+    "seed": 0,
+    "thinking": false
+  },
+  "engine_before": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_model.py": "cb5d7dee1daa32e2cec6e960a69d2a8a2de74d46a7c24e62abfcf64239d0e315"
+  },
+  "engine_candidate": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762"
+  },
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/optimization-final-decode-20261114T202920Z",
+  "implementation_commit": "18894a8a29bed24e1a879308701455ba14cf5ff1"
+}

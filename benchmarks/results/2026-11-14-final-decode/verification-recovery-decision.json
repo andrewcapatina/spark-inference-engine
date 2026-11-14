@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-14T20:56:42.218632+00:00",
+  "classification": "host_watchdog_abort_not_test_assertion_failure",
+  "partial_passes_observed": 32,
+  "aborted_run_preserved": "/home/cap/spark-inference-overnight-20261113/runs/optimization-final-decode-20261114T202920Z/verify-status.json",
+  "watchdog_abort": {
+    "time": "2026-11-14T20:54:10.166436+00:00",
+    "MemAvailable": 48405364736,
+    "SwapTotal": 17179865088,
+    "SwapFree": 16088969216,
+    "swap_used_bytes": 1090895872
+  },
+  "recovery": "Fresh process per real checkpoint; same original tests and56GiB GPU allocator cap; host floor32GiB, new swap growth budget1GiB per command, stale cumulative swap recorded separately",
+  "native_candidate_unchanged": true,
+  "numerical_tests_and_tolerances_unchanged": true
+}

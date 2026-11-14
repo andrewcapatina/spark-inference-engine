@@ -1,6 +1,6 @@
 # Local Qwen task: skip the final unused decode
 
-Status: prepared for local-model implementation; not queued or executed.
+Status: local-Qwen implementation checkpointed at `18894a8`; all 56 unique Qwen gates, 15 Llama cases and focused control-flow checks pass. Matched performance comparison is pending.
 Selection evidence: [performance report](PERFORMANCE.md#selected-first-optimization-remove-the-unused-final-decode).
 
 ## Problem and scope
