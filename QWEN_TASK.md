@@ -49,3 +49,9 @@ whole 27B model in memory. Free unused tensors. A cold NAS load can be slow.
 Run without a scheduled deadline until the queued work completes, the user
 requests a stop, or a containment/regression/dependency problem requires review. Leave a
 checkpoint and precise report even if Qwen remains incomplete.
+
+Cache work now follows one-method queue tasks. Prefill/decode are verified at
+the attention mixer, delta mixer, decoder, and whole-model levels separately.
+Existing forwards and other methods remain frozen while a new cache method is
+added. Regression tests use public numerical behavior, not local variable names.
+Exact cache shapes and signatures are in the fixed acceptance tests.
