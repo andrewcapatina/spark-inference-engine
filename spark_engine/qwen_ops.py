@@ -139,12 +139,13 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
 
 
 def gated_delta_rule(q, k, v, g, beta, initial_state=None):
-    """Gated delta rule linear attention (pure PyTorch recurrence).
+    """Gated delta rule linear attention.
 
-    Layout: q/k/v [batch,time,heads,feature]; g/beta [batch,time,heads];
-    state [batch,heads,key_dim,value_dim]. Transpose to [batch,heads,time,feature]
-    for the recurrence, then transpose back.
+    BF16 uncached prefill uses the chunked official-arithmetic path; all other
+    cases (FP32, cached decode) use the pure PyTorch recurrence.
     """
+    if q.dtype == torch.bfloat16 and initial_state is None:
+        return gated_delta_chunk(q, k, v, g, beta, initial_state)
     dtype = q.dtype
     # [batch,time,heads,feature] -> [batch,heads,time,feature]
     q = q.transpose(1, 2).float()
