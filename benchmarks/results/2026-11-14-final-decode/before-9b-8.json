@@ -1,0 +1,321 @@
+{
+  "schema_version": 2,
+  "started": "2026-11-14T20:30:02.549473+00:00",
+  "model": "/workspace/reference/qwen9b",
+  "source": {
+    "sha256": {
+      "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_model.py": "cb5d7dee1daa32e2cec6e960a69d2a8a2de74d46a7c24e62abfcf64239d0e315",
+      "tools/benchmark_qwen.py": "abd97f515c067245e79d7fbe3b324243cdf4e171f130b2d8a626c21053b06e3f"
+    },
+    "git_commit": "ddd213215395c09714645fa7e3570a3acc52bf51",
+    "git_dirty": false
+  },
+  "settings": {
+    "cuda_limit_gib": 24,
+    "min_available_gib": 32,
+    "prompt_lengths": [
+      256,
+      1024
+    ],
+    "new_tokens": 8,
+    "repetitions": 3,
+    "warmups": 1,
+    "batch_size": 1,
+    "dtype": "bfloat16",
+    "eos_enabled": false,
+    "prompt_recipe": "Explain how a computer turns a question into an answer. Discuss memory, arithmetic, and clear examples.\n",
+    "prompt_kind": "repeated raw-text token IDs, truncated to exact length"
+  },
+  "environment": {
+    "python": "3.10.12 (main, Jan  8 2026, 06:52:19) [GCC 11.4.0]",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.35",
+    "torch": "2.11.0a0+gita370667",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GB10",
+    "cpu_threads": 4,
+    "interop_threads": 20,
+    "allow_tf32": false,
+    "cudnn_benchmark": false
+  },
+  "methodology": {
+    "load": "Fresh process/model; OS/NAS cache state uncontrolled, not guaranteed disk-cold",
+    "baseline": "Unmodified native generate; wall timing synchronized before/after, input IDs already on CUDA",
+    "events": "Separate observed run; first-token and decode throughput use CUDA stream event markers, exclude text I/O",
+    "memory": "CUDA peaks per phase include weights; VmHWM is process-lifetime peak RSS; global free memory is shared, do not sum capacities",
+    "work": "Fixed output length with EOS disabled; performance workload, not response-quality validation"
+  },
+  "cases": [
+    {
+      "prompt_tokens": 256,
+      "input_sha256": "b1e4290d8b39c96e05c6aaf1e37ed8368786614fc4f7a41cb423b56e71e23b9d",
+      "samples": [
+        {
+          "repetition": 0,
+          "wall_ms": 893.8342680003188,
+          "generated_tokens_per_second": 8.950205073136832,
+          "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+          "memory": {
+            "cuda_allocated_bytes": 17916158464,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18209200128,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41302937600,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906205696,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94627467264,
+            "SwapFree_bytes": 17179865088
+          }
+        },
+        {
+          "repetition": 1,
+          "wall_ms": 897.5231310000709,
+          "generated_tokens_per_second": 8.913419302169904,
+          "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+          "memory": {
+            "cuda_allocated_bytes": 17916158464,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18209200128,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41303265280,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906209792,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94627860480,
+            "SwapFree_bytes": 17179865088
+          }
+        },
+        {
+          "repetition": 2,
+          "wall_ms": 894.1573559995959,
+          "generated_tokens_per_second": 8.946971074298935,
+          "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+          "memory": {
+            "cuda_allocated_bytes": 17916158464,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18209200128,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41315397632,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906213888,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94640046080,
+            "SwapFree_bytes": 17179865088
+          }
+        }
+      ],
+      "summary": {
+        "repetitions": 3,
+        "median_wall_ms": 894.1573559995959,
+        "min_wall_ms": 893.8342680003188,
+        "max_wall_ms": 897.5231310000709,
+        "median_generated_tokens_per_second": 8.946971074298935,
+        "peak_cuda_allocated_bytes": 18209200128,
+        "peak_cuda_reserved_bytes": 19979567104,
+        "repeated_outputs_match": true
+      },
+      "event_diagnostic": {
+        "total_cuda_ms": 897.0033569335938,
+        "prefill_cuda_ms": 188.7216339111328,
+        "first_token_cuda_ms": 188.87603759765625,
+        "decode_call_cuda_ms": [
+          91.66802978515625,
+          89.30754852294922,
+          87.50819396972656,
+          89.55414581298828,
+          87.5051498413086,
+          87.4939193725586,
+          87.51532745361328,
+          87.46300506591797
+        ],
+        "observed_decode_calls": 8,
+        "selected_tokens": 8,
+        "final_selection_marker": "decode_entry_cuda_event",
+        "decode_token_window_cuda_ms": 620.6626586914062,
+        "decode_tokens_per_second_cuda": 11.278268318507628,
+        "final_unused_decode_cuda_ms": 87.46300506591797,
+        "prefill_tokens_per_second_cuda": 1356.4952501447074,
+        "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+        "output_matches_baseline": true
+      }
+    },
+    {
+      "prompt_tokens": 1024,
+      "input_sha256": "afea608dc746cea67d4f183d056c42a3123d1faef68092c0a4f8e7601735a41b",
+      "samples": [
+        {
+          "repetition": 0,
+          "wall_ms": 1320.476735000284,
+          "generated_tokens_per_second": 6.0584179849244215,
+          "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+          "memory": {
+            "cuda_allocated_bytes": 17916170752,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18922283520,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41342492672,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906369536,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94667296768,
+            "SwapFree_bytes": 17179865088
+          }
+        },
+        {
+          "repetition": 1,
+          "wall_ms": 1324.7082870002487,
+          "generated_tokens_per_second": 6.039065414254858,
+          "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+          "memory": {
+            "cuda_allocated_bytes": 17916170752,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18922283520,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41360076800,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906369536,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94684975104,
+            "SwapFree_bytes": 17179865088
+          }
+        },
+        {
+          "repetition": 2,
+          "wall_ms": 1324.594796999918,
+          "generated_tokens_per_second": 6.039582835535247,
+          "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+          "memory": {
+            "cuda_allocated_bytes": 17916170752,
+            "cuda_reserved_bytes": 19979567104,
+            "cuda_peak_allocated_bytes": 18922283520,
+            "cuda_peak_reserved_bytes": 19979567104,
+            "cuda_global_free_bytes": 41377501184,
+            "cuda_total_bytes": 130661138432,
+            "VmHWM_bytes": 38917435392,
+            "VmRSS_bytes": 7906369536,
+            "VmSwap_bytes": 0,
+            "MemAvailable_bytes": 94702399488,
+            "SwapFree_bytes": 17179865088
+          }
+        }
+      ],
+      "summary": {
+        "repetitions": 3,
+        "median_wall_ms": 1324.594796999918,
+        "min_wall_ms": 1320.476735000284,
+        "max_wall_ms": 1324.7082870002487,
+        "median_generated_tokens_per_second": 6.039582835535247,
+        "peak_cuda_allocated_bytes": 18922283520,
+        "peak_cuda_reserved_bytes": 19979567104,
+        "repeated_outputs_match": true
+      },
+      "event_diagnostic": {
+        "total_cuda_ms": 1327.2447509765625,
+        "prefill_cuda_ms": 603.1791381835938,
+        "first_token_cuda_ms": 603.296630859375,
+        "decode_call_cuda_ms": [
+          93.16883087158203,
+          92.20022583007812,
+          90.05795288085938,
+          90.87417602539062,
+          89.19891357421875,
+          89.83475494384766,
+          89.15094757080078,
+          89.35942077636719
+        ],
+        "observed_decode_calls": 8,
+        "selected_tokens": 8,
+        "final_selection_marker": "decode_entry_cuda_event",
+        "decode_token_window_cuda_ms": 634.5870361328125,
+        "decode_tokens_per_second_cuda": 11.030795779658778,
+        "final_unused_decode_cuda_ms": 89.35942077636719,
+        "prefill_tokens_per_second_cuda": 1697.6714464688898,
+        "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+        "output_matches_baseline": true
+      }
+    }
+  ],
+  "status": "complete",
+  "cuda_context_init_ms": 173.5261920002813,
+  "before_load_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 0,
+    "cuda_peak_reserved_bytes": 0,
+    "cuda_global_free_bytes": 87834533888,
+    "cuda_total_bytes": 130661138432,
+    "VmHWM_bytes": 557432832,
+    "VmRSS_bytes": 557432832,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 123190804480,
+    "SwapFree_bytes": 17179865088
+  },
+  "model_tokenizer_load_ms": 160789.56947000005,
+  "loaded_memory": {
+    "cuda_allocated_bytes": 17907634176,
+    "cuda_reserved_bytes": 19960692736,
+    "cuda_peak_allocated_bytes": 19941871616,
+    "cuda_peak_reserved_bytes": 19960692736,
+    "cuda_global_free_bytes": 42065113088,
+    "cuda_total_bytes": 130661138432,
+    "VmHWM_bytes": 38917435392,
+    "VmRSS_bytes": 7060942848,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 95389220864,
+    "SwapFree_bytes": 17179865088
+  },
+  "parameter_bytes": 17907606528,
+  "prompt_base_token_ids": [
+    814,
+    20139,
+    1204,
+    264,
+    6165,
+    10263,
+    264,
+    3296,
+    1083,
+    449,
+    4087,
+    13,
+    63074,
+    4779,
+    11,
+    33633,
+    11,
+    321,
+    2708,
+    9989,
+    13,
+    198
+  ],
+  "finished": "2026-11-14T20:32:55.125481+00:00",
+  "final_memory": {
+    "cuda_allocated_bytes": 17916153856,
+    "cuda_reserved_bytes": 19979567104,
+    "cuda_peak_allocated_bytes": 18922283520,
+    "cuda_peak_reserved_bytes": 19979567104,
+    "cuda_global_free_bytes": 41394143232,
+    "cuda_total_bytes": 130661138432,
+    "VmHWM_bytes": 38917435392,
+    "VmRSS_bytes": 7906390016,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 94719070208,
+    "SwapFree_bytes": 17179865088
+  }
+}

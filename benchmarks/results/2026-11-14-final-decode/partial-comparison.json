@@ -1,0 +1,140 @@
+{
+  "status": "incomplete_second_host_reboot",
+  "completed_matched_cases": 7,
+  "planned_matched_cases": 8,
+  "missing_case": {
+    "model": "27b",
+    "prompt_tokens": 1024,
+    "output_tokens": 128
+  },
+  "paired_diagnostic_executed": false,
+  "performance_accepted": false,
+  "rows": [
+    {
+      "model": "9b",
+      "prompt_tokens": 256,
+      "output_tokens": 8,
+      "before_median_ms": 894.1573559995959,
+      "after_median_ms": 826.3445580005282,
+      "latency_reduction_pct": 7.583989277061693,
+      "before_range_ms": [
+        893.8342680003188,
+        897.5231310000709
+      ],
+      "after_range_ms": [
+        825.2256879995912,
+        826.3527489998523
+      ],
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "after_worker_completed": true
+    },
+    {
+      "model": "9b",
+      "prompt_tokens": 1024,
+      "output_tokens": 8,
+      "before_median_ms": 1324.594796999918,
+      "after_median_ms": 1259.0378770000825,
+      "latency_reduction_pct": 4.949205609769539,
+      "before_range_ms": [
+        1320.476735000284,
+        1324.7082870002487
+      ],
+      "after_range_ms": [
+        1258.0929300002026,
+        1259.0777499999604
+      ],
+      "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+      "after_worker_completed": true
+    },
+    {
+      "model": "9b",
+      "prompt_tokens": 256,
+      "output_tokens": 128,
+      "before_median_ms": 11648.26012399999,
+      "after_median_ms": 11804.840342999341,
+      "latency_reduction_pct": -1.3442369704359125,
+      "before_range_ms": [
+        11643.528255000092,
+        11653.100109000206
+      ],
+      "after_range_ms": [
+        11784.281342999748,
+        11828.178943000239
+      ],
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "after_worker_completed": true
+    },
+    {
+      "model": "9b",
+      "prompt_tokens": 1024,
+      "output_tokens": 128,
+      "before_median_ms": 12170.476622000024,
+      "after_median_ms": 12462.494510000397,
+      "latency_reduction_pct": -2.39939566107465,
+      "before_range_ms": [
+        12169.093079999584,
+        12173.945098000331
+      ],
+      "after_range_ms": [
+        12459.839379999721,
+        12462.583311000344
+      ],
+      "output_sha256": "85c78cdb4d3363161be19cd210a185eace53ab08397de97a8fc20e52c4023fce",
+      "after_worker_completed": true
+    },
+    {
+      "model": "27b",
+      "prompt_tokens": 256,
+      "output_tokens": 8,
+      "before_median_ms": 2365.6130859999394,
+      "after_median_ms": 2179.016346000026,
+      "latency_reduction_pct": 7.887880782543081,
+      "before_range_ms": [
+        2365.596000000096,
+        2371.854353999879
+      ],
+      "after_range_ms": [
+        2174.4589170002655,
+        2183.2840449997093
+      ],
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "after_worker_completed": true
+    },
+    {
+      "model": "27b",
+      "prompt_tokens": 1024,
+      "output_tokens": 8,
+      "before_median_ms": 3772.286163999979,
+      "after_median_ms": 3578.9341669997157,
+      "latency_reduction_pct": 5.12559197776345,
+      "before_range_ms": [
+        3771.9054340000184,
+        3776.167498999712
+      ],
+      "after_range_ms": [
+        3576.546944999791,
+        3580.5907940002726
+      ],
+      "output_sha256": "6b9a375472478c86c32c12f9ee812ff5b83c18488a0a8e5f7807d60c4e726d6c",
+      "after_worker_completed": true
+    },
+    {
+      "model": "27b",
+      "prompt_tokens": 256,
+      "output_tokens": 128,
+      "before_median_ms": 30154.30173799996,
+      "after_median_ms": 30652.21208500043,
+      "latency_reduction_pct": -1.6512083460815534,
+      "before_range_ms": [
+        30146.717098999943,
+        30156.63214899996
+      ],
+      "after_range_ms": [
+        30647.941327000808,
+        30666.163806999975
+      ],
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "after_worker_completed": false
+    }
+  ]
+}

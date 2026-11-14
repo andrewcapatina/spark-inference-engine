@@ -15,6 +15,8 @@ its GGUF architecture identifier is `qwen35`.
   where to find each component, and what remains a design idea.
 - [Performance measurements](PERFORMANCE.md): baseline results, recovery limitations,
   and the selected first optimization.
+- [Options review](OPTIMIZATION_OPTIONS.md): reliability work and alternative
+  performance directions; further GPU work is currently held.
 - [CLI usage](CLI_USAGE.txt): chat, completions, commands and the existing local
   Docker setup.
 - [Original component map](INFERENCE_ENGINE_DIAGRAM.txt): the preserved design

@@ -66,5 +66,6 @@
   "numerical_tests_and_tolerances_unchanged": true,
   "aggregate_run_watchdog_abort_preserved": true,
   "recovered_checkpoints_in_fresh_processes": true,
-  "performance_comparison": "pending"
+  "performance_comparison": "incomplete_after_second_host_reboot",
+  "host_stability": "unresolved"
 }

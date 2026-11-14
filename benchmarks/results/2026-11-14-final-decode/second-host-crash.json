@@ -1,0 +1,49 @@
+{
+  "status": "host_reboot_confirmed",
+  "cause": "unproven",
+  "old_boot_id": "d0cd60f1-285b-4e95-b4e7-e5789131d3ec",
+  "new_boot_id": "c7a27d76-0d0b-44bf-a860-709525b7582e",
+  "new_boot_start_utc": "2026-11-14T21:20:18Z",
+  "last_phase": {
+    "time": "2026-11-14T21:15:01.629645+00:00",
+    "phase": "before_sample",
+    "boot_id": "d0cd60f1-285b-4e95-b4e7-e5789131d3ec",
+    "memory": {
+      "cuda_allocated_bytes": 53800577024,
+      "cuda_reserved_bytes": 56375640064,
+      "cuda_peak_allocated_bytes": 53800577024,
+      "cuda_peak_reserved_bytes": 56375640064,
+      "cuda_global_free_bytes": 15304495104,
+      "cuda_total_bytes": 130661138432,
+      "VmHWM_bytes": 17829941248,
+      "VmRSS_bytes": 3045806080,
+      "VmSwap_bytes": 0,
+      "MemAvailable_bytes": 63631822848,
+      "SwapFree_bytes": 16803172352
+    },
+    "prompt_tokens": 1024,
+    "repetition": 0
+  },
+  "last_host_snapshot": {
+    "time": "2026-11-14T21:15:03.359636+00:00",
+    "MemAvailable": 63631572992,
+    "SwapTotal": 17179865088,
+    "SwapFree": 16803172352,
+    "swap_used_bytes": 376692736,
+    "swap_growth_bytes": 0
+  },
+  "warmup_1024_completed": true,
+  "timed_1024_repetition_0_completed": false,
+  "allocator_cap_gib": 56,
+  "watchdog_floor_gib": 32,
+  "watchdog_swap_growth_limit_gib": 1,
+  "profiler_enabled": false,
+  "guards_did_not_prevent_host_failure": true,
+  "agent_oom_killed": false,
+  "agent_exit_code": 255,
+  "controller_active": false,
+  "both_experiment_containers_running": false,
+  "no_tied_oom_or_gpu_fault_record_found_in_persisted_kernel_log": true,
+  "paired_9b_measurement_executed": false,
+  "automatic_heavy_resume_held": true
+}

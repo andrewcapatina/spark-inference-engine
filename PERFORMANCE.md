@@ -4,7 +4,7 @@
 
 The native engine runs both downloaded models on one GB10 using CUDA BF16. The complete original 9B benchmark produced approximately 10–11 output tokens/s. The completed original 27B cases produced approximately 4.1 output tokens/s. A separate capped 27B diagnostic completed the missing 1024-token prompt at 4.05 output tokens/s. These are development measurements, not production capacity guarantees.
 
-The original baseline remains incomplete: its 27B 1024-token case and profiler did not finish before a host shutdown. Recovery diagnostics are reported separately. No engine optimization has been implemented for this report.
+The original baseline remains incomplete: its 27B 1024-token case and profiler did not finish before a host shutdown. Recovery diagnostics are reported separately. Subsequently, local Qwen implemented the final-decode change. Protected correctness passed, but its performance comparison was interrupted by another host reboot; see the [optimization report](benchmarks/results/2026-11-14-final-decode/README.md).
 
 ## Original benchmark, before the shutdown
 
@@ -66,7 +66,7 @@ The first change should stop after selecting the final requested token, without 
 
 This is a small, directly measured reduction in unnecessary whole-model work. At 128 output tokens, the observed final decode consumes roughly 0.7–0.8% of the generation interval. At eight output tokens it represents a larger share. These are potential savings estimated from the existing event run, not measured optimization results. Removing this work should not improve time to first token or the steady-state decode rate; it should reduce complete-reply latency. Major throughput improvements need a subsequent, separately measured task.
 
-The [local-model task and acceptance plan](OPTIMIZATION_TASK.md) defines implementation scope, correctness gates, measurement repair and before/after comparison. It is prepared, not queued or executed. In particular, the current event observer uses decode entry as its token-selection marker; that assumption must be corrected before measuring the optimized loop, or the last selected token would disappear from its accounting.
+The [local-model task and acceptance plan](OPTIMIZATION_TASK.md) defines implementation scope, correctness gates, measurement repair and before/after comparison. That task has now been executed through correctness validation, but performance acceptance is incomplete after a second host reboot. In particular, the current event observer uses decode entry as its token-selection marker; that assumption must be corrected before measuring the optimized loop, or the last selected token would disappear from its accounting.
 
 ## Evidence and reproducibility
 
@@ -75,3 +75,7 @@ The [local-model task and acceptance plan](OPTIMIZATION_TASK.md) defines impleme
 - [Recovery report](benchmarks/results/2026-11-14-memory-diagnostics/README.md), [full-length JSON](benchmarks/results/2026-11-14-memory-diagnostics/27b-full-length.json), [diagnostic summary](benchmarks/results/2026-11-14-memory-diagnostics/summary.json).
 
 Original workers recorded clean benchmark commit `19afb7987d601b4a5035c82eb4104753f97684a8`. Recovery workers recorded the same parent with a dirty working tree; exact source hashes are embedded in their JSON. Native inference hashes match across protocols and the previously validated engine. Harness/recovery evidence was checkpointed locally at `8d7da0e`. Golden fixtures and the full acceptance harness remain external to the repository. Original long-context, profiler and production-safety limitations remain in effect.
+
+## Current hold
+
+Further GPU experiments are halted after the second host shutdown. The caps and external watchdog did not prevent it. Review the [partial optimization report](benchmarks/results/2026-11-14-final-decode/README.md) and [options](OPTIMIZATION_OPTIONS.md) before choosing further work. No blanket speedup or host-stability fix is claimed.
