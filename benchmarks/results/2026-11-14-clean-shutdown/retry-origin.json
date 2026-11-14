@@ -1,0 +1,8 @@
+{
+  "previous_attempt": "/home/cap/spark-inference-overnight-20261113/runs/clean-shutdown-20261114T214338Z",
+  "classification": "process-count harness false positive",
+  "evidence": "Timeout parent arguments included python3; actual executable inventory had one Python worker",
+  "parser_tests_passed": 4,
+  "native_engine_unchanged": true,
+  "same_bounded_workload": true
+}

@@ -1,0 +1,6 @@
+PID                 PPID                COMMAND             COMMAND
+158624              158593              docker-init         /sbin/docker-init -- /bin/sh -c trap "exit 0" TERM INT; sleep infinity & wait
+158751              158624              sh                  /bin/sh -c trap "exit 0" TERM INT; sleep infinity & wait
+158752              158751              sleep               sleep infinity
+158900              158593              timeout             timeout --kill-after=10 600 python3 tools/benchmark_qwen.py --model /workspace/reference/qwen9b --output-dir /workspace/benchmark_runs/clean-shutdown-retry-20261114T230656Z/9b --prompt-lengths 256 --new-tokens 8 --warmups 1 --repetitions 3 --cuda-limit-gib 24 --min-available-gib 64 --clean-release
+158906              158900              python3             python3 tools/benchmark_qwen.py --model /workspace/reference/qwen9b --output-dir /workspace/benchmark_runs/clean-shutdown-retry-20261114T230656Z/9b --prompt-lengths 256 --new-tokens 8 --warmups 1 --repetitions 3 --cuda-limit-gib 24 --min-available-gib 64 --clean-release

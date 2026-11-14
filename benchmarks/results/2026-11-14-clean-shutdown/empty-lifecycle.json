@@ -1,0 +1,9 @@
+{
+  "status": "empty_lifecycle_passed",
+  "model_loaded": false,
+  "stop_seconds": 0.11212710000017978,
+  "container_exit_code": 0,
+  "container_pid_after_stop": 0,
+  "oom_killed": false,
+  "boot_id": "c7a27d76-0d0b-44bf-a860-709525b7582e"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "replacement_created_stopped",
+  "backup_container": "spark-prototype-agent-pre-clean-stop-20261114T214338Z",
+  "backup_container_id": "1b417a3303e4acc48e51c8402c4b2977df5cd92c3222b54d92f2824f1154dfbd",
+  "new_container_id": "6a3790c35126acafb584799a836ba3160bc7304b7b9489dc72e6e856923c7959",
+  "same_image": true,
+  "same_environment_user_mounts_gpu_security_limits": true,
+  "changes": [
+    "Init=true",
+    "signal-aware shell keepalive",
+    "StopSignal=SIGTERM"
+  ],
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/clean-shutdown-20261114T214338Z"
+}
