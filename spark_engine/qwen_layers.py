@@ -162,8 +162,8 @@ class QwenGatedDeltaNet(nn.Module):
         """Single-token causal conv update (matches causal_conv1d_update)."""
         mixed = self.in_proj_qkv(new_hidden).transpose(1, 2)
         conv_state = torch.cat([conv_state[:, :, 1:], mixed], dim=2)
-        out = F.silu(conv_state)
-        return out.transpose(1, 2), conv_state
+        out = F.silu(self.conv1d(conv_state)[:, :, -1:]).transpose(1, 2)
+        return out, conv_state
 
     def decode(self, new_hidden, cache):
         bsz = new_hidden.shape[0]
