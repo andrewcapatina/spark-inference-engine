@@ -55,3 +55,10 @@ the attention mixer, delta mixer, decoder, and whole-model levels separately.
 Existing forwards and other methods remain frozen while a new cache method is
 added. Regression tests use public numerical behavior, not local variable names.
 Exact cache shapes and signatures are in the fixed acceptance tests.
+
+Sequential batch: prioritize attention decode, then GGUF scalar/unsigned/array
+metadata checks, then the real metadata file. The controller moves to independent
+work instead of stopping at the first blocker and permits two automatic recovery
+rounds with revised focused prompts. Regressions are saved and rolled back;
+failed restoration or exhausted recovery can still require review. GGUF fixtures
+follow the published GGUF v3 specification linked in their source manifest.
