@@ -58,6 +58,36 @@ class MeasurementTests(unittest.TestCase):
         self.assertEqual(calls, ["prefill", "decode"])
         self.assertEqual(vars(engine), before)
 
+    def test_final_selection_without_decode_uses_return_marker(self):
+        result = bench.event_metrics(Event(0), Event(21), [(Event(0), Event(10))],
+            [(Event(11), Event(15)), (Event(16), Event(20))], [Event(10), Event(15)], 3)
+        self.assertEqual(result["selected_tokens"], 3)
+        self.assertEqual(result["observed_decode_calls"], 2)
+        self.assertAlmostEqual(result["decode_tokens_per_second_cuda"], 2000 / 11)
+        self.assertIsNone(result["final_unused_decode_cuda_ms"])
+        self.assertEqual(result["final_selection_marker"], "generate_return_cuda_event")
+
+    def test_single_token_and_early_eos_are_counted_without_final_decode(self):
+        for returned in (1, 2):
+            calls = [(Event(11), Event(15))] if returned == 2 else []
+            selections = [Event(10)] if calls else []
+            result = bench.event_metrics(Event(0), Event(16), [(Event(0), Event(10))],
+                                         calls, selections, returned)
+            self.assertEqual(result["selected_tokens"], returned)
+            self.assertEqual(result["observed_decode_calls"], returned - 1)
+            self.assertIsNone(result["final_unused_decode_cuda_ms"])
+            if returned == 1:
+                self.assertIsNone(result["decode_tokens_per_second_cuda"])
+                self.assertEqual(result["first_token_cuda_ms"], 16)
+
+    def test_zero_tokens_and_inconsistent_observations(self):
+        result = bench.event_metrics(Event(0), Event(10), [], [], [], 0)
+        self.assertEqual(result["selected_tokens"], 0)
+        self.assertIsNone(result["first_token_cuda_ms"])
+        for calls, selections, count in [([], [], 3), ([], [Event(1)], 1)]:
+            with self.assertRaises(ValueError):
+                bench.event_metrics(Event(0), Event(10), [], calls, selections, count)
+
     def test_observer_restores_existing_instance_override_on_error(self):
         first, second = lambda value: value, lambda value: value
         engine = SimpleNamespace(prefill=first, decode=second)

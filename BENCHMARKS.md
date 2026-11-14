@@ -95,3 +95,7 @@ The interrupted November 14 run is preserved in [the partial report](benchmarks/
 ## Consolidated findings
 
 [Performance measurements](PERFORMANCE.md) keeps original and recovery protocols separate and selects the first local-Qwen optimization. The example above uses a 9B-specific allocator cap; use the tested 56 GiB cap for the downloaded 27B. A cap does not replace the external host watchdog used in recovery. Profiling is optional and remains deferred for further runs while the shutdown cause is unresolved. The completed original 9B profile remains available as evidence.
+
+## Event accounting, schema 2
+
+Returned output length is authoritative for the number of selected tokens. Decode entry marks each preceding selection. When generation returns without a decode for its final selection (including early EOS or a one-token reply), the final CUDA event recorded after `generate` returns supplies that marker. This includes the small return/marker-submission interval; the marker kind is recorded explicitly. A final unused decode is reported only when there is a decode call for every returned token. One-token output has no decode-throughput interval. The same revised observer must measure both sides of an optimization comparison.

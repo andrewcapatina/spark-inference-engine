@@ -95,8 +95,19 @@ def observe(engine, factory):
                 delattr(engine, name)
 
 
-def event_metrics(start, finish, prefills, decodes, selections):
-    count = len(selections)
+def event_metrics(start, finish, prefills, decodes, selections, generated_count=None):
+    count = len(selections) if generated_count is None else generated_count
+    selections = list(selections)
+    if len(decodes) != len(selections) or count < 0:
+        raise ValueError("Inconsistent decode/selection observations")
+    final_unused = count > 0 and len(decodes) == count
+    if count and len(selections) == count - 1:
+        selections.append(finish)
+        final_marker = "generate_return_cuda_event"
+    elif len(selections) == count:
+        final_marker = "decode_entry_cuda_event" if count else None
+    else:
+        raise ValueError("Unexpected decode count for returned output tokens")
     window = selections[0].elapsed_time(selections[-1]) if count > 1 else None
     return {"total_cuda_ms": start.elapsed_time(finish),
             "prefill_cuda_ms": sum(a.elapsed_time(b) for a, b in prefills),
@@ -104,12 +115,13 @@ def event_metrics(start, finish, prefills, decodes, selections):
             "decode_call_cuda_ms": [a.elapsed_time(b) for a, b in decodes],
             "observed_decode_calls": len(decodes),
             "selected_tokens": count,
+            "final_selection_marker": final_marker,
             "decode_token_window_cuda_ms": window,
             "decode_tokens_per_second_cuda": (count - 1) * 1000 / window if window else None,
-            "final_unused_decode_cuda_ms": decodes[-1][0].elapsed_time(decodes[-1][1]) if decodes else None}
+            "final_unused_decode_cuda_ms": decodes[-1][0].elapsed_time(decodes[-1][1]) if final_unused else None}
 
 
-def timed_diagnostic(torch, engine, ids, count):
+def timed_diagnostic(torch, engine, ids, count, eos_token_id=None):
     event = lambda: torch.cuda.Event(enable_timing=True)
     prefills, decodes, selections = [], [], []
 
@@ -131,10 +143,11 @@ def timed_diagnostic(torch, engine, ids, count):
     start, finish = event(), event()
     with observe(engine, factory):
         start.record()
-        generated = engine.generate(ids, max_new_tokens=count, eos_token_id=None)
+        generated = engine.generate(ids, max_new_tokens=count, eos_token_id=eos_token_id)
         finish.record()
         torch.cuda.synchronize()
-    result = event_metrics(start, finish, prefills, decodes, selections)
+    actual_count = generated.shape[1] - ids.shape[1]
+    result = event_metrics(start, finish, prefills, decodes, selections, actual_count)
     result["prefill_tokens_per_second_cuda"] = ids.shape[1] * 1000 / result["prefill_cuda_ms"]
     result["output_sha256"] = output_digest(generated, ids.shape[1])
     del generated
@@ -228,7 +241,7 @@ def run(args):
         if row["memory"]["MemAvailable_bytes"] < args.min_available_gib * 1024 ** 3:
             raise MemoryError("System available memory below diagnostic headroom threshold")
     context_init_ms = (time.perf_counter() - started) * 1000
-    result = {"schema_version": 1, "started": datetime.now(timezone.utc).isoformat(),
+    result = {"schema_version": 2, "started": datetime.now(timezone.utc).isoformat(),
               "model": str(args.model.resolve()), "source": source_info(),
               "settings": {"cuda_limit_gib": args.cuda_limit_gib,
                            "min_available_gib": args.min_available_gib,
