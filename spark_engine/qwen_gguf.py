@@ -338,31 +338,32 @@ def tokenizer_from_gguf(metadata):
     from transformers import PreTrainedTokenizerFast
 
     # Extract vocabulary and merges from GGUF metadata
-    tokens = metadata.get("tokenizer.tokens", [])
-    scores = metadata.get("tokenizer.scores", [])
-    token_types = metadata.get("tokenizer.token_type", [])
+    tokens = metadata.get("tokenizer.ggml.tokens", [])
+    token_types = metadata.get("tokenizer.ggml.token_type", [])
+    merges_raw = metadata.get("tokenizer.ggml.merges", [])
 
     # Build vocab dict: only type 1 (normal) and type 4 (user-defined) are real tokens
     # Type 3 = control/special, type 5 = unused
     vocab = {}
-    for i, (token, score, ttype) in enumerate(zip(tokens, scores, token_types)):
+    for i, (token, ttype) in enumerate(zip(tokens, token_types)):
         if ttype in (1, 4):
-            vocab[token] = score
+            vocab[token] = i
 
-    # Build merges list from scores (sorted by score descending = merge order)
-    merge_pairs = sorted(vocab.items(), key=lambda x: x[1], reverse=True)
-    merges = [f"{p[0]} {p[1]}" for p in merge_pairs]
+    # Build merges list from provided ordered merges
+    merges = []
+    for m in merges_raw:
+        parts = m.split(" ")
+        if len(parts) == 2:
+            merges.append((parts[0], parts[1]))
 
     # Build vocab for BPE model (token -> index)
-    bpe_vocab = {}
-    for i, (token, score) in enumerate(merge_pairs):
-        bpe_vocab[token] = i
+    bpe_vocab = vocab
 
     # Add special tokens from GGUF metadata
     special_tokens = {}
-    eos_id = metadata.get("tokenizer.eos_token_id")
-    bos_id = metadata.get("tokenizer.bos_token_id")
-    pad_id = metadata.get("tokenizer.pad_token_id")
+    eos_id = metadata.get("tokenizer.ggml.eos_token_id")
+    bos_id = metadata.get("tokenizer.ggml.bos_token_id")
+    pad_id = metadata.get("tokenizer.ggml.pad_token_id")
 
     if eos_id is not None and eos_id < len(tokens):
         special_tokens["eos_token"] = tokens[eos_id]
@@ -396,12 +397,7 @@ def tokenizer_from_gguf(metadata):
     tokenizer.decoder = decoders.ByteLevel()
 
     # Add special tokens
-    for name, token in special_tokens.items():
-        if token not in bpe_vocab:
-            bpe_vocab[token] = len(bpe_vocab)
-            tokenizer.model.add_token(token, len(bpe_vocab) - 1)
-
-    # Special tokens already added via add_token; no set_vocab call needed
+    pass
 
     # Wrap in PreTrainedTokenizerFast for return_tensors support
     fast_tokenizer = PreTrainedTokenizerFast(
