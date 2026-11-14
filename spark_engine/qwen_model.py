@@ -134,6 +134,7 @@ class QwenCausalLM(nn.Module):
                     model.state_dict()[target].copy_(tensor.to(dtype=dtype, device=device))
                     loaded.add(target)
             del state
+        model.to(dtype=dtype, device=device)
         missing = engine_keys - loaded
         if missing:
             raise RuntimeError(f"Checkpoint missing {len(missing)} engine weights: {sorted(missing)[:5]}")
