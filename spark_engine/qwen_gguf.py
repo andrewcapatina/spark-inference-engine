@@ -448,10 +448,8 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
 
     with torch.device("meta"):
         model = QwenCausalLM(config)
-        for p in model.parameters():
-            p.data = p.data.to(dtype=dtype)
 
-    model = model.to_empty(device=device)
+    model.to(dtype=dtype, device=device)
 
     loaded = set()
     for gguf_name in directory["tensors"]:
@@ -459,8 +457,7 @@ def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
         tensor = restore_tensor_value(gguf_name, tensor)
         native_name = map_tensor_name(gguf_name)
         param = model.get_parameter(native_name)
-        with torch.no_grad():
-            param.copy_(tensor.to(dtype=dtype, device=device))
+        param.copy_(tensor.to(dtype=dtype, device=device))
         del tensor
         loaded.add(native_name)
 
