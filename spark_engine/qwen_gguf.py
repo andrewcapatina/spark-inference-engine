@@ -433,6 +433,43 @@ def tokenizer_from_gguf(metadata):
     return fast_tokenizer
 
 
+def load_qwen_gguf(path, device="cuda", dtype=torch.bfloat16):
+    """Load a Qwen3.5 GGUF model into a shared NativeQwenText engine instance."""
+    from spark_engine.qwen_model import QwenCausalLM
+    from spark_engine.qwen_engine import NativeQwenText
+
+    metadata = read_metadata(path)
+    directory = read_tensor_directory(path)
+    config = config_from_gguf(metadata)
+    tokenizer = tokenizer_from_gguf(metadata)
+
+    if device == "cpu" and dtype == torch.float32:
+        raise ValueError("CPU/FP32 construction not supported for large Qwen models")
+
+    with torch.device("meta"):
+        model = QwenCausalLM(config)
+
+    model.to(dtype=dtype, device=device)
+
+    loaded = set()
+    for gguf_name in directory["tensors"]:
+        tensor = read_tensor(path, directory, gguf_name, device="cpu", dtype=torch.float32)
+        tensor = restore_tensor_value(gguf_name, tensor)
+        native_name = map_tensor_name(gguf_name)
+        param = model.get_parameter(native_name)
+        param.copy_(tensor.to(dtype=dtype, device=device))
+        del tensor
+        loaded.add(native_name)
+
+    expected = set(model.state_dict().keys())
+    missing = expected - loaded
+    if missing:
+        raise ValueError(f"Missing tensors: {missing}")
+
+    model.eval()
+    return NativeQwenText(model, tokenizer)
+
+
 def read_tensor_directory(path):
     """Read GGUF metadata and tensor directory without loading tensor payloads."""
     with open(path, 'rb') as f:
