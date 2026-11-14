@@ -159,8 +159,8 @@ class QwenCausalLM(nn.Module):
             offset = layer_caches[0][0].shape[2]
         positions = torch.arange(offset, offset + seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
-        cos = freqs.cos().unsqueeze(0)
-        sin = freqs.sin().unsqueeze(0)
+        cos = freqs.cos().unsqueeze(0).to(hidden.dtype)
+        sin = freqs.sin().unsqueeze(0).to(hidden.dtype)
         position_embeddings = (cos, sin)
         for i, layer in enumerate(self.layers):
             hidden, layer_caches[i] = layer.decode(hidden, position_embeddings, layer_caches[i])
