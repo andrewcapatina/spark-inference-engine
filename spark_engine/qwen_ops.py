@@ -83,10 +83,8 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         g = torch.nn.functional.pad(g, (0, pad))
     padded_time = time + pad
     n_chunks = padded_time // chunk_size
-    # Precompute per-step decay factors
-    decay = torch.exp(-g)
-    # Cumulative product of decay for state propagation
-    cum_decay = torch.cumprod(decay, dim=-1)
+    # Official uses cumulative log-decay differences for pairwise decay
+    cum_decay = g.cumsum(dim=-1)
     # Intra-chunk computation
     out = torch.zeros_like(v)
     if initial_state is None:
@@ -100,51 +98,37 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         k_c = k[:, :, start:end]
         v_c = v[:, :, start:end]
         beta_c = beta[:, :, start:end]
-        decay_c = decay[:, :, start:end]
+        g_c = g[:, :, start:end]
         cum_decay_c = cum_decay[:, :, start:end]
-        # Intra-chunk: compute attention with triangular mask
-        # K^T Q with causal mask
-        scores = torch.matmul(k_c.transpose(-2, -1), q_c)  # [b,h,chunk,chunk]
-        # Apply decay within chunk
-        # For each position j in chunk, multiply by product of decay from j to i
-        # This is done via cumulative products
-        # Build decay matrix: D[i,j] = prod(decay[j:i+1]) for j<=i, else 0
-        # Using cumprod: cum_decay[i] / cum_decay[j-1]
-        # Simpler: compute row-wise cumulative products
-        decay_cum = torch.cumprod(decay_c, dim=-1)  # [b,h,chunk]
-        # D[i,j] = decay_cum[i] / decay_cum[j] for j<=i
-        # Build via outer product
-        decay_matrix = decay_cum.unsqueeze(-1) / decay_cum.unsqueeze(-2)  # [b,h,chunk,chunk]
-        # Causal mask
+        # Pairwise decay: exp(cum_decay[j] - cum_decay[i]) for j <= i
+        pairwise_decay = cum_decay_c.unsqueeze(-1) - cum_decay_c.unsqueeze(-2)
+        # Causal mask: strictly upper triangle gets -inf
         mask = torch.tril(torch.ones(chunk_size, chunk_size, device=q.device))
-        decay_matrix = decay_matrix * mask
-        # Apply beta
-        beta_matrix = beta_c.unsqueeze(-1) * mask
+        pairwise_decay = pairwise_decay.masked_fill(mask == 0, float('-inf'))
+        pairwise_decay = pairwise_decay.exp()
+        # Auxiliary system: K^T Q with decay
+        ut_system = (k_c * beta_c.unsqueeze(-1)) @ k_c.transpose(-2, -1) * pairwise_decay
+        # Intra-chunk attention: Q K^T with decay
+        intra_chunk_attn = q_c @ k_c.transpose(-2, -1) * pairwise_decay
+        # Solve auxiliary system (unitriangular)
+        # v_new = solve(ut_system, v_c * beta_c)
+        # k_cumdecay = solve(ut_system, k_c * cum_decay.exp())
+        v_beta = v_c * beta_c.unsqueeze(-1)
+        decayed_k = k_c * cum_decay_c.exp().unsqueeze(-1)
+        # Use torch.linalg.solve_triangular for unitriangular system
+        v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
+        k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
+        # Inter-chunk attention with previous state
+        inter_chunk_attn = q_c @ state
+        # Correct intra-chunk values with carried state
+        v_corrected = v_new - k_cumdecay @ state
         # Compute output for chunk
-        # out[i] = sum_j D[i,j] * beta[j] * v[j] * (k[j]^T q[i])
-        # = sum_j (D[i,j] * beta[j] * k[j]^T) * (v[j] q[i])
-        # Rearrange: (D * beta * K^T) @ (V @ Q^T)^T
-        # Actually: out = (D * beta * scores) @ V
-        weighted_scores = decay_matrix * beta_matrix * scores
-        out_c = torch.matmul(weighted_scores, v_c)  # [b,h,chunk,feature]
+        out_c = inter_chunk_attn + intra_chunk_attn @ v_corrected
         out[:, :, start:end] = out_c
         # Update state for next chunk
-        # State propagation: state_{end} = state_{start} * prod(decay) + sum_j D[end,j] * beta[j] * k[j]
-        # prod(decay) over chunk
-        chunk_decay = decay_cum[:, :, -1]  # [b,h]
-        # Contribution from this chunk to state
-        # For each position j in chunk, its contribution to final state is:
-        # prod(decay[j+1:end]) * beta[j] * k[j]
-        # = (decay_cum[end-1] / decay_cum[j]) * beta[j] * k[j]
-        state_contrib = torch.zeros_like(state)
-        for j in range(chunk_size):
-            if j == chunk_size - 1:
-                factor = beta_c[:, :, j].unsqueeze(-1)
-            else:
-                factor = (decay_cum[:, :, -1] / decay_cum[:, :, j]).unsqueeze(-1) * beta_c[:, :, j].unsqueeze(-1)
-            state_contrib = state_contrib + factor * k_c[:, :, j].unsqueeze(-1)
-        # Propagate previous state
-        state = state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + state_contrib
+        # State propagation: state_{end} = state_{start} * exp(-cum_decay[end]) + k_c^T @ v_corrected
+        chunk_decay = cum_decay_c[:, :, -1].exp()
+        state = state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + k_c.transpose(-2, -1) @ v_corrected
     # Trim padding
     out = out[:, :, :time]
     # [batch,heads,time,feature] -> [batch,time,heads,feature]
