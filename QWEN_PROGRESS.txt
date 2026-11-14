@@ -51,3 +51,7 @@ Next: controller picks next queue task
 Added NativeQwenText.chat(messages, max_new_tokens, temperature) using apply_chat_template + native engine.generate; decodes only new tokens.
 test_qwen_text_chat passes. No shared conversation cache; caller passes explicit history.
 Next: controller regression sweep.
+Added NativeQwenText.from_pretrained loading QwenCausalLM + offline PreTrainedTokenizerFast.
+Ran test_qwen_real9b_conversation: PASSED (real 9B raw text + 2 chat turns, exact IDs verified).
+No regressions expected; only qwen_text.py changed.
+Next: controller runs full Qwen + Llama regression suite.

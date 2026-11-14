@@ -1,7 +1,15 @@
 import torch
+from transformers import PreTrainedTokenizerFast
+from spark_engine.qwen_model import QwenCausalLM
 
 
 class NativeQwenText:
+    @classmethod
+    def from_pretrained(cls, directory, dtype=torch.bfloat16, device="cuda"):
+        engine = QwenCausalLM.from_pretrained(directory, dtype=dtype, device=device)
+        engine.eval()
+        tokenizer = PreTrainedTokenizerFast.from_pretrained(directory, local_files_only=True)
+        return cls(engine, tokenizer)
     def __init__(self, engine, tokenizer):
         self.engine = engine
         self.tokenizer = tokenizer
