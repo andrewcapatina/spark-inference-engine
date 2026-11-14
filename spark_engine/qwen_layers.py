@@ -146,15 +146,18 @@ class QwenGatedDeltaNet(nn.Module):
         if self.num_v_heads // self.num_k_heads > 1:
             q = q.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
             k = k.repeat_interleave(self.num_v_heads // self.num_k_heads, dim=2)
-        out, _ = gated_delta_rule(q, k, v, g, beta)
+        out, recurrent_state = gated_delta_rule(q, k, v, g, beta)
         out = out.view(-1, self.v_dim)
         z = z.view(-1, self.v_dim)
         out = self.norm(out, z)
         out = out.view(bsz, seq, -1)
         out = self.out_proj(out)
+        raw = self.in_proj_qkv(hidden).transpose(1, 2)
         conv_state = torch.zeros(bsz, self.conv_dim, self.conv_kernel, device=hidden.device, dtype=hidden.dtype)
-        conv_state[:, :, :seq] = self.in_proj_qkv(hidden).transpose(1, 2)[:, :, :seq]
-        recurrent_state = torch.zeros(bsz, self.num_v_heads, self.k_dim, self.v_dim, device=hidden.device, dtype=hidden.dtype)
+        if seq >= self.conv_kernel:
+            conv_state = raw[:, :, -self.conv_kernel:]
+        else:
+            conv_state[:, :, self.conv_kernel - seq:] = raw
         cache = {"conv_state": conv_state, "recurrent_state": recurrent_state, "length": seq}
         return out, cache
 
