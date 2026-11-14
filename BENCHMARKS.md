@@ -9,7 +9,7 @@ for the CLI.
 python3 tools/benchmark_qwen.py \
   --model /path/to/qwen-model \
   --output-dir benchmark_runs/qwen9b-baseline \
-  --profile
+  --cuda-limit-gib 24 --min-available-gib 32
 ```
 
 Use a GGUF path for the 27B run and a different output directory. An existing
@@ -91,3 +91,7 @@ and [PyTorch Profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profil
 The interrupted November 14 run is preserved in [the partial report](benchmarks/results/2026-11-14-interrupted/README.md). Subsequent harness revisions flush and fsync results and phase/sample telemetry (`phases.jsonl`). Telemetry runs outside measured generation intervals, but changes the protocol and must be reported separately from the original baseline.
 
 `--cuda-limit-gib` optionally sets the PyTorch caching allocator limit before loading. This does not limit CPU, driver or other non-PyTorch allocations and is not a guarantee against host shutdown. `--min-available-gib` (default 16) rejects work when system available memory is below that threshold at stage boundaries; it cannot catch a fast allocation spike inside a native call. These controls have not yet been GPU validated. See the [PyTorch allocator API](https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.set_per_process_memory_fraction.html). The heavy run remains stopped.
+
+## Consolidated findings
+
+[Performance measurements](PERFORMANCE.md) keeps original and recovery protocols separate and selects the first local-Qwen optimization. The example above uses a 9B-specific allocator cap; use the tested 56 GiB cap for the downloaded 27B. A cap does not replace the external host watchdog used in recovery. Profiling is optional and remains deferred for further runs while the shutdown cause is unresolved. The completed original 9B profile remains available as evidence.
