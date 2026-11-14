@@ -190,13 +190,16 @@ def restore_tensor_value(gguf_name, tensor):
     if tensor.dtype != torch.float32:
         tensor = tensor.to(torch.float32)
 
-    if gguf_name in ("output_norm.weight", "attn_norm.weight",
+    import re
+    m = re.match(r"blk\.[0-9]+\.(.+)", gguf_name)
+    suffix = m.group(1) if m else gguf_name
+    if gguf_name == "output_norm.weight" or suffix in ("attn_norm.weight",
                      "post_attention_norm.weight", "attn_q_norm.weight",
                      "attn_k_norm.weight"):
         tensor = tensor - 1.0
-    elif gguf_name == "ssm_a":
+    elif suffix == "ssm_a":
         tensor = torch.log(-tensor)
-    elif gguf_name == "ssm_conv1d.weight":
+    elif suffix == "ssm_conv1d.weight":
         tensor = tensor.unsqueeze(1)
 
     return tensor
