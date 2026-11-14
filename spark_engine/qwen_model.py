@@ -80,7 +80,8 @@ class QwenCausalLM(nn.Module):
         head_dim = self.config["head_dim"]
         rotary_dim = int(head_dim * rope["partial_rotary_factor"])
         inv_freq = 1.0 / (rope["rope_theta"] **
-                          (torch.arange(0, rotary_dim, device=ids.device, dtype=torch.float) / head_dim))
+                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / head_dim))
+        inv_freq = inv_freq.repeat_interleave(2)
         positions = torch.arange(seq, device=ids.device, dtype=torch.float)
         freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
         cos = freqs.cos().unsqueeze(0)
