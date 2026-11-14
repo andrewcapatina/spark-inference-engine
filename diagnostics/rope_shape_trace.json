@@ -11,7 +11,7 @@
   "actual_rotary_width": 2,
   "wrong_axis": 2,
   "first_incorrect_stage": "inv_freq",
-  "frequency_indices": [0, 0, 1, 1],
+  "frequency_indices": [0, 1, 0, 1],
   "explanation": "The inv_freq vector has length 2 (half the required rotary width of 4). This is a valid half-frequency intermediate for computing the outer product, but the code never expands it to the full [seq, rotary_dim] representation. The freqs, cos, and sin tensors all inherit the short last dimension, producing [1, 5, 2] instead of the expected [1, 5, 4]. The attention API expects the full rotary width, not the half-frequency form.",
   "repair_plan": "After computing inv_freq as the half-frequency vector, expand it to the full rotary width by duplicating each frequency value twice (or equivalently, computing inv_freq over the full rotary_dim range with step 1 instead of step 2). This will make freqs, cos, and sin have the correct last dimension of 4, matching the expected rotary width."
 }
