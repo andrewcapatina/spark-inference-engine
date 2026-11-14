@@ -246,11 +246,12 @@ class QwenCausalLM(nn.Module):
         bsz, seq = ids.shape
         generated = ids.clone()
         logits, layer_caches = self.prefill(generated)
-        for _ in range(max_new_tokens):
+        for i in range(max_new_tokens):
             next_logits = logits[:, -1, :]
             next_token = next_logits.argmax(dim=-1, keepdim=True)
             generated = torch.cat([generated, next_token], dim=1)
             if eos_token_id is not None and (next_token == eos_token_id).all():
                 break
-            logits, layer_caches = self.decode(next_token, layer_caches)
+            if i < max_new_tokens - 1:
+                logits, layer_caches = self.decode(next_token, layer_caches)
         return generated
