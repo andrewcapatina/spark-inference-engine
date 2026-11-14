@@ -43,3 +43,4 @@ Target test_qwen_decoder_decode: PASSED.
 All 29 prior Qwen checks pass; 15 Llama baseline checks pass.
 Next: model-level prefill/decode methods.
 2026-11-14 03:37 UTC - Added QwenCausalLM.prefill(ids) returning (logits, layer_caches). Matches forward positions/rotary/mask; calls each decoder prefill. test_qwen_model_prefill passes; 30/34 Qwen + 15/15 Llama pass (hybrid_cache/generation/real9b/real27b need decode). Next: test_qwen_model_decode.
+Added QwenCausalLM.decode(ids, layer_caches) -> (logits, updated_caches). Derives absolute position offset from cache length (delta dict 'length' or attention KV time dim), builds correct rotary inputs, dispatches through verified layer decode methods, applies final norm and lm_head. test_qwen_hybrid_cache passes. All 15 Llama checks and 31 prior Qwen checks pass. Next: test_qwen_generation.

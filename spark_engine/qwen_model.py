@@ -143,3 +143,26 @@ class QwenCausalLM(nn.Module):
         hidden = self.norm(hidden)
         logits = self.lm_head(hidden)
         return logits, layer_caches
+
+    def decode(self, ids, layer_caches):
+        bsz, seq = ids.shape
+        hidden = self.embed_tokens(ids)
+        rope = self.config["rope_parameters"]
+        head_dim = self.config["head_dim"]
+        rotary_dim = int(head_dim * rope["partial_rotary_factor"])
+        inv_freq = 1.0 / (rope["rope_theta"] **
+                          (torch.arange(0, rotary_dim, 2, device=ids.device, dtype=torch.float) / rotary_dim))
+        inv_freq = inv_freq.repeat(2)
+        if layer_caches and layer_caches[0] is not None and isinstance(layer_caches[0], dict):
+            offset = layer_caches[0]["length"]
+        else:
+            offset = layer_caches[0][0].shape[2]
+        positions = torch.arange(offset, offset + seq, device=ids.device, dtype=torch.float)
+        freqs = positions.unsqueeze(1) * inv_freq.unsqueeze(0)
+        cos = freqs.cos().unsqueeze(0)
+        sin = freqs.sin().unsqueeze(0)
+        position_embeddings = (cos, sin)
+        for i, layer in enumerate(self.layers):
+            hidden, layer_caches[i] = layer.decode(hidden, position_embeddings, layer_caches[i])
+        hidden = self.norm(hidden)
+        return self.lm_head(hidden), layer_caches
