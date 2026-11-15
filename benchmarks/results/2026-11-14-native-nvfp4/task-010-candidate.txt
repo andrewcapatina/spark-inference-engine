@@ -1,0 +1,89 @@
+import torch
+
+def load_quantized_qwen(directory, dtype=torch.bfloat16, device='cuda'):
+    if dtype != torch.bfloat16:
+        raise ValueError("load_quantized_qwen requires dtype=torch.bfloat16")
+    if torch.device(device).type != 'cuda':
+        raise ValueError("load_quantized_qwen requires a CUDA device")
+
+    from spark_engine.qwen_model import QwenCausalLM
+    from spark_engine.qwen_nvfp4 import NVFP4Linear
+    from spark_engine.qwen_fp8 import FP8Linear
+    from spark_engine.qwen_quantized import quantized_checkpoint
+
+    nvfp4_count = 0
+    fp8_count = 0
+
+    with quantized_checkpoint(directory) as (cfg, get, keys):
+        with torch.device('meta'):
+            model = QwenCausalLM(cfg)
+
+        def _set_module(parent_path, name, module):
+            if parent_path:
+                parent = model.get_submodule(parent_path)
+            else:
+                parent = model
+            setattr(parent, name, module)
+
+        for name, module in list(model.named_modules()):
+            if not isinstance(module, torch.nn.Linear):
+                continue
+            parent_path, _, mod_name = name.rpartition('.')
+            if name + '.weight_packed' in keys:
+                wp = get(name + '.weight_packed').to(device=device)
+                ws = get(name + '.weight_scale').to(device=device)
+                wg = get(name + '.weight_global_scale').to(device=device)
+                ig = get(name + '.input_global_scale').to(device=device)
+                if wp.shape[0] != module.out_features or wp.shape[1] != module.in_features // 2:
+                    raise ValueError(f"NVFP4 packed shape mismatch for {name}")
+                if ws.shape[0] != module.out_features or ws.shape[1] != module.in_features // 16:
+                    raise ValueError(f"NVFP4 scale shape mismatch for {name}")
+                _set_module(parent_path, mod_name, NVFP4Linear(wp, ws, wg, ig))
+                nvfp4_count += 1
+            elif name + '.weight' in keys:
+                w = get(name + '.weight')
+                if w.dtype == torch.float8_e4m3fn and w.shape == (module.out_features, module.in_features):
+                    w = w.to(device=device)
+                    scale = get(name + '.weight_scale').to(device=device)
+                    _set_module(parent_path, mod_name, FP8Linear(w, scale))
+                    fp8_count += 1
+                else:
+                    if w.dtype not in (torch.bfloat16, torch.float16, torch.float32):
+                        raise ValueError(f"Unexpected dtype {w.dtype} for {name}")
+                    if w.shape != (module.out_features, module.in_features):
+                        raise ValueError(f"Shape mismatch for {name}")
+                    _set_module(parent_path, mod_name, torch.nn.Linear(module.in_features, module.out_features, bias=module.bias is not None))
+                    _set_module(parent_path, mod_name + '.weight', torch.nn.Parameter(w.to(device=device, dtype=dtype), requires_grad=False))
+                    if module.bias is not None:
+                        b = get(name + '.bias')
+                        if b.dtype not in (torch.bfloat16, torch.float16, torch.float32):
+                            raise ValueError(f"Unexpected bias dtype {b.dtype} for {name}")
+                        if b.shape != (module.out_features,):
+                            raise ValueError(f"Bias shape mismatch for {name}")
+                        _set_module(parent_path, mod_name + '.bias', torch.nn.Parameter(b.to(device=device, dtype=dtype), requires_grad=False))
+
+        for name, param in model.named_parameters():
+            if param.device.type != 'meta':
+                continue
+            canonical = name
+            if canonical not in keys:
+                raise KeyError(f"Missing weight {canonical}")
+            t = get(canonical)
+            if t.dtype not in (torch.bfloat16, torch.float16, torch.float32):
+                raise ValueError(f"Unexpected dtype {t.dtype} for {canonical}")
+            if t.shape != param.shape:
+                raise ValueError(f"Shape mismatch for {canonical}: expected {param.shape}, got {t.shape}")
+            parent_path, _, mod_name = name.rpartition('.')
+            if mod_name == 'weight' or mod_name == 'bias':
+                parent = model.get_submodule(parent_path) if parent_path else model
+                setattr(parent, mod_name, torch.nn.Parameter(t.to(device=device, dtype=dtype), requires_grad=False))
+            else:
+                _set_module(parent_path, mod_name, torch.nn.Parameter(t.to(device=device, dtype=dtype), requires_grad=False))
+
+    model.quantization_metadata = {
+        'format': 'nvfp4_fp8',
+        'kv_cache_dtype': 'bfloat16',
+        'nvfp4_linears': nvfp4_count,
+        'fp8_linears': fp8_count,
+    }
+    return model.eval()

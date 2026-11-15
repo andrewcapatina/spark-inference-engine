@@ -1,0 +1,27 @@
+NATIVE_REAL_NVFP4_LOADED {"format": "nvfp4_fp8", "kv_cache_dtype": "bfloat16", "nvfp4_linears": 168, "fp8_linears": 233}
+/workspace/spark_engine/qwen_nvfp4.py:42: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  alpha = torch.tensor(1.0 / (self.input_global_scale * self.weight_global_scale),
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/transformers/tokenization_utils_base.py", line 287, in __getattr__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'shape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/harness/check_real_nvfp4.py", line 40, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/harness/check_real_nvfp4.py", line 37, in main
+    first=text.chat(messages,max_new_tokens=16);d['conversation'].append({'question':messages[-1]['content'],'answer':first});save();assert first.strip()=='4',repr(first)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/spark_engine/qwen_text.py", line 34, in chat
+    out = self.engine.generate(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/spark_engine/qwen_model.py", line 250, in generate
+    bsz, seq = ids.shape
+               ^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/transformers/tokenization_utils_base.py", line 289, in __getattr__
+    raise AttributeError
+AttributeError

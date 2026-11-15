@@ -1,0 +1,10 @@
+{
+  "task": "012",
+  "target": "QwenCausalLM.from_pretrained",
+  "decision": "placed_for_tiny_public_api_testing",
+  "implementation_author": "local Qwen",
+  "response_sha256": "b80e971e48d721d53f92474d08c2084489810cf40bfcdde8d64e0b4f6fd35c5e",
+  "fragment_sha256": "8832cffcb879b289ce0296d86f371f44782598cde13b4e8168db4ce63211a1d2",
+  "transformation": "Exact local-authored insertion before unique existing text_cfg line; terminal newline normalized",
+  "other_methods_unchanged": true
+}

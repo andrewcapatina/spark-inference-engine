@@ -1,0 +1,4 @@
+        quant_cfg = cfg.get("quantization_config")
+        if quant_cfg:
+            from spark_engine.qwen_quantized import load_quantized_qwen
+            return load_quantized_qwen(directory, dtype=dtype, device=device)

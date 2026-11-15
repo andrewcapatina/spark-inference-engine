@@ -1,0 +1,1 @@
+{"status": "tiny_fp8_operators_passed", "cases": [{"M": 1, "N": 128, "K": 128, "max_abs_error": 0.0}, {"M": 3, "N": 128, "K": 256, "max_abs_error": 0.0}, {"M": 16, "N": 256, "K": 128, "max_abs_error": 0.00048828125}, {"M": 128, "N": 256, "K": 256, "max_abs_error": 0.00390625}], "scope": "Independent scaled FP8 matmul only; no full checkpoint validation"}

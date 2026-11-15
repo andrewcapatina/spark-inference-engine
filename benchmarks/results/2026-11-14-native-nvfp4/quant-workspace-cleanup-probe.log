@@ -1,0 +1,4 @@
+{"phase": "fresh", "allocated": 0, "reserved": 0}
+{"phase": "after_tiny_ops_only", "allocated": 75497472, "reserved": 75497472}
+{"phase": "after_cublas_workspace_clear", "allocated": 41943040, "reserved": 41943040}
+{"phase": "clear_all_idle_library_workspaces", "cleared": {"torch_cublas": true, "flashinfer_cache_keys": ["('mm_fp4_workspace', device(type='cuda', index=0))"], "flashinfer_retired": 0}, "allocated": 0, "reserved": 0}

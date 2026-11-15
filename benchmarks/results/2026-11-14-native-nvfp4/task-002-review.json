@@ -1,0 +1,6 @@
+{
+  "task": "002",
+  "decision": "reject_before_placement",
+  "reason": "Constructor rejects scalar torch.Tensor globals as stored by actual Safetensors and returns 0-D buffers instead of required[1]; infinity is accepted despite finite requirement. Shape/alignment checks now present.",
+  "implementation_placed": false
+}

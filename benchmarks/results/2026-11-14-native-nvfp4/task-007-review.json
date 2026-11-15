@@ -1,0 +1,6 @@
+{
+  "task": "007",
+  "decision": "reject_before_placement",
+  "reason": "finally raises unconsumed errors on exceptional exits, masking original missing-tensor errors; KV calibration skip uses substring instead of exact suffix. Fullsource51lines also exceeds50line initialmodule limit.",
+  "implementation_placed": false
+}

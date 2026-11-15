@@ -1,0 +1,3 @@
+{"phase": "fresh", "allocated": 0, "reserved": 0}
+{"phase": "after_tiny_ops_only", "allocated": 75497472, "reserved": 75497472}
+{"phase": "after_cublas_workspace_clear", "allocated": 41943040, "reserved": 41943040}

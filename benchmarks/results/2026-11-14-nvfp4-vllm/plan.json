@@ -1,0 +1,13 @@
+{
+  "user_requested_direct_heavy_trial": true,
+  "paired_comparison_authorized": true,
+  "prompt_tokens": 256,
+  "new_tokens": 128,
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "purpose": "Explicitly authorized vLLM NVFP4 reference before local-Qwen native implementation",
+  "model_revision": "f0b7c9e722f5565102fff8481c99e4d86ae099c7",
+  "image": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6",
+  "initial_cuda_free_floor_gib": 56,
+  "floor_rationale": "NVFP4 model22.57GB plus512MiB explicitKV budget, not the50GiB BF16 engine; host32GiB/newSwap256MiB guards unchanged",
+  "other_model_containers_stopped": true
+}

@@ -1,0 +1,190 @@
+{
+  "implementation_author": "local Qwen only",
+  "model_runtime": {
+    "image": "ollama/ollama:0.30.0",
+    "source_repo": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
+    "source_revision": "36116c48f4e81b4c66a9c63da13a72959999a5f6",
+    "source_file": "Qwen3.8-27B-TurboFCFusion-735-882-Here-Uncen-NEO-CODER-MAX-Q8_0.gguf",
+    "model": "prototype-qwen27b-q8",
+    "renderer": "qwen3.5",
+    "parser": "qwen3.5",
+    "context": 32768,
+    "thinking": false
+  },
+  "before": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762"
+  },
+  "tasks": [
+    {
+      "task": "001",
+      "decision": "reject_before_placement",
+      "reason": "No shape/alignment validation for packed weights/scales and input width before CUDA launch; required fail-closed contract missing. Raw response includes Markdown fences; mechanical extraction allowed but no supervisor code repair.",
+      "original_response_directory": "/home/cap/Projects/spark-inference-engine/benchmark_runs/nvfp4-native-20261115T005404Z",
+      "implementation_placed": false
+    },
+    {
+      "task": "002",
+      "decision": "reject_before_placement",
+      "reason": "Constructor rejects scalar torch.Tensor globals as stored by actual Safetensors and returns 0-D buffers instead of required[1]; infinity is accepted despite finite requirement. Shape/alignment checks now present.",
+      "implementation_placed": false
+    },
+    {
+      "task": "003",
+      "target": "spark_engine/qwen_nvfp4.py",
+      "decision": "placed_for_testing",
+      "implementation_author": "local Qwen",
+      "response_sha256": "5345904db429df432ac5204a71696320d95d1a3d7a418084d057277c9322c420",
+      "raw_content_sha256": "ee805b844c6a7c21e0c3ac7b5584ff48e1a3b118dc2d5760e6e2c63023442c68",
+      "placed_source_sha256": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+      "line_count": 47,
+      "runtime_verified": false
+    },
+    {
+      "task": "004",
+      "decision": "reject_before_placement",
+      "reason": "Activation scaling uses maximum signed value instead of maximum absolute value, which can overflow negative inputs to FP8 NaNs.",
+      "implementation_placed": false
+    },
+    {
+      "task": "005",
+      "target": "spark_engine/qwen_fp8.py",
+      "decision": "placed_for_testing",
+      "implementation_author": "local Qwen",
+      "response_sha256": "11cabec27f9f5625a61dae84d44b972d88e3556720e13a765e8e3d02d672d3bf",
+      "raw_content_sha256": "7e3d746aa1ff7496f131ef820446ddc5b2fc3287b5ca6474d17d5b5f6e4c7460",
+      "placed_source_sha256": "d906d45bc756a3cd16a36fb69ffb7f264402b5c778bd8214a45372663a74fb1e",
+      "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+      "line_count": 35,
+      "runtime_verified": false
+    },
+    {
+      "task": "005",
+      "decision": "runtime_rejected_retained",
+      "reason": "FP8 scaled_mm requires contiguous activation rows; tiny fixture noncontiguous input fails a.stride(1)==1. NVFP4 operator passed unchanged numerical gates.",
+      "log": "/home/cap/spark-inference-overnight-20261113/runs/nvfp4-native-20261115T005339Z/operator-attempt-001/test_native_fp8.log"
+    },
+    {
+      "task": "006",
+      "target": "spark_engine/qwen_fp8.py",
+      "decision": "placed_for_testing",
+      "implementation_author": "local Qwen",
+      "response_sha256": "971137a4abd52e98431952aad8dc31e9d59581f190a208428d907549bc9385be",
+      "raw_content_sha256": "a16f6fe99909f646cc6028f3ac8ffaf6a3a020b5bd54a74f9550f677b5a595e5",
+      "placed_source_sha256": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+      "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+      "line_count": 37,
+      "runtime_verified": false
+    },
+    {
+      "task": "007",
+      "decision": "reject_before_placement",
+      "reason": "finally raises unconsumed errors on exceptional exits, masking original missing-tensor errors; KV calibration skip uses substring instead of exact suffix. Fullsource51lines also exceeds50line initialmodule limit.",
+      "implementation_placed": false
+    },
+    {
+      "task": "008",
+      "target": "spark_engine/qwen_quantized.py",
+      "decision": "placed_for_testing",
+      "implementation_author": "local Qwen",
+      "response_sha256": "5a12a1d7b6f6a0337d6cea396ef4d866d69a8fcd5fc9eef2ac73369ae3c37a39",
+      "raw_content_sha256": "dacdef885ab7439bf8c41f32110ce95ace9e84c3b0f876ef097c6a20ecfa27bd",
+      "placed_source_sha256": "20baf73e8b20fc48d97c61017fccecbc9dcd4ae78fb771b69ab3576916591e8a",
+      "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+      "line_count": 52,
+      "runtime_verified": false
+    },
+    {
+      "task": "009",
+      "decision": "reject_before_placement",
+      "reason": "Model constructor outside meta context would allocate full CPUFP32 weights and leave normal params unmaterialized; three import paths hallucinated; focused prompt now names exact real modules.",
+      "implementation_placed": false
+    },
+    {
+      "task": "010",
+      "decision": "reject_before_placement",
+      "reason": "Correct meta placement/import paths now, but ordinary BF16 branch wrongly creates replacement nn.Linear and assigns child names containing dot (mod_name+.weight), which nn.Module rejects. Ordinary meta linears should be left intact for final parameter pass.",
+      "implementation_placed": false
+    },
+    {
+      "task": "011",
+      "decision": "placed_for_tiny_testing",
+      "target": "spark_engine/qwen_quantized.py",
+      "implementation_author": "local Qwen",
+      "response_sha256": "e16a486bce43809df45a35a2740b3704f5402ca3ea58fc3785b7fb6b609ef9ae",
+      "fragment_sha256": "62c45eb6ea53dcb218867812046436262eb998abc1d5bd6dc0ff5af4eef33147",
+      "source_sha256": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "transformation": "Removed outer Markdown fences and appended exact local-authored fragment; no code repair",
+      "scope": "One loader function; up to80lines to keep checks readable; existing reader unchanged"
+    },
+    {
+      "task": "012",
+      "target": "QwenCausalLM.from_pretrained",
+      "decision": "placed_for_tiny_public_api_testing",
+      "implementation_author": "local Qwen",
+      "response_sha256": "b80e971e48d721d53f92474d08c2084489810cf40bfcdde8d64e0b4f6fd35c5e",
+      "fragment_sha256": "8832cffcb879b289ce0296d86f371f44782598cde13b4e8168db4ce63211a1d2",
+      "transformation": "Exact local-authored insertion before unique existing text_cfg line; terminal newline normalized",
+      "other_methods_unchanged": true
+    },
+    {
+      "task": "013",
+      "target": "NativeQwenText.chat",
+      "implementation_author": "local Qwen",
+      "decision": "placed_for_cpu_and_real_checkpoint_testing",
+      "response_sha256": "9bbf2f62e90cc60acda32fda0e5c6f77ac921dabb3b4649570c6124657af4f4e",
+      "source_sha256": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "review": "AST equal to original method after removing sole added return_dictFalse keyword; math and all other behavior unchanged"
+    }
+  ],
+  "status": "authoring_streaming_loader",
+  "reference": "benchmarks/results/2026-11-14-nvfp4-vllm",
+  "current_engine_sha256": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_fp8.py": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "nvfp4_operator_validation": {
+    "status": "tiny_cuda_numerical_passed",
+    "source_sha256": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "log": "/home/cap/spark-inference-overnight-20261113/runs/nvfp4-native-20261115T005339Z/operator-attempt-001/test_native_nvfp4.log"
+  },
+  "fp8_operator_validation": {
+    "status": "tiny_cuda_numerical_passed",
+    "source_sha256": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+    "log": "/home/cap/spark-inference-overnight-20261113/runs/nvfp4-native-20261115T005339Z/test_native_fp8.log"
+  },
+  "user_authorized_nvfp4_update": true,
+  "validation_scope": {
+    "tiny_nvfp4": "passed",
+    "tiny_fp8": "passed",
+    "cpu_reader": "9 checks passed",
+    "tiny_hybrid_loader": "forward/prefill/decode maxerror0 and exact4token generation passed",
+    "tiny_public_loader": "passed",
+    "real_nvfp4": "loaded168NVFP4+233FP8,first8tokenIDs exact for256/1024prompts,chat4then7 passed",
+    "real_teardown": "worker finished but parent guard rejected72MiBlibraryworkspace; tiny control reproduces72 and correctedharness clears0/0; real correctedteardown pending benchmark",
+    "protected_bf16": "generationbudget+52small+real9B passed; remaining real/conversation/Llama running",
+    "native_benchmark": "pending"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "cpu_quant_reader_passed",
+  "checks": [
+    "canonical_mapping",
+    "excluded_shards_not_opened",
+    "dtype_bits_unchanged",
+    "original_exception_preserved",
+    "unconsumed_rejected",
+    "path_escape",
+    "unknown_namespace",
+    "duplicate",
+    "exact_kv_calibration_filter"
+  ],
+  "scope": "CPU metadata only; no native checkpoint inference",
+  "source_response": "008",
+  "line_budget_exception": "52-line single contextmanager incl4line docstring; task boundary adjusted without code edits"
+}

@@ -1,0 +1,6 @@
+2026-11-15 01:04:28,162 - INFO - core.py:564 - flashinfer.jit: Building JIT module fp4_quantization_120f; this can take several minutes on first use.
+/workspace/spark_engine/qwen_nvfp4.py:42: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  alpha = torch.tensor(1.0 / (self.input_global_scale * self.weight_global_scale),
+/workspace/spark_engine/qwen_nvfp4.py:42: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  alpha = torch.tensor(1.0 / (self.input_global_scale * self.weight_global_scale),
+{"status": "tiny_nvfp4_operators_passed", "cases": [{"M": 1, "N": 128, "K": 128, "max_abs_error": 0.0}, {"M": 3, "N": 128, "K": 256, "max_abs_error": 0.125}, {"M": 16, "N": 256, "K": 128, "max_abs_error": 0.0}, {"M": 128, "N": 256, "K": 256, "max_abs_error": 0.125}], "scope": "independent quantized matmul and scale layout only; no full model validation"}

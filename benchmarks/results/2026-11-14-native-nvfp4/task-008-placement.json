@@ -1,0 +1,12 @@
+{
+  "task": "008",
+  "target": "spark_engine/qwen_quantized.py",
+  "decision": "placed_for_testing",
+  "implementation_author": "local Qwen",
+  "response_sha256": "5a12a1d7b6f6a0337d6cea396ef4d866d69a8fcd5fc9eef2ac73369ae3c37a39",
+  "raw_content_sha256": "dacdef885ab7439bf8c41f32110ce95ace9e84c3b0f876ef097c6a20ecfa27bd",
+  "placed_source_sha256": "20baf73e8b20fc48d97c61017fccecbc9dcd4ae78fb771b69ab3576916591e8a",
+  "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+  "line_count": 52,
+  "runtime_verified": false
+}

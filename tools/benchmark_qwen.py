@@ -17,6 +17,7 @@ import statistics
 import subprocess
 import sys
 import time
+import weakref
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPT = "Explain how a computer turns a question into an answer. Discuss memory, arithmetic, and clear examples.\n"
@@ -154,6 +155,44 @@ def timed_diagnostic(torch, engine, ids, count, eos_token_id=None):
     return result
 
 
+def clear_cuda_library_workspaces(torch):
+    """Release idle library scratch buffers after the model and timed work are gone."""
+    torch.cuda.synchronize()
+    cleared = {"torch_cublas": False, "flashinfer_cache_keys": [], "flashinfer_retired": 0}
+    release = getattr(torch._C, "_cuda_clearCublasWorkspaces", None)
+    if release is not None:
+        release()
+        cleared["torch_cublas"] = True
+    utils = sys.modules.get("flashinfer.utils")
+    cache = getattr(utils, "_cache_buf", None)
+    if isinstance(cache, dict):
+        cleared["flashinfer_cache_keys"] = [str(key) for key in cache]
+        cache.clear()
+    retired = getattr(utils, "_cache_buf_retired", None)
+    if isinstance(retired, list):
+        cleared["flashinfer_retired"] = len(retired)
+        retired.clear()
+    gc.collect()
+    torch.cuda.empty_cache()
+    torch.cuda.synchronize()
+    return cleared
+
+
+def model_storage(engine):
+    """Registered logical bytes plus unique backing storage, including quantized buffers."""
+    parameters = list(engine.parameters())
+    buffers = list(engine.buffers())
+    storages = {}
+    for tensor in parameters + buffers:
+        if tensor.device.type == "meta":
+            raise RuntimeError("Loaded model still contains meta tensors")
+        storage = tensor.untyped_storage()
+        storages[(str(tensor.device), storage.data_ptr())] = storage.nbytes()
+    return {"parameter_bytes": sum(t.numel() * t.element_size() for t in parameters),
+            "buffer_bytes": sum(t.numel() * t.element_size() for t in buffers),
+            "resident_tensor_bytes": sum(storages.values())}
+
+
 def output_digest(generated, prompt_length):
     return hashlib.sha256(generated[:, prompt_length:].detach().cpu().numpy().tobytes()).hexdigest()
 
@@ -272,11 +311,13 @@ def run(args):
     torch.cuda.synchronize()
     result["model_tokenizer_load_ms"] = (time.perf_counter() - started) * 1000
     result["loaded_memory"] = memory(torch)
-    result["parameter_bytes"] = sum(p.numel() * p.element_size() for p in text.engine.parameters())
+    result.update(model_storage(text.engine))
+    result["quantization_metadata"] = getattr(text.engine, "quantization_metadata", None)
     result["status"] = "benchmarking"
     write_json(result_path, result)
     print("MODEL_LOADED " + json.dumps({"load_ms": result["model_tokenizer_load_ms"],
-                                       "parameter_bytes": result["parameter_bytes"]}), flush=True)
+                                       "parameter_bytes": result["parameter_bytes"],
+                                       "resident_tensor_bytes": result["resident_tensor_bytes"]}), flush=True)
     base = text.tokenizer.encode(PROMPT, add_special_tokens=False)
     if not base:
         raise RuntimeError("Benchmark prompt tokenized to nothing")
@@ -343,11 +384,18 @@ def run(args):
         if args.clean_release:
             try:
                 checkpoint("before_model_release")
+                model_refs = [(name, weakref.ref(tensor)) for name, tensor in
+                              list(text.engine.named_parameters()) + list(text.engine.named_buffers())]
                 del text
                 gc.collect()
                 torch.cuda.synchronize()
                 torch.cuda.empty_cache()
                 torch.cuda.synchronize()
+                result["release_before_workspace_clear_memory"] = memory(torch)
+                result["live_model_tensors_after_release"] = [name for name, ref in model_refs if ref() is not None]
+                if result["live_model_tensors_after_release"]:
+                    raise RuntimeError("Model tensor references remain after release")
+                result["released_library_workspaces"] = clear_cuda_library_workspaces(torch)
                 result["released_memory"] = memory(torch)
                 checkpoint("after_model_release")
                 write_json(result_path, result)

@@ -1,0 +1,12 @@
+{
+  "task": "006",
+  "target": "spark_engine/qwen_fp8.py",
+  "decision": "placed_for_testing",
+  "implementation_author": "local Qwen",
+  "response_sha256": "971137a4abd52e98431952aad8dc31e9d59581f190a208428d907549bc9385be",
+  "raw_content_sha256": "a16f6fe99909f646cc6028f3ac8ffaf6a3a020b5bd54a74f9550f677b5a595e5",
+  "placed_source_sha256": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+  "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+  "line_count": 37,
+  "runtime_verified": false
+}

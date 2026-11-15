@@ -1,0 +1,119 @@
+{
+  "status": "generating",
+  "scope": "Actual Unsloth27B native quantized smoke, exact8token reference comparison and2turn arithmetic conversation",
+  "cases": [
+    {
+      "prompt_tokens": 256,
+      "output_tokens": 8,
+      "output_token_ids": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "vllm_reference_first8": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "reference_exact_match": true,
+      "wall_ms_diagnostic_only": 2181.3417160001336,
+      "memory": {
+        "cuda_allocated_bytes": 22688096768,
+        "cuda_reserved_bytes": 23964155904,
+        "cuda_peak_allocated_bytes": 23245387776,
+        "cuda_peak_reserved_bytes": 23964155904,
+        "cuda_global_free_bytes": 34261524480,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 22577704960,
+        "VmRSS_bytes": 2265243648,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 95567654912,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "prompt_tokens": 1024,
+      "output_tokens": 8,
+      "output_token_ids": [
+        63074,
+        4779,
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989
+      ],
+      "vllm_reference_first8": [
+        63074,
+        4779,
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989
+      ],
+      "reference_exact_match": true,
+      "wall_ms_diagnostic_only": 1971.9442810001055,
+      "memory": {
+        "cuda_allocated_bytes": 22688109056,
+        "cuda_reserved_bytes": 25681723392,
+        "cuda_peak_allocated_bytes": 24459688960,
+        "cuda_peak_reserved_bytes": 25681723392,
+        "cuda_global_free_bytes": 32546344960,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 22577704960,
+        "VmRSS_bytes": 2265657344,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 93852528640,
+        "SwapFree_bytes": 17179865088
+      }
+    }
+  ],
+  "conversation": [],
+  "before_load_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 0,
+    "cuda_peak_reserved_bytes": 0,
+    "cuda_global_free_bytes": 61800538112,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 653709312,
+    "VmRSS_bytes": 653709312,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 123084468224,
+    "SwapFree_bytes": 17179865088
+  },
+  "load_ms": 140496.53748799936,
+  "loaded_memory": {
+    "cuda_allocated_bytes": 22612594688,
+    "cuda_reserved_bytes": 23420993536,
+    "cuda_peak_allocated_bytes": 22613091328,
+    "cuda_peak_reserved_bytes": 23420993536,
+    "cuda_global_free_bytes": 35622731776,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22577704960,
+    "VmRSS_bytes": 1228906496,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 96922689536,
+    "SwapFree_bytes": 17179865088
+  },
+  "metadata": {
+    "format": "nvfp4_fp8",
+    "kv_cache_dtype": "bfloat16",
+    "nvfp4_linears": 168,
+    "fp8_linears": 233
+  },
+  "resident_tensor_bytes": 22586157376
+}

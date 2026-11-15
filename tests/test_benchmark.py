@@ -20,6 +20,23 @@ class Event:
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_storage_counts_packed_buffers_and_deduplicates_aliases(self):
+        class Tensor:
+            device = SimpleNamespace(type="cpu")
+            def __init__(self, elements, width, pointer, storage_bytes):
+                self.elements, self.width = elements, width
+                self.pointer, self.storage_bytes = pointer, storage_bytes
+            def numel(self): return self.elements
+            def element_size(self): return self.width
+            def untyped_storage(self):
+                return SimpleNamespace(data_ptr=lambda: self.pointer, nbytes=lambda: self.storage_bytes)
+        parameter = Tensor(8, 4, 100, 32)
+        packed = Tensor(16, 1, 200, 16)
+        view = Tensor(4, 1, 200, 16)
+        engine = SimpleNamespace(parameters=lambda: iter([parameter]), buffers=lambda: iter([packed, view]))
+        self.assertEqual(bench.model_storage(engine),
+                         {"parameter_bytes": 32, "buffer_bytes": 20, "resident_tensor_bytes": 48})
+
     def test_decode_throughput_counts_intervals_after_first_token(self):
         result = bench.event_metrics(Event(0), Event(24), [(Event(0), Event(10))],
             [(Event(11), Event(15)), (Event(16), Event(20)), (Event(21), Event(24))],

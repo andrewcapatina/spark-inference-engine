@@ -1,0 +1,9 @@
+{
+  "task": "013",
+  "target": "NativeQwenText.chat",
+  "implementation_author": "local Qwen",
+  "decision": "placed_for_cpu_and_real_checkpoint_testing",
+  "response_sha256": "9bbf2f62e90cc60acda32fda0e5c6f77ac921dabb3b4649570c6124657af4f4e",
+  "source_sha256": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+  "review": "AST equal to original method after removing sole added return_dictFalse keyword; math and all other behavior unchanged"
+}

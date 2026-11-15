@@ -1,0 +1,6 @@
+{
+  "task": "004",
+  "decision": "reject_before_placement",
+  "reason": "Activation scaling uses maximum signed value instead of maximum absolute value, which can overflow negative inputs to FP8 NaNs.",
+  "implementation_placed": false
+}

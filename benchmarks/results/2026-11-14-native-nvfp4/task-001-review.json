@@ -1,0 +1,7 @@
+{
+  "task": "001",
+  "decision": "reject_before_placement",
+  "reason": "No shape/alignment validation for packed weights/scales and input width before CUDA launch; required fail-closed contract missing. Raw response includes Markdown fences; mechanical extraction allowed but no supervisor code repair.",
+  "original_response_directory": "/home/cap/Projects/spark-inference-engine/benchmark_runs/nvfp4-native-20261115T005404Z",
+  "implementation_placed": false
+}

@@ -1,0 +1,154 @@
+{
+  "status": "complete",
+  "scope": "Actual Unsloth27B native quantized smoke, exact8token reference comparison and2turn arithmetic conversation",
+  "cases": [
+    {
+      "prompt_tokens": 256,
+      "output_tokens": 8,
+      "output_token_ids": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "vllm_reference_first8": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "reference_exact_match": true,
+      "wall_ms_diagnostic_only": 2148.135519000789,
+      "memory": {
+        "cuda_allocated_bytes": 22688096768,
+        "cuda_reserved_bytes": 23964155904,
+        "cuda_peak_allocated_bytes": 23245387776,
+        "cuda_peak_reserved_bytes": 23964155904,
+        "cuda_global_free_bytes": 34168299520,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 22577901568,
+        "VmRSS_bytes": 2267533312,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 95497977856,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "prompt_tokens": 1024,
+      "output_tokens": 8,
+      "output_token_ids": [
+        63074,
+        4779,
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989
+      ],
+      "vllm_reference_first8": [
+        63074,
+        4779,
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989
+      ],
+      "reference_exact_match": true,
+      "wall_ms_diagnostic_only": 1979.313175000243,
+      "memory": {
+        "cuda_allocated_bytes": 22688109056,
+        "cuda_reserved_bytes": 25681723392,
+        "cuda_peak_allocated_bytes": 24459688960,
+        "cuda_peak_reserved_bytes": 25681723392,
+        "cuda_global_free_bytes": 32489611264,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 22577901568,
+        "VmRSS_bytes": 2267930624,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 93819371520,
+        "SwapFree_bytes": 17179865088
+      }
+    }
+  ],
+  "conversation": [
+    {
+      "question": "What is 2 + 2?",
+      "answer": "4"
+    },
+    {
+      "question": "Add 3 to that number. What is the result?",
+      "answer": "7"
+    }
+  ],
+  "before_load_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 0,
+    "cuda_peak_reserved_bytes": 0,
+    "cuda_global_free_bytes": 61752086528,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 653754368,
+    "VmRSS_bytes": 653754368,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 123076939776,
+    "SwapFree_bytes": 17179865088
+  },
+  "load_ms": 163648.67569000035,
+  "loaded_memory": {
+    "cuda_allocated_bytes": 22612594688,
+    "cuda_reserved_bytes": 23420993536,
+    "cuda_peak_allocated_bytes": 22613091328,
+    "cuda_peak_reserved_bytes": 23420993536,
+    "cuda_global_free_bytes": 35551563776,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22577901568,
+    "VmRSS_bytes": 1228804096,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 96878342144,
+    "SwapFree_bytes": 17179865088
+  },
+  "metadata": {
+    "format": "nvfp4_fp8",
+    "kv_cache_dtype": "bfloat16",
+    "nvfp4_linears": 168,
+    "fp8_linears": 233
+  },
+  "resident_tensor_bytes": 22586157376,
+  "final_memory": {
+    "cuda_allocated_bytes": 22688109056,
+    "cuda_reserved_bytes": 25708986368,
+    "cuda_peak_allocated_bytes": 24459688960,
+    "cuda_peak_reserved_bytes": 25708986368,
+    "cuda_global_free_bytes": 32474963968,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22577901568,
+    "VmRSS_bytes": 2271510528,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 93804756992,
+    "SwapFree_bytes": 17179865088
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 75497472,
+    "cuda_reserved_bytes": 75497472,
+    "cuda_peak_allocated_bytes": 24459688960,
+    "cuda_peak_reserved_bytes": 25708986368,
+    "cuda_global_free_bytes": 58555703296,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22577901568,
+    "VmRSS_bytes": 2271510528,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 119885492224,
+    "SwapFree_bytes": 17179865088
+  }
+}

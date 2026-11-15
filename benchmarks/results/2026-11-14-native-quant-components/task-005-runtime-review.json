@@ -1,0 +1,6 @@
+{
+  "task": "005",
+  "decision": "runtime_rejected_retained",
+  "reason": "FP8 scaled_mm requires contiguous activation rows; tiny fixture noncontiguous input fails a.stride(1)==1. NVFP4 operator passed unchanged numerical gates.",
+  "log": "/home/cap/spark-inference-overnight-20261113/runs/nvfp4-native-20261115T005339Z/operator-attempt-001/test_native_fp8.log"
+}

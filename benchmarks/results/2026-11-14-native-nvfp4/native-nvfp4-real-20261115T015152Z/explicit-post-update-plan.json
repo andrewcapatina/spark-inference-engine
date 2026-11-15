@@ -1,0 +1,22 @@
+{
+  "user_requested_direct_heavy_trial": true,
+  "paired_comparison_authorized": true,
+  "native_quantized_update_authorized": true,
+  "prompt_tokens": 256,
+  "raw_prompt_lengths": [
+    256,
+    1024
+  ],
+  "new_tokens": 8,
+  "max_chat_new_tokens": 16,
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "cuda_allocator_cap_gib": 32,
+  "host_minimum_gib": 32,
+  "new_swap_budget_mib": 256,
+  "model_revision": "f0b7c9e722f5565102fff8481c99e4d86ae099c7",
+  "native_source_commit": "ac4cbc089a24697a9774ab88d51f4167df11eda9",
+  "inactive_file_advice_only_if_gpu_free_below_56gib": true,
+  "not_a_benchmark": true,
+  "previous_failed_run": "/home/cap/spark-inference-overnight-20261113/runs/native-nvfp4-real-20261115T013707Z",
+  "retry_reason": "Local-Qwen chat return_dictFalse repair passed CPU tokenization checks on both installed versions; quantized arithmetic unchanged"
+}

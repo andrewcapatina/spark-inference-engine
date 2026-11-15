@@ -1,0 +1,54 @@
+```python
+"""Streaming reader for Qwen compressed-tensors mixed-precision checkpoints.
+
+Native cache remains BF16; this module only streams tensors from disk.
+"""
+import json
+from pathlib import Path
+from contextlib import contextmanager, ExitStack
+from safetensors import safe_open
+
+@contextmanager
+def quantized_checkpoint(directory):
+    root = Path(directory).resolve()
+    cfg = json.loads((root / "config.json").read_text())
+    qc = cfg.get("quantization_config", {})
+    if qc.get("quant_method") != "compressed-tensors" or qc.get("format") != "mixed-precision":
+        raise ValueError("not a compressed-tensors mixed-precision checkpoint")
+    text_cfg = cfg.get("text_config", cfg)
+    index = json.loads((root / "model.safetensors.index.json").read_text())
+    weight_map = index["weight_map"]
+    canonical = {}
+    for name, shard in weight_map.items():
+        if name.startswith("model.visual.") or name.startswith("mtp.") or name.startswith("model.mtp."):
+            continue
+        if name.startswith("model.language_model."):
+            canon = name[len("model.language_model."):]
+        elif name.startswith("lm_head."):
+            canon = name
+        else:
+            raise ValueError(f"unexpected tensor namespace: {name}")
+        if canon.endswith(".self_attn.k_scale") or canon.endswith(".self_attn.v_scale"):
+            continue
+        if canon in canonical:
+            raise ValueError(f"duplicate canonical key: {canon}")
+        canonical[canon] = (name, shard)
+    shards = {}
+    with ExitStack() as stack:
+        for _, (_, shard) in canonical.items():
+            if shard not in shards:
+                path = root / shard
+                if not path.resolve().is_relative_to(root):
+                    raise ValueError(f"shard escapes directory: {shard}")
+                shards[shard] = stack.enter_context(safe_open(str(path), framework="pt", device="cpu"))
+        consumed = set()
+        def get_tensor(canon):
+            orig, shard = canonical[canon]
+            t = shards[shard].get_tensor(orig)
+            consumed.add(canon)
+            return t
+        yield text_cfg, get_tensor, set(canonical)
+        missing = set(canonical) - consumed
+        if missing:
+            raise RuntimeError(f"unconsumed tensors: {sorted(missing)[:5]}")
+```

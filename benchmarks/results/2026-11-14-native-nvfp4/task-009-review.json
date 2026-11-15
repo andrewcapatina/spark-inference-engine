@@ -1,0 +1,6 @@
+{
+  "task": "009",
+  "decision": "reject_before_placement",
+  "reason": "Model constructor outside meta context would allocate full CPUFP32 weights and leave normal params unmaterialized; three import paths hallucinated; focused prompt now names exact real modules.",
+  "implementation_placed": false
+}

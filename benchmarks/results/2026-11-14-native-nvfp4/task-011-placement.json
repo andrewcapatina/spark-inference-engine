@@ -1,0 +1,11 @@
+{
+  "task": "011",
+  "decision": "placed_for_tiny_testing",
+  "target": "spark_engine/qwen_quantized.py",
+  "implementation_author": "local Qwen",
+  "response_sha256": "e16a486bce43809df45a35a2740b3704f5402ca3ea58fc3785b7fb6b609ef9ae",
+  "fragment_sha256": "62c45eb6ea53dcb218867812046436262eb998abc1d5bd6dc0ff5af4eef33147",
+  "source_sha256": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+  "transformation": "Removed outer Markdown fences and appended exact local-authored fragment; no code repair",
+  "scope": "One loader function; up to80lines to keep checks readable; existing reader unchanged"
+}

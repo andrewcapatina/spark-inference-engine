@@ -1,0 +1,6 @@
+{
+  "task": "010",
+  "decision": "reject_before_placement",
+  "reason": "Correct meta placement/import paths now, but ordinary BF16 branch wrongly creates replacement nn.Linear and assigns child names containing dot (mod_name+.weight), which nn.Module rejects. Ordinary meta linears should be left intact for final parameter pass.",
+  "implementation_placed": false
+}

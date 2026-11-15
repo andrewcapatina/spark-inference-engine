@@ -1,0 +1,12 @@
+{
+  "task": "003",
+  "target": "spark_engine/qwen_nvfp4.py",
+  "decision": "placed_for_testing",
+  "implementation_author": "local Qwen",
+  "response_sha256": "5345904db429df432ac5204a71696320d95d1a3d7a418084d057277c9322c420",
+  "raw_content_sha256": "ee805b844c6a7c21e0c3ac7b5584ff48e1a3b118dc2d5760e6e2c63023442c68",
+  "placed_source_sha256": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+  "only_transformation": "Removed outer Markdown code fences if present; no implementation edits",
+  "line_count": 47,
+  "runtime_verified": false
+}
