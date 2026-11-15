@@ -1,4 +1,5 @@
 {
+  "task-023-prompt.txt": "a35b2f51b3af8a563afb1ba39d9a38f4fe00f2dfc085d1d64fbfc16c75c740c1",
   "run_preallocated_kv_decode.py": "f0d290df0cb6a205e531ab9829e964a47d6e83faa1a353e932c03aee57a80328",
   "run_preallocated_kv_small.py": "1b78cbd88d4ce7d57ea63908099a7a0deae7fe489ebde9a086650ff557aad9ec",
   "retain_and_restore_preallocated_kv.py": "91ba1b3db8558da2c83b6c61fd0f19a3bcfcb8381f5b915ec725c413283eb1d1",
@@ -6,9 +7,11 @@
   "prepare_preallocated_kv_experiment.py": "42994afefbc943365f7c7231bd070a80e09ac57e2cc74a88bf0debccfafdc2e9",
   "qwen_attention_decode_before_preallocation.py.txt": "ac154c11d4f2305e652945a5db45e72ab3cd376e6eb0a5fe444f32ef2a2438e0",
   "nvfp4_update_runtime.py": "44a0fbb2e981dea14236e9cd9488f83af1e7a98829dee3c2df3cfd17edf1303d",
+  "task-027-prompt.txt": "d242e5abf81a1e15b053e7980fd6adb0ece64af04803d3a260cecf7193f3e51f",
+  "task-025-prompt.txt": "35a8559185455a189c07316d870022675251af7193fbbeb52941cb70ea02f012",
   "prepare_preallocated_kv_trial.py": "4ec4d58d51f1f0488920d3cd34d116242e5cc157080e838220a632e63a2a2238",
   "run_preallocated_kv_profile.py": "678ffee1dc957d48456bae2154f9dc7aa6c64dc6868d91b2109c3242ccc3f0d8",
-  "report_preallocated_kv.py": "dfd6f8ba6d3b11af9e2a2b717d2ecc80ac487f72e114ec664856f500f0f2be84",
+  "report_preallocated_kv.py": "e92ac8809b7435cbbfa4c7c192d1eab1566e51bd039cc1660af22abeaeab001b",
   "check_preallocated_attention_cache.py": "e795fa450d4c00988899435ba2d258b9f6daa30ce7594dbaf27314a8a6681c59",
   "profile_qkv_runtime.py": "a14255c529e6ff2bf49d43b98658b57cb5b98c035f97ada2d94429c228389f2e",
   "place_preallocated_kv_decode.py": "74b5aea1f42365ac35003f93693531773607fb8a1f3cec250aa0b48faa7e8d2c",
@@ -17,7 +20,9 @@
   "compare_preallocated_kv_results.py": "794ae3b4229eb31ee7bb29a401e1503af0c396d595bbadab67e4f7f28d4c49f7",
   "benchmark_preallocated_kv_ab.py": "0c0e302ddbae06f08aa25dcf3fdc8b84bdf4d91a2b3c6e5170fb9e9a634ef4ae",
   "launch_preallocated_kv_prepared.py": "2d7ade981c2e80ad7fba0a26d21a9287ab51836cc737e1597dd6328c81797d50",
+  "task-024-prompt.txt": "c71037ed8acb73252ee4691ba573ab4c018795a5fc153125d3050db21adc837a",
   "check_preallocated_attention_decode.py": "d9cda49cc4e8918001a966385542a16a5fb4a41bf96085febaa551e7436777c0",
   "place_preallocated_kv_bundle.py": "389ff3f98244cb83ca5d878c849814b842a1e5f5f740007fec930fcd3538c5e8",
+  "task-026-prompt.txt": "882de884cb1d8a568ad294c08591a362a3281d28bd41c21388557aea3ddaf2d6",
   "run_preallocated_kv_ab.py": "394c61b0989bfa3139950ec533d356fd57ef90c0e8eda8876eb3ccf333d67f38"
 }
