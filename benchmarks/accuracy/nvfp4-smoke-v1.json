@@ -1,0 +1,773 @@
+{
+  "schema_version": 1,
+  "name": "nvfp4-smoke-v1",
+  "scope": "Small original fixed-answer task and prose screening set; not a standard benchmark or broad language quality certification. Conversation cases use fixed transcripts.",
+  "criteria_fixed_before_outputs": {
+    "minimum_native_task_accuracy": 0.9,
+    "maximum_native_only_failures_vs_reference": 0,
+    "maximum_native_to_reference_tokenweighted_perplexity_ratio": 1.05,
+    "all_requests_must_finish_without_length_truncation": true
+  },
+  "generation": {
+    "temperature": 0,
+    "enable_thinking": false,
+    "max_new_tokens": 64,
+    "reference_kv_dtype": "bfloat16",
+    "batch_size": 1
+  },
+  "cases": [
+    {
+      "id": "arithmetic-01",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 23 + 48? Return only the number."
+        }
+      ],
+      "expected": 71,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-02",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 17 * 6? Return only the number."
+        }
+      ],
+      "expected": 102,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-03",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 144 / 12? Return only the number."
+        }
+      ],
+      "expected": 12,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-04",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 9 squared minus 5? Return only the number."
+        }
+      ],
+      "expected": 76,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-05",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 15 percent of 80? Return only the number."
+        }
+      ],
+      "expected": 12,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-06",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is the arithmetic mean of 4, 8 and 12? Return only the number."
+        }
+      ],
+      "expected": 8,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-07",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is the total cost of three books costing 7 each plus shipping of 5? Return only the number."
+        }
+      ],
+      "expected": 26,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "arithmetic-08",
+      "category": "arithmetic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 120 minus twice 17? Return only the number."
+        }
+      ],
+      "expected": 86,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-01",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "A is before B, and B is before C. Which letter is last?"
+        }
+      ],
+      "expected": "C",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-02",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "All daxes are blue. Tov is a dax. What color is Tov?"
+        }
+      ],
+      "expected": "blue",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-03",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Exactly one of P and Q is true. P is false. Is Q true or false?"
+        }
+      ],
+      "expected": "true",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-04",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Which is larger: 3/4 or 2/3? Return the larger fraction."
+        }
+      ],
+      "expected": "3/4",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-05",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "A box contains only red balls. One ball is taken from it. What color is that ball?"
+        }
+      ],
+      "expected": "red",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "logic-06",
+      "category": "logic",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "If the switch is on, the lamp is lit. The lamp is not lit. Is the switch on or off?"
+        }
+      ],
+      "expected": "off",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-01",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Record: name=Mira; city=Oslo; code=K7Z2. Return only the code."
+        }
+      ],
+      "expected": "K7Z2",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-02",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Inventory: red bolts=8; blue bolts=13; green bolts=5. How many blue bolts are there? Return only the number."
+        }
+      ],
+      "expected": 13,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-03",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Timeline: 2022 opened; 2023 expanded; 2024 relocated. In which year did relocation occur? Return only the year."
+        }
+      ],
+      "expected": 2024,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-04",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Message: The meeting moved from Tuesday to Friday. Return only the final weekday."
+        }
+      ],
+      "expected": "Friday",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-05",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Use only this catalog.\nItem 01: owner=User01, access=K0048, status=active.\nItem 02: owner=User02, access=K0085, status=active.\nItem 03: owner=User03, access=K0122, status=active.\nItem 04: owner=User04, access=K0159, status=active.\nItem 05: owner=User05, access=K0196, status=active.\nItem 06: owner=User06, access=K0233, status=active.\nItem 07: owner=User07, access=K0270, status=active.\nItem 08: owner=User08, access=K0307, status=active.\nItem 09: owner=User09, access=K0344, status=active.\nItem 10: owner=User10, access=K0381, status=active.\nItem 11: owner=User11, access=K0418, status=active.\nItem 12: owner=User12, access=K0455, status=active.\nItem 13: owner=User13, access=K0492, status=active.\nItem 14: owner=User14, access=K0529, status=active.\nItem 15: owner=User15, access=K0566, status=active.\nItem 16: owner=User16, access=K0603, status=active.\nItem 17: owner=User17, access=K0640, status=active.\nItem 18: owner=User18, access=K0677, status=active.\nItem 19: owner=User19, access=K0714, status=active.\nItem 20: owner=User20, access=K0751, status=active.\nItem 21: owner=User21, access=K0788, status=active.\nItem 22: owner=User22, access=K0825, status=active.\nItem 23: owner=User23, access=K0862, status=active.\nItem 24: owner=User24, access=K0899, status=active.\nItem 25: owner=User25, access=K0936, status=active.\nItem 26: owner=User26, access=K0973, status=active.\nItem 27: owner=User27, access=K1010, status=active.\nItem 28: owner=User28, access=K1047, status=active.\nItem 29: owner=User29, access=K1084, status=active.\nItem 30: owner=User30, access=K1121, status=active.\nItem 31: owner=User31, access=K1158, status=active.\nItem 32: owner=User32, access=K1195, status=active.\nItem 33: owner=User33, access=K1232, status=active.\nItem 34: owner=User34, access=K1269, status=active.\nItem 35: owner=User35, access=K1306, status=active.\nItem 36: owner=User36, access=K1343, status=active.\nItem 37: owner=User37, access=K1380, status=active.\nItem 38: owner=User38, access=K1417, status=active.\nItem 39: owner=User39, access=K1454, status=active.\nItem 40: owner=User40, access=K1491, status=active.\nReturn only the access code of Item 27."
+        }
+      ],
+      "expected": "K1010",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "extraction-06",
+      "category": "extraction",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Rows: Atlas sold 12 units; Birch sold 9 units; Cedar sold 15 units. Return only the name of the row with the most units."
+        }
+      ],
+      "expected": "Cedar",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-01",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Return a raw JSON object with name equal to \"Ada\" and count equal to 3. Do not use a Markdown fence."
+        }
+      ],
+      "expected": {
+        "name": "Ada",
+        "count": 3
+      },
+      "grading": "json",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-02",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Sort 9, 2, 5 in ascending order. Return only comma-separated numbers."
+        }
+      ],
+      "expected": [
+        2,
+        5,
+        9
+      ],
+      "grading": "csv_numbers",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-03",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Sort cat, ant, bee alphabetically. Return only comma-separated words."
+        }
+      ],
+      "expected": [
+        "ant",
+        "bee",
+        "cat"
+      ],
+      "grading": "csv_words",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-04",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Return a raw JSON array containing exactly the booleans true, false, true, in that order."
+        }
+      ],
+      "expected": [
+        true,
+        false,
+        true
+      ],
+      "grading": "json",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-05",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Convert the word sparkle to uppercase. Return only that word."
+        }
+      ],
+      "expected": "SPARKLE",
+      "grading": "exact_text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "format-06",
+      "category": "format",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Return the word YES exactly three times, separated by single spaces."
+        }
+      ],
+      "expected": "YES YES YES",
+      "grading": "exact_text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-01",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\nx = [2, 4, 6]\nprint(sum(x))\n```"
+        }
+      ],
+      "expected": 12,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-02",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\nx = [10, 20, 30]\nprint(x[1])\n```"
+        }
+      ],
+      "expected": 20,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-03",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\nprint(len(\"spark\"))\n```"
+        }
+      ],
+      "expected": 5,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-04",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\ndef f(x):\n    return x * x + 1\nprint(f(4))\n```"
+        }
+      ],
+      "expected": 17,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-05",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\nd = {\"a\": 7, \"b\": 11}\nprint(d[\"b\"] - d[\"a\"])\n```"
+        }
+      ],
+      "expected": 4,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "code_reading-06",
+      "category": "code_reading",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What does this Python code print? Return only the printed number.\n```python\nx = 0\nfor i in range(4):\n    x += i\nprint(x)\n```"
+        }
+      ],
+      "expected": 6,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "factual-01",
+      "category": "factual",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is the chemical formula for water? Return only the formula."
+        }
+      ],
+      "expected": "H2O",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "factual-02",
+      "category": "factual",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is the capital city of France? Return only the city."
+        }
+      ],
+      "expected": "Paris",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "factual-03",
+      "category": "factual",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is the smallest prime number? Return only the number."
+        }
+      ],
+      "expected": 2,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "factual-04",
+      "category": "factual",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Convert binary 1010 to decimal. Return only the number."
+        }
+      ],
+      "expected": 10,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "conversation-01",
+      "category": "conversation",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "My access code is R8M4. Remember it for this conversation."
+        },
+        {
+          "role": "assistant",
+          "content": "I will remember your access code."
+        },
+        {
+          "role": "user",
+          "content": "What is my access code? Return only the code."
+        }
+      ],
+      "expected": "R8M4",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "conversation-02",
+      "category": "conversation",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "What is 2 + 2?"
+        },
+        {
+          "role": "assistant",
+          "content": "4"
+        },
+        {
+          "role": "user",
+          "content": "Add 3 to that result. Return only the number."
+        }
+      ],
+      "expected": 7,
+      "grading": "number",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "conversation-03",
+      "category": "conversation",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "Use blue for the label."
+        },
+        {
+          "role": "assistant",
+          "content": "Blue."
+        },
+        {
+          "role": "user",
+          "content": "Change the label color to green."
+        },
+        {
+          "role": "assistant",
+          "content": "Green."
+        },
+        {
+          "role": "user",
+          "content": "Which color should I use now? Return only the color."
+        }
+      ],
+      "expected": "green",
+      "grading": "text",
+      "max_new_tokens": 64
+    },
+    {
+      "id": "conversation-04",
+      "category": "conversation",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Follow the requested answer format. Give only the final answer, with no explanation or reasoning."
+        },
+        {
+          "role": "user",
+          "content": "The project name is Spark, and the server name is Harbor."
+        },
+        {
+          "role": "assistant",
+          "content": "Understood."
+        },
+        {
+          "role": "user",
+          "content": "What should I call the project? Return only the project name."
+        }
+      ],
+      "expected": "Spark",
+      "grading": "text",
+      "max_new_tokens": 64
+    }
+  ],
+  "corpus": [
+    {
+      "id": "workshop",
+      "text": "Mira opened the workshop early on Monday. She placed a notebook beside the window and checked the list of repairs. The first task was a loose chair leg. She tightened the joint, let the glue dry, and tested the chair on a flat floor. After lunch, a neighbor brought in a small wooden box with a broken hinge. Mira measured the hinge carefully before choosing a replacement. By evening, the room was tidy and both repairs were complete. She recorded the materials she had used so that the next order would contain only what the workshop needed."
+    },
+    {
+      "id": "software",
+      "text": "A program reads input, follows a set of instructions, and produces output. Clear interfaces make it easier to understand how the parts fit together. A small test can check one behavior, while a larger test can check whether several parts work together. When a failure appears, a useful first step is to reproduce it with the same input. Changing one thing at a time helps separate a real improvement from an unrelated difference. Measurements should record the conditions under which they were collected, including the software version and the workload. A fast result is useful only when the program still performs the intended task."
+    },
+    {
+      "id": "journey",
+      "text": "The train left the coastal town just after sunrise. At first, the track followed the water, passing fishing boats and quiet streets. Farther inland, the landscape changed to fields and low hills. A passenger named Lena watched the stations go by and marked each stop on a paper map. She planned to meet her brother at the final station, where they would walk to a nearby cafe. The journey took longer than expected because workers were repairing a signal. Lena sent a short message about the delay, then returned to her book until the conductor announced their arrival."
+    },
+    {
+      "id": "garden",
+      "text": "A healthy garden needs regular attention rather than a single burst of work. The gardener checks the soil before watering and removes weeds while they are still small. Plants near a wall may receive less rain than plants in an open bed. In hot weather, a layer of mulch can help the soil retain moisture. Labels are useful when several varieties look alike. At the end of the season, notes about planting dates and harvests help guide the following year. These records do not remove uncertainty, but they make it easier to learn from both successful crops and disappointing ones."
+    }
+  ]
+}
