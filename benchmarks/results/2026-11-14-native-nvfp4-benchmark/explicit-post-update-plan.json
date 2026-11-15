@@ -1,0 +1,26 @@
+{
+  "user_requested_direct_heavy_trial": true,
+  "paired_comparison_authorized": true,
+  "native_quantized_update_authorized": true,
+  "prompt_tokens": 256,
+  "raw_prompt_lengths": [
+    256,
+    1024
+  ],
+  "new_tokens": 128,
+  "warmups": 1,
+  "timed_repetitions": 3,
+  "separate_events": true,
+  "profiler": false,
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "cuda_allocator_cap_gib": 32,
+  "host_minimum_gib": 32,
+  "new_swap_budget_mib": 256,
+  "model_revision": "f0b7c9e722f5565102fff8481c99e4d86ae099c7",
+  "native_engine_commit": "ac4cbc0",
+  "repository_commit": "47f3e725896f3417ff8ec162c642a3b6d291126f",
+  "measurement_sha256": "b2ca8f9588a539e686a15c7a1d393907d77b967be5028c9a922ffc2e31d2c75f",
+  "protected_qwen_gates": 56,
+  "protected_llama_cases": 15,
+  "guarded_cli_help_and_exclusive_lock_verified": true
+}

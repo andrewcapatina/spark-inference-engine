@@ -1,0 +1,39 @@
+{
+  "status": "benchmark_complete_accuracy_validation_partial",
+  "implementation_author": "local Qwen only",
+  "native_tok_s": {
+    "256": 9.171958190584716,
+    "1024": 8.34641142429022
+  },
+  "resident_tensor_bytes": 22586157376,
+  "minimum_sampled_host_available_bytes": 76511604736,
+  "maximum_swap_used_bytes": 0,
+  "maximum_sampled_gpu_temperature_c": 79.0,
+  "maximum_sampled_thermal_zone_c": 88.7,
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 24459686400,
+    "cuda_peak_reserved_bytes": 25692209152,
+    "cuda_global_free_bytes": 63190491136,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22576148480,
+    "VmRSS_bytes": 2264174592,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121676525568,
+    "SwapFree_bytes": 17179865088
+  },
+  "cross_backend_parity": {
+    "1024_prompt_128_output": "all128 IDs match original FP8KV vLLM reference",
+    "256_prompt_128_output": "full128 digest differs from both FP8KV and BF16KV vLLM references; unresolved",
+    "bf16_reference_int64_sha256": "a8e22d2820f4a49654bd59bb3c3aeeac3dd4c3aee44c70e375f14fe7d41b357d",
+    "native_int64_sha256": "f4c03a00a53c155912933b5b3c8701b15592372742d89f3972eca2ac5128330c",
+    "caveat": "BF16KV vLLM selected FLASH_ATTN2 instead of FLASHINFER; not isolated precision experiment"
+  },
+  "protected_regression": {
+    "qwen_unique_gates": 56,
+    "llama_cases": 15,
+    "numerical_tolerances_unchanged": true
+  },
+  "next_accuracy_work": "Compare identical-input logits and teacher-forced decode against reference before further optimization; representative quality evaluation still needed."
+}

@@ -1,5 +1,7 @@
 # Performance summary across runs
 
+Latest: [native NVFP4 benchmark and accuracy scope](2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
+
 The latest [same-loaded-model comparison](2026-11-14-paired-27b/README.md) found 9.66% lower latency for8 outputs and0.79% for128 outputs on27B with256 prompt tokens; all four pairs at each length favored the current loop. The earlier separate-process slowdown did not reproduce.
 
 The only native optimization so far removes the unused decode after the final requested output token. Local Qwen authored it (`18894a8`); all 56 Qwen gates and 15 Llama cases passed with unchanged numerical tolerances. It removes real work, but the saved timings do not establish a general throughput improvement.

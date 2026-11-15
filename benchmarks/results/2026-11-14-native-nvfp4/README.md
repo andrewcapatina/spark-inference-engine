@@ -17,11 +17,11 @@ Source review rejected missing shape validation, invalid scalar-tensor handling,
 
 The first real run reached exact raw generation but chat failed because the new Transformers runtime defaults to BatchEncoding. Local Qwen added only return_dict=False; an AST guard proved other method behavior unchanged. CPU fixtures on old/new versions and the real two-turn conversation passed afterward.
 
-The second worker completed all functional checks, but its parent cleanup guard rejected72MiB left after model release. A tiny no-model control reproduced exactly72MiB: cuBLAS clear reduced it to40MiB, and clearing idle FlashInfer workspace cache reduced it to0/0. This is runtime scratch storage, not evidence of retained model weights. The benchmark harness now checks weak references to model tensors, explicitly releases idle library workspace after timing, and retains the original16MiB allocation/64MiB reservation bounds. Eleven portable measurement tests pass. Corrected real-model benchmark teardown remains pending.
+The second worker completed all functional checks, but its parent cleanup guard rejected72MiB left after model release. A tiny no-model control reproduced exactly72MiB: cuBLAS clear reduced it to40MiB, and clearing idle FlashInfer workspace cache reduced it to0/0. This is runtime scratch storage, not evidence of retained model weights. The benchmark harness now checks weak references to model tensors, explicitly releases idle library workspace after timing, and retains the original16MiB allocation/64MiB reservation bounds. Eleven portable measurement tests pass. Corrected real-model benchmark teardown subsequently passed0/0 with no surviving model tensor references.
 
-## Pending at this checkpoint
+## Completed follow-up
 
-Protected regressions have passed the repository generation-budget check,52small Qwen gates and actual9B parity/greedy validation. Other real/checkpoint conversation gates and15Llama cases are still running. Native NVFP4 performance and final clean-teardown verification are pending. No completed native throughput number or general stability/quality claim is made here.
+All56 Qwen gates and15 Llama cases passed unchanged. Native benchmark completed9.17/8.35tok/s with clean teardown. Full128-token reference matching passes at1024 prompts but differs at256 prompts even with BF16KV reference; real-checkpoint numerical parity remains partial. See [final benchmark and accuracy scope](../2026-11-14-native-nvfp4-benchmark/README.md).
 
 Reference backend: [actual vLLM measurements](../2026-11-14-nvfp4-vllm/README.md), about11.45/11.09tok/s at256/1024 prompts with128outputs. That runtime auto-selected FP8 KV; the native path deliberately uses BF16 KV. The former native BF16 measurements use different checkpoint weights and an older PyTorch runtime, so cross-stack numbers do not isolate a pure quantization effect.
 

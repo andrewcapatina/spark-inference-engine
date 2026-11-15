@@ -4,7 +4,7 @@ A small native PyTorch inference engine developed on an NVIDIA DGX Spark.
 It loads local model weights and implements the model's forward pass,
 request state and greedy token generation in this repository.
 
-The current text paths cover the downloaded Qwen3.5-family 9B Safetensors model
+The current text paths cover the downloaded Qwen3.5-family 9B Safetensors model,
 the downloaded Qwen3.5-architecture 27B Q8_0 GGUF model, and the downloaded
 Unsloth Qwen3.8-27B mixed NVFP4/FP8 Safetensors checkpoint, plus a separately
 validated small Llama baseline. The 27B checkpoint is marketed as Qwen3.8;

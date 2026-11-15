@@ -1,5 +1,7 @@
 # Performance measurements and first optimization
 
+Latest: [native NVFP4 benchmark and accuracy scope](benchmarks/results/2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
+
 For the current cross-run conclusion and comparison limits, see the [performance summary](benchmarks/results/SUMMARY.md).
 
 ## What is established

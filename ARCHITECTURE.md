@@ -35,7 +35,7 @@ generated token.
 ```mermaid
 flowchart TD
     W["Local weights, config and tokenizer"] --> L["Load model once"]
-    L --> M["QwenCausalLM: CUDA BF16 weights"]
+    L --> M["QwenCausalLM: BF16 or packed FP8/NVFP4 weights"]
     U["Question + conversation text"] --> T["Chat template + tokenizer"]
     T --> P["Prefill full formatted conversation"]
     M -.-> P
@@ -79,6 +79,9 @@ request scheduler, HTTP server or continuous batching system.
 | [qwen_layers.py](spark_engine/qwen_layers.py) | Decoder layer, full attention, gated delta network, MLP and normalization dispatch |
 | [qwen_ops.py](spark_engine/qwen_ops.py) | Normalization, partial RoPE and FP32/chunked delta-rule arithmetic |
 | [qwen_gguf.py](spark_engine/qwen_gguf.py) | GGUF metadata/tensors, dequantization, layout restoration, tokenizer and loader |
+| [qwen_quantized.py](spark_engine/qwen_quantized.py) | Strict streaming reader, meta construction, packed linear replacement and complete tensor coverage |
+| [qwen_nvfp4.py](spark_engine/qwen_nvfp4.py) | NVFP4 block-scale layout, packed weight buffers and FlashInfer/CUTLASS quantized GEMM |
+| [qwen_fp8.py](spark_engine/qwen_fp8.py) | Per-token FP8 activation scaling, channel-scaled weight buffers and PyTorch scaled_mm |
 | [qwen_config.py](spark_engine/qwen_config.py) | Standalone parser that unwraps a nested text config; current loaders also build their own native config |
 | [model.py](spark_engine/model.py), [ops.py](spark_engine/ops.py) | Separate Llama baseline and its tensor operations |
 
@@ -298,3 +301,38 @@ roadmap. Its scheduler, registry, memory manager, streaming/API and distributed
 components describe intended work, not implemented subsystems. The local model
 wrote the native inference code; Codex wrote the directly authorized CLI and
 this source-based walkthrough.
+
+## Downloaded mixed NVFP4/FP8 checkpoint
+
+The additional Unsloth Qwen3.8-27B Safetensors path enters through the same
+NativeQwenText and QwenCausalLM public factory. Nonempty quantization metadata
+dispatches to qwen_quantized.load_quantized_qwen. The existing unquantized9B and
+GGUF paths retain their original arithmetic and loading behavior.
+
+The quantized loader creates the text architecture on meta, replaces supported
+linear layers with packed-weight modules and transfers one tensor at a time.
+Missing, unexpected, duplicate or incorrectly shaped text tensors fail closed.
+This avoids allocating a full CPUFP32 or GPU BF16 copy of the27B model. The
+downloaded recipe uses168NVFP4 and233FP8 linear modules; its actual resident
+tensor storage is22,586,157,376bytes, approximately21.04GiB.
+
+BF16 hidden states enter each quantized linear. NVFP4Linear packs activations
+using calibrated global scales and calls FlashInfer/CUTLASS on packed4-bit
+weights and block scales. FP8Linear computes per-token activation scales and
+calls PyTorch scaled_mm with FP8 weights and per-output-channel scales. Outputs
+return to BF16 for the existing native layer/residual logic. These are primitive
+GPU kernels; no external serving engine supplies the model forward or generation.
+
+Full-attention KV cache remains BF16; Gated DeltaNet request state retains its
+existing precision/ownership. Source FP8 KV-calibration tensors are explicitly
+skipped, as are vision and MTP tensors. No claim covers all NVFP4 conversion
+recipes, other architectures, speculative decoding or long-context reliability.
+The supported runtime is the locally pinned GB10 image documented in the
+guarded chat launcher. The older BF16 agent image lacks the required FlashInfer
+dependency. Model data remains external and read-only.
+
+Independent tiny operators and a sequential tiny reference/native hybrid model
+passed, followed by actual27B short greedy-reference and two-turn conversation
+checks. All56protected Qwen gates and15Llama cases passed after integration,
+without numerical tolerance changes. See [native validation](benchmarks/results/2026-11-14-native-nvfp4/README.md)
+and the [checkpoint manifest](benchmarks/model-manifests/qwen38-27b-nvfp4.json).

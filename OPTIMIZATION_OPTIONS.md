@@ -1,10 +1,8 @@
 # Options to review before further work
 
-No new optimization is selected. GPU experiments are held after two host shutdowns. The current local-Qwen change passes protected correctness, but [performance validation is incomplete](benchmarks/results/2026-11-14-final-decode/README.md). Short token-limited replies improved in saved measurements; longer results were mixed/slower. The pending paired diagnostic did not run.
+Latest: [native NVFP4 benchmark and accuracy scope](benchmarks/results/2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
 
-Later small clean-shutdown trials passed for both [9B](benchmarks/results/2026-11-14-clean-shutdown/README.md) and [27B](benchmarks/results/2026-11-14-clean-shutdown-27b/README.md), with normal worker/container exits and recovered host available memory. OS file cache remained after exit and CUDA-global free stayed lower. These short trials do not resolve the earlier 27B shutdowns at the longer workload.
-
-The [larger isolated 27B attempt](benchmarks/results/2026-11-14-larger-27b-third-crash/README.md) subsequently reproduced spontaneous host power-off at 1024 prompt/128 output, despite one-model isolation, clean stage boundaries and unused 9B cache release. The user confirms the original adapter/cable. The next step is local system-diagnostic collection; further GPU stress/retries and new optimizations are held.
+The options below were written before the firmware update and native NVFP4 implementation. Post-update isolated heavy workloads and NVFP4 benchmarking completed with clean teardown. No further optimization is selected. Prioritize identical-input logit/teacher-forcing validation of the unresolved quantized-reference discrepancy before choosing another performance change. Earlier shutdown causes remain unproven.
 
 ## Reliability comes first
 

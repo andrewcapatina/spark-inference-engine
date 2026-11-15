@@ -71,11 +71,12 @@ def source_info():
                           for p in paths}}
     try:
         result["git_commit"] = subprocess.check_output(
-            ["git", "-c", "core.fsmonitor=false", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+            ["git", "-c", "core.fsmonitor=false", "-c", f"safe.directory={ROOT}", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
         result["git_dirty"] = bool(subprocess.check_output(
-            ["git", "-c", "core.fsmonitor=false", "status", "--porcelain"], cwd=ROOT, text=True).strip())
+            ["git", "-c", "core.fsmonitor=false", "-c", f"safe.directory={ROOT}", "status", "--porcelain"], cwd=ROOT, text=True).strip())
     except (OSError, subprocess.CalledProcessError):
         result["git_commit"] = None
+        result["git_dirty"] = None
     return result
 
 
