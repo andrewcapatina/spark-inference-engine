@@ -1,0 +1,21 @@
+"""CPU controls for paired grading and token-weighted likelihood accounting."""
+import sys,math,copy,unittest
+sys.path.insert(0,'/home/cap/spark-inference-overnight-20261113')
+from compare_accuracy_evaluation import compare
+class ComparisonTests(unittest.TestCase):
+    def fixture(self):
+        suite={'scope':'CPUcontrol','cases':[{'id':'a'},{'id':'b'}],'corpus':[{'id':'short'},{'id':'long'}],'criteria_fixed_before_outputs':{'minimum_native_task_accuracy':.9,'maximum_native_only_failures_vs_reference':0,'maximum_native_to_reference_tokenweighted_perplexity_ratio':1.05,'all_requests_must_finish_without_length_truncation':True}}
+        d={'status':'complete','suite_sha256':'fixture','scoring_sha256':'fixture','cases':[{'id':i,'category':'test','prompt_token_ids':[1,2],'passed':True,'truncated':False} for i in ['a','b']],'corpus':[{'id':'short','token_ids':[1,2],'token_nll':[0.0],'scored_tokens':1,'sum_nll':0.,'perplexity':1.},{'id':'long','token_ids':[1,2,3,4],'token_nll':[math.log(4)]*3,'scored_tokens':3,'sum_nll':3*math.log(4),'perplexity':4.}]}
+        return copy.deepcopy(d),copy.deepcopy(d),suite
+    def test_weighted_likelihood_uses_tokens_not_document_average(self):
+        n,r,s=self.fixture();v=compare(n,r,s);self.assertEqual(v['status'],'screen_passed');self.assertAlmostEqual(v['native_tokenweighted_perplexity'],4**.75)
+    def test_equal_total_accuracy_does_not_hide_paired_regression(self):
+        n,r,s=self.fixture();n['cases'][0]['passed']=False;r['cases'][1]['passed']=False;v=compare(n,r,s);self.assertEqual(v['native_only_failures'],['a']);self.assertFalse(v['checks']['no_new_task_failures'])
+    def test_different_prompt_ids_are_rejected(self):
+        n,r,s=self.fixture();r['cases'][0]['prompt_token_ids']=[1,3]
+        with self.assertRaises(AssertionError):compare(n,r,s)
+    def test_truncation_fails_even_if_answer_is_correct(self):
+        n,r,s=self.fixture();n['cases'][0]['truncated']=True;self.assertEqual(compare(n,r,s)['status'],'screen_failed')
+    def test_likelihood_regression_fails_without_task_regression(self):
+        n,r,s=self.fixture();n['corpus'][1]['sum_nll']+=1.;v=compare(n,r,s);self.assertFalse(v['checks']['perplexity_ratio_within_bound']);self.assertTrue(v['checks']['no_new_task_failures'])
+if __name__=='__main__':unittest.main()

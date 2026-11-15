@@ -1,10 +1,12 @@
 # Performance summary across runs
 
-Latest [layer/reference investigation](2026-11-14-nvfp4-layer-reference/README.md): official HF graph with shared native projection operators matches the real273-token native score vector exactly; independent QDQ/FP32 arithmetic still diverges. Real projection probes pass unchanged bounds. Representative quantized-model task accuracy remains unvalidated; no new optimization selected.
+Latest [preliminary accuracy screen](2026-11-14-nvfp4-accuracy-screen/README.md): native and matched vLLM both40/40 tasks, no truncation; native perplexity8.947 versus9.073 on446 prose tokens. All predeclared criteria passed. This does not establish general quality or resolve independent numerical parity. No engine change or new optimization selected.
+
+Earlier [layer/reference investigation](2026-11-14-nvfp4-layer-reference/README.md): official HF graph with shared native projection operators matches the real273-token native score vector exactly; independent QDQ/FP32 arithmetic still diverges. Real projection probes pass unchanged bounds. Representative quantized-model task accuracy remains unvalidated; no new optimization selected.
 
 Follow-up [identical-input diagnostic](2026-11-14-nvfp4-teacher-forcing/README.md):125/128 forced top choices agree; at the first free divergence both fresh-prefill engines agree, while vLLM cached generation differs. This narrows the investigation but does not establish full quantized-model numerical correctness.
 
-Latest: [native NVFP4 benchmark and accuracy scope](2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
+Earlier performance checkpoint: [native NVFP4 benchmark and accuracy scope](2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
 
 The latest [same-loaded-model comparison](2026-11-14-paired-27b/README.md) found 9.66% lower latency for8 outputs and0.79% for128 outputs on27B with256 prompt tokens; all four pairs at each length favored the current loop. The earlier separate-process slowdown did not reproduce.
 

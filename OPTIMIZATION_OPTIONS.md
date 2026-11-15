@@ -1,8 +1,10 @@
 # Options to review before further work
 
-Latest [layer/reference investigation](benchmarks/results/2026-11-14-nvfp4-layer-reference/README.md): official HF graph with shared native projection operators matches the real273-token native score vector exactly; independent QDQ/FP32 arithmetic still diverges. Real projection probes pass unchanged bounds. Representative quantized-model task accuracy remains unvalidated; no new optimization selected.
+Latest [preliminary accuracy screen](benchmarks/results/2026-11-14-nvfp4-accuracy-screen/README.md): native and matched vLLM both40/40 tasks, no truncation; native perplexity8.947 versus9.073 on446 prose tokens. All predeclared criteria passed. This does not establish general quality or resolve independent numerical parity. No engine change or new optimization selected.
 
-Latest: [native NVFP4 benchmark and accuracy scope](benchmarks/results/2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
+Earlier [layer/reference investigation](benchmarks/results/2026-11-14-nvfp4-layer-reference/README.md): official HF graph with shared native projection operators matches the real273-token native score vector exactly; independent QDQ/FP32 arithmetic still diverges. Real projection probes pass unchanged bounds. Representative quantized-model task accuracy remains unvalidated; no new optimization selected.
+
+Earlier performance checkpoint: [native NVFP4 benchmark and accuracy scope](benchmarks/results/2026-11-14-native-nvfp4-benchmark/README.md):9.17/8.35 output tok/s at256/1024 prompt tokens with128 outputs,21.04GiB resident model tensors, protected56Qwen/15Llama regressions passed. Later-token256-prompt divergence from vLLM remains unresolved; broad quality validation is pending. Earlier results below are historical.
 
 The options below were written before the firmware update and native NVFP4 implementation. Post-update isolated heavy workloads and NVFP4 benchmarking completed with clean teardown. No further optimization is selected. Prioritize identical-input logit/teacher-forcing validation of the unresolved quantized-reference discrepancy before choosing another performance change. Earlier shutdown causes remain unproven.
 

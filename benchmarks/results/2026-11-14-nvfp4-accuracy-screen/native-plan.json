@@ -1,0 +1,10 @@
+{
+  "accuracy_evaluation_authorized": true,
+  "one_model_at_a_time": true,
+  "mode": "native",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "suite_sha256": "a06956fa688f340743e16342bd5e12fc33c4ff788dfae557fc6e1e144b54cc28",
+  "scoring_sha256": "ca44079aa05ba6426a7d5d6de5d639d9d390eb71ece9f6d099cc1beef3f5c5bc",
+  "criteria_checkpoint": "a836fab",
+  "purpose": "40fixed tasks +4 original prose likelihood docs; criteria fixed before outputs"
+}
