@@ -1,0 +1,92 @@
+{
+  "repository": "unsloth/Qwen3.8-27B-NVFP4",
+  "revision": "f0b7c9e722f5565102fff8481c99e4d86ae099c7",
+  "verified_files": [
+    {
+      "name": ".gitattributes",
+      "bytes": 1570,
+      "checksum": "52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "README.md",
+      "bytes": 6746,
+      "checksum": "3ddbfc9c1f10c6c82edbcb04a0edfde3f830b6f4",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "chat_template.jinja",
+      "bytes": 9993,
+      "checksum": "a087700658910c336c9ca9f5780a75a3cdd4fcdd",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "config.json",
+      "bytes": 22564,
+      "checksum": "b6f6347774036d406eabed6cfffb0fec424ba075",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 214,
+      "checksum": "0bc3addd19dc59c5c8899fc1fb887d50b592e7c3",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 22568192096,
+      "checksum": "c473512c70eace07e2256fe9fd76596ac03e3295bee7d54cfb72676416afcc05",
+      "algorithm": "sha256"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "bytes": 164371,
+      "checksum": "7608ff001dbfc8936318df32aaaaef7c8c9f340d",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "model_mtp.safetensors",
+      "bytes": 849400392,
+      "checksum": "1d8268aa85ace093a561e3e7b63b9d390dac1cd55a90cd55b5ec509c3c9da9fe",
+      "algorithm": "sha256"
+    },
+    {
+      "name": "preprocessor_config.json",
+      "bytes": 390,
+      "checksum": "2ea84a437d448ff71b08df68fdd949d5cc4ebb64",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 19989325,
+      "checksum": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "algorithm": "sha256"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 1047,
+      "checksum": "088fbebf189b39e2dabcdb12a83a31617fe98c2e",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "video_preprocessor_config.json",
+      "bytes": 385,
+      "checksum": "3ba673a5ad7d4d13f54155ecd38b2a94a6dac8fe",
+      "algorithm": "git-blob-sha1"
+    },
+    {
+      "name": "vocab.json",
+      "bytes": 6722759,
+      "checksum": "0aa0ce0658d60ac4a5d609f4eadb0e8e43514176",
+      "algorithm": "git-blob-sha1"
+    }
+  ],
+  "downloaded_at": "2026-11-15T00:42:51.414828+00:00",
+  "local_path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4",
+  "total_bytes": 23444511852,
+  "inference_validated": false,
+  "native_loader_supported": false,
+  "native_quantized_execution_supported": false,
+  "required_format": "mixed compressed-tensors NVFP4/FP8",
+  "next_step": "Reference baseline on validated GB10 runtime; then local-Qwen-only native loader and quantized operations, with unchanged BF16 acceptance checks"
+}
