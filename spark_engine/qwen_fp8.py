@@ -21,7 +21,7 @@ class FP8Linear(torch.nn.Module):
         orig_shape = x.shape
         x2d = x.reshape(-1, x.shape[-1])
         M, K = x2d.shape
-        scale_a = torch.clamp(torch.amax(x2d.float().abs(), dim=-1, keepdim=True) / 448.0, min=1e-6)
+        scale_a = torch.clamp(torch.amax(x2d.abs(), dim=-1, keepdim=True).float() / 448.0, min=1e-6)
         x_q = (x2d / scale_a).to(torch.float8_e4m3fn)
         if not x_q.is_contiguous():
             x_q = x_q.contiguous()
