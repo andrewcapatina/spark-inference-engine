@@ -6,7 +6,7 @@ The selected target remains prompt-processing latency. The user selected three s
 
 | Next work | Evidence / boundary |
 | --- | --- |
-|Compact convolution history|Current small cache slice retains the full raw prompt projection. Measure physical backing storage and peak memory; preserve exact values and continuation. Separate from QKV reuse.|
+|Compact convolution history — quarantined|Memory reduction confirmed (960→3.75MiB at1024), but one initial generation mismatch remains unexplained despite exact replays. Default code unchanged. [Evidence](benchmarks/results/2026-11-14-conv-history/README.md).|
 |Attention-cache copies and allocation|Decode concatenates growing K/V arrays, then repeats concatenation for returned caches. Remove duplicate work, then test preallocation while preserving prefix values, separate requests and cache-branch ownership.|
 |Fused normalization / FP8 preparation|Earlier profiles show meaningful cost; future independent numerical and whole-model checks required. Not currently selected for implementation.|
 

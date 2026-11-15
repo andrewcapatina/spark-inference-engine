@@ -1,0 +1,5 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "09ef1a2bee2df105bff6ee4556714e5c354ee47edfe9cb641dcd7f14f0028623",
+  "review": "Only clone added after selecting final convolution window. Existing QKV reuse, all arithmetic, short-prefix padding, state and outputs unchanged. Physical storage and exact continuation tests pending."
+}
