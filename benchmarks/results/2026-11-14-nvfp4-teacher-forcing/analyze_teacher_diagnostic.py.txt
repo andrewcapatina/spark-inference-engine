@@ -1,0 +1,22 @@
+"""CPU-only evidence summary; no pass thresholds fitted to these observations."""
+from pathlib import Path
+import json,ast,array,struct,math,sys
+R=Path('/home/cap/spark-inference-overnight-20261113');F=R/'feedback/nvfp4-reference';fixture=json.loads((R/'acceptance/teacher-input.json').read_text());N=F/fixture['native_run'];V=F/sys.argv[1];n=json.loads((N/'results.json').read_text());v=json.loads((V/'results.json').read_text());assert n['status']==v['status']=='complete'
+def npy(path,row=None):
+ with path.open('rb') as f:
+  assert f.read(6)==b'\x93NUMPY';version=f.read(2);size=struct.unpack('<H' if version[0]==1 else '<I',f.read(2 if version[0]==1 else 4))[0];h=ast.literal_eval(f.read(size).decode());assert h['descr']=='<f4' and not h['fortran_order'];shape=h['shape']
+  if row is None:count=math.prod(shape)
+  else:assert len(shape)==2;count=shape[1];f.seek(row*count*4,1)
+  a=array.array('f');a.frombytes(f.read(count*4));assert len(a)==count;assert sys.byteorder=='little';return a
+assert len(n['rows'])==len(v['rows'])==len(fixture['teacher_token_ids'])==128
+assert len(n['free_output_token_ids'])==len(v['free_output_token_ids'])==128
+idx=n['first_free_divergence'];cached=npy(N/'native-forced-logprobs.npy',idx);prefill=npy(N/'native-divergence-prefill-logprobs.npy');ref=npy(V/'reference-divergence-logprobs.npy')
+def compare(a,b):
+ assert len(a)==len(b);pa=[math.exp(x) for x in a];pb=[math.exp(x) for x in b];ma=sorted(range(len(a)),key=a.__getitem__,reverse=True)[:20];mb=sorted(range(len(b)),key=b.__getitem__,reverse=True)[:20]
+ return {'vocab_count':len(a),'top_a':ma[:5],'top_b':mb[:5],'top1_match':ma[0]==mb[0],'top5_overlap':len(set(ma[:5])&set(mb[:5])),'top20_overlap':len(set(ma)&set(mb)),'a_top2_logprob_margin':a[ma[0]]-a[ma[1]],'b_top2_logprob_margin':b[mb[0]]-b[mb[1]],'probability_mass_a':sum(pa),'probability_mass_b':sum(pb),'total_variation':sum(abs(p-q) for p,q in zip(pa,pb))*.5,'kl_a_to_b':sum(p*(x-y) for p,x,y in zip(pa,a,b)),'max_abs_logprob_error':max(abs(x-y) for x,y in zip(a,b)),'mean_abs_logprob_error':sum(abs(x-y) for x,y in zip(a,b))/len(a),'rms_logprob_error':math.sqrt(sum((x-y)**2 for x,y in zip(a,b))/len(a))}
+rows=[]
+for a,b in zip(n['rows'],v['rows']):
+ assert a['step']==b['step'] and a['target']==b['target'];row={'step':a['step'],'native_top':a['top_ids'][0],'reference_prefill_top':b['top_ids'][0],'native_target_logprob':a['target_logprob'],'reference_prefill_target_logprob':b['target_logprob'],'top1_match':a['top_ids'][0]==b['top_ids'][0]};rows.append(row)
+free=v['free_output_token_ids'];old=fixture['teacher_token_ids'];nd=n['free_output_token_ids'];div=lambda a,b:next((i for i,(x,y) in enumerate(zip(a,b)) if x!=y),None)
+summary={'scope':'Diagnostic normalized logits and top20 teacher-forced prediction comparisons; no newly fitted numerical pass threshold','native_run':fixture['native_run'],'reference_run':V.name,'teacher_source':'earlier vLLM BF16KV sampled output, full128 tokens','first_native_vs_prior_reference_divergence_0based':idx,'reference_free_reproduces_prior':free==old,'first_reference_repeat_difference':div(free,old),'first_native_vs_current_reference_difference':div(nd,free),'native_cached_vs_reference_prefill_at_divergence':compare(cached,ref),'native_prefill_vs_reference_prefill_at_divergence':compare(prefill,ref),'native_cached_vs_native_prefill_at_divergence':compare(cached,prefill),'forced_top1_matches':sum(x['top1_match'] for x in rows),'forced_steps':len(rows),'native_mean_target_nll':-sum(x['target_logprob'] for x in n['rows'])/len(rows),'reference_prefill_mean_target_nll':-sum(x['target_logprob'] for x in v['rows'])/len(rows),'forced_step_comparison':rows,'reference_free_distribution_at_first_divergence':v['free_step_distributions'][idx],'native_distribution_at_first_divergence':{str(k):lp for k,lp in zip(n['rows'][idx]['top_ids'],n['rows'][idx]['top_logprobs'])},'execution_path_caveat':'vLLM teacher forcing is full-prefix prompt scoring, native forced path is incremental decode; separate full-prefix comparison at divergence controls this path difference. Reference BF16KV uses FLASH_ATTN2.'}
+(R/'runs'/V.name/'comparison-summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps({k:v for k,v in summary.items() if k!='forced_step_comparison'},indent=2))

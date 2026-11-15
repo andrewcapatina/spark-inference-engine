@@ -1,0 +1,1172 @@
+{
+  "scope": "Diagnostic normalized logits and top20 teacher-forced prediction comparisons; no newly fitted numerical pass threshold",
+  "native_run": "teacher-native-20261115T025446Z",
+  "reference_run": "teacher-reference-recovery-20261115T030536Z",
+  "teacher_source": "earlier vLLM BF16KV sampled output, full128 tokens",
+  "first_native_vs_prior_reference_divergence_0based": 37,
+  "reference_free_reproduces_prior": true,
+  "first_reference_repeat_difference": null,
+  "first_native_vs_current_reference_difference": 37,
+  "native_cached_vs_reference_prefill_at_divergence": {
+    "vocab_count": 248320,
+    "top_a": [
+      3296,
+      271,
+      6165,
+      7593,
+      198
+    ],
+    "top_b": [
+      3296,
+      271,
+      328,
+      6165,
+      198
+    ],
+    "top1_match": true,
+    "top5_overlap": 4,
+    "top20_overlap": 11,
+    "a_top2_logprob_margin": 6.874999964144081,
+    "b_top2_logprob_margin": 5.37500015925616,
+    "probability_mass_a": 1.0000000642904934,
+    "probability_mass_b": 1.0000020601607162,
+    "total_variation": 0.006774346291206019,
+    "kl_a_to_b": 0.006293003915852159,
+    "max_abs_logprob_error": 9.087778091430664,
+    "mean_abs_logprob_error": 2.2230591121765118,
+    "rms_logprob_error": 2.5920315733415564
+  },
+  "native_prefill_vs_reference_prefill_at_divergence": {
+    "vocab_count": 248320,
+    "top_a": [
+      3296,
+      271,
+      198,
+      7593,
+      6321
+    ],
+    "top_b": [
+      3296,
+      271,
+      328,
+      6165,
+      198
+    ],
+    "top1_match": true,
+    "top5_overlap": 3,
+    "top20_overlap": 10,
+    "a_top2_logprob_margin": 6.624999888474122,
+    "b_top2_logprob_margin": 5.37500015925616,
+    "probability_mass_a": 1.0000000521718844,
+    "probability_mass_b": 1.0000020601607162,
+    "total_variation": 0.006612173229931819,
+    "kl_a_to_b": 0.007469895306135053,
+    "max_abs_logprob_error": 9.455291748046875,
+    "mean_abs_logprob_error": 1.8859592049074083,
+    "rms_logprob_error": 2.2452322592047236
+  },
+  "native_cached_vs_native_prefill_at_divergence": {
+    "vocab_count": 248320,
+    "top_a": [
+      3296,
+      271,
+      6165,
+      7593,
+      198
+    ],
+    "top_b": [
+      3296,
+      271,
+      198,
+      7593,
+      6321
+    ],
+    "top1_match": true,
+    "top5_overlap": 4,
+    "top20_overlap": 15,
+    "a_top2_logprob_margin": 6.874999964144081,
+    "b_top2_logprob_margin": 6.624999888474122,
+    "probability_mass_a": 1.0000000642904934,
+    "probability_mass_b": 1.0000000521718844,
+    "total_variation": 0.001157047749426728,
+    "kl_a_to_b": 0.002054371967011107,
+    "max_abs_logprob_error": 8.281577110290527,
+    "mean_abs_logprob_error": 1.172758773777977,
+    "rms_logprob_error": 1.484288328851803
+  },
+  "forced_top1_matches": 125,
+  "forced_steps": 128,
+  "native_mean_target_nll": 0.09865060845800144,
+  "reference_prefill_mean_target_nll": 0.12031354356759039,
+  "forced_step_comparison": [
+    {
+      "step": 0,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.0016496871830895543,
+      "reference_prefill_target_logprob": -0.0029683122411370277,
+      "top1_match": true
+    },
+    {
+      "step": 1,
+      "native_top": 33633,
+      "reference_prefill_top": 33633,
+      "native_target_logprob": -0.0021949741058051586,
+      "reference_prefill_target_logprob": -0.34029796719551086,
+      "top1_match": true
+    },
+    {
+      "step": 2,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.002439501229673624,
+      "reference_prefill_target_logprob": -0.006729321554303169,
+      "top1_match": true
+    },
+    {
+      "step": 3,
+      "native_top": 321,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -0.018921123817563057,
+      "reference_prefill_target_logprob": -0.1807681918144226,
+      "top1_match": true
+    },
+    {
+      "step": 4,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.003208491252735257,
+      "reference_prefill_target_logprob": -0.01409551315009594,
+      "top1_match": true
+    },
+    {
+      "step": 5,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.002086249878630042,
+      "reference_prefill_target_logprob": -0.0017131189815700054,
+      "top1_match": true
+    },
+    {
+      "step": 6,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0025399825535714626,
+      "reference_prefill_target_logprob": -0.00260300119407475,
+      "top1_match": true
+    },
+    {
+      "step": 7,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.20775263011455536,
+      "reference_prefill_target_logprob": -0.25687527656555176,
+      "top1_match": true
+    },
+    {
+      "step": 8,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.008738255128264427,
+      "reference_prefill_target_logprob": -0.005221302155405283,
+      "top1_match": true
+    },
+    {
+      "step": 9,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.0023237864952534437,
+      "reference_prefill_target_logprob": -0.01070235576480627,
+      "top1_match": true
+    },
+    {
+      "step": 10,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.0019955975003540516,
+      "reference_prefill_target_logprob": -0.003989714197814465,
+      "top1_match": true
+    },
+    {
+      "step": 11,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.011492596939206123,
+      "reference_prefill_target_logprob": -0.00377870025113225,
+      "top1_match": true
+    },
+    {
+      "step": 12,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.011192277073860168,
+      "reference_prefill_target_logprob": -0.03661508485674858,
+      "top1_match": true
+    },
+    {
+      "step": 13,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.0032031440641731024,
+      "reference_prefill_target_logprob": -0.01367239374667406,
+      "top1_match": true
+    },
+    {
+      "step": 14,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.001997025217860937,
+      "reference_prefill_target_logprob": -0.0013246104354038835,
+      "top1_match": true
+    },
+    {
+      "step": 15,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -0.020088553428649902,
+      "reference_prefill_target_logprob": -0.003106294432654977,
+      "top1_match": true
+    },
+    {
+      "step": 16,
+      "native_top": 1083,
+      "reference_prefill_top": 1083,
+      "native_target_logprob": -0.007057854440063238,
+      "reference_prefill_target_logprob": -0.0030853785574436188,
+      "top1_match": true
+    },
+    {
+      "step": 17,
+      "native_top": 449,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.0011338717304170132,
+      "reference_prefill_target_logprob": -1.734350323677063,
+      "top1_match": false
+    },
+    {
+      "step": 18,
+      "native_top": 4087,
+      "reference_prefill_top": 4087,
+      "native_target_logprob": -0.0008659188752062619,
+      "reference_prefill_target_logprob": -0.36677059531211853,
+      "top1_match": true
+    },
+    {
+      "step": 19,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0017923733685165644,
+      "reference_prefill_target_logprob": -0.09653037786483765,
+      "top1_match": true
+    },
+    {
+      "step": 20,
+      "native_top": 63074,
+      "reference_prefill_top": 63074,
+      "native_target_logprob": -0.0037712184712290764,
+      "reference_prefill_target_logprob": -0.03672977164387703,
+      "top1_match": true
+    },
+    {
+      "step": 21,
+      "native_top": 4779,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.0014757943572476506,
+      "reference_prefill_target_logprob": -0.02052835375070572,
+      "top1_match": true
+    },
+    {
+      "step": 22,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.001379848807118833,
+      "reference_prefill_target_logprob": -0.007451005280017853,
+      "top1_match": true
+    },
+    {
+      "step": 23,
+      "native_top": 33633,
+      "reference_prefill_top": 33633,
+      "native_target_logprob": -0.004690358880907297,
+      "reference_prefill_target_logprob": -0.7298023700714111,
+      "top1_match": true
+    },
+    {
+      "step": 24,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.001468414207920432,
+      "reference_prefill_target_logprob": -0.001822478836402297,
+      "top1_match": true
+    },
+    {
+      "step": 25,
+      "native_top": 321,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -0.007119405549019575,
+      "reference_prefill_target_logprob": -0.1842983216047287,
+      "top1_match": true
+    },
+    {
+      "step": 26,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.0060279713943600655,
+      "reference_prefill_target_logprob": -0.013961154967546463,
+      "top1_match": true
+    },
+    {
+      "step": 27,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.005957346875220537,
+      "reference_prefill_target_logprob": -0.008824281394481659,
+      "top1_match": true
+    },
+    {
+      "step": 28,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0023883646354079247,
+      "reference_prefill_target_logprob": -0.0036199060268700123,
+      "top1_match": true
+    },
+    {
+      "step": 29,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.2045300006866455,
+      "reference_prefill_target_logprob": -0.18233321607112885,
+      "top1_match": true
+    },
+    {
+      "step": 30,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.006035080645233393,
+      "reference_prefill_target_logprob": -0.0048736585304141045,
+      "top1_match": true
+    },
+    {
+      "step": 31,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.00020168177434243262,
+      "reference_prefill_target_logprob": -0.0005285535007715225,
+      "top1_match": true
+    },
+    {
+      "step": 32,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.0042006829753518105,
+      "reference_prefill_target_logprob": -0.03159737214446068,
+      "top1_match": true
+    },
+    {
+      "step": 33,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.003115088678896427,
+      "reference_prefill_target_logprob": -0.012734523043036461,
+      "top1_match": true
+    },
+    {
+      "step": 34,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.00659314077347517,
+      "reference_prefill_target_logprob": -0.11200416088104248,
+      "top1_match": true
+    },
+    {
+      "step": 35,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.0023240242153406143,
+      "reference_prefill_target_logprob": -0.0102998623624444,
+      "top1_match": true
+    },
+    {
+      "step": 36,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.001764527871273458,
+      "reference_prefill_target_logprob": -0.004552832338958979,
+      "top1_match": true
+    },
+    {
+      "step": 37,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -7.752874851226807,
+      "reference_prefill_target_logprob": -6.152007579803467,
+      "top1_match": true
+    },
+    {
+      "step": 38,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.3713313043117523,
+      "reference_prefill_target_logprob": -0.2796521484851837,
+      "top1_match": true
+    },
+    {
+      "step": 39,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.03086736798286438,
+      "reference_prefill_target_logprob": -0.02468130737543106,
+      "top1_match": true
+    },
+    {
+      "step": 40,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -0.1865864396095276,
+      "reference_prefill_target_logprob": -0.0942891389131546,
+      "top1_match": true
+    },
+    {
+      "step": 41,
+      "native_top": 1083,
+      "reference_prefill_top": 1083,
+      "native_target_logprob": -0.009528514929115772,
+      "reference_prefill_target_logprob": -0.00995280034840107,
+      "top1_match": true
+    },
+    {
+      "step": 42,
+      "native_top": 449,
+      "reference_prefill_top": 449,
+      "native_target_logprob": -0.015321299433708191,
+      "reference_prefill_target_logprob": -0.015290657989680767,
+      "top1_match": true
+    },
+    {
+      "step": 43,
+      "native_top": 4087,
+      "reference_prefill_top": 4087,
+      "native_target_logprob": -0.009942295029759407,
+      "reference_prefill_target_logprob": -0.011808141134679317,
+      "top1_match": true
+    },
+    {
+      "step": 44,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.047759734094142914,
+      "reference_prefill_target_logprob": -0.04099520668387413,
+      "top1_match": true
+    },
+    {
+      "step": 45,
+      "native_top": 63074,
+      "reference_prefill_top": 63074,
+      "native_target_logprob": -0.0900261327624321,
+      "reference_prefill_target_logprob": -0.05736684426665306,
+      "top1_match": true
+    },
+    {
+      "step": 46,
+      "native_top": 4779,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.01159653253853321,
+      "reference_prefill_target_logprob": -0.010196263901889324,
+      "top1_match": true
+    },
+    {
+      "step": 47,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.0060897041112184525,
+      "reference_prefill_target_logprob": -0.007495967671275139,
+      "top1_match": true
+    },
+    {
+      "step": 48,
+      "native_top": 33633,
+      "reference_prefill_top": 33633,
+      "native_target_logprob": -0.07092959433794022,
+      "reference_prefill_target_logprob": -0.17684954404830933,
+      "top1_match": true
+    },
+    {
+      "step": 49,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.005884584505110979,
+      "reference_prefill_target_logprob": -0.007329833693802357,
+      "top1_match": true
+    },
+    {
+      "step": 50,
+      "native_top": 321,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -0.009124013595283031,
+      "reference_prefill_target_logprob": -0.008023531176149845,
+      "top1_match": true
+    },
+    {
+      "step": 51,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.006916272919625044,
+      "reference_prefill_target_logprob": -0.010267887264490128,
+      "top1_match": true
+    },
+    {
+      "step": 52,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.010129591450095177,
+      "reference_prefill_target_logprob": -0.014483322389423847,
+      "top1_match": true
+    },
+    {
+      "step": 53,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.029667213559150696,
+      "reference_prefill_target_logprob": -0.039659131318330765,
+      "top1_match": true
+    },
+    {
+      "step": 54,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.5805264711380005,
+      "reference_prefill_target_logprob": -0.6268645524978638,
+      "top1_match": true
+    },
+    {
+      "step": 55,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.03515667840838432,
+      "reference_prefill_target_logprob": -0.040915220975875854,
+      "top1_match": true
+    },
+    {
+      "step": 56,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.0009199915803037584,
+      "reference_prefill_target_logprob": -0.0013144910335540771,
+      "top1_match": true
+    },
+    {
+      "step": 57,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.00615190714597702,
+      "reference_prefill_target_logprob": -0.010578274726867676,
+      "top1_match": true
+    },
+    {
+      "step": 58,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.004556629806756973,
+      "reference_prefill_target_logprob": -0.007622915785759687,
+      "top1_match": true
+    },
+    {
+      "step": 59,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.010112008079886436,
+      "reference_prefill_target_logprob": -0.01725049689412117,
+      "top1_match": true
+    },
+    {
+      "step": 60,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.011317696422338486,
+      "reference_prefill_target_logprob": -0.012454826384782791,
+      "top1_match": true
+    },
+    {
+      "step": 61,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.007084724493324757,
+      "reference_prefill_target_logprob": -0.010837859474122524,
+      "top1_match": true
+    },
+    {
+      "step": 62,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -0.2661157548427582,
+      "reference_prefill_target_logprob": -0.3326893746852875,
+      "top1_match": true
+    },
+    {
+      "step": 63,
+      "native_top": 1083,
+      "reference_prefill_top": 1083,
+      "native_target_logprob": -0.00732995243743062,
+      "reference_prefill_target_logprob": -0.009211777709424496,
+      "top1_match": true
+    },
+    {
+      "step": 64,
+      "native_top": 449,
+      "reference_prefill_top": 449,
+      "native_target_logprob": -0.0058730891905725,
+      "reference_prefill_target_logprob": -0.006452441215515137,
+      "top1_match": true
+    },
+    {
+      "step": 65,
+      "native_top": 4087,
+      "reference_prefill_top": 4087,
+      "native_target_logprob": -0.0046017225831747055,
+      "reference_prefill_target_logprob": -0.005746273789554834,
+      "top1_match": true
+    },
+    {
+      "step": 66,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.009398265741765499,
+      "reference_prefill_target_logprob": -0.009242487139999866,
+      "top1_match": true
+    },
+    {
+      "step": 67,
+      "native_top": 63074,
+      "reference_prefill_top": 63074,
+      "native_target_logprob": -0.01977035216987133,
+      "reference_prefill_target_logprob": -0.01653221808373928,
+      "top1_match": true
+    },
+    {
+      "step": 68,
+      "native_top": 4779,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.0025091851130127907,
+      "reference_prefill_target_logprob": -0.004715394228696823,
+      "top1_match": true
+    },
+    {
+      "step": 69,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.002206987701356411,
+      "reference_prefill_target_logprob": -0.00264021591283381,
+      "top1_match": true
+    },
+    {
+      "step": 70,
+      "native_top": 33633,
+      "reference_prefill_top": 33633,
+      "native_target_logprob": -0.008195343427360058,
+      "reference_prefill_target_logprob": -0.025004228577017784,
+      "top1_match": true
+    },
+    {
+      "step": 71,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.002903533633798361,
+      "reference_prefill_target_logprob": -0.0052400389686226845,
+      "top1_match": true
+    },
+    {
+      "step": 72,
+      "native_top": 321,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -0.010107051581144333,
+      "reference_prefill_target_logprob": -0.00348353898152709,
+      "top1_match": true
+    },
+    {
+      "step": 73,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.0021059971768409014,
+      "reference_prefill_target_logprob": -0.020287275314331055,
+      "top1_match": true
+    },
+    {
+      "step": 74,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.00619479501619935,
+      "reference_prefill_target_logprob": -0.009358939714729786,
+      "top1_match": true
+    },
+    {
+      "step": 75,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.008326222188770771,
+      "reference_prefill_target_logprob": -0.014026866294443607,
+      "top1_match": true
+    },
+    {
+      "step": 76,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.21477043628692627,
+      "reference_prefill_target_logprob": -0.33014461398124695,
+      "top1_match": true
+    },
+    {
+      "step": 77,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.01131722517311573,
+      "reference_prefill_target_logprob": -0.013864048756659031,
+      "top1_match": true
+    },
+    {
+      "step": 78,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.0002903516869992018,
+      "reference_prefill_target_logprob": -0.0005240259342826903,
+      "top1_match": true
+    },
+    {
+      "step": 79,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.059769876301288605,
+      "reference_prefill_target_logprob": -0.0047646318562328815,
+      "top1_match": true
+    },
+    {
+      "step": 80,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.005363479256629944,
+      "reference_prefill_target_logprob": -0.007223441731184721,
+      "top1_match": true
+    },
+    {
+      "step": 81,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.013469764962792397,
+      "reference_prefill_target_logprob": -0.013091916218400002,
+      "top1_match": true
+    },
+    {
+      "step": 82,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.006751463748514652,
+      "reference_prefill_target_logprob": -0.008645959198474884,
+      "top1_match": true
+    },
+    {
+      "step": 83,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.0035802333150058985,
+      "reference_prefill_target_logprob": -0.004755734000355005,
+      "top1_match": true
+    },
+    {
+      "step": 84,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -0.05473221465945244,
+      "reference_prefill_target_logprob": -0.08753666281700134,
+      "top1_match": true
+    },
+    {
+      "step": 85,
+      "native_top": 1083,
+      "reference_prefill_top": 1083,
+      "native_target_logprob": -0.005244189407676458,
+      "reference_prefill_target_logprob": -0.004390838090330362,
+      "top1_match": true
+    },
+    {
+      "step": 86,
+      "native_top": 449,
+      "reference_prefill_top": 449,
+      "native_target_logprob": -0.006340151187032461,
+      "reference_prefill_target_logprob": -0.010957427322864532,
+      "top1_match": true
+    },
+    {
+      "step": 87,
+      "native_top": 4087,
+      "reference_prefill_top": 4087,
+      "native_target_logprob": -0.011048214510083199,
+      "reference_prefill_target_logprob": -0.009057859890162945,
+      "top1_match": true
+    },
+    {
+      "step": 88,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0018886362668126822,
+      "reference_prefill_target_logprob": -0.002385629341006279,
+      "top1_match": true
+    },
+    {
+      "step": 89,
+      "native_top": 63074,
+      "reference_prefill_top": 63074,
+      "native_target_logprob": -0.00657573202624917,
+      "reference_prefill_target_logprob": -0.008173469454050064,
+      "top1_match": true
+    },
+    {
+      "step": 90,
+      "native_top": 4779,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.0017337066819891334,
+      "reference_prefill_target_logprob": -0.0021729685831815004,
+      "top1_match": true
+    },
+    {
+      "step": 91,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.005977965891361237,
+      "reference_prefill_target_logprob": -0.009897560812532902,
+      "top1_match": true
+    },
+    {
+      "step": 92,
+      "native_top": 33633,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.06453142315149307,
+      "reference_prefill_target_logprob": -1.24459969997406,
+      "top1_match": false
+    },
+    {
+      "step": 93,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.002900324296206236,
+      "reference_prefill_target_logprob": -0.004270600620657206,
+      "top1_match": true
+    },
+    {
+      "step": 94,
+      "native_top": 271,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -1.137937307357788,
+      "reference_prefill_target_logprob": -0.11081628501415253,
+      "top1_match": false
+    },
+    {
+      "step": 95,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.0021062351297587156,
+      "reference_prefill_target_logprob": -0.3213276267051697,
+      "top1_match": true
+    },
+    {
+      "step": 96,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.007225216832011938,
+      "reference_prefill_target_logprob": -0.0036185993812978268,
+      "top1_match": true
+    },
+    {
+      "step": 97,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0037019785959273577,
+      "reference_prefill_target_logprob": -0.006277367472648621,
+      "top1_match": true
+    },
+    {
+      "step": 98,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.14850743114948273,
+      "reference_prefill_target_logprob": -0.16699109971523285,
+      "top1_match": true
+    },
+    {
+      "step": 99,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.007261668331921101,
+      "reference_prefill_target_logprob": -0.0069169835187494755,
+      "top1_match": true
+    },
+    {
+      "step": 100,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.0025116822216659784,
+      "reference_prefill_target_logprob": -0.0011020784731954336,
+      "top1_match": true
+    },
+    {
+      "step": 101,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.0026301098987460136,
+      "reference_prefill_target_logprob": -0.002677667187526822,
+      "top1_match": true
+    },
+    {
+      "step": 102,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.0040397001430392265,
+      "reference_prefill_target_logprob": -0.0024994343984872103,
+      "top1_match": true
+    },
+    {
+      "step": 103,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.0024889700580388308,
+      "reference_prefill_target_logprob": -0.008558854460716248,
+      "top1_match": true
+    },
+    {
+      "step": 104,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.005107094533741474,
+      "reference_prefill_target_logprob": -0.004980182740837336,
+      "top1_match": true
+    },
+    {
+      "step": 105,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.002736516296863556,
+      "reference_prefill_target_logprob": -0.0030194190330803394,
+      "top1_match": true
+    },
+    {
+      "step": 106,
+      "native_top": 3296,
+      "reference_prefill_top": 3296,
+      "native_target_logprob": -0.055487073957920074,
+      "reference_prefill_target_logprob": -0.04414266347885132,
+      "top1_match": true
+    },
+    {
+      "step": 107,
+      "native_top": 1083,
+      "reference_prefill_top": 1083,
+      "native_target_logprob": -0.0040615457110106945,
+      "reference_prefill_target_logprob": -0.00320064858533442,
+      "top1_match": true
+    },
+    {
+      "step": 108,
+      "native_top": 449,
+      "reference_prefill_top": 449,
+      "native_target_logprob": -0.012621995061635971,
+      "reference_prefill_target_logprob": -0.002140970202162862,
+      "top1_match": true
+    },
+    {
+      "step": 109,
+      "native_top": 4087,
+      "reference_prefill_top": 4087,
+      "native_target_logprob": -0.0026467551942914724,
+      "reference_prefill_target_logprob": -0.004453740082681179,
+      "top1_match": true
+    },
+    {
+      "step": 110,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.002230895683169365,
+      "reference_prefill_target_logprob": -0.00459460262209177,
+      "top1_match": true
+    },
+    {
+      "step": 111,
+      "native_top": 63074,
+      "reference_prefill_top": 63074,
+      "native_target_logprob": -0.015146010555326939,
+      "reference_prefill_target_logprob": -0.0031777145341038704,
+      "top1_match": true
+    },
+    {
+      "step": 112,
+      "native_top": 4779,
+      "reference_prefill_top": 4779,
+      "native_target_logprob": -0.0006434039096347988,
+      "reference_prefill_target_logprob": -0.004095857031643391,
+      "top1_match": true
+    },
+    {
+      "step": 113,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.0015912501839920878,
+      "reference_prefill_target_logprob": -0.0028102213982492685,
+      "top1_match": true
+    },
+    {
+      "step": 114,
+      "native_top": 33633,
+      "reference_prefill_top": 33633,
+      "native_target_logprob": -0.3142462968826294,
+      "reference_prefill_target_logprob": -0.0806693285703659,
+      "top1_match": true
+    },
+    {
+      "step": 115,
+      "native_top": 11,
+      "reference_prefill_top": 11,
+      "native_target_logprob": -0.0005934861255809665,
+      "reference_prefill_target_logprob": -0.0025257135275751352,
+      "top1_match": true
+    },
+    {
+      "step": 116,
+      "native_top": 321,
+      "reference_prefill_top": 321,
+      "native_target_logprob": -0.020415764302015305,
+      "reference_prefill_target_logprob": -0.010530737228691578,
+      "top1_match": true
+    },
+    {
+      "step": 117,
+      "native_top": 2708,
+      "reference_prefill_top": 2708,
+      "native_target_logprob": -0.004169106017798185,
+      "reference_prefill_target_logprob": -0.0717104971408844,
+      "top1_match": true
+    },
+    {
+      "step": 118,
+      "native_top": 9989,
+      "reference_prefill_top": 9989,
+      "native_target_logprob": -0.0072942133992910385,
+      "reference_prefill_target_logprob": -0.0017999890260398388,
+      "top1_match": true
+    },
+    {
+      "step": 119,
+      "native_top": 13,
+      "reference_prefill_top": 13,
+      "native_target_logprob": -0.0038143275305628777,
+      "reference_prefill_target_logprob": -0.004923837725073099,
+      "top1_match": true
+    },
+    {
+      "step": 120,
+      "native_top": 198,
+      "reference_prefill_top": 198,
+      "native_target_logprob": -0.10455289483070374,
+      "reference_prefill_target_logprob": -0.11693093180656433,
+      "top1_match": true
+    },
+    {
+      "step": 121,
+      "native_top": 814,
+      "reference_prefill_top": 814,
+      "native_target_logprob": -0.005453945603221655,
+      "reference_prefill_target_logprob": -0.004171598702669144,
+      "top1_match": true
+    },
+    {
+      "step": 122,
+      "native_top": 20139,
+      "reference_prefill_top": 20139,
+      "native_target_logprob": -0.0003545847721397877,
+      "reference_prefill_target_logprob": -0.004245910327881575,
+      "top1_match": true
+    },
+    {
+      "step": 123,
+      "native_top": 1204,
+      "reference_prefill_top": 1204,
+      "native_target_logprob": -0.0013900866033509374,
+      "reference_prefill_target_logprob": -0.010075660422444344,
+      "top1_match": true
+    },
+    {
+      "step": 124,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.005743666552007198,
+      "reference_prefill_target_logprob": -0.004256000276654959,
+      "top1_match": true
+    },
+    {
+      "step": 125,
+      "native_top": 6165,
+      "reference_prefill_top": 6165,
+      "native_target_logprob": -0.00551630649715662,
+      "reference_prefill_target_logprob": -0.002713571535423398,
+      "top1_match": true
+    },
+    {
+      "step": 126,
+      "native_top": 10263,
+      "reference_prefill_top": 10263,
+      "native_target_logprob": -0.0029262362513691187,
+      "reference_prefill_target_logprob": -0.004268107935786247,
+      "top1_match": true
+    },
+    {
+      "step": 127,
+      "native_top": 264,
+      "reference_prefill_top": 264,
+      "native_target_logprob": -0.00208208616822958,
+      "reference_prefill_target_logprob": -0.003473916556686163,
+      "top1_match": true
+    }
+  ],
+  "reference_free_distribution_at_first_divergence": {
+    "6165": -0.2847839891910553,
+    "3296": -1.534783959388733,
+    "271": -3.7847840785980225,
+    "198": -6.034783840179443,
+    "328": -6.284783840179443,
+    "1957": -6.847283840179443,
+    "1001": -7.472283840179443,
+    "3590": -7.909783840179443,
+    "2715": -8.347284317016602,
+    "1319": -8.597284317016602,
+    "1156": -8.722284317016602,
+    "272": -8.847284317016602,
+    "4558": -8.909784317016602,
+    "3061": -8.972284317016602,
+    "23424": -9.034784317016602,
+    "2151": -9.034784317016602,
+    "2423": -9.222284317016602,
+    "459": -9.347284317016602,
+    "893": -9.472284317016602,
+    "3611": -9.597284317016602
+  },
+  "native_distribution_at_first_divergence": {
+    "3296": -0.0028748870827257633,
+    "271": -6.877874851226807,
+    "6165": -7.752874851226807,
+    "7593": -8.002875328063965,
+    "198": -8.190375328063965,
+    "2715": -9.002875328063965,
+    "14162": -9.252875328063965,
+    "27973": -9.377875328063965,
+    "1083": -9.690375328063965,
+    "4087": -9.752875328063965,
+    "64174": -9.815375328063965,
+    "15380": -10.377875328063965,
+    "3377": -10.502875328063965,
+    "264": -10.877875328063965,
+    "4602": -10.940375328063965,
+    "1076": -11.065375328063965,
+    "318": -11.315375328063965,
+    "2151": -11.315375328063965,
+    "3542": -11.440375328063965,
+    "328": -11.565375328063965
+  },
+  "execution_path_caveat": "vLLM teacher forcing is full-prefix prompt scoring, native forced path is incremental decode; separate full-prefix comparison at divergence controls this path difference. Reference BF16KV uses FLASH_ATTN2."
+}

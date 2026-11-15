@@ -1,0 +1,17 @@
+{
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/teacher-native-20261115T025446Z/native-divergence-prefill-logprobs.npy": {
+    "bytes": 993408,
+    "sha256": "6fafefbe9f7139b3ebec8ec2d846e8fd7eaffc8b07a45e794b687e2d0c04934f",
+    "storage": "retained locally, excluded from Git"
+  },
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/teacher-native-20261115T025446Z/native-forced-logprobs.npy": {
+    "bytes": 127139968,
+    "sha256": "5b5e36552884ac93c5629460709ae7534856a0a1abcee40ce35d666779e89a42",
+    "storage": "retained locally, excluded from Git"
+  },
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/teacher-reference-recovery-20261115T030536Z/reference-divergence-logprobs.npy": {
+    "bytes": 993408,
+    "sha256": "9cd612a0c1433abd9e8835fc7cc278ad3447b2d7c8499329c71b582c808fe74d",
+    "storage": "retained locally, excluded from Git"
+  }
+}

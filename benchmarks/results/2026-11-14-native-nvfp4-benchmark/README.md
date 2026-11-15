@@ -1,5 +1,7 @@
 # Native 27B NVFP4 benchmark and accuracy scope
 
+Follow-up: [teacher-forcing and identical-prefix scores](../2026-11-14-nvfp4-teacher-forcing/README.md) show reference cache/fresh-prefix sensitivity,125/128 same-history top choices matching, and remaining numerical discrepancies.
+
 Local Qwen authored the engine implementation. The supervisor supplied task boundaries, independent fixtures, harness recovery, measurements and documentation. Implementation/provenance: [native update](../2026-11-14-native-nvfp4/README.md).
 
 Batch1, 128 new tokens, EOS disabled, one warmup and three timed repetitions per prompt length; load excluded. Separate CUDA-event diagnostics do not contribute to wall medians. One large checkpoint at a time, 32GiB allocator cap and host floor, 256MiB new-swap guard. No profiler, CUDA graphs or MTP.

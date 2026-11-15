@@ -1,0 +1,49 @@
+"""Read-only numerical diagnostic. Calls existing engines; never implements inference."""
+from pathlib import Path
+import sys,json,time,gc,os,importlib.util,weakref
+import numpy as np
+RUN,MODE=sys.argv[1:3]
+out=Path('/results')/RUN;out.mkdir(exist_ok=True)
+def save(d):
+ p=out/'results.tmp';p.write_text(json.dumps(d,indent=2)+'\n');p.replace(out/'results.json')
+def phase(label,**extra):
+ with (out/'phases.jsonl').open('a') as f:f.write(json.dumps({'time':time.time(),'phase':label,**extra})+'\n');f.flush();os.fsync(f.fileno())
+fixture=json.loads(Path('/harness/teacher-input.json').read_text());prompt=fixture['prompt_token_ids'];teacher=fixture['teacher_token_ids'];assert len(prompt)==256 and len(teacher)==128
+import torch
+if MODE=='native':
+ sys.path.insert(0,'/workspace')
+ from spark_engine.qwen_model import QwenCausalLM
+ spec=importlib.util.spec_from_file_location('bench','/workspace/tools/benchmark_qwen.py');bench=importlib.util.module_from_spec(spec);spec.loader.exec_module(bench)
+ torch.set_num_threads(4);torch.manual_seed(0);torch.backends.cuda.matmul.allow_tf32=False;torch.cuda.init();torch.cuda.set_per_process_memory_fraction(32*1024**3/torch.cuda.get_device_properties(0).total_memory)
+ d={'status':'loading','mode':MODE,'scope':'native free generation and forced identical history; normalized logits are FP32 log_softmax of BF16 output','rows':[]};save(d);phase('before_load');model=QwenCausalLM.from_pretrained('/model');phase('after_load');refs=[(n,weakref.ref(t)) for n,t in list(model.named_parameters())+list(model.named_buffers())]
+ with torch.inference_mode():
+  ids=torch.tensor([prompt],device='cuda');generated=model.generate(ids,128,None);own=generated[0,256:].tolist();d['free_output_token_ids']=own;diff=[i for i,(a,b) in enumerate(zip(own,teacher)) if a!=b];d['first_free_divergence']=diff[0] if diff else None;assert diff,'Expected retained divergence did not reproduce; inspect run';save(d);del generated
+  logits,cache=model.prefill(ids);vocab=logits.shape[-1];matrix=np.lib.format.open_memmap(out/'native-forced-logprobs.npy',mode='w+',dtype=np.float32,shape=(128,vocab))
+  for i,target in enumerate(teacher):
+   lp=logits[0,-1].float().log_softmax(-1);values,indices=lp.topk(20);matrix[i]=lp.cpu().numpy();d['rows'].append({'step':i,'target':target,'target_logprob':lp[target].item(),'top_ids':indices.tolist(),'top_logprobs':values.tolist()});del lp,values,indices,logits
+   if i<127:logits,cache=model.decode(torch.tensor([[target]],device='cuda'),cache)
+   if i%16==0:save(d);phase('forced_step',step=i)
+  matrix.flush();del matrix,cache
+  # Match the reference's full-prefix prefill path as a separate observation.
+  i=d['first_free_divergence'];prefix=torch.tensor([prompt+teacher[:i]],device='cuda');prefill_logits,prefill_cache=model.prefill(prefix);lp=prefill_logits[0,-1].float().log_softmax(-1);np.save(out/'native-divergence-prefill-logprobs.npy',lp.cpu().numpy());d['prefill_at_divergence_top_ids']=lp.topk(20).indices.tolist();del lp,prefill_logits,prefill_cache,prefix,ids
+ d['memory_before_release']=bench.memory(torch);del model;gc.collect();d['live_model_tensors_after_release']=[name for name,ref in refs if ref() is not None];assert not d['live_model_tensors_after_release'];d['released_library_workspaces']=bench.clear_cuda_library_workspaces(torch);d['released_memory']=bench.memory(torch);assert d['released_memory']['cuda_allocated_bytes']<=16*1024**2 and d['released_memory']['cuda_reserved_bytes']<=64*1024**2
+ d['status']='complete';save(d);phase('released');print('NATIVE_TEACHER_DIAGNOSTIC_COMPLETE',flush=True)
+elif MODE=='reference':
+ import vllm
+ from vllm import LLM,SamplingParams
+ native_path=Path('/results')/fixture['native_run'];native=json.loads((native_path/'results.json').read_text());i=native['first_free_divergence']
+ config=dict(model='/model',tokenizer='/model',trust_remote_code=False,dtype='bfloat16',max_model_len=2048,max_num_seqs=1,max_num_batched_tokens=2048,gpu_memory_utilization=.40,kv_cache_memory_bytes=512*1024**2,enable_prefix_caching=False,kv_cache_dtype='bfloat16',enforce_eager=True,language_model_only=True,seed=0,max_logprobs=-1)
+ d={'status':'loading','mode':MODE,'settings':config,'vllm_version':vllm.__version__,'scope':'Teacher forcing by prompt scoring; full-vocabulary normalized logprobs at first divergent prefix. Prefill scoring, not forced incremental cache replay.','first_free_divergence':i};save(d);phase('before_load');llm=LLM(**config);phase('after_load')
+ # Prompt scoring predicts each teacher token from exactly the same preceding IDs.
+ r=llm.generate([{'prompt_token_ids':prompt+teacher}],SamplingParams(temperature=0,max_tokens=1,ignore_eos=True,prompt_logprobs=20),use_tqdm=False)[0]
+ rows=[]
+ for step,target in enumerate(teacher):
+  probs=r.prompt_logprobs[256+step];assert target in probs
+  ranked=sorted(probs.items(),key=lambda kv:kv[1].logprob,reverse=True)
+  rows.append({'step':step,'target':target,'target_logprob':probs[target].logprob,'top_ids':[int(k) for k,v in ranked[:20]],'top_logprobs':[v.logprob for k,v in ranked[:20]],'scored':{str(k):v.logprob for k,v in probs.items()}})
+ d['rows']=rows;save(d);del r;phase('prompt_scoring_complete')
+ prefix=prompt+teacher[:i];r=llm.generate([{'prompt_token_ids':prefix}],SamplingParams(temperature=0,max_tokens=1,ignore_eos=True,logprobs=-1),use_tqdm=False)[0];probs=r.outputs[0].logprobs[0];vocab=np.load(native_path/'native-forced-logprobs.npy',mmap_mode='r').shape[1];assert len(probs)==vocab,(len(probs),vocab)
+ arr=np.full(vocab,np.nan,dtype=np.float32)
+ for token,p in probs.items():arr[token]=p.logprob
+ assert np.isfinite(arr).all();np.save(out/'reference-divergence-logprobs.npy',arr);d['full_vocab_count']=len(probs);d['divergence_next_token']=int(r.outputs[0].token_ids[0]);d['status']='complete';save(d);phase('worker_exiting');print('REFERENCE_TEACHER_DIAGNOSTIC_COMPLETE',flush=True)
+else:raise ValueError(MODE)
