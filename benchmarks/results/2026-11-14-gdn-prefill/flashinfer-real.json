@@ -1,0 +1,46 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Actual first-layer activation fixture; fixed original bounds; earlier rejected synthetic cases remain failures",
+  "candidate_accepted": false,
+  "cases": [
+    {
+      "label": "actual_first_layer256",
+      "output": {
+        "max_abs": 0.03125,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite": 0
+      },
+      "state": {
+        "max_abs": 0.08617019653320312,
+        "outside_fixed_bounds": 604,
+        "elements": 786432,
+        "nonfinite": 0
+      },
+      "native_cuda_ms": 1.7142399549484253,
+      "flashinfer_adapter_cuda_ms": 0.34992000460624695,
+      "speedup": 4.898948137810529
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('gdn_prefill_tensormaps', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 110045696,
+    "cuda_peak_reserved_bytes": 123731968,
+    "cuda_global_free_bytes": 59373428736,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1734193152,
+    "VmRSS_bytes": 1659891712,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122155855872,
+    "SwapFree_bytes": 17179865088
+  }
+}

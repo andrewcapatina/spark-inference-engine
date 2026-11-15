@@ -1,0 +1,249 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Single shared block weights; exact original/new output, cache and continuation; counted QKV calls; tiny models only",
+  "cases": [
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 1,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 3,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 4,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 5,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 64,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 256,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 1,
+      "length": 1024,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 1,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 3,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 4,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 5,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 64,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 256,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "dense",
+      "batch": 2,
+      "length": 1024,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 1,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 3,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 4,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 5,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 64,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 256,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 1,
+      "length": 1024,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 1,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 3,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 4,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 5,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 64,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 256,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    },
+    {
+      "weights": "mixed_fp8_nvfp4",
+      "batch": 2,
+      "length": 1024,
+      "output_cache_continuation_element_exact": true,
+      "qkv_calls_before": 2,
+      "qkv_calls_after": 1
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 68676096,
+    "cuda_peak_reserved_bytes": 88080384,
+    "cuda_global_free_bytes": 58783432704,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 2284355584,
+    "VmRSS_bytes": 2284355584,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121603149824,
+    "SwapFree_bytes": 17179865088
+  }
+}

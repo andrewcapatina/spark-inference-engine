@@ -1,0 +1,178 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Actual retained layer inputs; diagnostic compiler-option sweep, no candidate accepted",
+  "source": "/results/gdn-real-inputs-20261115T053236Z/first-layer-inputs.pt",
+  "cases": [
+    {
+      "variant": "default_actual_stride",
+      "options": {},
+      "compile_seconds": 3.849505168000178,
+      "output": {
+        "bitexact": false,
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 283,
+        "nonfinite": 0
+      },
+      "state": {
+        "bitexact": false,
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 618826,
+        "nonfinite": 0
+      },
+      "timing": {
+        "cuda_ms": 1.1016000509262085,
+        "wall_ms": 1.1110310006188229
+      }
+    },
+    {
+      "variant": "default_contiguous",
+      "options": {},
+      "compile_seconds": 1.9622500340010447,
+      "output": {
+        "bitexact": false,
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 283,
+        "nonfinite": 0
+      },
+      "state": {
+        "bitexact": false,
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 618826,
+        "nonfinite": 0
+      },
+      "timing": {
+        "cuda_ms": 1.1343679428100586,
+        "wall_ms": 1.1434469997766428
+      }
+    },
+    {
+      "variant": "eager_numerics",
+      "options": {
+        "emulate_precision_casts": true,
+        "eager_numerics.division_rounding": true,
+        "eager_numerics.use_pytorch_libdevice": true,
+        "eager_numerics.disable_ftz": true
+      },
+      "compile_seconds": 3.224753201000567,
+      "output": {
+        "bitexact": false,
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 279,
+        "nonfinite": 0
+      },
+      "state": {
+        "bitexact": false,
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 613830,
+        "nonfinite": 0
+      },
+      "timing": {
+        "cuda_ms": 1.0956159830093384,
+        "wall_ms": 1.1046790023101494
+      }
+    },
+    {
+      "variant": "eager_numerics_cpp",
+      "options": {
+        "emulate_precision_casts": true,
+        "eager_numerics.division_rounding": true,
+        "eager_numerics.use_pytorch_libdevice": true,
+        "eager_numerics.disable_ftz": true,
+        "cpp_wrapper": true
+      },
+      "compile_seconds": 10.146042401000159,
+      "output": {
+        "bitexact": false,
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 279,
+        "nonfinite": 0
+      },
+      "state": {
+        "bitexact": false,
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 613830,
+        "nonfinite": 0
+      },
+      "timing": {
+        "cuda_ms": 1.10207998752594,
+        "wall_ms": 1.1112389984191395
+      }
+    },
+    {
+      "variant": "eager_numerics_min_fusion",
+      "options": {
+        "emulate_precision_casts": true,
+        "eager_numerics.division_rounding": true,
+        "eager_numerics.use_pytorch_libdevice": true,
+        "eager_numerics.disable_ftz": true,
+        "max_fusion_size": 1,
+        "layout_optimization": false
+      },
+      "compile_seconds": 4.262490926001192,
+      "output": {
+        "bitexact": false,
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 283,
+        "nonfinite": 0
+      },
+      "state": {
+        "bitexact": false,
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "different_elements": 599337,
+        "nonfinite": 0
+      },
+      "timing": {
+        "cuda_ms": 1.1750719547271729,
+        "wall_ms": 1.1852869974973146
+      }
+    }
+  ],
+  "native_timing": {
+    "cuda_ms": 1.6760319471359253,
+    "wall_ms": 1.687627001956571
+  },
+  "native_contiguous_output": {
+    "bitexact": true,
+    "max_abs": 0.0,
+    "outside_fixed_bounds": 0,
+    "different_elements": 0,
+    "nonfinite": 0
+  },
+  "native_contiguous_state": {
+    "bitexact": true,
+    "max_abs": 0.0,
+    "outside_fixed_bounds": 0,
+    "different_elements": 0,
+    "nonfinite": 0
+  },
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 109400064,
+    "cuda_peak_reserved_bytes": 150994944,
+    "cuda_global_free_bytes": 57577201664,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1514676224,
+    "VmRSS_bytes": 1482584064,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 120288698368,
+    "SwapFree_bytes": 17179865088
+  },
+  "candidate_accepted": false
+}

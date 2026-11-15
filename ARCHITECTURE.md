@@ -242,8 +242,9 @@ explicit memory-budget manager or multi-Spark executor.
 
 ## Findings to measure in the next phase
 
-These are observations from source, not ranked performance findings. No speed
-or memory benchmark was run for this walkthrough.
+These observations originated in source review. Rows marked with a later
+checkpoint reflect subsequent measured changes; see the
+[QKV reuse report](benchmarks/results/2026-11-14-qkv-reuse/README.md).
 
 | Observed behavior | Measurement it motivates |
 | --- | --- |
@@ -251,9 +252,9 @@ or memory benchmark was run for this walkthrough.
 | Full-attention prefill materializes score matrices and a dense causal mask | Prompt-length scaling and peak temporary memory |
 | Prefill produces vocabulary logits for all prompt positions | Output-head time and `[B, prompt length, vocabulary]` memory |
 | Attention decode concatenates growing KV tensors, including separate concatenations for returned caches | Copy/allocation time per generated token |
-| Delta prefill computes the QKV projection again to construct convolution state | Projection time and possible reuse |
+| Delta prefill reuses its raw QKV projection for convolution state (6dd8d9f) | Duplicate projection removed; measured prefill latency improves4.4–7.4% on tested NVFP4 workloads |
 | RoPE frequencies and positions are rebuilt for each decode | Per-token setup overhead |
-| The greedy loop decodes even after its final length-limited token, unless EOS breaks first | Cost of the final unused next-logit computation |
+| The greedy loop skips decoding after its final length-limited token | Earlier optimization already validated; no unused final decode |
 | 9B CPU FP32 initialization and GGUF FP32 staging precede usable BF16 weights | Separate cold-load time, peak host/device allocation and steady-state memory |
 | Python generation/chunk loops and many separate tensor operations | CPU launch overhead versus CUDA operator time |
 

@@ -1,0 +1,204 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Actual local-Qwen helper, padded arbitrary lengths and strided inputs; old chunk remains reference",
+  "cases": [
+    {
+      "timing_ms": {
+        "torch": 0.4508799910545349,
+        "compiled": 0.30883198976516724
+      },
+      "speedup": 1.4599523559634466,
+      "length": 1,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0
+    },
+    {
+      "timing_ms": {
+        "torch": 0.44620800018310547,
+        "compiled": 0.31040000915527344
+      },
+      "speedup": 1.4375257313858387,
+      "length": 5,
+      "output_max_abs": 0.0,
+      "state_max_abs": 5.960464477539063e-08
+    },
+    {
+      "timing_ms": {
+        "torch": 0.4532800018787384,
+        "compiled": 0.3086079955101013
+      },
+      "speedup": 1.4687889117373878,
+      "length": 63,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 0.4227199852466583,
+        "compiled": 0.26009601354599
+      },
+      "speedup": 1.6252459216254511,
+      "length": 64,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 0.8216959834098816,
+        "compiled": 0.6240959763526917
+      },
+      "speedup": 1.3166179795165374,
+      "length": 65,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 0.8017280101776123,
+        "compiled": 0.5993919968605042
+      },
+      "speedup": 1.3375687603052824,
+      "length": 67,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 2.980232238769531e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 0.8867520093917847,
+        "compiled": 0.6136000156402588
+      },
+      "speedup": 1.445162951090388,
+      "length": 127,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 2.980232238769531e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 0.8041599988937378,
+        "compiled": 0.5410559773445129
+      },
+      "speedup": 1.4862787448362216,
+      "length": 128,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 2.980232238769531e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 1.3052480220794678,
+        "compiled": 1.1793279647827148
+      },
+      "speedup": 1.1067727223105008,
+      "length": 129,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 1.9707839488983154,
+        "compiled": 1.1704959869384766
+      },
+      "speedup": 1.6837169634840479,
+      "length": 255,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 4.172325134277344e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 1.7559360265731812,
+        "compiled": 1.1257599592208862
+      },
+      "speedup": 1.5597783632209001,
+      "length": 256,
+      "output_max_abs": 0.0001220703125,
+      "state_max_abs": 2.980232238769531e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 2.19980788230896,
+        "compiled": 2.5476479530334473
+      },
+      "speedup": 0.8634661942556391,
+      "length": 257,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 4.109920024871826,
+        "compiled": 2.5964479446411133
+      },
+      "speedup": 1.5829009910845366,
+      "length": 511,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 2.980232238769531e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 3.541856050491333,
+        "compiled": 2.445568084716797
+      },
+      "speedup": 1.4482753813421183,
+      "length": 512,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 3.5762786865234375e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 4.368319988250732,
+        "compiled": 5.287936210632324
+      },
+      "speedup": 0.8260916573591524,
+      "length": 513,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 4.76837158203125e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 8.377120018005371,
+        "compiled": 5.578847885131836
+      },
+      "speedup": 1.501586024657743,
+      "length": 972,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 2.384185791015625e-07
+    },
+    {
+      "timing_ms": {
+        "torch": 7.207104206085205,
+        "compiled": 5.0149760246276855
+      },
+      "speedup": 1.437116383147667,
+      "length": 1024,
+      "output_max_abs": 0.000244140625,
+      "state_max_abs": 3.5762786865234375e-07
+    }
+  ],
+  "warmup_seconds": 23.59818277299928,
+  "graphs_after_warmup": {
+    "calls_captured": 1783,
+    "unique_graphs": 5
+  },
+  "graphs_after_all_lengths": {
+    "calls_captured": 1783,
+    "unique_graphs": 5
+  },
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 301040128,
+    "cuda_peak_reserved_bytes": 343932928,
+    "cuda_global_free_bytes": 59344064512,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1606221824,
+    "VmRSS_bytes": 1606221824,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121447833600,
+    "SwapFree_bytes": 17179865088
+  }
+}

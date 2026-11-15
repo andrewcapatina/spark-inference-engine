@@ -1,0 +1,2371 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Diagnostic baseline repeat versus compiled on one resident checkpoint; not a performance or acceptance result",
+  "passes": [
+    {
+      "label": "baseline",
+      "backend": "torch",
+      "layers": []
+    },
+    {
+      "label": "baseline_repeat",
+      "backend": "torch",
+      "layers": [
+        {
+          "layer": 0,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 1,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 2,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 3,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 4,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 5,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 6,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 7,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 8,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 9,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 10,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 11,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 12,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 13,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 14,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 15,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 16,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 17,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 18,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 19,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 20,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 21,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 22,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 23,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 24,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 25,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 26,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 27,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 28,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 29,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 30,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 31,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 32,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 33,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 34,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 35,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 36,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 37,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 38,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 39,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 40,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 41,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 42,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 43,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 44,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 45,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 46,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 47,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 48,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 49,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 50,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 51,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 52,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 53,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 54,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 55,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 56,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 57,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 58,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 59,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 60,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 61,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 62,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 786432,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 63,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": true,
+            "different_elements": 0,
+            "elements": 1310720,
+            "max_abs": 0.0,
+            "rms": 0.0,
+            "outside_fixed_bounds": 0
+          }
+        }
+      ],
+      "logits": {
+        "element_exact": true,
+        "different_elements": 0,
+        "elements": 63569920,
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "outside_fixed_bounds": 0
+      },
+      "top1_matches": 256,
+      "last_top1": 11,
+      "baseline_last_top1": 11
+    },
+    {
+      "label": "compiled",
+      "backend": "compiled",
+      "layers": [
+        {
+          "layer": 0,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 27281,
+            "elements": 1310720,
+            "max_abs": 0.001251220703125,
+            "rms": 3.525089050526731e-05,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 618826,
+            "elements": 786432,
+            "max_abs": 1.3113021850585938e-05,
+            "rms": 7.344571884004836e-08,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 1,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 909427,
+            "elements": 1310720,
+            "max_abs": 0.125,
+            "rms": 0.0007192839402705431,
+            "outside_fixed_bounds": 0
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 778138,
+            "elements": 786432,
+            "max_abs": 0.000756431370973587,
+            "rms": 4.0215859371528495e-06,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 2,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1083815,
+            "elements": 1310720,
+            "max_abs": 0.25,
+            "rms": 0.0020847448613494635,
+            "outside_fixed_bounds": 13
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786430,
+            "elements": 786432,
+            "max_abs": 0.005440223962068558,
+            "rms": 3.0825332942185923e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 3,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1103833,
+            "elements": 1310720,
+            "max_abs": 0.5,
+            "rms": 0.003467599395662546,
+            "outside_fixed_bounds": 20
+          }
+        },
+        {
+          "layer": 4,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1111828,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.004758944734930992,
+            "outside_fixed_bounds": 97
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.004605032503604889,
+            "rms": 5.829488145536743e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 5,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1115280,
+            "elements": 1310720,
+            "max_abs": 1.25,
+            "rms": 0.005836823955178261,
+            "outside_fixed_bounds": 257
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.0057508498430252075,
+            "rms": 5.128387056174688e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 6,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1158155,
+            "elements": 1310720,
+            "max_abs": 1.25,
+            "rms": 0.00704820966348052,
+            "outside_fixed_bounds": 894
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786430,
+            "elements": 786432,
+            "max_abs": 0.004404708743095398,
+            "rms": 5.3970798035152256e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 7,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1163195,
+            "elements": 1310720,
+            "max_abs": 1.5,
+            "rms": 0.008391493931412697,
+            "outside_fixed_bounds": 2192
+          }
+        },
+        {
+          "layer": 8,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1164472,
+            "elements": 1310720,
+            "max_abs": 1.5,
+            "rms": 0.009615780785679817,
+            "outside_fixed_bounds": 5181
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786431,
+            "elements": 786432,
+            "max_abs": 0.004653140902519226,
+            "rms": 6.048962313798256e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 9,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1165799,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.011000323109328747,
+            "outside_fixed_bounds": 11511
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786431,
+            "elements": 786432,
+            "max_abs": 0.015417002141475677,
+            "rms": 9.895255789160728e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 10,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1165750,
+            "elements": 1310720,
+            "max_abs": 0.75,
+            "rms": 0.012595073319971561,
+            "outside_fixed_bounds": 23223
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.007246002554893494,
+            "rms": 8.493753557559103e-05,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 11,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1175894,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.014809333719313145,
+            "outside_fixed_bounds": 44247
+          }
+        },
+        {
+          "layer": 12,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1181981,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.016822753474116325,
+            "outside_fixed_bounds": 66238
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786431,
+            "elements": 786432,
+            "max_abs": 0.010185852646827698,
+            "rms": 0.00010424999345559627,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 13,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1183133,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.018587401136755943,
+            "outside_fixed_bounds": 89632
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.011673204600811005,
+            "rms": 0.00011888569133589044,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 14,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1220433,
+            "elements": 1310720,
+            "max_abs": 1.25,
+            "rms": 0.020429862663149834,
+            "outside_fixed_bounds": 113619
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.009603401646018028,
+            "rms": 0.00012019393761875108,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 15,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1246209,
+            "elements": 1310720,
+            "max_abs": 1.25,
+            "rms": 0.022921767085790634,
+            "outside_fixed_bounds": 150992
+          }
+        },
+        {
+          "layer": 16,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1248915,
+            "elements": 1310720,
+            "max_abs": 1.25,
+            "rms": 0.02534322440624237,
+            "outside_fixed_bounds": 190663
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.008069708943367004,
+            "rms": 0.00011581449507502839,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 17,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1250478,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.02834203466773033,
+            "outside_fixed_bounds": 241095
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.008085668087005615,
+            "rms": 0.00012910390796605498,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 18,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1250853,
+            "elements": 1310720,
+            "max_abs": 1.0,
+            "rms": 0.03276107460260391,
+            "outside_fixed_bounds": 320604
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.015267614275217056,
+            "rms": 0.00020718670566566288,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 19,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1252601,
+            "elements": 1310720,
+            "max_abs": 1.5,
+            "rms": 0.039590537548065186,
+            "outside_fixed_bounds": 438807
+          }
+        },
+        {
+          "layer": 20,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1255159,
+            "elements": 1310720,
+            "max_abs": 2.25,
+            "rms": 0.0475630909204483,
+            "outside_fixed_bounds": 536509
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.0231950581073761,
+            "rms": 0.0004256892716512084,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 21,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1256582,
+            "elements": 1310720,
+            "max_abs": 5.5,
+            "rms": 0.05650922656059265,
+            "outside_fixed_bounds": 610958
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786431,
+            "elements": 786432,
+            "max_abs": 0.05280230939388275,
+            "rms": 0.0004896023310720921,
+            "outside_fixed_bounds": 6
+          }
+        },
+        {
+          "layer": 22,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1257537,
+            "elements": 1310720,
+            "max_abs": 5.5,
+            "rms": 0.06438212841749191,
+            "outside_fixed_bounds": 657293
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.03409159183502197,
+            "rms": 0.0002949344052467495,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 23,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1259285,
+            "elements": 1310720,
+            "max_abs": 6.5,
+            "rms": 0.07468978315591812,
+            "outside_fixed_bounds": 711565
+          }
+        },
+        {
+          "layer": 24,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1260345,
+            "elements": 1310720,
+            "max_abs": 5.0,
+            "rms": 0.09241456538438797,
+            "outside_fixed_bounds": 772237
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.03730100393295288,
+            "rms": 0.0004239692643750459,
+            "outside_fixed_bounds": 4
+          }
+        },
+        {
+          "layer": 25,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1261257,
+            "elements": 1310720,
+            "max_abs": 7.5,
+            "rms": 0.10533855855464935,
+            "outside_fixed_bounds": 818570
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.020389124751091003,
+            "rms": 0.0003948683734051883,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 26,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1262181,
+            "elements": 1310720,
+            "max_abs": 16.25,
+            "rms": 0.12774276733398438,
+            "outside_fixed_bounds": 876227
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.05440223217010498,
+            "rms": 0.0005693260463885963,
+            "outside_fixed_bounds": 3
+          }
+        },
+        {
+          "layer": 27,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1263708,
+            "elements": 1310720,
+            "max_abs": 14.5,
+            "rms": 0.1473519653081894,
+            "outside_fixed_bounds": 930327
+          }
+        },
+        {
+          "layer": 28,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1264553,
+            "elements": 1310720,
+            "max_abs": 15.25,
+            "rms": 0.1685124784708023,
+            "outside_fixed_bounds": 964066
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.027602314949035645,
+            "rms": 0.00061324134003371,
+            "outside_fixed_bounds": 0
+          }
+        },
+        {
+          "layer": 29,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1265300,
+            "elements": 1310720,
+            "max_abs": 14.0,
+            "rms": 0.1913420855998993,
+            "outside_fixed_bounds": 995870
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.04710960388183594,
+            "rms": 0.0007990460726432502,
+            "outside_fixed_bounds": 5
+          }
+        },
+        {
+          "layer": 30,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1265959,
+            "elements": 1310720,
+            "max_abs": 20.25,
+            "rms": 0.23499007523059845,
+            "outside_fixed_bounds": 1039955
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786431,
+            "elements": 786432,
+            "max_abs": 0.1774037480354309,
+            "rms": 0.0010729216737672687,
+            "outside_fixed_bounds": 75
+          }
+        },
+        {
+          "layer": 31,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1267078,
+            "elements": 1310720,
+            "max_abs": 16.0,
+            "rms": 0.26585423946380615,
+            "outside_fixed_bounds": 1068023
+          }
+        },
+        {
+          "layer": 32,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1267669,
+            "elements": 1310720,
+            "max_abs": 16.25,
+            "rms": 0.28688180446624756,
+            "outside_fixed_bounds": 1084957
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.06403075903654099,
+            "rms": 0.0011334444861859083,
+            "outside_fixed_bounds": 17
+          }
+        },
+        {
+          "layer": 33,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268120,
+            "elements": 1310720,
+            "max_abs": 18.0,
+            "rms": 0.307559609413147,
+            "outside_fixed_bounds": 1097061
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.15544170141220093,
+            "rms": 0.0016929414123296738,
+            "outside_fixed_bounds": 126
+          }
+        },
+        {
+          "layer": 34,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268191,
+            "elements": 1310720,
+            "max_abs": 19.25,
+            "rms": 0.35361039638519287,
+            "outside_fixed_bounds": 1113137
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.24237486720085144,
+            "rms": 0.0017149504274129868,
+            "outside_fixed_bounds": 164
+          }
+        },
+        {
+          "layer": 35,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268650,
+            "elements": 1310720,
+            "max_abs": 23.75,
+            "rms": 0.4402165114879608,
+            "outside_fixed_bounds": 1130870
+          }
+        },
+        {
+          "layer": 36,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268581,
+            "elements": 1310720,
+            "max_abs": 28.75,
+            "rms": 0.4645204246044159,
+            "outside_fixed_bounds": 1134952
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.17771148681640625,
+            "rms": 0.0027204318903386593,
+            "outside_fixed_bounds": 539
+          }
+        },
+        {
+          "layer": 37,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268723,
+            "elements": 1310720,
+            "max_abs": 28.0,
+            "rms": 0.4965378940105438,
+            "outside_fixed_bounds": 1140517
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.2658136487007141,
+            "rms": 0.003422536188736558,
+            "outside_fixed_bounds": 1018
+          }
+        },
+        {
+          "layer": 38,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268974,
+            "elements": 1310720,
+            "max_abs": 22.75,
+            "rms": 0.5101428627967834,
+            "outside_fixed_bounds": 1141767
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.17299824953079224,
+            "rms": 0.002535357838496566,
+            "outside_fixed_bounds": 385
+          }
+        },
+        {
+          "layer": 39,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1268985,
+            "elements": 1310720,
+            "max_abs": 25.75,
+            "rms": 0.5207797884941101,
+            "outside_fixed_bounds": 1142948
+          }
+        },
+        {
+          "layer": 40,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269084,
+            "elements": 1310720,
+            "max_abs": 20.5,
+            "rms": 0.5223509073257446,
+            "outside_fixed_bounds": 1142937
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.6318796873092651,
+            "rms": 0.002796298125758767,
+            "outside_fixed_bounds": 502
+          }
+        },
+        {
+          "layer": 41,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269229,
+            "elements": 1310720,
+            "max_abs": 31.78125,
+            "rms": 0.5404475331306458,
+            "outside_fixed_bounds": 1145607
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.694061279296875,
+            "rms": 0.0020397668704390526,
+            "outside_fixed_bounds": 119
+          }
+        },
+        {
+          "layer": 42,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269288,
+            "elements": 1310720,
+            "max_abs": 114.859375,
+            "rms": 0.6402928233146667,
+            "outside_fixed_bounds": 1155905
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.23021304607391357,
+            "rms": 0.0021644236985594034,
+            "outside_fixed_bounds": 207
+          }
+        },
+        {
+          "layer": 43,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269441,
+            "elements": 1310720,
+            "max_abs": 115.296875,
+            "rms": 0.6756440997123718,
+            "outside_fixed_bounds": 1162030
+          }
+        },
+        {
+          "layer": 44,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269539,
+            "elements": 1310720,
+            "max_abs": 113.125,
+            "rms": 0.7056480646133423,
+            "outside_fixed_bounds": 1166220
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.128437802195549,
+            "rms": 0.0020970883779227734,
+            "outside_fixed_bounds": 134
+          }
+        },
+        {
+          "layer": 45,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269608,
+            "elements": 1310720,
+            "max_abs": 112.4375,
+            "rms": 0.7332108616828918,
+            "outside_fixed_bounds": 1170908
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.12386454641819,
+            "rms": 0.0020855029579252005,
+            "outside_fixed_bounds": 156
+          }
+        },
+        {
+          "layer": 46,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1269685,
+            "elements": 1310720,
+            "max_abs": 131.078125,
+            "rms": 0.8042348623275757,
+            "outside_fixed_bounds": 1177316
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.2207472026348114,
+            "rms": 0.002528185024857521,
+            "outside_fixed_bounds": 477
+          }
+        },
+        {
+          "layer": 47,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1274226,
+            "elements": 1310720,
+            "max_abs": 115.875,
+            "rms": 0.8386220932006836,
+            "outside_fixed_bounds": 1182756
+          }
+        },
+        {
+          "layer": 48,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1274539,
+            "elements": 1310720,
+            "max_abs": 98.265625,
+            "rms": 0.8667917251586914,
+            "outside_fixed_bounds": 1188165
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.09801974892616272,
+            "rms": 0.0021012111101299524,
+            "outside_fixed_bounds": 170
+          }
+        },
+        {
+          "layer": 49,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1274586,
+            "elements": 1310720,
+            "max_abs": 95.21875,
+            "rms": 0.9067282676696777,
+            "outside_fixed_bounds": 1192172
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.18346065282821655,
+            "rms": 0.0026011511217802763,
+            "outside_fixed_bounds": 388
+          }
+        },
+        {
+          "layer": 50,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279174,
+            "elements": 1310720,
+            "max_abs": 111.25,
+            "rms": 1.0452913045883179,
+            "outside_fixed_bounds": 1201479
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.19467705488204956,
+            "rms": 0.0024112574756145477,
+            "outside_fixed_bounds": 240
+          }
+        },
+        {
+          "layer": 51,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279388,
+            "elements": 1310720,
+            "max_abs": 102.0,
+            "rms": 1.2054014205932617,
+            "outside_fixed_bounds": 1210844
+          }
+        },
+        {
+          "layer": 52,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279419,
+            "elements": 1310720,
+            "max_abs": 53.453125,
+            "rms": 1.3068130016326904,
+            "outside_fixed_bounds": 1216019
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.40159356594085693,
+            "rms": 0.00551530672237277,
+            "outside_fixed_bounds": 2760
+          }
+        },
+        {
+          "layer": 53,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279611,
+            "elements": 1310720,
+            "max_abs": 58.5,
+            "rms": 1.440569519996643,
+            "outside_fixed_bounds": 1220939
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.3104288876056671,
+            "rms": 0.0059564788825809956,
+            "outside_fixed_bounds": 3446
+          }
+        },
+        {
+          "layer": 54,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279601,
+            "elements": 1310720,
+            "max_abs": 490.5,
+            "rms": 1.8799448013305664,
+            "outside_fixed_bounds": 1225951
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.5217878222465515,
+            "rms": 0.005431115627288818,
+            "outside_fixed_bounds": 2630
+          }
+        },
+        {
+          "layer": 55,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279689,
+            "elements": 1310720,
+            "max_abs": 295.0,
+            "rms": 1.8158037662506104,
+            "outside_fixed_bounds": 1228756
+          }
+        },
+        {
+          "layer": 56,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279546,
+            "elements": 1310720,
+            "max_abs": 264.0,
+            "rms": 1.903861165046692,
+            "outside_fixed_bounds": 1230277
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.5165233612060547,
+            "rms": 0.00879677850753069,
+            "outside_fixed_bounds": 9361
+          }
+        },
+        {
+          "layer": 57,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279512,
+            "elements": 1310720,
+            "max_abs": 285.5,
+            "rms": 2.022099733352661,
+            "outside_fixed_bounds": 1231880
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.6087589263916016,
+            "rms": 0.008171089924871922,
+            "outside_fixed_bounds": 7769
+          }
+        },
+        {
+          "layer": 58,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279512,
+            "elements": 1310720,
+            "max_abs": 788.25,
+            "rms": 2.6146674156188965,
+            "outside_fixed_bounds": 1233944
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.4131116271018982,
+            "rms": 0.006834437604993582,
+            "outside_fixed_bounds": 5248
+          }
+        },
+        {
+          "layer": 59,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279157,
+            "elements": 1310720,
+            "max_abs": 172.5,
+            "rms": 2.3115994930267334,
+            "outside_fixed_bounds": 1234900
+          }
+        },
+        {
+          "layer": 60,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279175,
+            "elements": 1310720,
+            "max_abs": 123.5,
+            "rms": 2.4471170902252197,
+            "outside_fixed_bounds": 1237650
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.4683534801006317,
+            "rms": 0.011853883974254131,
+            "outside_fixed_bounds": 20554
+          }
+        },
+        {
+          "layer": 61,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1279021,
+            "elements": 1310720,
+            "max_abs": 140.5,
+            "rms": 2.6561145782470703,
+            "outside_fixed_bounds": 1239738
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.3279828727245331,
+            "rms": 0.00437800632789731,
+            "outside_fixed_bounds": 1552
+          }
+        },
+        {
+          "layer": 62,
+          "type": "linear_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1278771,
+            "elements": 1310720,
+            "max_abs": 215.5,
+            "rms": 2.9750301837921143,
+            "outside_fixed_bounds": 1241889
+          },
+          "state": {
+            "element_exact": false,
+            "different_elements": 786432,
+            "elements": 786432,
+            "max_abs": 0.5994408130645752,
+            "rms": 0.008755698800086975,
+            "outside_fixed_bounds": 10343
+          }
+        },
+        {
+          "layer": 63,
+          "type": "full_attention",
+          "hidden": {
+            "element_exact": false,
+            "different_elements": 1277700,
+            "elements": 1310720,
+            "max_abs": 207.0,
+            "rms": 3.529515266418457,
+            "outside_fixed_bounds": 1243161
+          }
+        }
+      ],
+      "logits": {
+        "element_exact": false,
+        "different_elements": 61608016,
+        "elements": 63569920,
+        "max_abs": 16.125,
+        "rms": 1.1421164274215698,
+        "outside_fixed_bounds": 57131367
+      },
+      "top1_matches": 249,
+      "last_top1": 11,
+      "baseline_last_top1": 11
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 23240434176,
+    "cuda_peak_reserved_bytes": 23974641664,
+    "cuda_global_free_bytes": 55679909888,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 23041499136,
+    "VmRSS_bytes": 3450519552,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 118484819968,
+    "SwapFree_bytes": 17179865088
+  },
+  "candidate_accepted": false
+}

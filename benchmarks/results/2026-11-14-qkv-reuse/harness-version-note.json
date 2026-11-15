@@ -1,0 +1,6 @@
+{
+  "launch_snapshot": "harness/finish_qkv_validation.at-launch.py",
+  "final_controller": "harness/finish_qkv_validation.py",
+  "followup_check": "harness/compare_qkv_results.py",
+  "note": "Post-profile CPU audit explicitly compares recorded prompt IDs with frozen original profiles, full output-ID consistency,384fewer kernels,48fewer FP8prefillcalls,0unmatchedkernels, and unchanged quality token losses. No GPU rerun or numerical tolerance change."
+}

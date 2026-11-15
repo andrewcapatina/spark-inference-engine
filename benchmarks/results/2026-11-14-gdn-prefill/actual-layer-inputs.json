@@ -1,0 +1,5740 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Same resident model; every candidate receives identical baseline real layer inputs; diagnostic failures retained, not accepted",
+  "layers": [
+    {
+      "gdn_index": 0,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 10.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 28.875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 39.25,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -8.650619506835938,
+          "max": -2.8291216835896194e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0289306640625,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.3113021850585938e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 1,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.27734375,
+          "max": 0.451171875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.11083984375,
+          "max": 0.17578125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.19921875,
+          "max": 1.3046875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -6.642001628875732,
+          "max": -1.2029534445900936e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0263671875,
+          "max": 0.98828125,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.7881393432617188e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 2,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.27734375,
+          "max": 0.71484375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.2333984375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.2275390625,
+          "max": 1.265625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.088807582855225,
+          "max": -6.86769126332365e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0206298828125,
+          "max": 0.9609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.9073486328125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.7881393432617188e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 3,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.5703125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.390625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.16796875,
+          "max": 1.6015625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.728555679321289,
+          "max": -3.244223989895545e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.01165771484375,
+          "max": 0.9375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.9073486328125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.4156103134155273e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 4,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.89453125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.5078125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.1953125,
+          "max": 0.59765625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -6.072517395019531,
+          "max": -5.3488576668314636e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.02001953125,
+          "max": 0.96875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 9.5367431640625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 8.568167686462402e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 5,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.765625,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.1796875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.1201171875,
+          "max": 1.6875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -17.216182708740234,
+          "max": -4.3910085878451355e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00506591796875,
+          "max": 0.98828125,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 0.0001220703125,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 6,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.203125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.8359375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.271484375,
+          "max": 1.1875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -9.31135082244873,
+          "max": -5.56186460016761e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0047607421875,
+          "max": 0.96875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 9.5367431640625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.2293457984924316e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 7,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.87109375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.73828125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.2001953125,
+          "max": 1.4765625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -10.155302047729492,
+          "max": -2.5465033104410395e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.004058837890625,
+          "max": 0.9921875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 9.5367431640625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 6.984919309616089e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 8,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.0703125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.453125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.2470703125,
+          "max": 1.703125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.692382335662842,
+          "max": -1.1519543477334082e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00433349609375,
+          "max": 0.98828125,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.7881393432617188e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 9,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.4296875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.09375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.27734375,
+          "max": 1.53125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -22.338651657104492,
+          "max": -7.646514859516174e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.003173828125,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 10,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.8125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.8203125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.27734375,
+          "max": 1.234375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -6.289440631866455,
+          "max": -4.647293098969385e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00592041015625,
+          "max": 0.9921875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.9073486328125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 11,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.90234375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.265625,
+          "max": 1.75,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -12.710249900817871,
+          "max": -6.854167622805107e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00830078125,
+          "max": 0.98828125,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 12,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.91796875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.203125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.27734375,
+          "max": 0.90234375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -1.6118160486221313,
+          "max": -1.848620922828559e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0033721923828125,
+          "max": 0.96484375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.9073486328125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 13,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.03125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.8828125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.5078125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.925494194030762,
+          "max": -2.1782077965326607e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00689697265625,
+          "max": 0.98828125,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.8743019104003906e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 14,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.4609375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.15625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.96875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.1603899002075195,
+          "max": -4.3315252696629614e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0078125,
+          "max": 0.9921875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.384185791015625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 15,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.28125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.8984375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.671875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.011984825134277,
+          "max": -5.093396339361789e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.008056640625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.7881393432617188e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 16,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.359375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.6484375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.53125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -8.718384742736816,
+          "max": -7.353487035288708e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00136566162109375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.384185791015625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 17,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.5546875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.1328125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.71875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.1086506843566895,
+          "max": -3.4802822483470663e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00445556640625,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.1606683731079102e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 18,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.71875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.5546875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.140625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -15.51455307006836,
+          "max": -4.637812708097044e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00186920166015625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.384185791015625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 19,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.640625,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.609375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.484375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -24.46682357788086,
+          "max": -2.3457816951122368e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00102996826171875,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.7881393432617188e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 20,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.390625,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.2734375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.53125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -3.4206292629241943,
+          "max": -8.58467410580488e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00136566162109375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 8.940696716308594e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 21,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.578125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.8125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.0859375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -11.951897621154785,
+          "max": -2.295916146977106e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0017547607421875,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 22,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.34375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.6328125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.8671875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.372369289398193,
+          "max": -9.515944839222357e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00193023681640625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.384185791015625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 23,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.796875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.8125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -40.42176818847656,
+          "max": -2.7264341042609885e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0037078857421875,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 6.258487701416016e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 24,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.59375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.078125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.5859375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -2.7077763080596924,
+          "max": -3.3667320167296566e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0005035400390625,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 25,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.765625,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.40625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.46875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.49135684967041,
+          "max": -3.1071917305780516e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.001068115234375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 8.242204785346985e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 26,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.34375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.40625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.4140625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.5227460861206055,
+          "max": -7.827771696611308e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00421142578125,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.086162567138672e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 27,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.03125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.75,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.75,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -3.603874921798706,
+          "max": -1.3081698853056878e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0032806396484375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.980232238769531e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 28,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.5,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.734375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.8125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -7.870696544647217,
+          "max": -3.393113729543984e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.007110595703125,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 2.980232238769531e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 29,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.96875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.40625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.0625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -3.9539167881011963,
+          "max": -9.515877536614425e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.006683349609375,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 4.470348358154297e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 30,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.53125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.8125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -18.104690551757812,
+          "max": -1.5056979236760526e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00433349609375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 9.5367431640625e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 31,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.8125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.7578125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.046875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -9.559637069702148,
+          "max": -3.288707375759259e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00186920166015625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 32,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.015625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.3046875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.223794937133789,
+          "max": -1.265632818103768e-05,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0005035400390625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.2782554626464844e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 33,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.4375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.515625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 0.98828125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -13.516495704650879,
+          "max": -7.338200589401822e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0021820068359375,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.341104507446289e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 34,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.4375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.5703125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.109375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.297128677368164,
+          "max": -2.812991169776069e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0006256103515625,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 5.960464477539063e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 35,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.03125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.546875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -39.191802978515625,
+          "max": -1.0676993724700878e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00145721435546875,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 5.960464477539063e-08,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 36,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.171875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.796875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 1.703125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -2.318760633468628,
+          "max": -2.295905915161711e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00058746337890625,
+          "max": 0.9921875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 37,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.953125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.21875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -5.862649917602539,
+          "max": -1.948517592609278e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.001983642578125,
+          "max": 0.9921875,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.814697265625e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.1920928955078125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 38,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 8.5,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.34375,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.546875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.010726451873779,
+          "max": -2.7264434265816817e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0021820068359375,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 7.62939453125e-06,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 1.2665987014770508e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 39,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.625,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.21875,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.15625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -2.173229455947876,
+          "max": -1.4677334547741339e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00225830078125,
+          "max": 0.99609375,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 0.0001220703125,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.5762786865234375e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 40,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 9.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.890625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.34375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -8.59400749206543,
+          "max": -3.3075878036470385e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.002716064453125,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.5762786865234375e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 41,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.4375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.0625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 2.1875,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -2.6392643451690674,
+          "max": -2.9479749628080754e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.007354736328125,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 4.172325134277344e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 42,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 8.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.328125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.40625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -3.0377745628356934,
+          "max": -8.764244086023609e-08,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00628662109375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 0.0001220703125,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.5762786865234375e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 43,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.84375,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.78125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 4.4375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -2.62777042388916,
+          "max": -2.368775994909811e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0113525390625,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 6.103515625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 5.364418029785156e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 44,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 7.0,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.125,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.9375,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -3.318387985229492,
+          "max": -1.2679182646024856e-06,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00433349609375,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 4.76837158203125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 45,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 33.75,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 10.5,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.53125,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.042825698852539,
+          "max": -4.5921254354652774e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.0145263671875,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 6.103515625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.5762786865234375e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 46,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 7.03125,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 6.5625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 3.765625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.160203456878662,
+          "max": -3.576353151402145e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.000827789306640625,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 1.52587890625e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 4.76837158203125e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    },
+    {
+      "gdn_index": 47,
+      "inputs": {
+        "q": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 14.875,
+          "finite": true
+        },
+        "k": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            1572864,
+            6144,
+            128,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 5.40625,
+          "finite": true
+        },
+        "v": {
+          "shape": [
+            1,
+            256,
+            48,
+            128
+          ],
+          "stride": [
+            256,
+            1,
+            32768,
+            256
+          ],
+          "dtype": "torch.bfloat16",
+          "min": -0.279296875,
+          "max": 7.40625,
+          "finite": true
+        },
+        "g": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.float32",
+          "min": -4.303991317749023,
+          "max": -3.747988159830129e-07,
+          "finite": true
+        },
+        "beta": {
+          "shape": [
+            1,
+            256,
+            48
+          ],
+          "stride": [
+            12288,
+            48,
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "min": 0.00225830078125,
+          "max": 1.0,
+          "finite": true
+        }
+      },
+      "compiled_output": {
+        "max_abs": 3.0517578125e-05,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "compiled_state": {
+        "max_abs": 3.5762786865234375e-07,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": false
+      },
+      "contiguous_native_output": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 1572864,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      },
+      "contiguous_native_state": {
+        "max_abs": 0.0,
+        "outside_fixed_bounds": 0,
+        "elements": 786432,
+        "nonfinite_actual": 0,
+        "bitexact": true
+      }
+    }
+  ],
+  "candidate_accepted": false,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 23240434176,
+    "cuda_peak_reserved_bytes": 23974641664,
+    "cuda_global_free_bytes": 57374908416,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 23041716224,
+    "VmRSS_bytes": 2467373056,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 119662329856,
+    "SwapFree_bytes": 17179865088
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Installed PyTorch CUDA-graph wrapper, unchanged native recurrence, no engine implementation",
+  "cases": [
+    {
+      "label": "actual_first_layer",
+      "length": 256,
+      "capture_seconds": 0.02070753600128228,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 1.8675520420074463,
+        "wall_ms": 1.8776920005620923
+      },
+      "replay": {
+        "cuda_ms": 1.655168056488037,
+        "wall_ms": 1.6638819979561958
+      },
+      "speedup": 1.1283156623805615
+    },
+    {
+      "label": "synthetic",
+      "length": 64,
+      "capture_seconds": 0.013251521999336546,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 0.4604159891605377,
+        "wall_ms": 0.468770998850232
+      },
+      "replay": {
+        "cuda_ms": 0.4129279851913452,
+        "wall_ms": 0.4218739995849319
+      },
+      "speedup": 1.1150031135506284
+    },
+    {
+      "label": "synthetic",
+      "length": 128,
+      "capture_seconds": 0.013331619000382489,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 0.7995520234107971,
+        "wall_ms": 0.8088689974101726
+      },
+      "replay": {
+        "cuda_ms": 0.8045439720153809,
+        "wall_ms": 0.8132049988489598
+      },
+      "speedup": 0.9937953066852531
+    },
+    {
+      "label": "synthetic",
+      "length": 256,
+      "capture_seconds": 0.017520957000670023,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 1.8946559429168701,
+        "wall_ms": 1.9047000023419969
+      },
+      "replay": {
+        "cuda_ms": 1.6669119596481323,
+        "wall_ms": 1.6754509997554123
+      },
+      "speedup": 1.1366262818804254
+    },
+    {
+      "label": "synthetic",
+      "length": 512,
+      "capture_seconds": 0.025001354999403702,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 3.535968065261841,
+        "wall_ms": 3.546341999026481
+      },
+      "replay": {
+        "cuda_ms": 3.6961278915405273,
+        "wall_ms": 3.7050309983897023
+      },
+      "speedup": 0.9566682130655569
+    },
+    {
+      "label": "synthetic",
+      "length": 1024,
+      "capture_seconds": 0.03829694199885125,
+      "output_element_exact": true,
+      "state_element_exact": true,
+      "output_max_abs": 0.0,
+      "state_max_abs": 0.0,
+      "retained_output_and_state_unmutated": true,
+      "native": {
+        "cuda_ms": 7.5517120361328125,
+        "wall_ms": 7.562302998849191
+      },
+      "replay": {
+        "cuda_ms": 7.336832046508789,
+        "wall_ms": 7.34620599905611
+      },
+      "speedup": 1.029287843617229
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 431257088,
+    "cuda_peak_reserved_bytes": 656408576,
+    "cuda_global_free_bytes": 59557543936,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1359880192,
+    "VmRSS_bytes": 1359880192,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122267521024,
+    "SwapFree_bytes": 17179865088
+  }
+}

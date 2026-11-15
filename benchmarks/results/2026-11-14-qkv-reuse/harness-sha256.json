@@ -1,0 +1,32 @@
+{
+  "source_hashes_at_snapshot": {
+    "acceptance/check_qkv_reuse.py": "1b3ba629f51a9344507d3ba3d1d520295f93f5a5821aad3f8713363772e1b83a",
+    "acceptance/benchmark_qkv_ab.py": "87ad88e7c55468d81d570bbdc8c2d033fbd44ddef56e68861c8bc336072b9ea8",
+    "acceptance/profile_qkv_runtime.py": "a14255c529e6ff2bf49d43b98658b57cb5b98c035f97ada2d94429c228389f2e",
+    "acceptance/qwen_gdn_prefill_before_storage.py.txt": "461e48df6c91127d94fcd31040e99773e06be03c776cfff57f29c2b40906f719",
+    "run_qkv_ab.py": "923e2b6d8c0c7911bda4bd246d6b0663a50dc103aa51ccea0b8eb7fc9bb4ba9a",
+    "run_qkv_profile.py": "b240b612664d91bb8e3943cea8e62d36ad5b426c4f1dda52c6712a040737a579",
+    "run_qkv_accuracy.py": "1e6ac214b93a9286bde8e34426403fffacf6b19c9aeb413d93a7fd00be48c7e6",
+    "run_qkv_preserved_regression.py": "9125e332d5276fc13967fa1a32f52556d2d5d06a596d04c5bafcb57f23b2d7d5",
+    "finish_qkv_validation.py": "14942a07bdaff2351e0a44cacd3769e85cceadbe35ad271b774fe3e590bdab3e",
+    "prepare_qkv_trial.py": "64ee3ea2ff9d4a5651da8eddbe202351967617ca460cda2ac05a9467b3f4b277",
+    "launch_qkv_prepared.py": "b332b20279822b0e7eddbbd771fdb4206d1217b4ac04449fb0ff212fb5cd2f55"
+  },
+  "copied_artifact_sha256": {
+    "prepare_qkv_trial.py": "64ee3ea2ff9d4a5651da8eddbe202351967617ca460cda2ac05a9467b3f4b277",
+    "benchmark_qkv_ab.py": "87ad88e7c55468d81d570bbdc8c2d033fbd44ddef56e68861c8bc336072b9ea8",
+    "launch_qkv_prepared.py": "b332b20279822b0e7eddbbd771fdb4206d1217b4ac04449fb0ff212fb5cd2f55",
+    "check_qkv_reuse.py": "1b3ba629f51a9344507d3ba3d1d520295f93f5a5821aad3f8713363772e1b83a",
+    "qwen_gdn_prefill_before_storage.py.txt": "461e48df6c91127d94fcd31040e99773e06be03c776cfff57f29c2b40906f719",
+    "finish_qkv_validation.at-launch.py": "14942a07bdaff2351e0a44cacd3769e85cceadbe35ad271b774fe3e590bdab3e",
+    "run_qkv_ab.py": "923e2b6d8c0c7911bda4bd246d6b0663a50dc103aa51ccea0b8eb7fc9bb4ba9a",
+    "profile_qkv_runtime.py": "a14255c529e6ff2bf49d43b98658b57cb5b98c035f97ada2d94429c228389f2e",
+    "summarize_qkv_protected.py": "e1bb38aea8b7e4b26f253fe51bf62984551ccb61cce4e0ec9c92d510cb804427",
+    "run_qkv_preserved_regression.py": "4b4431df261ca254a746dbb59c8e5744c186723cd8b8fc40493dfe2a4618cc55",
+    "run_qkv_accuracy.py": "1e6ac214b93a9286bde8e34426403fffacf6b19c9aeb413d93a7fd00be48c7e6",
+    "run_qkv_profile.py": "b240b612664d91bb8e3943cea8e62d36ad5b426c4f1dda52c6712a040737a579",
+    "compare_qkv_results.py": "877a49830c511387ca83a175f368505ba14de3e8baf67d37bf532ed49863ee78",
+    "finish_qkv_validation.py": "3b69232ac7dc183b65c116039e96fb7480ff9bae0f5a7de66a613635ae9d2e2d"
+  },
+  "version_note": "See harness-version-note.json for launch and tightened post-profile CPU validation."
+}

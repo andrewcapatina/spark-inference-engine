@@ -1,0 +1,202 @@
+{
+  "prior_native": {
+    "status": "screen_passed",
+    "scope": "Small original fixed-answer task and prose screening set; not a standard benchmark or broad language quality certification. Conversation cases use fixed transcripts.",
+    "criteria": {
+      "minimum_native_task_accuracy": 0.9,
+      "maximum_native_only_failures_vs_reference": 0,
+      "maximum_native_to_reference_tokenweighted_perplexity_ratio": 1.05,
+      "all_requests_must_finish_without_length_truncation": true
+    },
+    "checks": {
+      "minimum_native_task_accuracy": true,
+      "no_new_task_failures": true,
+      "perplexity_ratio_within_bound": true,
+      "no_length_truncation": true
+    },
+    "suite_sha256": "a06956fa688f340743e16342bd5e12fc33c4ff788dfae557fc6e1e144b54cc28",
+    "native_passed": 40,
+    "reference_passed": 40,
+    "total": 40,
+    "categories": {
+      "arithmetic": {
+        "native_passed": 8,
+        "reference_passed": 8,
+        "total": 8
+      },
+      "logic": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "extraction": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "format": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "code_reading": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "factual": {
+        "native_passed": 4,
+        "reference_passed": 4,
+        "total": 4
+      },
+      "conversation": {
+        "native_passed": 4,
+        "reference_passed": 4,
+        "total": 4
+      }
+    },
+    "native_only_failures": [],
+    "reference_only_failures": [],
+    "both_failed": [],
+    "length_truncations": [],
+    "corpus_tokens": 446,
+    "native_tokenweighted_perplexity": 8.946730084578427,
+    "reference_tokenweighted_perplexity": 8.946730084578427,
+    "perplexity_ratio": 1.0,
+    "corpus": [
+      {
+        "id": "workshop",
+        "tokens": 109,
+        "native_perplexity": 8.526480663613421,
+        "reference_perplexity": 8.526480663613421,
+        "ratio": 1.0
+      },
+      {
+        "id": "software",
+        "tokens": 115,
+        "native_perplexity": 10.908447572511205,
+        "reference_perplexity": 10.908447572511205,
+        "ratio": 1.0
+      },
+      {
+        "id": "journey",
+        "tokens": 110,
+        "native_perplexity": 8.380949754176116,
+        "reference_perplexity": 8.380949754176116,
+        "ratio": 1.0
+      },
+      {
+        "id": "garden",
+        "tokens": 112,
+        "native_perplexity": 8.15565468892061,
+        "reference_perplexity": 8.15565468892061,
+        "ratio": 1.0
+      }
+    ],
+    "engine_changes": true,
+    "caveat": "40original fixed tasks and4 short original prose docs are a preliminary screening set, not a standard benchmark, statistical noninferiority study, or broad quality certification.",
+    "native_run": "qkv-accuracy-20261115T055804Z",
+    "reference_run": "accuracy-native-20261115T035947Z",
+    "same_generated_ids_cases": 40
+  },
+  "vllm_reference": {
+    "status": "screen_passed",
+    "scope": "Small original fixed-answer task and prose screening set; not a standard benchmark or broad language quality certification. Conversation cases use fixed transcripts.",
+    "criteria": {
+      "minimum_native_task_accuracy": 0.9,
+      "maximum_native_only_failures_vs_reference": 0,
+      "maximum_native_to_reference_tokenweighted_perplexity_ratio": 1.05,
+      "all_requests_must_finish_without_length_truncation": true
+    },
+    "checks": {
+      "minimum_native_task_accuracy": true,
+      "no_new_task_failures": true,
+      "perplexity_ratio_within_bound": true,
+      "no_length_truncation": true
+    },
+    "suite_sha256": "a06956fa688f340743e16342bd5e12fc33c4ff788dfae557fc6e1e144b54cc28",
+    "native_passed": 40,
+    "reference_passed": 40,
+    "total": 40,
+    "categories": {
+      "arithmetic": {
+        "native_passed": 8,
+        "reference_passed": 8,
+        "total": 8
+      },
+      "logic": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "extraction": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "format": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "code_reading": {
+        "native_passed": 6,
+        "reference_passed": 6,
+        "total": 6
+      },
+      "factual": {
+        "native_passed": 4,
+        "reference_passed": 4,
+        "total": 4
+      },
+      "conversation": {
+        "native_passed": 4,
+        "reference_passed": 4,
+        "total": 4
+      }
+    },
+    "native_only_failures": [],
+    "reference_only_failures": [],
+    "both_failed": [],
+    "length_truncations": [],
+    "corpus_tokens": 446,
+    "native_tokenweighted_perplexity": 8.946730084578427,
+    "reference_tokenweighted_perplexity": 9.07322168057359,
+    "perplexity_ratio": 0.9860588002312353,
+    "corpus": [
+      {
+        "id": "workshop",
+        "tokens": 109,
+        "native_perplexity": 8.526480663613421,
+        "reference_perplexity": 8.76129144827728,
+        "ratio": 0.9731990670496381
+      },
+      {
+        "id": "software",
+        "tokens": 115,
+        "native_perplexity": 10.908447572511205,
+        "reference_perplexity": 11.02518956140618,
+        "ratio": 0.9894113395289247
+      },
+      {
+        "id": "journey",
+        "tokens": 110,
+        "native_perplexity": 8.380949754176116,
+        "reference_perplexity": 8.236042038285488,
+        "ratio": 1.0175943390304494
+      },
+      {
+        "id": "garden",
+        "tokens": 112,
+        "native_perplexity": 8.15565468892061,
+        "reference_perplexity": 8.451793507927754,
+        "ratio": 0.9649614228353584
+      }
+    ],
+    "engine_changes": true,
+    "caveat": "40original fixed tasks and4 short original prose docs are a preliminary screening set, not a standard benchmark, statistical noninferiority study, or broad quality certification.",
+    "native_run": "qkv-accuracy-20261115T055804Z",
+    "reference_run": "accuracy-reference-20261115T040352Z",
+    "same_generated_ids_cases": 39
+  }
+}

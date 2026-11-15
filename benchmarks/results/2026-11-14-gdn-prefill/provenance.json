@@ -1,0 +1,148 @@
+{
+  "user_authorized_nvfp4_update": true,
+  "user_authorized_fused_gdn_implementation": true,
+  "engine_before": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_fp8.py": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "implementation_author": "local Qwen only",
+  "baseline_commit": "112d03d",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/gdn-prefill-20261115T045703Z",
+  "stages": [
+    {
+      "stage": "flashinfer_candidate",
+      "decision": "rejected_at_predeclared_state_bounds",
+      "diagnostic_run": "gdn-prefill-diagnostic-20261115T045943Z",
+      "engine_changed": false
+    },
+    {
+      "stage": "compiled_native_candidate",
+      "decision": "isolated_output_state_continuation_and_timing_passed",
+      "run": "gdn-prefill-compiled-trial-20261115T050302Z",
+      "compile_first_call_seconds": [
+        4.3187,
+        10.7
+      ],
+      "engine_changed": false
+    },
+    {
+      "stage": "actual_helper_17lengths",
+      "run": "gdn-helper-20261115T051900Z",
+      "status": "passed",
+      "graphs": 5,
+      "no_recompile": true,
+      "warmup_seconds": 23.598182773,
+      "note": "All fixed bounds passed;257/513 padding slower; conservative dispatch paddingratio<=1.25"
+    },
+    {
+      "stage": "real_checkpoint_ab",
+      "run": "gdn-ab-20261115T052842Z",
+      "status": "failed_numerical_before_timing",
+      "prompt_tokens": 256,
+      "mismatched_logit_elements": 56600322,
+      "logit_elements": 63569920,
+      "max_abs_logit_difference": 13.03125,
+      "rtol": 0.01,
+      "atol": 0.03125,
+      "candidate_accepted": false
+    },
+    {
+      "stage": "identical_real_gdn_inputs",
+      "run": "gdn-real-inputs-20261115T053236Z",
+      "status": "diagnostic_complete",
+      "fixed_bounds_passed_layers": 48,
+      "candidate_accepted": false,
+      "max_output_error": 0.0001220703125,
+      "max_state_error": 1.3113021850585938e-05
+    },
+    {
+      "stage": "actual_input_compiler_options_cpp",
+      "run": "gdn-real-compilers-20261115T053632Z",
+      "status": "diagnostic_complete",
+      "note": "No variant element-exact; C++wrapper~1.11ms vs ordinary~1.10ms; no worthwhile gain"
+    },
+    {
+      "stage": "installed_pytorch_graph_replay",
+      "run": "gdn-graph-feasibility-20261115T053825Z",
+      "status": "diagnostic_complete",
+      "note": "Element-exact output/state all6actual/syntheticcases, retainedcacheownership passed; only1.03x at1024 and1.13x256,512slower, not an accepted engine change"
+    },
+    {
+      "stage": "baseline_repeat_and_propagation",
+      "run": "gdn-propagation-20261115T054043Z",
+      "status": "diagnostic_complete",
+      "baseline_repeat": "element_exact all64layers, states, full63569920logits",
+      "compiled_candidate": "failed fullmodel bounds; first hidden-bound misses atlayer2; progressive hiddenRMS increase through64layers",
+      "compiled_top1_matches": 249,
+      "prompt_positions": 256,
+      "compiled_logit_max_abs": 16.125,
+      "candidate_accepted": false
+    }
+  ],
+  "tasks": [
+    {
+      "task": "018",
+      "target": "spark_engine/qwen_gdn.py",
+      "kind": "module_split",
+      "implementation_author": "local Qwen only",
+      "source_sha256": "0fabb139d193ac51d52db96a5d96d5316129e0366b8be60c5e43049e98cb6392",
+      "response_sha256": "1ca4164507b7103e0ae93cf6e2c4c9ce8d51838d45b646e83292d92010dd9986",
+      "transformations": "outer Markdown fence and trailing newline only; exact candidate placement",
+      "validation": "helper17lengths fixedbounds/cache/no-recompile/release passed",
+      "package_decision": "rejected_and_rolled_back"
+    },
+    {
+      "task": "015",
+      "target": "spark_engine/qwen_layers.py",
+      "kind": "prefill",
+      "implementation_author": "local Qwen only",
+      "source_sha256": "24e0c7c231460304771022e3a0ecdc80d6229ce4d55b965f1b5c16fcd4ba5c52",
+      "response_sha256": "c8ea081e672b9db80b5b2c710e64bcb16454e9156576431d310305ea212caf4d",
+      "transformations": "outer Markdown fence and trailing newline only; exact candidate placement",
+      "validation": "Tiny integration passed; full checkpoint candidate failed numerical gate, exact original source restored",
+      "package_decision": "rejected_and_rolled_back"
+    },
+    {
+      "task": "019",
+      "target": "spark_engine/qwen_quantized.py",
+      "kind": "loader",
+      "implementation_author": "local Qwen only",
+      "source_sha256": "cb98c8e15ffad488f22b7c78a35d30ba8a875c599b38acaed70e3205f87d79e7",
+      "response_sha256": "8410ab21da5a6910cb6afbd9254a4b22781217d4d1a2bfeb53bfbaadb83161a6",
+      "transformations": "outer Markdown fence and trailing newline only; exact candidate placement",
+      "validation": "Tiny integration passed; full checkpoint candidate failed numerical gate, exact original source restored",
+      "package_decision": "rejected_and_rolled_back"
+    }
+  ],
+  "current_engine_sha256": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_fp8.py": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "status": "rejected_and_rolled_back",
+  "rollback": "Exact original bytes restored after retaining complete rejected implementation",
+  "next": "User selected QKV reuse"
+}

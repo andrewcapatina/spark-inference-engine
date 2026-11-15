@@ -1,0 +1,5 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "3c052d561790a6b6d08306591b776b850df9f06851216a7f158d8bc46916ae89",
+  "review": "Only initial raw variable reuse, convolution consumes raw, and duplicate projection removed; all operations/cache slicing otherwise preserved. No compiler or cache-layout change."
+}
