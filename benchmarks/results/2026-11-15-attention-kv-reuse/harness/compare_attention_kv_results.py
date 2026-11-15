@@ -1,0 +1,19 @@
+"""CPU-only audit of paired benchmark, original profiles and frozen quality outputs."""
+from pathlib import Path
+import json,statistics,hashlib
+R=Path('/home/cap/spark-inference-overnight-20261113');P=Path('/home/cap/Projects/spark-inference-engine');B=R/'feedback/nvfp4-reference';run=Path((R/'feedback/attention-kv-main-run.txt').read_text().strip())
+def result(kind):return json.loads((B/Path((R/('feedback/attention-kv-'+kind+'-run.txt')).read_text().strip()).name/'results.json').read_text())
+ab=result('ab');profile=result('profile');old=json.loads((B/'qkv-profile-20261115T060235Z/results.json').read_text());quality=result('accuracy');prior=json.loads((B/'qkv-accuracy-20261115T055804Z/results.json').read_text());assert ab['status']==profile['status']==quality['status']=='complete';rows=[]
+for a,n,o in zip(ab['cases'],profile['cases'],old['cases']):
+ assert a['prompt_tokens']==n['prompt_tokens']==o['prompt_tokens'];assert n['prompt_token_ids']==o['prompt_token_ids'];assert a['logits_and_all_cache_contents_element_exact']
+ ids=[x['output_token_ids'] for x in a['generation_repetitions']];assert all(x==ids[0] for x in ids);assert len(ids[0])==128 and n['output_token_ids']==o['output_token_ids']==ids[0][:16]
+ def scope(c,name,phase):return next(x for x in c['profile']['events']['inclusive_scopes'] if x['name']==name and x['phase']==phase)
+ assert scope(n,'native.quant.fp8','prefill')['calls']==233 and scope(o,'native.quant.fp8','prefill')['calls']==233;assert scope(n,'native.quant.fp8','decode')['calls']==scope(o,'native.quant.fp8','decode')['calls'];assert scope(n,'native.gdn.qkv_projection','prefill')['calls']==48
+ nt=n['profile']['trace_summary'];ot=o['profile']['trace_summary'];assert nt['raw_kernel_ownership']['launch_unmatched_kernels']==0 and abs(nt['raw_kernel_ownership']['launch_matched_gpu_ms']-nt['kernel_gpu_ms_sum'])<.001;assert ot['cuda_kernel_count']-nt['cuda_kernel_count']==480
+ def cats(c):
+  rows={ (x['phase'],x['name']):x for key in ['operators_by_self_gpu','operators_by_self_cpu','operators_by_allocations'] for x in c['profile']['events'][key]};return rows[('decode','aten::cat')]
+ nc,oc=cats(n),cats(o);assert oc['calls']-nc['calls']==480
+ timings={backend:{'prefill_cuda_ms':a[backend+'_median_prefill_cuda_ms'],'median_total128output_tok_s':statistics.median(x['total_output_tokens_per_second'] for x in a['generation_repetitions'] if x['backend']==backend),'prefill_peak_allocated_bytes':max(x['peak_allocated_bytes'] for x in a['prefill_repetitions'] if x['backend']==backend)} for backend in ['original','reuse']}
+ rows.append({'prompt_tokens':a['prompt_tokens'],'paired_timings':timings,'prefill_speedup':a['prefill_speedup'],'less_prefill_time_pct':100*(1-1/a['prefill_speedup']),'decode_cat_before':oc,'decode_cat_after':nc,'saved_cumulative_cat_allocated_bytes':oc['allocated_bytes_sum']-nc['allocated_bytes_sum'],'profile_gpu_kernels_before':ot['cuda_kernel_count'],'profile_gpu_kernels_after':nt['cuda_kernel_count'],'remaining_qkv_profile_gpu_ms':next(x['gpu_ms'] for x in nt['raw_kernel_ownership']['inclusive_scopes'] if x['name']=='native.gdn.qkv_projection' and x['phase']=='prefill')})
+assert quality['suite_sha256']==prior['suite_sha256'];assert all(x['output_token_ids']==y['output_token_ids'] for x,y in zip(quality['cases'],prior['cases']));assert all(x['token_nll']==y['token_nll'] for x,y in zip(quality['corpus'],prior['corpus']))
+d={'status':'cpu_crosschecks_passed','scope':'Paired timing, exact behavioral flags, recorded prompt/output IDs, profiler attribution and unchanged frozen quality data','rows':rows,'quality_same_generated_ids_cases':40,'quality_token_losses_element_exact_vs_prior':True,'protected_regressions':'separate pending/completion status','engine_sha256':json.loads((run/'manifest.json').read_text())['current_engine_sha256']};(run/'paired-results-audit.json').write_text(json.dumps(d,indent=2)+'\n');print(json.dumps(d,indent=2))

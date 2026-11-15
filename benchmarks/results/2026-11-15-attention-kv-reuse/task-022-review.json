@@ -1,0 +1,5 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "ac154c11d4f2305e652945a5db45e72ab3cd376e6eb0a5fe444f32ef2a2438e0",
+  "review": "Saves raw concatenated K/V tuple before group expansion, returns that tuple; two-line reuse change, no math/dtype/inplace/prefill/GDN edits."
+}
