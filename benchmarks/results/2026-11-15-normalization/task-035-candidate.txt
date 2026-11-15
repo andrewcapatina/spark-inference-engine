@@ -1,0 +1,22 @@
+def qwen_rms_norm(x, weight, eps=1e-6):
+    """Qwen offset-weight RMSNorm: (x * w).to(dtype) with w = 1 + offset."""
+    dtype = x.dtype
+    x = x.float()
+    variance = x.pow(2).mean(-1, keepdim=True)
+    inverse_rms = torch.rsqrt(variance + eps)
+    if (torch.is_inference_mode_enabled() and dtype == torch.bfloat16 and x.is_cuda
+            and x.dim() >= 3 and x.shape[1] >= 16
+            and x.is_contiguous() and inverse_rms.is_contiguous() and weight.is_contiguous()
+            and weight.dim() == 1 and weight.dtype in (torch.bfloat16, torch.float32)
+            and weight.shape[0] == x.shape[-1]
+            and x.device == inverse_rms.device == weight.device
+            and x.shape[-1] > 0 and x.numel() <= 2147483647):
+        try:
+            from spark_engine.qwen_norm_tail import norm_tail
+        except ModuleNotFoundError as e:
+            if e.name is None or (e.name != "triton" and not e.name.startswith("triton.")):
+                raise
+        else:
+            return norm_tail(x, inverse_rms, weight)
+    x = x * inverse_rms
+    return (x * (1.0 + weight.float())).to(dtype)

@@ -1,0 +1,1 @@
+{"status": "passed", "torch": "2.11.0a0+gita370667", "cache": "/workspace/benchmark_runs/prefill-normalization-20261115T165203Z/triton-legacy-cache", "mounts": ["tmpfs /tmp tmpfs rw,nosuid,nodev,noexec,relatime,size=2097152k,inode64 0 0"]}

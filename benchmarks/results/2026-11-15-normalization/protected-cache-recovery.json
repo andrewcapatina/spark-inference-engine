@@ -1,0 +1,15 @@
+{
+  "classification": "harness/runtime configuration failure",
+  "failure": "Triton default cache /home/node/.triton is read-only in protected container",
+  "failed_command": "qwen-real9b-conversation",
+  "fix": "docker exec -e TRITON_CACHE_DIR=/tmp/spark-prefill-norm-triton",
+  "engine_changed": false,
+  "numerical_assertions_changed": false,
+  "passing_stages_reused": [
+    "generation-budget-repository",
+    "qwen-small",
+    "qwen-real9b"
+  ],
+  "original_harness_sha256": "959cf8b37684abe57f990fe3894df7e2629a7db1ad9cba2a739ea674e36bbc95",
+  "repaired_harness_sha256": "c99d1edc204f2bb67ae11514d3bd74eab2eb4fd6e1f99e3ad4cf202f71096c7b"
+}

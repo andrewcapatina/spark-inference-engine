@@ -1,0 +1,18 @@
+Revise your standalone normalization-tail module. Return the COMPLETE MODULE source only, at most50 nonblanklines, no Markdown/prose. You alone author engine implementation. Do not integrate it into qwen_ops yet.
+
+The previous module was rejected BEFORE GPU execution for the following ACTUAL indexing/contract bugs:
+- x_fp32.stride(0) is batch stride for rank3/4, not flat row stride; row*stride(0)+col can read out of bounds
+- inverse_rms.stride(0) likewise is not flat inverse-row stride; keepdim=True inverse shape not accepted
+- cols is runtime instead of requested constexpr, causing unnecessary dynamic index division
+- with inference_mode silently changes context rather than requiring caller inference mode; tensor devices not checked equal
+
+Focused corrections:
+- x_fp32 is CONTIGUOUS but can have rank2,3 or4 (real shapes [1,1024,5120], [1,1024,24,256]). Flatten element indexing for contiguous input: the x element at logical flat offset is at x_ptr plus that offset. Do not use x.stride(0) or any batch stride. Output is also flat contiguous storage with the original x shape.
+- Each row is one final-dimension vector. Given flat element offset, row index is offset divided by last-dimension width, column is offset modulo that width. inverse_rms is a CONTIGUOUS buffer with ONE value per row. Load at inverse pointer plus row index, NOT row multiplied by a higher-rank stride. Accept any inverse shape with matching number of elements, including the normal keepdim=True shape [1,1024,1] or [1,1024,24,1].
+- Last-dimension width must be a Triton constexpr for efficient indexing; total element count remains runtime. No rows*cols dynamic indexing needed. Mask all loads/stores by total element count.
+- Assert the caller ALREADY enabled torch.inference_mode; don't silently enter it. Check common CUDA device, FP32 x/inverse, contiguous inputs, 1D matching weight and BF16/FP32 weight dtype. No data-dependent CUDA checks.
+- Arithmetic must remain EXACT and ORDERED: FP32 x*inverse; FP32 1+converted-weight; FP32 multiply those results; final nearest-even BF16 cast. No reductions or rsqrt, no FMA or reassociation, launch with enable_fp_fusion=False. Preserve original input shape in newly allocated BF16 output and never mutate inputs.
+
+Use installed torch/Triton3.7.1 only. One simple pointwise kernel, fixed block size, no autotuner, torch.compile, CUDA graph, tensor cache or extra dependencies. This is only an isolated tail helper. A later local-model task will add guarded prefill integration and preserve CPU/autograd/noncontiguous/decode fallbacks.
+
+Return the full corrected module, not a patch.

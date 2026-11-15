@@ -1,0 +1,41 @@
+```python
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def _norm_tail_kernel(x_ptr, inv_ptr, w_ptr, out_ptr,
+                      rows, cols, stride_x, stride_inv,
+                      BLOCK: tl.constexpr):
+    pid = tl.program_id(0)
+    start = pid * BLOCK
+    offs = start + tl.arange(0, BLOCK)
+    mask = offs < rows * cols
+    row = offs // cols
+    col = offs % cols
+    x = tl.load(x_ptr + row * stride_x + col, mask=mask, other=0.0).to(tl.float32)
+    inv = tl.load(inv_ptr + row * stride_inv, mask=mask, other=0.0).to(tl.float32)
+    w = tl.load(w_ptr + col, mask=mask, other=0.0).to(tl.float32)
+    norm = x * inv
+    scale = 1.0 + w
+    y = (norm * scale).to(tl.bfloat16)
+    tl.store(out_ptr + offs, y, mask=mask)
+
+def norm_tail(x_fp32, inverse_rms, weight):
+    assert x_fp32.is_cuda and x_fp32.is_contiguous() and x_fp32.dtype == torch.float32
+    assert inverse_rms.is_cuda and inverse_rms.is_contiguous() and inverse_rms.dtype == torch.float32
+    assert weight.is_cuda and weight.is_contiguous() and weight.dim() == 1
+    assert weight.dtype in (torch.bfloat16, torch.float32)
+    assert x_fp32.shape[-1] == weight.shape[0]
+    assert inverse_rms.shape == x_fp32.shape[:-1]
+    with torch.inference_mode():
+        rows = x_fp32.numel() // x_fp32.shape[-1]
+        cols = x_fp32.shape[-1]
+        out = torch.empty_like(x_fp32, dtype=torch.bfloat16)
+        BLOCK = 1024
+        grid = (triton.cdiv(rows * cols, BLOCK),)
+        _norm_tail_kernel[grid](x_fp32, inverse_rms, weight, out,
+                                rows, cols, x_fp32.stride(0), inverse_rms.stride(0),
+                                BLOCK=BLOCK, enable_fp_fusion=False)
+        return out
+```

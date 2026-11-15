@@ -1,0 +1,106 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+________________________ test_qwen_real9b_conversation _________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf5671caf2f50>
+
+    def test_qwen_real9b_conversation(monkeypatch):
+        from transformers import PreTrainedTokenizerFast
+        from spark_engine.qwen_text import NativeQwenText
+        reference=PreTrainedTokenizerFast.from_pretrained(str(REAL),local_files_only=True)
+        text=NativeQwenText.from_pretrained(str(REAL),dtype=torch.bfloat16,device=DEVICE)
+>       _exercise_real_conversation(text,reference,monkeypatch)
+
+acceptance/test_qwen_contract.py:297: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+acceptance/test_qwen_contract.py:278: in _exercise_real_conversation
+    reply=text.chat(messages,max_new_tokens=8,temperature=0)
+spark_engine/qwen_text.py:35: in chat
+    out = self.engine.generate(
+acceptance/test_qwen_contract.py:268: in tracked
+    out=original(ids,*args,**kwargs)
+spark_engine/qwen_model.py:252: in generate
+    logits, layer_caches = self.prefill(generated)
+spark_engine/qwen_model.py:220: in prefill
+    hidden, cache = layer.prefill(hidden, position_embeddings, causal_mask)
+spark_engine/qwen_model.py:34: in prefill
+    hidden = self.input_layernorm(hidden)
+pytorch/torch/nn/modules/module.py:1779: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+pytorch/torch/nn/modules/module.py:1790: in _call_impl
+    return forward_call(*args, **kwargs)
+spark_engine/qwen_layers.py:16: in forward
+    return qwen_rms_norm(x, self.weight, self.eps)
+spark_engine/qwen_ops.py:35: in qwen_rms_norm
+    return norm_tail(x, inverse_rms, weight)
+spark_engine/qwen_norm_tail.py:31: in norm_tail
+    _norm_tail_kernel[grid](x_fp32, inverse_rms, weight, out, x_fp32.numel(),
+/usr/local/lib/python3.10/dist-packages/triton/runtime/jit.py:370: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/triton/runtime/jit.py:700: in run
+    device = driver.active.get_current_device()
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:28: in active
+    self._active = self.default
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:22: in default
+    self._default = _create_driver()
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:10: in _create_driver
+    return active_drivers[0]()
+/usr/local/lib/python3.10/dist-packages/triton/backends/nvidia/driver.py:720: in __init__
+    self.utils = CudaUtils()  # TODO: make static
+/usr/local/lib/python3.10/dist-packages/triton/backends/nvidia/driver.py:62: in __init__
+    mod = compile_module_from_src(
+/usr/local/lib/python3.10/dist-packages/triton/runtime/build.py:78: in compile_module_from_src
+    cache = get_cache_manager(key)
+/usr/local/lib/python3.10/dist-packages/triton/runtime/cache.py:248: in get_cache_manager
+    return cls(_base32(key))
+/usr/local/lib/python3.10/dist-packages/triton/runtime/cache.py:55: in __init__
+    os.makedirs(self.cache_dir, exist_ok=True)
+/usr/lib/python3.10/os.py:215: in makedirs
+    makedirs(head, exist_ok=exist_ok)
+/usr/lib/python3.10/os.py:215: in makedirs
+    makedirs(head, exist_ok=exist_ok)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = '/home/node/.triton', mode = 511, exist_ok = True
+
+    def makedirs(name, mode=0o777, exist_ok=False):
+        """makedirs(name [, mode=0o777][, exist_ok=False])
+    
+        Super-mkdir; create a leaf directory and all intermediate ones.  Works like
+        mkdir, except that any intermediate path segment (not just the rightmost)
+        will be created if it does not exist. If the target directory already
+        exists, raise an OSError if exist_ok is False. Otherwise no exception is
+        raised.  This is recursive.
+    
+        """
+        head, tail = path.split(name)
+        if not tail:
+            head, tail = path.split(head)
+        if head and tail and not path.exists(head):
+            try:
+                makedirs(head, exist_ok=exist_ok)
+            except FileExistsError:
+                # Defeats race condition when another thread created the path
+                pass
+            cdir = curdir
+            if isinstance(tail, bytes):
+                cdir = bytes(curdir, 'ASCII')
+            if tail == cdir:           # xxx/newdir/. exists if xxx/newdir exists
+                return
+        try:
+>           mkdir(name, mode)
+E           OSError: [Errno 30] Read-only file system: '/home/node/.triton'
+
+/usr/lib/python3.10/os.py:225: OSError
+----------------------------- Captured stderr call -----------------------------
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'Qwen3_5Tokenizer'. 
+The class this function is called from is 'PreTrainedTokenizerFast'.
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'Qwen3_5Tokenizer'. 
+The class this function is called from is 'PreTrainedTokenizerFast'.
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED acceptance/test_qwen_contract.py::test_qwen_gguf_head_layout
+FAILED acceptance/test_qwen_contract.py::test_qwen_real9b_conversation - OSEr...
+1 failed, 1 passed in 156.34s (0:02:36)

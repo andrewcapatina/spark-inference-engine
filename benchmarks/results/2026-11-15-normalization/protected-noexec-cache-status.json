@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "phase": "protected-prefill-norm-regression",
+  "started": "2026-11-15T22:13:01.040278+00:00",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/prefill-normalization-20261115T165203Z",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "completed_commands": [
+    {
+      "label": "generation-budget-repository",
+      "exit_code": 0,
+      "elapsed_seconds": 1.02
+    },
+    {
+      "label": "qwen-small",
+      "exit_code": 0,
+      "elapsed_seconds": 8.73
+    },
+    {
+      "label": "qwen-real9b",
+      "exit_code": 0,
+      "elapsed_seconds": 154.46
+    },
+    {
+      "label": "qwen-real9b-conversation",
+      "exit_code": 1,
+      "elapsed_seconds": 167.36
+    }
+  ],
+  "watchdog": {
+    "swap_policy": "growth",
+    "swap_limit_bytes": 268435456,
+    "min_available_gib": 32
+  },
+  "updated": "2026-11-15T22:15:50.642146+00:00",
+  "harness_recovery": "Writable per-container /tmp Triton cache; prior passed unchanged-source stages reused",
+  "preflight": {
+    "label": "qwen-real9b-conversation",
+    "model_server_running": false,
+    "python_workers": [],
+    "fresh_container_for_checkpoint": true
+  },
+  "current_command": "qwen-real9b-conversation",
+  "elapsed_seconds": 164.8,
+  "command_initial_swap_bytes": 335872,
+  "host_memory": {
+    "time": "2026-11-15T22:15:47.869689+00:00",
+    "MemAvailable": 94382587904,
+    "SwapTotal": 17179865088,
+    "SwapFree": 17179529216,
+    "swap_used_bytes": 335872,
+    "swap_growth_bytes": 0
+  },
+  "finished": "2026-11-15T22:15:50.641997+00:00",
+  "error": "qwen-real9b-conversation failed, exit 1; log retained"
+}

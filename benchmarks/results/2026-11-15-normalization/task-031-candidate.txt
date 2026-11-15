@@ -1,0 +1,39 @@
+```python
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def _norm_tail_kernel(x_ptr, inv_ptr, w_ptr, out_ptr,
+                      total, cols,
+                      BLOCK: tl.constexpr):
+    pid = tl.program_id(0)
+    for off in range(pid * BLOCK, total, BLOCK * tl.num_programs(0)):
+        row = off // cols
+        col = off % cols
+        x = tl.load(x_ptr + off)
+        inv = tl.load(inv_ptr + row)
+        w = tl.load(w_ptr + col)
+        y = x * inv
+        y = y * (1.0 + w)
+        tl.store(out_ptr + off, y.to(tl.bfloat16))
+
+def normalization_tail(x: torch.Tensor,
+                       inverse_rms: torch.Tensor,
+                       weight: torch.Tensor) -> torch.Tensor:
+    assert torch.is_inference_mode_enabled(), "call within torch.inference_mode()"
+    assert x.is_cuda and inverse_rms.is_cuda and weight.is_cuda
+    assert x.dtype == torch.float32 and inverse_rms.dtype == torch.float32
+    assert x.is_contiguous() and inverse_rms.is_contiguous()
+    assert weight.dim() == 1 and weight.is_contiguous()
+    assert weight.dtype in (torch.bfloat16, torch.float32)
+    cols = x.shape[-1]
+    assert weight.shape[0] == cols
+    total = x.numel()
+    out = torch.empty_like(x, dtype=torch.bfloat16)
+    grid = (triton.cdiv(total, 1024),)
+    _norm_tail_kernel[grid](x, inverse_rms, weight, out,
+                            total, cols, BLOCK=1024,
+                            num_warps=4, enable_fp_fusion=False)
+    return out
+```

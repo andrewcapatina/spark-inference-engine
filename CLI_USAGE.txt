@@ -38,10 +38,17 @@ From the host, start the agent container if it is stopped:
   docker start spark-prototype-agent
 
 9B Safetensors:
-  docker exec -it -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen9b --chat
+  docker exec -it -e TRITON_CACHE_DIR=/workspace/benchmark_runs/triton-cache -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen9b --chat
 
 27B GGUF:
-  docker exec -it -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen27b.gguf --chat
+  docker exec -it -e TRITON_CACHE_DIR=/workspace/benchmark_runs/triton-cache -w /workspace spark-prototype-agent python3 -m spark_engine --model /workspace/reference/qwen27b.gguf --chat
+
+The ordinary BF16 prefill normalization fast path uses installed Triton. Its
+compiler cache must be writable and permit loading shared libraries. This
+container has a read-only home and a noexec /tmp, so the commands above use
+the project bind mount for compiler artifacts (ignored by Git). Without Triton
+installed the engine retains its Torch fallback. Fresh compilation adds roughly
+one second on the tested runtime; measured prefill gains concern warm requests.
 
 Optional short replies for either command: append --max-new-tokens 32.
 The model server and overnight controller are not needed for native CLI chat.

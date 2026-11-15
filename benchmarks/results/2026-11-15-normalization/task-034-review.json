@@ -1,0 +1,9 @@
+{
+  "decision": "request_import_guard_revision_before_placement",
+  "candidate_source_sha256": "d9d4a91dbcd6ebbd6007f8529d2ea799aeddaa40665edda069121b5cfba8de34",
+  "reasons": [
+    "Arithmetic and eligible prefill metadata guards correct",
+    "Missing-module handling parses message text instead of error.name, which can hide unrelated missing packages mentioning triton",
+    "try block also encloses helper execution; restrict catching to import failure so helper errors propagate"
+  ]
+}

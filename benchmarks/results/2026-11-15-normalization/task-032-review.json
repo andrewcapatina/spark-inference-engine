@@ -1,0 +1,7 @@
+{
+  "decision": "reject_before_placement_missing_qualifier",
+  "candidate_source_sha256": "93fed918b290ed23036a1b3d506b47397a4230d3211d356b5f2404506b187d08",
+  "reasons": [
+    "Vector indexing/masks/FP32 math now correct, but bare program_id is undefined with the declared module imports; must be tl.program_id"
+  ]
+}

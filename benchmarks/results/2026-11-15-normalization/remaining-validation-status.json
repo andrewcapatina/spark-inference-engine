@@ -1,0 +1,67 @@
+{
+  "status": "complete",
+  "phase": "all_validations_complete",
+  "started": "2026-11-15T22:32:19.986231+00:00",
+  "main_run": "/home/cap/spark-inference-overnight-20261113/runs/prefill-normalization-20261115T165203Z",
+  "primary_metrics": [
+    "prefill_cuda_ms",
+    "prefill_wall_ms",
+    "prompt_tokens_per_second"
+  ],
+  "stages": [
+    {
+      "stage": "accuracy",
+      "run": "prefill-norm-accuracy-20261115T174938Z",
+      "status": "complete"
+    },
+    {
+      "stage": "profile",
+      "run": "prefill-norm-profile-20261115T175256Z",
+      "status": "complete"
+    },
+    {
+      "stage": "protected_regressions",
+      "status": "complete",
+      "commands": [
+        {
+          "label": "generation-budget-repository",
+          "exit_code": 0,
+          "elapsed_seconds": 1.02
+        },
+        {
+          "label": "qwen-small",
+          "exit_code": 0,
+          "elapsed_seconds": 8.73
+        },
+        {
+          "label": "qwen-real9b",
+          "exit_code": 0,
+          "elapsed_seconds": 154.46
+        },
+        {
+          "label": "qwen-real9b-conversation",
+          "exit_code": 0,
+          "elapsed_seconds": 165.8
+        },
+        {
+          "label": "qwen-real27b",
+          "exit_code": 0,
+          "elapsed_seconds": 148.38
+        },
+        {
+          "label": "qwen-real27b-conversation",
+          "exit_code": 0,
+          "elapsed_seconds": 147.84
+        },
+        {
+          "label": "llama-protected",
+          "exit_code": 0,
+          "elapsed_seconds": 8.15
+        }
+      ]
+    }
+  ],
+  "resumed_from": "/home/cap/spark-inference-overnight-20261113/runs/prefill-normalization-20261115T165203Z/validation-before-resume-20261115T223219Z.json",
+  "updated": "2026-11-15T22:40:16.778391+00:00",
+  "finished": "2026-11-15T22:40:16.778384+00:00"
+}

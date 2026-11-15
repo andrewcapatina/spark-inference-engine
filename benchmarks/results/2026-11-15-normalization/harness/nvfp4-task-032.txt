@@ -1,0 +1,12 @@
+Write ONLY the complete @triton.jit decorated _norm_tail_kernel function. No imports, no wrapper, no Markdown/prose. At most20 nonblanklines. You alone author engine implementation. Existing module prefix imports torch, triton and triton.language as tl.
+
+EXACT requested signature arguments, in order: x_ptr, inv_ptr, w_ptr, out_ptr, n_elements, WIDTH: tl.constexpr, BLOCK: tl.constexpr.
+
+Implement ONE vectorized pointwise kernel:
+- Each program handles a VECTOR of BLOCK element offsets. Use program_id(0)*BLOCK plus tl.arange(0,BLOCK). NO for loop. The prior scalar grid-stride loop was wrong: it wrote only one element per block.
+- Mask is vector offsets < n_elements. Apply mask to EVERY load and store. Input x and output are FLAT contiguous storage: pointer plus element offset.
+- Row index is vector offsets // WIDTH; column is vector offsets % WIDTH. Inverse buffer is flat contiguous with ONE value per row, so pointer plus row index. Weight pointer plus column index. No strides or batch indexing.
+- Cast all loaded values to tl.float32. First multiply x*inverse in FP32. Independently add1.0 to the FP32 weight. Then multiply those two FP32 results, and only then convert to tl.bfloat16 for output. Do not reassociate. The later wrapper will launch enable_fp_fusion=False.
+- No reduction, rsqrt, reciprocal, exponentials, gating, extra loop, atomics or state/cache.
+
+Return ONLY that decorated kernel function. It will be assembled verbatim with previously local-authored imports and a separately local-authored wrapper. The supervisor will not repair source.

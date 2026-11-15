@@ -1,0 +1,7 @@
+{
+  "classification": "harness/runtime noexec cache configuration",
+  "failure": "/tmp allows write but cannot map compiled cuda_utils shared object",
+  "fix": "TRITON_CACHE_DIR under executable project bind mount",
+  "engine_changed": false,
+  "assertions_changed": false
+}

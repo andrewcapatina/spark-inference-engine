@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "phase": "normalization-legacy-cache-preflight",
+  "started": "2026-11-15T22:17:36.909814+00:00",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/prefill-normalization-20261115T165203Z",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "completed_commands": [
+    {
+      "label": "legacy-cache-small-kernel",
+      "exit_code": 0,
+      "elapsed_seconds": 2.54
+    }
+  ],
+  "watchdog": {
+    "swap_policy": "growth",
+    "swap_limit_bytes": 268435456,
+    "min_available_gib": 32
+  },
+  "updated": "2026-11-15T22:17:39.971036+00:00",
+  "preflight": {
+    "label": "legacy-cache-small-kernel",
+    "model_server_running": false,
+    "python_workers": []
+  },
+  "current_command": "legacy-cache-small-kernel",
+  "elapsed_seconds": 0,
+  "command_initial_swap_bytes": 335872,
+  "finished": "2026-11-15T22:17:39.970932+00:00",
+  "error": null
+}

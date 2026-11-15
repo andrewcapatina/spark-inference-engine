@@ -1,0 +1,17 @@
+Author a NEW standalone module spark_engine/qwen_norm_tail.py, complete Python source only, no Markdown/prose, at most50 nonblanklines. You alone author engine implementation. This is a diagnostic prototype ONLY, not yet integrated with normalization. Existing installed runtime: Torch2.13.0+cu130, Triton3.7.1, NVIDIA GB10. No packages may be installed.
+
+Expose norm_tail(x_fp32, inverse_rms, weight). All tensors are contiguous on the SAME CUDA device. x_fp32 is FP32, inverse_rms is FP32 with exactly one value per row (all axes except last), weight is a contiguous 1D vector matching the last dimension, either BF16 or FP32. Return a NEW contiguous BF16 tensor of exactly x_fp32.shape. Do not mutate or retain any input.
+
+Match the following EXISTING ordinary Qwen offset-weight normalization pointwise tail EXACTLY, in this order:
+- norm value = x_fp32 multiplied by inverse_rms broadcast over the last dimension; the multiplication rounds to FP32.
+- scale value = 1.0 plus weight converted to FP32; the addition rounds to FP32.
+- result = norm value multiplied by scale value, rounded to FP32, then converted to BF16 with nearest-even rounding.
+Do NOT reassociate multiplications or replace operations with an FMA. Disable floating-point contraction for the Triton kernel launch (enable_fp_fusion=False). No BF16 arithmetic except weight loads/conversion and final output cast.
+
+Use ONE Triton pointwise kernel for the whole tail. Flatten contiguous x, map each element to its row's inverse_rms and its column's weight. Mask the last partial launch block. Hidden width is a constexpr for efficient indexing, total element count is runtime. Keep launch/tensor checks simple; no data-dependent GPU checks or CPU synchronization. New output allocation only. Fixed block size is fine; no autotuner, torch.compile, CUDA graph, global GPU tensor cache or imports from engine/reference models. Only imports torch, triton and triton.language. Require inference mode because raw Triton is not an autograd implementation.
+
+CRITICAL: inverse_rms is ALREADY computed by the original eager FP32 reduction/rsqrt and is supplied to you. Do NOT implement any variance, square, mean, reduction, normalization statistic, square root, reciprocal or rsqrt in this module. It is NOT gated normalization: do not add SiLU/z or change weight semantics. It is not a serving/reference backend.
+
+The helper will first be tested against the existing ordinary qwen_rms_norm using captured original inverse_rms, with element-exact outputs, partial blocks, input ownership, BF16/FP32 weights, dimensions16/128/256/5120 and real prefill-shaped tensors. Record cold JIT startup separately from warm timings. CPU, noncontiguous and autograd fallbacks will be handled by a later local-model integration task; don't expand this module to full normalization.
+
+Return ONLY the full standalone module source, no integration or other changes.

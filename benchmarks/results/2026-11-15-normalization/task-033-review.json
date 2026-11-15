@@ -1,0 +1,11 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+  "rationale": [
+    "Vectorized flat offsets cover/mask every element; flat inverse row indexing and constexpr width correct",
+    "FP32 loads and ordered multiplies/add; BF16 cast only at output; fp fusion disabled",
+    "Wrapper enforces inference mode, metadata/layout/dtypes, inverse count and allocates independent output; zero input skipped",
+    "Diagnostic inputs restricted to the same single CUDA device. Wrapper does not itself assert device equality; any later engine integration must enforce this precondition before selecting it."
+  ],
+  "default_engine_behavior": "unchanged: standalone module is not called by qwen_ops"
+}

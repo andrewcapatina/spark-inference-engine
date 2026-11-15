@@ -1,0 +1,8 @@
+{
+  "classification": "harness_import_scoping_failure_before_model_load",
+  "failed_run": "prefill-norm-baseline-20261115T165204Z",
+  "cause": "Function-local importlib import shadowed the already available module used earlier in main",
+  "fix": "Removed duplicate inner importlib import; kept module-level import. No engine code changed.",
+  "old_harness_sha256": "90bd95a2fe47ed8f9817f6293b467b86ce370c2736a3903e6ba2d413b77d1f61",
+  "new_harness_sha256": "debddb86a773686e32d71f31ddea5bcba696bcd74b2f69b314a207aaa30bc095"
+}

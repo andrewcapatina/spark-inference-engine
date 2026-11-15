@@ -1,0 +1,11 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "da0cb90516c3e10dec1ef27c9fe30c0d55f8cc390547396753c962da114f526f",
+  "reasons": [
+    "Scalar grid-stride loop writes only offsets pid*BLOCK, leaving BLOCK-1 elements per block unwritten",
+    "Missing vector tl.arange and element masks",
+    "Missing explicit FP32 conversion before 1+BF16 weight; cols still not constexpr",
+    "Changed public function name and omitted inverse-row-count/common-device guards"
+  ],
+  "retained_import_prefix_sha256": "111232fc5ffa4f33b7219b1500a95cdd068dfff493ced6ca6dc16082617b8d13"
+}

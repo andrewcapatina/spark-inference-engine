@@ -1,0 +1,26 @@
+Return ONLY the COMPLETE qwen_rms_norm function below, same signature. Source only, no Markdown/prose. This is a TINY recovery: preserve every arithmetic line and metadata guard EXACTLY. Change ONLY import-error handling as follows:
+
+The try block must contain ONLY the from spark_engine.qwen_norm_tail import norm_tail statement. Catch ModuleNotFoundError and decide ONLY by e.name: permit fallback iff name is exactly triton or starts with triton. (the literal prefix ending in a dot). Treat missing name=None and all other names as errors to re-raise. Do not inspect str(e). After a successful import, invoke/return norm_tail in an ELSE block of the try/except, so exceptions from the helper itself are not caught. Original Torch fallback stays after this import block.
+
+No other changes to this already reviewed arithmetic/metadata function:
+def qwen_rms_norm(x, weight, eps=1e-6):
+    """Qwen offset-weight RMSNorm: (x * w).to(dtype) with w = 1 + offset."""
+    dtype = x.dtype
+    x = x.float()
+    variance = x.pow(2).mean(-1, keepdim=True)
+    inverse_rms = torch.rsqrt(variance + eps)
+    if (torch.is_inference_mode_enabled() and dtype == torch.bfloat16 and x.is_cuda
+            and x.dim() >= 3 and x.shape[1] >= 16
+            and x.is_contiguous() and inverse_rms.is_contiguous() and weight.is_contiguous()
+            and weight.dim() == 1 and weight.dtype in (torch.bfloat16, torch.float32)
+            and weight.shape[0] == x.shape[-1]
+            and x.device == inverse_rms.device == weight.device
+            and x.shape[-1] > 0 and x.numel() <= 2147483647):
+        try:
+            from spark_engine.qwen_norm_tail import norm_tail
+            return norm_tail(x, inverse_rms, weight)
+        except ModuleNotFoundError as e:
+            if "triton" not in str(e):
+                raise
+    x = x * inverse_rms
+    return (x * (1.0 + weight.float())).to(dtype)

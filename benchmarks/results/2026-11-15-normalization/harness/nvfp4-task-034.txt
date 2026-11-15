@@ -1,0 +1,60 @@
+Author ONLY the COMPLETE module-level qwen_rms_norm(x,weight,eps=1e-6) function below, same signature. No Markdown/prose. Only this function may change; at most35 added lines. You alone author engine implementation.
+
+Standalone local-authored norm_tail helper has passed215 BITWISE-EXACT cases against this original function with captured eager inverse RMS, including all65280 finite BF16 input patterns, real3D/4D shapes, BF16/FP32 weights, signed zeros and input ownership. Its raw Triton kernel only fuses the pointwise tail; no reduction/rsqrt. Integrate it conservatively for prefill.
+
+MANDATORY arithmetic preservation: keep dtype=x.dtype; x=x.float(); variance=x.pow(2).mean(-1,keepdim=True) EXACTLY. Compute inverse_rms=torch.rsqrt(variance+eps) eagerly exactly once. Never fuse/reorder the reduction or rsqrt. The ordinary Torch fallback must perform x=x*inverse_rms then the ORIGINAL weighted return/cast, unchanged.
+
+Use the helper ONLY when ALL these metadata conditions hold:
+- caller is already in torch.inference_mode(); original saved dtype is torch.bfloat16; x is CUDA.
+- x has rank>=3 and x.shape[1]>=16, so this is a sufficiently long prefill; never select it for a single-token decode.
+- x after its FP32 conversion, inverse_rms, and weight are contiguous; weight is1D, matches x last dimension, and has BF16 or FP32 dtype.
+- x, inverse_rms and weight share the SAME CUDA device. The helper does not itself enforce cross-device equality, so the caller MUST enforce it.
+- nonempty last dimension, total elements <=2147483647 for safe kernel flat indexing.
+
+Inside the eligible branch, lazily import norm_tail from spark_engine.qwen_norm_tail and return norm_tail(x,inverse_rms,weight). If Triton is unavailable, preserve the Torch fallback: catch ONLY ModuleNotFoundError where the missing name is triton or a triton submodule. Re-raise all other missing-module errors. Do not catch kernel/compilation/numerical/runtime failures. No other flags, loader/CLI edits, global caches, changes to gated_rms_norm, other methods or kernel code.
+
+CPU, non-BF16 input, non-inference/autograd/no_grad use, short prompts, decode and unsupported layouts/weights must retain the original Torch path and its dtype/shape behavior.
+
+Existing helper for interface CONTEXT ONLY (do not repeat/change):
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def _norm_tail_kernel(x_ptr, inv_ptr, w_ptr, out_ptr, n_elements, WIDTH: tl.constexpr, BLOCK: tl.constexpr):
+    offsets = tl.program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = offsets < n_elements
+    rows = offsets // WIDTH
+    cols = offsets % WIDTH
+    x = tl.load(x_ptr + offsets, mask=mask, other=0.0).to(tl.float32)
+    inv = tl.load(inv_ptr + rows, mask=mask, other=0.0).to(tl.float32)
+    w = tl.load(w_ptr + cols, mask=mask, other=0.0).to(tl.float32)
+    out = (x * inv) * (w + 1.0)
+    tl.store(out_ptr + offsets, out.to(tl.bfloat16), mask=mask)
+
+def norm_tail(x_fp32, inverse_rms, weight):
+    assert torch.is_inference_mode_enabled()
+    assert x_fp32.is_cuda and inverse_rms.is_cuda and weight.is_cuda
+    assert x_fp32.is_contiguous() and inverse_rms.is_contiguous() and weight.is_contiguous()
+    assert x_fp32.dtype == torch.float32 and inverse_rms.dtype == torch.float32
+    assert weight.dim() == 1 and weight.dtype in (torch.bfloat16, torch.float32)
+    assert x_fp32.dim() >= 1 and x_fp32.shape[-1] > 0
+    width = x_fp32.shape[-1]
+    assert weight.shape[0] == width
+    assert inverse_rms.numel() == x_fp32.numel() // width
+    out = torch.empty_like(x_fp32, dtype=torch.bfloat16)
+    if x_fp32.numel() == 0:
+        return out
+    grid = (triton.cdiv(x_fp32.numel(), 1024),)
+    _norm_tail_kernel[grid](x_fp32, inverse_rms, weight, out, x_fp32.numel(),
+                            WIDTH=width, BLOCK=1024, num_warps=4, enable_fp_fusion=False)
+    return out
+
+Original function to revise ONLY as specified:
+def qwen_rms_norm(x, weight, eps=1e-6):
+    """Qwen offset-weight RMSNorm: (x * w).to(dtype) with w = 1 + offset."""
+    dtype = x.dtype
+    x = x.float()
+    variance = x.pow(2).mean(-1, keepdim=True)
+    x = x * torch.rsqrt(variance + eps)
+    return (x * (1.0 + weight.float())).to(dtype)

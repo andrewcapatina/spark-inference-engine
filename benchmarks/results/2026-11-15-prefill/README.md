@@ -12,3 +12,5 @@ The accepted [FP8 input-preparation change](fp8-reduction/README.md), engine **2
 The first [GDN mask/intermediate-reuse experiment](gdn-reuse/README.md) passed exact checks but showed no prefill gain and was not adopted. It is excluded from the accepted engine. Earlier decode-cache experiments are separate and were not used to judge this prefill result.
 
 The initial profile put GDN state computation, normalization and FP8 preparation at roughly 357 / 196 / 143 ms for 1,024 tokens. The accepted change lowers FP8 preparation to about 78 ms in the new prefill-only profile. Normalization and deeper GDN changes remain options for a later measured proposal; no implementation of those options is included here.
+
+Subsequent checkpoint: [ordinary normalization prefill fusion](../2026-11-15-normalization/README.md) adds a measured warm2.3%/4.1% reduction at256/1024tokens. The option discussion above describes the earlier FP8 checkpoint.

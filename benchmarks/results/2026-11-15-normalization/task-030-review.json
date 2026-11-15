@@ -1,0 +1,10 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "9d268d66e10560a7facba8f1590ca079152a6dec9315d88b94ff3e6fba066be1",
+  "reasons": [
+    "x_fp32.stride(0) is batch stride for rank3/4, not flat row stride; row*stride(0)+col can read out of bounds",
+    "inverse_rms.stride(0) likewise is not flat inverse-row stride; keepdim=True inverse shape not accepted",
+    "cols is runtime instead of requested constexpr, causing unnecessary dynamic index division",
+    "with inference_mode silently changes context rather than requiring caller inference mode; tensor devices not checked equal"
+  ]
+}

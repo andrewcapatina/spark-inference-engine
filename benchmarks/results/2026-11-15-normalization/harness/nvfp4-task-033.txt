@@ -1,0 +1,29 @@
+Return a COMPLETE standalone Python module spark_engine/qwen_norm_tail.py, at most50 nonblanklines, source only, no Markdown/prose. You alone write all engine implementation. No integration into qwen_ops yet.
+
+The vector kernel below is correct EXCEPT that bare program_id(0) is undefined. It MUST be tl.program_id(0), using the triton.language namespace. Preserve all other kernel indexing, masks, FP32 loads/multiplication order, WIDTH/BLOCK constexpr and BF16 store EXACTLY. Do not reintroduce a scalar loop or strides. Include normal module imports torch, triton and triton.language as tl BEFORE the decorated kernel.
+
+Current kernel to preserve with only that namespace fix:
+@triton.jit
+def _norm_tail_kernel(x_ptr, inv_ptr, w_ptr, out_ptr, n_elements, WIDTH: tl.constexpr, BLOCK: tl.constexpr):
+    offsets = program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = offsets < n_elements
+    rows = offsets // WIDTH
+    cols = offsets % WIDTH
+    x = tl.load(x_ptr + offsets, mask=mask, other=0.0).to(tl.float32)
+    inv = tl.load(inv_ptr + rows, mask=mask, other=0.0).to(tl.float32)
+    w = tl.load(w_ptr + cols, mask=mask, other=0.0).to(tl.float32)
+    out = (x * inv) * (w + 1.0)
+    tl.store(out_ptr + offsets, out.to(tl.bfloat16), mask=mask)
+
+
+After that kernel, add ONLY the small public wrapper named norm_tail(x_fp32, inverse_rms, weight):
+- Assert caller is already in torch.inference_mode. Do not enter/override the mode yourself.
+- Assert all three tensors are on the same CUDA device and contiguous. x and inverse dtype FP32. weight is 1D BF16 or FP32. x has at least1 dimension and positive last-dimension width. weight length equals that width. inverse may have any shape, including keepdim=True, but its numel must equal x.numel divided by width.
+- Allocate a NEW BF16 output with x_fp32.shape using torch.empty_like. Never mutate or retain inputs.
+- For nonempty input, launch exactly the above vector kernel with grid covering ceil(x.numel/1024) programs. Pass x, inverse, weight, output, and total elements in the declared argument order; pass WIDTH=last_dimension, BLOCK=1024, num_warps=4, enable_fp_fusion=False.
+- Return that output. For empty input just return the empty output without launching.
+- No variance, reduction, rsqrt, SiLU, autograd, tensor/global cache, torch.compile, new dependency or other algorithm. All eager FP32 normalization statistics remain outside this module. Output dtype BF16, ordered FP32 pointwise operations as in the supplied kernel.
+
+This small module will be tested against original eager ordinary Qwen RMSNorm with captured original inverse RMS, including3D/4D shapes, partial blocks, both weight dtypes, all finite BF16 input patterns, signed zeros, input ownership and an inference-mode requirement.
+
+Return full module only, within50 nonblanklines.

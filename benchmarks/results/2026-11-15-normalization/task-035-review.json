@@ -1,0 +1,10 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "6d3b3669721161272e2b255095ae054e8a263cc72e0ce0ae9a39302173abf13e",
+  "rationale": [
+    "Variance/rsqrt remain eager FP32 in original order; Torch fallback math unchanged",
+    "Tail only selected for same-device contiguous BF16 CUDA inference prefill rank>=3/T>=16, safe index range, compatible weights",
+    "CPU/autograd/no_grad/short/decode/unsupported layouts remain Torch; missing import handling checks e.name only and helper errors propagate",
+    "No changes to gated normalization, GDN recurrence or decoding/cache implementations"
+  ]
+}

@@ -1,0 +1,81 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+________________________ test_qwen_real9b_conversation _________________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xfbe1834aefb0>
+
+    def test_qwen_real9b_conversation(monkeypatch):
+        from transformers import PreTrainedTokenizerFast
+        from spark_engine.qwen_text import NativeQwenText
+        reference=PreTrainedTokenizerFast.from_pretrained(str(REAL),local_files_only=True)
+        text=NativeQwenText.from_pretrained(str(REAL),dtype=torch.bfloat16,device=DEVICE)
+>       _exercise_real_conversation(text,reference,monkeypatch)
+
+acceptance/test_qwen_contract.py:297: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+acceptance/test_qwen_contract.py:278: in _exercise_real_conversation
+    reply=text.chat(messages,max_new_tokens=8,temperature=0)
+spark_engine/qwen_text.py:35: in chat
+    out = self.engine.generate(
+acceptance/test_qwen_contract.py:268: in tracked
+    out=original(ids,*args,**kwargs)
+spark_engine/qwen_model.py:252: in generate
+    logits, layer_caches = self.prefill(generated)
+spark_engine/qwen_model.py:220: in prefill
+    hidden, cache = layer.prefill(hidden, position_embeddings, causal_mask)
+spark_engine/qwen_model.py:34: in prefill
+    hidden = self.input_layernorm(hidden)
+pytorch/torch/nn/modules/module.py:1779: in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+pytorch/torch/nn/modules/module.py:1790: in _call_impl
+    return forward_call(*args, **kwargs)
+spark_engine/qwen_layers.py:16: in forward
+    return qwen_rms_norm(x, self.weight, self.eps)
+spark_engine/qwen_ops.py:35: in qwen_rms_norm
+    return norm_tail(x, inverse_rms, weight)
+spark_engine/qwen_norm_tail.py:31: in norm_tail
+    _norm_tail_kernel[grid](x_fp32, inverse_rms, weight, out, x_fp32.numel(),
+/usr/local/lib/python3.10/dist-packages/triton/runtime/jit.py:370: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/triton/runtime/jit.py:700: in run
+    device = driver.active.get_current_device()
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:28: in active
+    self._active = self.default
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:22: in default
+    self._default = _create_driver()
+/usr/local/lib/python3.10/dist-packages/triton/runtime/driver.py:10: in _create_driver
+    return active_drivers[0]()
+/usr/local/lib/python3.10/dist-packages/triton/backends/nvidia/driver.py:720: in __init__
+    self.utils = CudaUtils()  # TODO: make static
+/usr/local/lib/python3.10/dist-packages/triton/backends/nvidia/driver.py:62: in __init__
+    mod = compile_module_from_src(
+/usr/local/lib/python3.10/dist-packages/triton/runtime/build.py:97: in compile_module_from_src
+    return _load_module_from_path(name, cache_path)
+/usr/local/lib/python3.10/dist-packages/triton/runtime/build.py:69: in _load_module_from_path
+    mod = importlib.util.module_from_spec(spec)
+<frozen importlib._bootstrap>:571: in module_from_spec
+    ???
+<frozen importlib._bootstrap_external>:1176: in create_module
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <built-in function create_dynamic>
+args = (ModuleSpec(name='cuda_utils', loader=<_frozen_importlib_external.ExtensionFileLoader object at 0xfbe170bcd600>, origi...refill-norm-triton/TPMJFAZ7RE4S4GPHFUPEWHMO3QS4EIKEHPYI643AZ2DKTPBLEUIQ/cuda_utils.cpython-310-aarch64-linux-gnu.so'),)
+kwds = {}
+
+>   ???
+E   ImportError: /tmp/spark-prefill-norm-triton/TPMJFAZ7RE4S4GPHFUPEWHMO3QS4EIKEHPYI643AZ2DKTPBLEUIQ/cuda_utils.cpython-310-aarch64-linux-gnu.so: failed to map segment from shared object
+
+<frozen importlib._bootstrap>:241: ImportError
+----------------------------- Captured stderr call -----------------------------
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'Qwen3_5Tokenizer'. 
+The class this function is called from is 'PreTrainedTokenizerFast'.
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'Qwen3_5Tokenizer'. 
+The class this function is called from is 'PreTrainedTokenizerFast'.
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED acceptance/test_qwen_contract.py::test_qwen_gguf_head_layout
+FAILED acceptance/test_qwen_contract.py::test_qwen_real9b_conversation - Impo...
+1 failed, 1 passed in 165.24s (0:02:45)
