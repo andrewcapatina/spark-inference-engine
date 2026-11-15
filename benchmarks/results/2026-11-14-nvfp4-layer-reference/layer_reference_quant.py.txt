@@ -1,0 +1,43 @@
+"""Diagnostic-only independent compressed-tensors QDQ + FP32 dense linear reference.
+Never imported by spark_engine. No serving, generation, or engine implementation.
+"""
+import torch
+from compressed_tensors.quantization import QuantizationArgs
+from compressed_tensors.quantization.lifecycle.forward import fake_quantize
+from compressed_tensors.quantization.utils.helpers import compute_dynamic_scales_and_zp
+
+def activation_qdq(x,args,global_scale=None):
+    shape=x.shape
+    # compressed-tensors TOKEN strategy treats dimensions 0/1 as batch/time.
+    values=x.float().reshape(1,-1,shape[-1])
+    scale,zp=compute_dynamic_scales_and_zp(values,args,None,global_scale=global_scale)
+    return fake_quantize(values,scale,zp,args,global_scale=global_scale).reshape(shape)
+
+def unpack_nvfp4(packed,scales,global_scale):
+    lut=torch.tensor([0,.5,1,1.5,2,3,4,6,-0.,-.5,-1,-1.5,-2,-3,-4,-6],device=packed.device,dtype=torch.float32)
+    values=torch.stack((lut[(packed&15).long()],lut[(packed>>4).long()]),-1).flatten(-2)
+    return values*scales.float().repeat_interleave(16,-1)/global_scale.float()
+
+class ReferenceLinear(torch.nn.Module):
+    """Only a test oracle: dequantized weights and independent activation fake-quantization."""
+    def __init__(self,weight,args,global_scale=None):
+        super().__init__();self.register_buffer('dense_weight',weight);self.args=args
+        self.register_buffer('global_scale',global_scale)
+    def forward(self,x):
+        q=activation_qdq(x,self.args,self.global_scale)
+        return torch.nn.functional.linear(q,self.dense_weight).to(x.dtype)
+
+def preflight():
+    import flashinfer
+    from spark_engine.qwen_nvfp4 import NVFP4Linear
+    from spark_engine.qwen_fp8 import FP8Linear
+    torch.manual_seed(712);rows=[]
+    qa4=QuantizationArgs(num_bits=4,type='float',symmetric=True,strategy='tensor_group',group_size=16,dynamic='local',scale_dtype=torch.float8_e4m3fn)
+    qa8=QuantizationArgs(num_bits=8,type='float',symmetric=True,strategy='token',dynamic=True)
+    for m,n,k in [(1,128,128),(3,128,256),(16,256,128),(128,128,256)]:
+        x=torch.randn(1,m,k,device='cuda',dtype=torch.bfloat16);w=torch.randn(n,k,device='cuda',dtype=torch.bfloat16);ig=torch.tensor([3.25],device='cuda');wg=torch.tensor([2.75],device='cuda')
+        wp,ws=flashinfer.fp4_quantize(w,wg,is_sf_swizzled_layout=False);ws=ws.view(torch.float8_e4m3fn).reshape(n,k//16);module=NVFP4Linear(wp,ws,wg,ig);expected=ReferenceLinear(unpack_nvfp4(wp,ws,wg),qa4,ig)(x);actual=module(x);torch.testing.assert_close(actual,expected,rtol=.01,atol=.03125)
+        rows.append({'kind':'nvfp4','M':m,'N':n,'K':k,'max_abs':(actual.float()-expected.float()).abs().max().item()})
+        weight=(torch.randn(n,k,device='cuda')*16).to(torch.float8_e4m3fn);scales=torch.linspace(.01,.1,n,device='cuda').to(torch.bfloat16)[:,None];expected=ReferenceLinear(weight.float()*scales.float(),qa8)(x);actual=FP8Linear(weight,scales)(x);torch.testing.assert_close(actual,expected,rtol=.01,atol=.03125)
+        rows.append({'kind':'fp8','M':m,'N':n,'K':k,'max_abs':(actual.float()-expected.float()).abs().max().item()})
+    return rows

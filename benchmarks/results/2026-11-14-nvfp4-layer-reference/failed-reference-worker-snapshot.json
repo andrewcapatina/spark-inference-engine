@@ -1,0 +1,1807 @@
+{
+  "status": "running",
+  "mode": "reference",
+  "scope": "Official HF one-block reference on native inputs; independent CT activation QDQ, FP32 dense quantized GEMMs cast BF16; streamed reference owns its hidden states, ordinary ops retain architecture precision.",
+  "transformers_version": "5.19.0",
+  "official_modeling_sha256": "aac2a1bcca88829afc6dbdf83f97155ebf64d800ee9d703af3802a9aebcfcd18",
+  "quantization_reference": "installed compressed_tensors, no FlashInfer/vLLM/native quantization calls",
+  "rows": [
+    {
+      "layer": 0,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 1.52587890625e-05,
+        "rms": 2.1324805743461184e-07,
+        "relative_l2": 1.1882237913596327e-06,
+        "cosine": 1.0000001192092896
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.52587890625e-05,
+        "rms": 2.1324805743461184e-07,
+        "relative_l2": 1.1882237913596327e-06,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0001220703125,
+        "rms": 1.7059844594768947e-06,
+        "relative_l2": 9.505790330877062e-06,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0001220703125,
+        "rms": 1.719260808386025e-06,
+        "relative_l2": 9.579766810929868e-06,
+        "cosine": 1.0000001192092896
+      }
+    },
+    {
+      "layer": 1,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00146484375,
+        "rms": 0.0004029534466098994,
+        "relative_l2": 0.0017978199757635593,
+        "cosine": 0.9999983906745911
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.0048828125,
+        "rms": 0.0011384134413674474,
+        "relative_l2": 0.005079153459519148,
+        "cosine": 0.9999871253967285
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.000244140625,
+        "rms": 8.959591468737926e-06,
+        "relative_l2": 3.997417661594227e-05,
+        "cosine": 0.9999999403953552
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0009765625,
+        "rms": 0.00024473422672599554,
+        "relative_l2": 0.0010919092455878854,
+        "cosine": 0.999999463558197
+      }
+    },
+    {
+      "layer": 2,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0009765625,
+        "rms": 2.451987711538095e-05,
+        "relative_l2": 0.00010957413905998692,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.008056640625,
+        "rms": 0.002036524470895529,
+        "relative_l2": 0.009100796654820442,
+        "cosine": 0.9999584555625916
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 6.103515625e-05,
+        "rms": 8.529922297384473e-07,
+        "relative_l2": 3.797571025643265e-06,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 3,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00244140625,
+        "rms": 0.0006436659605242312,
+        "relative_l2": 0.00202280399389565,
+        "cosine": 0.9999979734420776
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.013671875,
+        "rms": 0.0032176857348531485,
+        "relative_l2": 0.010111995041370392,
+        "cosine": 0.9999488592147827
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0029296875,
+        "rms": 0.0006955938297323883,
+        "relative_l2": 0.002185473684221506,
+        "cosine": 0.9999977946281433
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0000001192092896
+      }
+    },
+    {
+      "layer": 4,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.017578125,
+        "rms": 0.004182871431112289,
+        "relative_l2": 0.012170040048658848,
+        "cosine": 0.9999260306358337
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0001220703125,
+        "rms": 2.450033662171336e-06,
+        "relative_l2": 7.1269173531618435e-06,
+        "cosine": 1.0000003576278687
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0029296875,
+        "rms": 0.0006729082087986171,
+        "relative_l2": 0.0019574479665607214,
+        "cosine": 0.9999979734420776
+      }
+    },
+    {
+      "layer": 5,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00048828125,
+        "rms": 1.1129832273581997e-05,
+        "relative_l2": 2.9847968107787892e-05,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.125,
+        "rms": 0.00611950783059001,
+        "relative_l2": 0.01641128771007061,
+        "cosine": 0.9998793005943298
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.000244140625,
+        "rms": 3.5169771308574127e-06,
+        "relative_l2": 9.429381861991715e-06,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.000244140625,
+        "rms": 3.5427428883849643e-06,
+        "relative_l2": 9.498462532064877e-06,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 6,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0001220703125,
+        "rms": 1.7059844594768947e-06,
+        "relative_l2": 4.318277206039056e-06,
+        "cosine": 1.000000238418579
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.25,
+        "rms": 0.008248954080045223,
+        "relative_l2": 0.020880185067653656,
+        "cosine": 0.9998258352279663
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00439453125,
+        "rms": 0.0010205130092799664,
+        "relative_l2": 0.0025714924558997154,
+        "cosine": 0.9999966025352478
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.004150390625,
+        "rms": 0.0010555463377386332,
+        "relative_l2": 0.002659817226231098,
+        "cosine": 0.9999962449073792
+      }
+    },
+    {
+      "layer": 7,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0009765625,
+        "rms": 2.137592491635587e-05,
+        "relative_l2": 4.4309465010883287e-05,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.25,
+        "rms": 0.009355371817946434,
+        "relative_l2": 0.01939244754612446,
+        "cosine": 0.9998417496681213
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.005859375,
+        "rms": 0.0015327644068747759,
+        "relative_l2": 0.003154319478198886,
+        "cosine": 0.9999949932098389
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00439453125,
+        "rms": 0.0012304165866225958,
+        "relative_l2": 0.0025321415159851313,
+        "cosine": 0.9999966621398926
+      }
+    },
+    {
+      "layer": 8,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.004150390625,
+        "rms": 0.0011089355684816837,
+        "relative_l2": 0.0021083555184304714,
+        "cosine": 0.9999976754188538
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.012037940323352814,
+        "relative_l2": 0.02288704551756382,
+        "cosine": 0.999830424785614
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00390625,
+        "rms": 0.0009181472123600543,
+        "relative_l2": 0.001733982702717185,
+        "cosine": 0.9999984502792358
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0009765625,
+        "rms": 2.824228795361705e-05,
+        "relative_l2": 5.3337131248554215e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 9,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.001953125,
+        "rms": 0.00022120231005828828,
+        "relative_l2": 0.0003862854209728539,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.012890289537608624,
+        "relative_l2": 0.02251030132174492,
+        "cosine": 0.9998243451118469
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00048828125,
+        "rms": 6.8770432335441e-06,
+        "relative_l2": 1.1934323993045837e-05,
+        "cosine": 0.9999999403953552
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00048828125,
+        "rms": 6.823937837907579e-06,
+        "relative_l2": 1.1842165804409888e-05,
+        "cosine": 0.9999999403953552
+      }
+    },
+    {
+      "layer": 10,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.001485859276726842,
+        "relative_l2": 0.002502509392797947,
+        "cosine": 0.9999968409538269
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.014073454774916172,
+        "relative_l2": 0.023702749982476234,
+        "cosine": 0.9997897148132324
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.0014094209764152765,
+        "relative_l2": 0.0023594398517161608,
+        "cosine": 0.9999971985816956
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0078125,
+        "rms": 0.001218160497955978,
+        "relative_l2": 0.0020392034202814102,
+        "cosine": 0.9999979734420776
+      }
+    },
+    {
+      "layer": 11,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.0012674557510763407,
+        "relative_l2": 0.0017988361651077867,
+        "cosine": 0.9999983310699463
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.017025278881192207,
+        "relative_l2": 0.024163121357560158,
+        "cosine": 0.9998207688331604
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.0016481446800753474,
+        "relative_l2": 0.0023273760452866554,
+        "cosine": 0.9999973177909851
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 0.0002833292237482965,
+        "relative_l2": 0.00040009620715864,
+        "cosine": 0.9999998807907104
+      }
+    },
+    {
+      "layer": 12,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0087890625,
+        "rms": 0.002111368579789996,
+        "relative_l2": 0.00283664814196527,
+        "cosine": 0.9999961256980896
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.01776491291821003,
+        "relative_l2": 0.023867368698120117,
+        "cosine": 0.9998158812522888
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999998211860657
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0078125,
+        "rms": 0.0013037933968007565,
+        "relative_l2": 0.00174314109608531,
+        "cosine": 0.9999985098838806
+      }
+    },
+    {
+      "layer": 13,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0009765625,
+        "rms": 3.6757926864083856e-05,
+        "relative_l2": 4.7945359256118536e-05,
+        "cosine": 0.9999998211860657
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.01844828762114048,
+        "relative_l2": 0.024063101038336754,
+        "cosine": 0.9998043179512024
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.001953125,
+        "rms": 3.90144887205679e-05,
+        "relative_l2": 5.0423346692696214e-05,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 6.040013613528572e-05,
+        "relative_l2": 7.806269422871992e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 14,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.001953125,
+        "rms": 8.358997729374096e-05,
+        "relative_l2": 0.0001082273229258135,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.01915181428194046,
+        "relative_l2": 0.024796631187200546,
+        "cosine": 0.9997844696044922
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.0015690327854827046,
+        "relative_l2": 0.0020044378470629454,
+        "cosine": 0.9999979138374329
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.015625,
+        "rms": 0.0015680068172514439,
+        "relative_l2": 0.002003128407523036,
+        "cosine": 0.9999980330467224
+      }
+    },
+    {
+      "layer": 15,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.001266585779376328,
+        "relative_l2": 0.0015647963155061007,
+        "cosine": 0.9999988079071045
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.02062562108039856,
+        "relative_l2": 0.025481808930635452,
+        "cosine": 0.9997619986534119
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.0014566895551979542,
+        "relative_l2": 0.0017762365750968456,
+        "cosine": 0.9999984502792358
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 7.173507765401155e-05,
+        "relative_l2": 8.747052925173193e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 16,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0009765625,
+        "rms": 3.562455458450131e-05,
+        "relative_l2": 4.3027896026615053e-05,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.02009894698858261,
+        "relative_l2": 0.024275824427604675,
+        "cosine": 0.9997443556785583
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.0010901757050305605,
+        "relative_l2": 0.0013052014401182532,
+        "cosine": 0.9999992847442627
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 0.0011033420450985432,
+        "relative_l2": 0.001320965588092804,
+        "cosine": 0.9999990463256836
+      }
+    },
+    {
+      "layer": 17,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.001953125,
+        "rms": 0.00011531180643942207,
+        "relative_l2": 0.00014077402011025697,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.022663844749331474,
+        "relative_l2": 0.027668287977576256,
+        "cosine": 0.9997020363807678
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.001953125,
+        "rms": 4.8131743824342266e-05,
+        "relative_l2": 5.824614345328882e-05,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0009765625,
+        "rms": 2.6865871404879726e-05,
+        "relative_l2": 3.251146335969679e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 18,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.03515625,
+        "rms": 0.005323685240000486,
+        "relative_l2": 0.006676817778497934,
+        "cosine": 0.9999778270721436
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.02474597655236721,
+        "relative_l2": 0.031035713851451874,
+        "cosine": 0.999555766582489
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00390625,
+        "rms": 0.00047838527825661004,
+        "relative_l2": 0.0005973323131911457,
+        "cosine": 0.9999998211860657
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 7.94932057033293e-05,
+        "relative_l2": 9.925873018801212e-05,
+        "cosine": 1.0000001192092896
+      }
+    },
+    {
+      "layer": 19,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.015625,
+        "rms": 0.0025622311513870955,
+        "relative_l2": 0.003168812021613121,
+        "cosine": 0.9999949336051941
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.5,
+        "rms": 0.030036447569727898,
+        "relative_l2": 0.03714725375175476,
+        "cosine": 0.9993618130683899
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.0002392701426288113,
+        "relative_l2": 0.0002945594605989754,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.009765625,
+        "rms": 0.002518080873414874,
+        "relative_l2": 0.0030999525915831327,
+        "cosine": 0.999995231628418
+      }
+    },
+    {
+      "layer": 20,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.010986328125,
+        "rms": 0.0029361427295953035,
+        "relative_l2": 0.0036850899923592806,
+        "cosine": 0.9999931454658508
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 0.75,
+        "rms": 0.03518959879875183,
+        "relative_l2": 0.0441657118499279,
+        "cosine": 0.9991397857666016
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0107421875,
+        "rms": 0.0024699303321540356,
+        "relative_l2": 0.0030982440803200006,
+        "cosine": 0.999995231628418
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.015625,
+        "rms": 0.0034316598903387785,
+        "relative_l2": 0.004304699134081602,
+        "cosine": 0.999990701675415
+      }
+    },
+    {
+      "layer": 21,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.0018258217023685575,
+        "relative_l2": 0.0022194155026227236,
+        "cosine": 0.9999977350234985
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.25,
+        "rms": 0.0428871251642704,
+        "relative_l2": 0.05213233456015587,
+        "cosine": 0.998911440372467
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.002445813035592437,
+        "relative_l2": 0.0029829302802681923,
+        "cosine": 0.9999955296516418
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 0.0001032649161061272,
+        "relative_l2": 0.00012594027793966234,
+        "cosine": 0.9999998211860657
+      }
+    },
+    {
+      "layer": 22,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.001953125,
+        "rms": 4.599835301632993e-05,
+        "relative_l2": 5.5937602155609056e-05,
+        "cosine": 1.000000238418579
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 2.0,
+        "rms": 0.05400298908352852,
+        "relative_l2": 0.06567186862230301,
+        "cosine": 0.9984582662582397
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.001953125,
+        "rms": 3.1317711545852944e-05,
+        "relative_l2": 3.8206882891245186e-05,
+        "cosine": 0.9999999403953552
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 6.672994641121477e-05,
+        "relative_l2": 8.140892896335572e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 23,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.015625,
+        "rms": 0.00204259529709816,
+        "relative_l2": 0.0025825516786426306,
+        "cosine": 0.9999966621398926
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 2.25,
+        "rms": 0.06684451550245285,
+        "relative_l2": 0.08451475203037262,
+        "cosine": 0.9972126483917236
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.003150099189952016,
+        "relative_l2": 0.003994591534137726,
+        "cosine": 0.9999920725822449
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0078125,
+        "rms": 0.0021138943266123533,
+        "relative_l2": 0.0026805023662745953,
+        "cosine": 0.9999963045120239
+      }
+    },
+    {
+      "layer": 24,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.009765625,
+        "rms": 0.002467870945110917,
+        "relative_l2": 0.0031909472309052944,
+        "cosine": 0.9999949932098389
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 3.0,
+        "rms": 0.12148889899253845,
+        "relative_l2": 0.15708467364311218,
+        "cosine": 0.9890327453613281
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.002992363180965185,
+        "relative_l2": 0.003864214988425374,
+        "cosine": 0.9999924898147583
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 4.223819269100204e-05,
+        "relative_l2": 5.4547002946492285e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 25,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0009765625,
+        "rms": 1.6715166566427797e-05,
+        "relative_l2": 2.084716470562853e-05,
+        "cosine": 0.9999998211860657
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.1513671875,
+        "rms": 0.13813479244709015,
+        "relative_l2": 0.17228178679943085,
+        "cosine": 0.9851047992706299
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.03125,
+        "rms": 0.005139932502061129,
+        "relative_l2": 0.006404345389455557,
+        "cosine": 0.9999794363975525
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 4.396014628582634e-05,
+        "relative_l2": 5.4772277508163825e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 26,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.03125,
+        "rms": 0.00639295531436801,
+        "relative_l2": 0.007499772123992443,
+        "cosine": 0.9999719262123108
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.171875,
+        "rms": 0.15881045162677765,
+        "relative_l2": 0.18630541861057281,
+        "cosine": 0.9826363325119019
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0224609375,
+        "rms": 0.005009581334888935,
+        "relative_l2": 0.005912564694881439,
+        "cosine": 0.9999825358390808
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.02294921875,
+        "rms": 0.00556269520893693,
+        "relative_l2": 0.006565455812960863,
+        "cosine": 0.9999784231185913
+      }
+    },
+    {
+      "layer": 27,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.001953125,
+        "rms": 3.056522473343648e-05,
+        "relative_l2": 3.484638727968559e-05,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.1953125,
+        "rms": 0.19861191511154175,
+        "relative_l2": 0.22643078863620758,
+        "cosine": 0.9742472767829895
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.25,
+        "rms": 0.006263592280447483,
+        "relative_l2": 0.007273640017956495,
+        "cosine": 0.9999799728393555
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.25,
+        "rms": 0.006265179254114628,
+        "relative_l2": 0.007275488693267107,
+        "cosine": 0.9999800324440002
+      }
+    },
+    {
+      "layer": 28,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00390625,
+        "rms": 0.00023659889120608568,
+        "relative_l2": 0.000270098535111174,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.36328125,
+        "rms": 0.21010693907737732,
+        "relative_l2": 0.23985563218593597,
+        "cosine": 0.9712055921554565
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00048828125,
+        "rms": 1.1850147529912647e-05,
+        "relative_l2": 1.3955766917206347e-05,
+        "cosine": 0.9999998211860657
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.001953125,
+        "rms": 5.095870074001141e-05,
+        "relative_l2": 6.001341898809187e-05,
+        "cosine": 0.9999997615814209
+      }
+    },
+    {
+      "layer": 29,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0361328125,
+        "rms": 0.007306368090212345,
+        "relative_l2": 0.008519371971487999,
+        "cosine": 0.9999637603759766
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.5087890625,
+        "rms": 0.21771232783794403,
+        "relative_l2": 0.25385692715644836,
+        "cosine": 0.9679388403892517
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.01708984375,
+        "rms": 0.004385870881378651,
+        "relative_l2": 0.005301080644130707,
+        "cosine": 0.9999860525131226
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 0.0002485619916114956,
+        "relative_l2": 0.00030043895822018385,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 30,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.046875,
+        "rms": 0.009828547015786171,
+        "relative_l2": 0.010787421837449074,
+        "cosine": 0.9999417066574097
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 1.56640625,
+        "rms": 0.23648256063461304,
+        "relative_l2": 0.25955381989479065,
+        "cosine": 0.966023862361908
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.05078125,
+        "rms": 0.007598569616675377,
+        "relative_l2": 0.008561322465538979,
+        "cosine": 0.9999634027481079
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.03125,
+        "rms": 0.003462200053036213,
+        "relative_l2": 0.0039003309793770313,
+        "cosine": 0.9999924302101135
+      }
+    },
+    {
+      "layer": 31,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.046875,
+        "rms": 0.008718677796423435,
+        "relative_l2": 0.009573525749146938,
+        "cosine": 0.999954104423523
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 2.06640625,
+        "rms": 0.2629757821559906,
+        "relative_l2": 0.2887600362300873,
+        "cosine": 0.9589104652404785
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0234375,
+        "rms": 0.005782494321465492,
+        "relative_l2": 0.006465439219027758,
+        "cosine": 0.9999790191650391
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.041015625,
+        "rms": 0.010579299181699753,
+        "relative_l2": 0.011831264942884445,
+        "cosine": 0.9999299049377441
+      }
+    },
+    {
+      "layer": 32,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.03125,
+        "rms": 0.006116182543337345,
+        "relative_l2": 0.007210609968751669,
+        "cosine": 0.9999739527702332
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 2.1640625,
+        "rms": 0.282693088054657,
+        "relative_l2": 0.333278089761734,
+        "cosine": 0.9443585276603699
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.033203125,
+        "rms": 0.00713892187923193,
+        "relative_l2": 0.008429821580648422,
+        "cosine": 0.9999645948410034
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0625,
+        "rms": 0.012159693986177444,
+        "relative_l2": 0.014359530992805958,
+        "cosine": 0.9998968839645386
+      }
+    },
+    {
+      "layer": 33,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.04296875,
+        "rms": 0.009925587102770805,
+        "relative_l2": 0.012577426619827747,
+        "cosine": 0.9999207258224487
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 2.7890625,
+        "rms": 0.3201741576194763,
+        "relative_l2": 0.4057157635688782,
+        "cosine": 0.9185720086097717
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.05078125,
+        "rms": 0.008296530693769455,
+        "relative_l2": 0.010473138652741909,
+        "cosine": 0.9999451637268066
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.046875,
+        "rms": 0.008574746549129486,
+        "relative_l2": 0.01082502119243145,
+        "cosine": 0.9999414086341858
+      }
+    },
+    {
+      "layer": 34,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.01953125,
+        "rms": 0.005228096153587103,
+        "relative_l2": 0.0062300595454871655,
+        "cosine": 0.9999807476997375
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 3.1640625,
+        "rms": 0.3964398503303528,
+        "relative_l2": 0.4724175035953522,
+        "cosine": 0.8830358386039734
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.00014395112521015108,
+        "relative_l2": 0.00016773332026787102,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 0.00012545657227747142,
+        "relative_l2": 0.00014618280692957342,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 35,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999998211860657
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 3.7890625,
+        "rms": 0.5810531377792358,
+        "relative_l2": 0.6542573571205139,
+        "cosine": 0.7781953811645508
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.087890625,
+        "rms": 0.021940452978014946,
+        "relative_l2": 0.02347230166196823,
+        "cosine": 0.9997252821922302
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.08984375,
+        "rms": 0.021827535703778267,
+        "relative_l2": 0.023343859240412712,
+        "cosine": 0.9997279644012451
+      }
+    },
+    {
+      "layer": 36,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.04296875,
+        "rms": 0.011216549202799797,
+        "relative_l2": 0.013090400956571102,
+        "cosine": 0.9999143481254578
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 3.9140625,
+        "rms": 0.6417787075042725,
+        "relative_l2": 0.7489951252937317,
+        "cosine": 0.7224664092063904
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.25,
+        "rms": 0.013583931140601635,
+        "relative_l2": 0.015775397419929504,
+        "cosine": 0.9998794794082642
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0703125,
+        "rms": 0.011736749671399593,
+        "relative_l2": 0.01366959884762764,
+        "cosine": 0.9999065399169922
+      }
+    },
+    {
+      "layer": 37,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.00015136227011680603,
+        "relative_l2": 0.00017644006584305316,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 4.5,
+        "rms": 0.7182198166847229,
+        "relative_l2": 0.8372149467468262,
+        "cosine": 0.6792755126953125
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.03125,
+        "rms": 0.007307799067348242,
+        "relative_l2": 0.008189705200493336,
+        "cosine": 0.9999665021896362
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.03125,
+        "rms": 0.0066724251955747604,
+        "relative_l2": 0.007477228529751301,
+        "cosine": 0.9999721646308899
+      }
+    },
+    {
+      "layer": 38,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00048828125,
+        "rms": 6.823937837907579e-06,
+        "relative_l2": 7.2236375672218855e-06,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 4.48828125,
+        "rms": 0.7380217909812927,
+        "relative_l2": 0.7812500596046448,
+        "cosine": 0.7073251008987427
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00390625,
+        "rms": 0.00011004591942764819,
+        "relative_l2": 0.00011717185407178476,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0078125,
+        "rms": 0.0006022469606250525,
+        "relative_l2": 0.0006412387010641396,
+        "cosine": 0.9999997019767761
+      }
+    },
+    {
+      "layer": 39,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.00015828006144147366,
+        "relative_l2": 0.00017768000543583184,
+        "cosine": 1.0000001192092896
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 4.140625,
+        "rms": 0.7588538527488708,
+        "relative_l2": 0.8518644571304321,
+        "cosine": 0.6544563174247742
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0009765625,
+        "rms": 1.3647875675815158e-05,
+        "relative_l2": 1.4842257769487333e-05,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0009765625,
+        "rms": 1.3647875675815158e-05,
+        "relative_l2": 1.4842257769487333e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 40,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.012696146965026855,
+        "relative_l2": 0.013645512983202934,
+        "cosine": 0.9999068379402161
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 4.03125,
+        "rms": 0.7716199159622192,
+        "relative_l2": 0.8293184638023376,
+        "cosine": 0.6680506467819214
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0234375,
+        "rms": 0.0062998877838253975,
+        "relative_l2": 0.0067898426204919815,
+        "cosine": 0.9999769926071167
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.033203125,
+        "rms": 0.009164385497570038,
+        "relative_l2": 0.00987821165472269,
+        "cosine": 0.9999513030052185
+      }
+    },
+    {
+      "layer": 41,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.00390625,
+        "rms": 0.0001817974407458678,
+        "relative_l2": 0.00017206845222972333,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 4.75,
+        "rms": 0.8095421195030212,
+        "relative_l2": 0.7662189602851868,
+        "cosine": 0.7008872032165527
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.078125,
+        "rms": 0.011100432835519314,
+        "relative_l2": 0.010582088492810726,
+        "cosine": 0.9999440908432007
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.078125,
+        "rms": 0.011824522167444229,
+        "relative_l2": 0.011272026225924492,
+        "cosine": 0.9999364614486694
+      }
+    },
+    {
+      "layer": 42,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0673828125,
+        "rms": 0.019615143537521362,
+        "relative_l2": 0.01622646115720272,
+        "cosine": 0.9998683929443359
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 5.8515625,
+        "rms": 0.9129579663276672,
+        "relative_l2": 0.7552368640899658,
+        "cosine": 0.7215994596481323
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.041015625,
+        "rms": 0.009647021070122719,
+        "relative_l2": 0.00846373476088047,
+        "cosine": 0.9999641180038452
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.041015625,
+        "rms": 0.009647099301218987,
+        "relative_l2": 0.008463803678750992,
+        "cosine": 0.99996417760849
+      }
+    },
+    {
+      "layer": 43,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.25,
+        "rms": 0.020173175260424614,
+        "relative_l2": 0.01643533632159233,
+        "cosine": 0.9998672604560852
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 6.546875,
+        "rms": 0.9905372858047485,
+        "relative_l2": 0.8070030808448792,
+        "cosine": 0.6751445531845093
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.103515625,
+        "rms": 0.02696942165493965,
+        "relative_l2": 0.022317741066217422,
+        "cosine": 0.9997512698173523
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.109375,
+        "rms": 0.02639697678387165,
+        "relative_l2": 0.0218390803784132,
+        "cosine": 0.9997616410255432
+      }
+    },
+    {
+      "layer": 44,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.015625,
+        "rms": 0.0006957431323826313,
+        "relative_l2": 0.0005526987370103598,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 7.0234375,
+        "rms": 1.0586580038070679,
+        "relative_l2": 0.8409984707832336,
+        "cosine": 0.6602909564971924
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.033203125,
+        "rms": 0.009369882754981518,
+        "relative_l2": 0.007517491467297077,
+        "cosine": 0.9999718070030212
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.046875,
+        "rms": 0.012582914903759956,
+        "relative_l2": 0.01009403821080923,
+        "cosine": 0.9999489784240723
+      }
+    },
+    {
+      "layer": 45,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0390625,
+        "rms": 0.009674148634076118,
+        "relative_l2": 0.0075103510171175,
+        "cosine": 0.999971866607666
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 7.0703125,
+        "rms": 1.1098111867904663,
+        "relative_l2": 0.8615818023681641,
+        "cosine": 0.6532045602798462
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0546875,
+        "rms": 0.013992882333695889,
+        "relative_l2": 0.010648786090314388,
+        "cosine": 0.9999434351921082
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0546875,
+        "rms": 0.01399498712271452,
+        "relative_l2": 0.010650374926626682,
+        "cosine": 0.9999433755874634
+      }
+    },
+    {
+      "layer": 46,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.00018964073387905955,
+        "relative_l2": 0.00015384473954327404,
+        "cosine": 1.0000001192092896
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 22.5,
+        "rms": 1.235405445098877,
+        "relative_l2": 1.0022143125534058,
+        "cosine": 0.6453536152839661
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.00013372133253142238,
+        "relative_l2": 9.71344270510599e-05,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.140625,
+        "rms": 0.020933201536536217,
+        "relative_l2": 0.015206294134259224,
+        "cosine": 0.9998844861984253
+      }
+    },
+    {
+      "layer": 47,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.078125,
+        "rms": 0.01921490766108036,
+        "relative_l2": 0.013922800309956074,
+        "cosine": 0.9999030828475952
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 8.71875,
+        "rms": 1.2463480234146118,
+        "relative_l2": 0.9030829668045044,
+        "cosine": 0.641853928565979
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0625,
+        "rms": 0.008780988864600658,
+        "relative_l2": 0.006111425813287497,
+        "cosine": 0.9999814033508301
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0625,
+        "rms": 0.008780988864600658,
+        "relative_l2": 0.006111425813287497,
+        "cosine": 0.9999814033508301
+      }
+    },
+    {
+      "layer": 48,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.015625,
+        "rms": 0.0005121705471538007,
+        "relative_l2": 0.0003734852944035083,
+        "cosine": 0.9999998807907104
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 8.34375,
+        "rms": 1.2872761487960815,
+        "relative_l2": 0.9387083649635315,
+        "cosine": 0.61873859167099
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999998211860657
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999998211860657
+      }
+    },
+    {
+      "layer": 49,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.0002750817220658064,
+        "relative_l2": 0.0001989943702938035,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 8.203125,
+        "rms": 1.326015591621399,
+        "relative_l2": 0.9592408537864685,
+        "cosine": 0.5954087972640991
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.03125,
+        "rms": 0.0005837758653797209,
+        "relative_l2": 0.00039225691580213606,
+        "cosine": 0.9999998807907104
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.03125,
+        "rms": 0.0005965581513009965,
+        "relative_l2": 0.00040084539796225727,
+        "cosine": 0.9999998807907104
+      }
+    },
+    {
+      "layer": 50,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.064453125,
+        "rms": 0.016331156715750694,
+        "relative_l2": 0.014332457445561886,
+        "cosine": 0.999897301197052
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 54.5,
+        "rms": 1.6551259756088257,
+        "relative_l2": 1.4525623321533203,
+        "cosine": 0.3294332027435303
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.125,
+        "rms": 0.021507197991013527,
+        "relative_l2": 0.01711159199476242,
+        "cosine": 0.9998539686203003
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.015625,
+        "rms": 0.00031419770675711334,
+        "relative_l2": 0.00025020656175911427,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 51,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.0001220703125,
+        "relative_l2": 6.693834438920021e-05,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 13.75,
+        "rms": 1.845274806022644,
+        "relative_l2": 1.0118728876113892,
+        "cosine": 0.46535757184028625
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 1.0,
+        "rms": 0.04523313045501709,
+        "relative_l2": 0.024327944964170456,
+        "cosine": 0.9997155666351318
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 52,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.010922040790319443,
+        "relative_l2": 0.005811244249343872,
+        "cosine": 0.9999831318855286
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 15.25,
+        "rms": 1.9553288221359253,
+        "relative_l2": 1.0403635501861572,
+        "cosine": 0.4565775692462921
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.0001726334885461256,
+        "relative_l2": 8.816539775580168e-05,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 1.9073486328125e-06,
+        "rms": 2.665600717932648e-08,
+        "relative_l2": 1.3613431271153331e-08,
+        "cosine": 1.0000001192092896
+      }
+    },
+    {
+      "layer": 53,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0078125,
+        "rms": 0.0003094939747825265,
+        "relative_l2": 0.00015668502601329237,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 15.015625,
+        "rms": 2.121598482131958,
+        "relative_l2": 1.0740846395492554,
+        "cosine": 0.4422749876976013
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.00390625,
+        "rms": 5.459150270326063e-05,
+        "relative_l2": 2.6334777430747636e-05,
+        "cosine": 1.0000001192092896
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.00390625,
+        "rms": 6.99245574651286e-05,
+        "relative_l2": 3.3731386793078855e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 54,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.006024248898029327,
+        "relative_l2": 0.0030329686123877764,
+        "cosine": 0.9999953508377075
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 16.34375,
+        "rms": 2.299838066101074,
+        "relative_l2": 1.1578764915466309,
+        "cosine": 0.3888828158378601
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.125,
+        "rms": 0.020700449123978615,
+        "relative_l2": 0.009999144822359085,
+        "cosine": 0.999950110912323
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.125,
+        "rms": 0.020543523132801056,
+        "relative_l2": 0.009923075325787067,
+        "cosine": 0.9999507665634155
+      }
+    },
+    {
+      "layer": 55,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.015625,
+        "rms": 0.0002250865363748744,
+        "relative_l2": 8.280391921289265e-05,
+        "cosine": 1.0
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 75.5,
+        "rms": 2.7425763607025146,
+        "relative_l2": 1.008927822113037,
+        "cosine": 0.40367457270622253
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.078125,
+        "rms": 0.015896018594503403,
+        "relative_l2": 0.005875260103493929,
+        "cosine": 0.9999827146530151
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0703125,
+        "rms": 0.016359921544790268,
+        "relative_l2": 0.006045355927199125,
+        "cosine": 0.9999817609786987
+      }
+    },
+    {
+      "layer": 56,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.03125,
+        "rms": 0.0036814839113503695,
+        "relative_l2": 0.001309736748225987,
+        "cosine": 0.9999991655349731
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 77.25,
+        "rms": 2.9168925285339355,
+        "relative_l2": 1.037723183631897,
+        "cosine": 0.3795512318611145
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0625,
+        "rms": 0.005002071615308523,
+        "relative_l2": 0.0018162209307774901,
+        "cosine": 0.9999983310699463
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0625,
+        "rms": 0.005069846753031015,
+        "relative_l2": 0.001840818440541625,
+        "cosine": 0.9999982714653015
+      }
+    },
+    {
+      "layer": 57,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.0046735224314033985,
+        "relative_l2": 0.0015821770066395402,
+        "cosine": 0.9999986886978149
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 89.75,
+        "rms": 3.1391921043395996,
+        "relative_l2": 1.062743902206421,
+        "cosine": 0.3574637472629547
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.03125,
+        "rms": 0.0038520735688507557,
+        "relative_l2": 0.0013379402225837111,
+        "cosine": 0.9999989867210388
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.03125,
+        "rms": 0.0032568874303251505,
+        "relative_l2": 0.0011311996495351195,
+        "cosine": 0.9999992847442627
+      }
+    },
+    {
+      "layer": 58,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.004325341898947954,
+        "relative_l2": 0.0016498997574672103,
+        "cosine": 0.9999985694885254
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 55.875,
+        "rms": 3.0990662574768066,
+        "relative_l2": 1.182137370109558,
+        "cosine": 0.3063151240348816
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0078125,
+        "rms": 0.0001220703125,
+        "relative_l2": 4.63335782114882e-05,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0078125,
+        "rms": 0.00010918300540652126,
+        "relative_l2": 4.14420101151336e-05,
+        "cosine": 1.0
+      }
+    },
+    {
+      "layer": 59,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.008580395951867104,
+        "relative_l2": 0.0019491083221510053,
+        "cosine": 0.999998152256012
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 183.0,
+        "rms": 4.187551975250244,
+        "relative_l2": 0.9512372016906738,
+        "cosine": 0.4050936698913574
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.000244140625,
+        "relative_l2": 5.708551543648355e-05,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0625,
+        "rms": 0.008126943372189999,
+        "relative_l2": 0.0019002641784027219,
+        "cosine": 0.9999983310699463
+      }
+    },
+    {
+      "layer": 60,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.125,
+        "rms": 0.016326168552041054,
+        "relative_l2": 0.004021456465125084,
+        "cosine": 0.9999920129776001
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 127.0,
+        "rms": 3.969175338745117,
+        "relative_l2": 0.9776860475540161,
+        "cosine": 0.4357004761695862
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.03125,
+        "rms": 0.002864868612959981,
+        "relative_l2": 0.0007195894722826779,
+        "cosine": 0.9999997019767761
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.03125,
+        "rms": 0.0029164692386984825,
+        "relative_l2": 0.0007325501064769924,
+        "cosine": 0.9999997615814209
+      }
+    },
+    {
+      "layer": 61,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.011902174912393093,
+        "relative_l2": 0.0025207367725670338,
+        "cosine": 0.9999968409538269
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 145.5,
+        "rms": 4.439428806304932,
+        "relative_l2": 0.9402173757553101,
+        "cosine": 0.4704563617706299
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.015625,
+        "rms": 0.0002952486975118518,
+        "relative_l2": 6.512496474897489e-05,
+        "cosine": 1.0
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0625,
+        "rms": 0.00381038011983037,
+        "relative_l2": 0.0008404838154092431,
+        "cosine": 0.9999996423721313
+      }
+    },
+    {
+      "layer": 62,
+      "layer_type": "linear_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 1.0,
+        "rms": 0.03021428920328617,
+        "relative_l2": 0.00718895485624671,
+        "cosine": 0.9999755620956421
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 80.5,
+        "rms": 4.723550319671631,
+        "relative_l2": 1.123885154724121,
+        "cosine": 0.37334221601486206
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.0625,
+        "rms": 0.006058757659047842,
+        "relative_l2": 0.0015327372821047902,
+        "cosine": 0.9999988079071045
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.125,
+        "rms": 0.01823422871530056,
+        "relative_l2": 0.0046129291877150536,
+        "cosine": 0.99998939037323
+      }
+    },
+    {
+      "layer": 63,
+      "layer_type": "full_attention",
+      "independent_local_prefill_vs_native_fresh": {
+        "max_abs": 0.0625,
+        "rms": 0.006749005522578955,
+        "relative_l2": 0.0009652100852690637,
+        "cosine": 0.9999996423721313
+      },
+      "streamed_reference_vs_native_fresh": {
+        "max_abs": 56.0,
+        "rms": 5.436619758605957,
+        "relative_l2": 0.7775189876556396,
+        "cosine": 0.6994307041168213
+      },
+      "independent_cache_replay_vs_native_cached": {
+        "max_abs": 0.1875,
+        "rms": 0.02894110232591629,
+        "relative_l2": 0.004667674656957388,
+        "cosine": 0.9999890327453613
+      },
+      "independent_cache_vs_independent_fresh_on_same_layer_history": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "cosine": 0.9999999403953552
+      }
+    }
+  ],
+  "step": 17,
+  "reference_kernels": "official plain Torch GDN chunk/recurrent and causal_conv1d, eager attention",
+  "threshold_policy": "diagnostic block metrics; no observation-fitted pass threshold",
+  "captured_native_run": "layer-capture-20261115T032416Z",
+  "embedding_rows_exact_match": true
+}

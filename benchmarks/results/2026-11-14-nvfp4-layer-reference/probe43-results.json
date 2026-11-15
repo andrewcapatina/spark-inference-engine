@@ -1,0 +1,273 @@
+{
+  "status": "complete",
+  "mode": "probe43",
+  "layer": 43,
+  "scope": "Actual captured-block projection inputs: independent CT-QDQ/FP32 matmul with fixed existing .01/.03125 bounds; source engine unchanged",
+  "checks": [
+    {
+      "name": "self_attn.q_proj",
+      "shape": [
+        1,
+        273,
+        5120
+      ],
+      "kind": "FP8Linear",
+      "activation_qdq_error": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "fast_vs_regular_accum": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 3354624
+      },
+      "native_vs_independent": {
+        "max_abs": 0.03125,
+        "rms": 8.947310561779886e-05,
+        "relative_l2": 5.7753786677494645e-05,
+        "outside_existing_bound": 0,
+        "elements": 3354624
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.03125,
+        "rms": 8.947310561779886e-05,
+        "relative_l2": 5.7753786677494645e-05,
+        "outside_existing_bound": 0,
+        "elements": 3354624
+      }
+    },
+    {
+      "name": "self_attn.k_proj",
+      "shape": [
+        1,
+        273,
+        5120
+      ],
+      "kind": "FP8Linear",
+      "activation_qdq_error": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "fast_vs_regular_accum": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      },
+      "native_vs_independent": {
+        "max_abs": 0.03125,
+        "rms": 8.71953961905092e-05,
+        "relative_l2": 6.219019996933639e-05,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.03125,
+        "rms": 8.71953961905092e-05,
+        "relative_l2": 6.219019996933639e-05,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      }
+    },
+    {
+      "name": "self_attn.v_proj",
+      "shape": [
+        1,
+        273,
+        5120
+      ],
+      "kind": "FP8Linear",
+      "activation_qdq_error": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "fast_vs_regular_accum": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      },
+      "native_vs_independent": {
+        "max_abs": 0.015625,
+        "rms": 5.6990960729308426e-05,
+        "relative_l2": 4.591327524394728e-05,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.015625,
+        "rms": 5.6990960729308426e-05,
+        "relative_l2": 4.591327524394728e-05,
+        "outside_existing_bound": 0,
+        "elements": 279552
+      }
+    },
+    {
+      "name": "self_attn.o_proj",
+      "shape": [
+        1,
+        273,
+        6144
+      ],
+      "kind": "FP8Linear",
+      "activation_qdq_error": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 1677312
+      },
+      "fast_vs_regular_accum": {
+        "max_abs": 0.0,
+        "rms": 0.0,
+        "relative_l2": 0.0,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "native_vs_independent": {
+        "max_abs": 0.00390625,
+        "rms": 1.4541451491822954e-05,
+        "relative_l2": 5.488933311426081e-05,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.00390625,
+        "rms": 1.4541451491822954e-05,
+        "relative_l2": 5.488933311426081e-05,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      }
+    },
+    {
+      "name": "mlp.gate_proj",
+      "shape": [
+        1,
+        273,
+        5120
+      ],
+      "kind": "NVFP4Linear",
+      "activation_qdq_error": {
+        "max_abs": 3.814697265625e-06,
+        "rms": 4.150919963308297e-08,
+        "relative_l2": 5.766602484413852e-08,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "different_FP32_reconstructions": 325988,
+      "input_global_scale": 67.5,
+      "fp4_level_disagreements": 0,
+      "local_scale_disagreements": 0,
+      "activation_examples": [],
+      "native_vs_independent": {
+        "max_abs": 0.015625,
+        "rms": 3.7281180993886665e-05,
+        "relative_l2": 4.702720616478473e-05,
+        "outside_existing_bound": 0,
+        "elements": 4752384
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.015625,
+        "rms": 3.70620509784203e-05,
+        "relative_l2": 4.6750788897043094e-05,
+        "outside_existing_bound": 0,
+        "elements": 4752384
+      }
+    },
+    {
+      "name": "mlp.up_proj",
+      "shape": [
+        1,
+        273,
+        5120
+      ],
+      "kind": "NVFP4Linear",
+      "activation_qdq_error": {
+        "max_abs": 3.814697265625e-06,
+        "rms": 4.150919963308297e-08,
+        "relative_l2": 5.766602484413852e-08,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "different_FP32_reconstructions": 325988,
+      "input_global_scale": 67.5,
+      "fp4_level_disagreements": 0,
+      "local_scale_disagreements": 0,
+      "activation_examples": [],
+      "native_vs_independent": {
+        "max_abs": 0.0078125,
+        "rms": 2.578443854872603e-05,
+        "relative_l2": 4.510322833084501e-05,
+        "outside_existing_bound": 0,
+        "elements": 4752384
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.0078125,
+        "rms": 2.5727751562953927e-05,
+        "relative_l2": 4.5004067942500114e-05,
+        "outside_existing_bound": 0,
+        "elements": 4752384
+      }
+    },
+    {
+      "name": "mlp.down_proj",
+      "shape": [
+        1,
+        273,
+        17408
+      ],
+      "kind": "NVFP4Linear",
+      "activation_qdq_error": {
+        "max_abs": 9.5367431640625e-07,
+        "rms": 8.606602541760822e-09,
+        "relative_l2": 5.1105075726809446e-08,
+        "outside_existing_bound": 0,
+        "elements": 4752384
+      },
+      "different_FP32_reconstructions": 706192,
+      "input_global_scale": 64.5,
+      "fp4_level_disagreements": 0,
+      "local_scale_disagreements": 0,
+      "activation_examples": [],
+      "native_vs_independent": {
+        "max_abs": 0.00390625,
+        "rms": 1.1128744517918676e-05,
+        "relative_l2": 4.047447146149352e-05,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      },
+      "gemm_with_same_quantized_input": {
+        "max_abs": 0.00390625,
+        "rms": 1.1213860489078797e-05,
+        "relative_l2": 4.078403799212538e-05,
+        "outside_existing_bound": 0,
+        "elements": 1397760
+      }
+    }
+  ],
+  "single_block_reproduces_captured_last": true,
+  "block_reproduction_error": {
+    "max_abs": 0.0,
+    "rms": 0.0,
+    "relative_l2": 0.0,
+    "outside_existing_bound": 0,
+    "elements": 5120
+  },
+  "released_memory": {
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  }
+}

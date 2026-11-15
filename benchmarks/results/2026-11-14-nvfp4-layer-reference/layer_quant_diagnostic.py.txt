@@ -1,0 +1,26 @@
+"""Bounded layer-capture and independent-reference harness, no engine edits."""
+from pathlib import Path
+import sys,json,time,os,gc,weakref,importlib.util
+
+def main():
+    import torch
+    sys.path.insert(0,'/workspace');sys.path.insert(0,'/harness')
+    from layer_reference_quant import preflight
+    run,mode=sys.argv[1:3];out=Path('/results')/run;out.mkdir(exist_ok=True)
+    torch.set_num_threads(4);torch.manual_seed(0);torch.backends.cuda.matmul.allow_tf32=False;torch.cuda.init();torch.cuda.set_per_process_memory_fraction(32*1024**3/torch.cuda.get_device_properties(0).total_memory)
+    def save(d):
+        p=out/'results.tmp';p.write_text(json.dumps(d,indent=2)+'\n');p.replace(out/'results.json')
+    if mode=='preflight':
+        with torch.inference_mode():rows=preflight()
+        save({'status':'complete','mode':mode,'scope':'Tiny independent compressed-tensors activation QDQ and denseFP32 matmul; existing .01/.03125 tolerances unchanged','cases':rows});print('INDEPENDENT_QDQ_PREFLIGHT_PASSED',flush=True)
+    elif mode=='capture':
+        from capture_quant_layers import run as capture
+        capture(out,save,json.loads(Path('/harness/layer-input.json').read_text()))
+    elif mode in ('reference','graph_control'):
+        from check_quant_layers import run as reference
+        reference(out,save,{**json.loads(Path('/harness/layer-input.json').read_text()),'arithmetic':'native_kernels' if mode=='graph_control' else 'independent','reference_mode':mode})
+    elif mode in ('probe','probe43'):
+        from probe_real_quant_block import run as probe
+        probe(out,save,{**json.loads(Path('/harness/layer-input.json').read_text()),'probe_layer':43 if mode=='probe43' else 1,'probe_mode':mode})
+    else:raise ValueError(mode)
+if __name__=='__main__':main()

@@ -1,0 +1,98 @@
+{
+  "status": "diagnostic_complete_independent_numerical_parity_unvalidated",
+  "model_revision": "f0b7c9e722f5565102fff8481c99e4d86ae099c7",
+  "prompt_tokens": 273,
+  "teacher_output_index_0based": 17,
+  "engine_implementation_changed": false,
+  "independent_tiny_operator_cases": 8,
+  "operator_tolerances": {
+    "rtol": 0.01,
+    "atol": 0.03125
+  },
+  "real_projection_invocations": 14,
+  "real_projection_output_elements": 35782656,
+  "real_projection_elements_outside_fixed_bounds": 0,
+  "real_probe_layers_0based": [
+    1,
+    43
+  ],
+  "nvfp4_code_mismatches": 0,
+  "nvfp4_local_scale_mismatches": 0,
+  "fp8_fast_regular_accum_identical_all_sampled_calls": true,
+  "independent_streamed_reference": {
+    "layers": 64,
+    "top_id": 264,
+    "top_probability": 0.5509675582466711,
+    "native_fresh_top_id": 449,
+    "native_fresh_top_probability": 0.9970279121887541,
+    "repeated_full_logprobs_sha256_exact": true,
+    "native_fresh_vs_reference_full_distribution": {
+      "vocab_count": 248320,
+      "top_a": [
+        449,
+        271,
+        264,
+        198,
+        279
+      ],
+      "top_b": [
+        264,
+        449,
+        271,
+        1076,
+        2423
+      ],
+      "top1_match": false,
+      "top5_overlap": 3,
+      "top20_overlap": 13,
+      "a_top2_logprob_margin": 6.3749999043066055,
+      "b_top2_logprob_margin": 0.25,
+      "probability_mass_a": 1.0000000517067444,
+      "probability_mass_b": 1.0000002134528985,
+      "total_variation": 0.5679412458986142,
+      "kl_a_to_b": 0.8305211770064486,
+      "max_abs_logprob_error": 11.406898498535156,
+      "mean_abs_logprob_error": 2.548185054926757,
+      "rms_logprob_error": 2.9176834117480173
+    },
+    "final_hidden_relative_l2_vs_native": 0.7775189876556396,
+    "peak_cuda_allocated_bytes": 10208540672
+  },
+  "graph_control": {
+    "scope": "Official HF graph with shared native projection primitives; separate from independent arithmetic reference",
+    "full_normalized_vocab_scores_bitidentical": true,
+    "vocab_count": 248320,
+    "layer_last_token_local_prefill_exact": 64,
+    "layer_last_token_streamed_prefill_exact": 64,
+    "layer_last_token_cache_replay_exact": 64,
+    "layers": 64,
+    "peak_cuda_allocated_bytes": 1498000896
+  },
+  "block_metrics": {
+    "independent_local_prefill_vs_native_fresh": {
+      "median_relative_l2": 0.0017238598666153848,
+      "max_relative_l2": 0.01643533632159233,
+      "max_layer_0based": 43
+    },
+    "independent_cache_replay_vs_native_cached": {
+      "median_relative_l2": 0.0020949557656422257,
+      "max_relative_l2": 0.024327944964170456,
+      "max_layer_0based": 51
+    },
+    "streamed_reference_vs_native_fresh": {
+      "median_relative_l2": 0.31101906299591064,
+      "max_relative_l2": 1.4525623321533203,
+      "max_layer_0based": 50
+    }
+  },
+  "runs": {
+    "preflight": "layer-preflight-20261115T032211Z",
+    "capture": "layer-capture-20261115T032416Z",
+    "failed_reference": "layer-reference-20261115T032823Z",
+    "reference": "layer-reference-recovery-20261115T034214Z",
+    "probe1": "layer1-projections-20261115T034008Z",
+    "probe43": "layer43-projections-20261115T034536Z",
+    "graph_control": "hf-kernel-graph-control-20261115T034746Z"
+  },
+  "remaining_limits": "One synthetic273token prefix; primitive real-weight probes only two blocks; independentFP32-path score mismatch remains; representative task accuracy/perplexity not validated; no fullrealcheckpoint numerical parity claim."
+}

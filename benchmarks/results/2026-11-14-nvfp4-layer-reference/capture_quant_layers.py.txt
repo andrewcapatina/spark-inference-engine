@@ -1,0 +1,51 @@
+"""Observe existing native methods; no substitute implementation or source edits."""
+from pathlib import Path
+from contextlib import contextmanager
+import json,gc,weakref,importlib.util
+import torch
+
+def run(out,save,fixture):
+    from spark_engine.qwen_model import QwenCausalLM
+    spec=importlib.util.spec_from_file_location('bench','/workspace/tools/benchmark_qwen.py');bench=importlib.util.module_from_spec(spec);spec.loader.exec_module(bench)
+    d={'status':'loading','mode':'capture','step':fixture['step'],'cases':[]};save(d)
+    model=QwenCausalLM.from_pretrained('/model');refs=[(n,weakref.ref(t)) for n,t in list(model.named_parameters())+list(model.named_buffers())]
+    prompt=fixture['prompt_token_ids'];teacher=fixture['teacher_token_ids'];step=fixture['step'];assert step==17
+    observations={};phase={'name':'cached'}
+    @contextmanager
+    def observe():
+        originals=[]
+        try:
+            for index,layer in enumerate(model.layers):
+                observations[index]={'decode_inputs':[],'decode_outputs':[]}
+                for method in ('prefill','decode'):
+                    original=getattr(layer,method);old=layer.__dict__.get(method)
+                    originals.append((layer,method,old))
+                    def wrapped(*args,_orig=original,_method=method,_index=index,**kwargs):
+                        inp=args[0].detach().cpu().clone();result=_orig(*args,**kwargs);last=result[0][:,-1:].detach().cpu().clone();obs=observations[_index]
+                        if _method=='prefill':
+                            if phase['name']=='fresh':torch.save({'input':inp,'output_last':last},out/f'fresh-layer-{_index:03d}.pt')
+                            else:obs.update(prefill_input=inp,prefill_output_last=last)
+                        else:obs['decode_inputs'].append(inp);obs['decode_outputs'].append(last)
+                        return result
+                    setattr(layer,method,wrapped)
+            yield
+        finally:
+            for layer,method,old in originals:
+                if old is None:delattr(layer,method)
+                else:setattr(layer,method,old)
+    def scores(label,logits):
+        lp=logits[0,-1].float().log_softmax(-1);values,ids=lp.topk(20)
+        d['cases'].append({'path':label,'top_ids':ids.tolist(),'top_logprobs':values.tolist(),'teacher_target':teacher[step],'teacher_target_logprob':lp[teacher[step]].item()})
+        import numpy as np
+        np.save(out/(label+'-logprobs.npy'),lp.cpu().numpy())
+    with torch.inference_mode(),observe():
+        ids=torch.tensor([prompt],device='cuda');logits,cache=model.prefill(ids)
+        for token in teacher[:step]:logits,cache=model.decode(torch.tensor([[token]],device='cuda'),cache)
+        scores('cached',logits);del logits,cache,ids
+        for i,obs in observations.items():
+            assert len(obs['decode_inputs'])==step
+            torch.save({'prefill_input':obs['prefill_input'],'prefill_output_last':obs['prefill_output_last'],'decode_inputs':torch.cat(obs['decode_inputs'],1),'decode_outputs':torch.cat(obs['decode_outputs'],1)},out/f'cached-layer-{i:03d}.pt')
+        observations.clear();observations.update({i:{} for i in range(len(model.layers))});phase['name']='fresh'
+        ids=torch.tensor([prompt+teacher[:step]],device='cuda');logits,cache=model.prefill(ids);scores('fresh',logits);del ids,logits,cache
+    d['captured_layers']=len(model.layers);d['memory_before_release']=bench.memory(torch);del model;gc.collect();d['live_model_tensors_after_release']=[n for n,r in refs if r() is not None];assert not d['live_model_tensors_after_release'];d['released_library_workspaces']=bench.clear_cuda_library_workspaces(torch);d['released_memory']=bench.memory(torch);assert d['released_memory']['cuda_allocated_bytes']<=16*1024**2 and d['released_memory']['cuda_reserved_bytes']<=64*1024**2
+    d['status']='complete';save(d);print('NATIVE_LAYER_CAPTURE_COMPLETE',flush=True)

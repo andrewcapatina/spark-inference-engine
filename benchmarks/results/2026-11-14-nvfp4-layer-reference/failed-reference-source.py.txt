@@ -1,0 +1,96 @@
+"""Independent HF decoder blocks + compressed-tensors QDQ, streamed one block at a time.
+Reference fixture only: no native engine imports or production-path substitution.
+"""
+from pathlib import Path
+import ast,json,gc,time,hashlib
+import torch
+from safetensors import safe_open
+from layer_reference_quant import ReferenceLinear,unpack_nvfp4
+from compressed_tensors.quantization import QuantizationArgs
+
+def metrics(actual,expected):
+    a,b=actual.float(),expected.float();diff=a-b
+    return {'max_abs':diff.abs().max().item(),'rms':diff.square().mean().sqrt().item(),'relative_l2':(diff.norm()/b.norm().clamp_min(1e-20)).item(),'cosine':torch.nn.functional.cosine_similarity(a.reshape(1,-1),b.reshape(1,-1)).item()}
+
+def run(out,save,fixture):
+    import transformers
+    from transformers.models.qwen3_5 import modeling_qwen3_5 as hf
+    from transformers.models.qwen3_5.configuration_qwen3_5 import Qwen3_5TextConfig
+    from transformers.cache_utils import DynamicCache
+    # Execute the installed official plain-torch fallbacks, without hub/kernel dispatch.
+    source=Path(hf.__file__).read_text();tree=ast.parse(source)
+    names={'l2norm','torch_chunk_gated_delta_rule','torch_recurrent_gated_delta_rule','causal_conv1d_fn','causal_conv1d_update'}
+    funcs=[]
+    for node in tree.body:
+        if isinstance(node,ast.FunctionDef) and node.name in names:node.decorator_list=[];funcs.append(node)
+    assert len(funcs)==len(names)
+    exec(compile(ast.Module(body=funcs,type_ignores=[]),str(hf.__file__),'exec'),hf.__dict__)
+    config_json=json.loads(Path('/model/config.json').read_text());raw=config_json['text_config'];cfg=Qwen3_5TextConfig(**raw);cfg._attn_implementation='eager'
+    groups=config_json['quantization_config']['config_groups'];qa8=QuantizationArgs.model_validate(groups['group_0']['input_activations']);qa4=QuantizationArgs.model_validate(groups['group_1']['input_activations'])
+    index=json.loads(Path('/model/model.safetensors.index.json').read_text())['weight_map'];handles={}
+    for shard in set(index.values()):handles[shard]=safe_open('/model/'+shard,framework='pt',device='cpu')
+    def get(name):return handles[index[name]].get_tensor(name)
+    def canonical(name):return 'lm_head' if name=='lm_head' else 'model.language_model.'+name
+    def linear(name):
+        prefix=canonical(name)
+        if prefix+'.weight_packed' in index:
+            wp=get(prefix+'.weight_packed').cuda();ws=get(prefix+'.weight_scale').cuda();wg=get(prefix+'.weight_global_scale').cuda();ig=get(prefix+'.input_global_scale').cuda()
+            return ReferenceLinear(unpack_nvfp4(wp,ws,wg),qa4,ig)
+        w=get(prefix+'.weight')
+        if w.dtype==torch.float8_e4m3fn:
+            scale=get(prefix+'.weight_scale').cuda().float()
+            return ReferenceLinear(w.cuda().float()*scale,qa8)
+        return None
+    def block_for(i):
+        with torch.device('meta'):block=hf.Qwen3_5DecoderLayer(cfg,i)
+        for name,module in list(block.named_modules()):
+            if not isinstance(module,torch.nn.Linear):continue
+            ref=linear(f'layers.{i}.'+name)
+            if ref is not None:
+                parent,_,leaf=name.rpartition('.');setattr(block.get_submodule(parent) if parent else block,leaf,ref)
+        for name,param in list(block.named_parameters()):
+            assert param.device.type=='meta'
+            value=get(canonical(f'layers.{i}.'+name)).cuda().to(torch.bfloat16);assert value.shape==param.shape
+            parent,_,leaf=name.rpartition('.');setattr(block.get_submodule(parent) if parent else block,leaf,torch.nn.Parameter(value,requires_grad=False))
+        assert all(p.is_cuda for p in block.parameters())
+        return block.eval()
+    capture=Path('/results')/fixture['capture_run'];step=fixture['step'];seq=256+step
+    d={'status':'running','mode':'reference','scope':'Official HF one-block reference on native inputs; independent CT activation QDQ, FP32 dense quantized GEMMs cast BF16; streamed reference owns its hidden states, ordinary ops retain architecture precision.','transformers_version':transformers.__version__,'official_modeling_sha256':hashlib.sha256(source.encode()).hexdigest(),'quantization_reference':'installed compressed_tensors, no FlashInfer/vLLM/native quantization calls','rows':[],'step':step,'reference_kernels':'official plain Torch GDN chunk/recurrent and causal_conv1d, eager attention','threshold_policy':'diagnostic block metrics; no observation-fitted pass threshold','captured_native_run':fixture['capture_run']};save(d)
+    rotary=hf.Qwen3_5TextRotaryEmbedding(cfg,device='cuda')
+    def positions(x,start=0):
+        pos=torch.arange(start,start+x.shape[1],device='cuda')[None,:]
+        return rotary(x,pos.unsqueeze(0).expand(3,-1,-1))
+    def mask(n):return torch.full((1,1,n,n),float('-inf'),device='cuda',dtype=torch.bfloat16).triu(1)
+    ids=torch.tensor([fixture['prompt_token_ids']+fixture['teacher_token_ids'][:step]])
+    # Verify embeddings independently from the checkpoint without materializing another model.
+    with torch.inference_mode():
+        embed=get('model.language_model.embed_tokens.weight');streamed=torch.nn.functional.embedding(ids,embed).cuda();del embed
+        first=torch.load(capture/'fresh-layer-000.pt',map_location='cuda',weights_only=True);assert torch.equal(streamed,first['input']);del first;d['embedding_rows_exact_match']=True
+        for i in range(cfg.num_hidden_layers):
+            block=block_for(i);fresh=torch.load(capture/f'fresh-layer-{i:03d}.pt',map_location='cuda',weights_only=True);cached=torch.load(capture/f'cached-layer-{i:03d}.pt',map_location='cuda',weights_only=True)
+            full=cfg.layer_types[i]=='full_attention'
+            local=block(fresh['input'],position_embeddings=positions(fresh['input']),attention_mask=mask(seq) if full else None)
+            row={'layer':i,'layer_type':cfg.layer_types[i],'independent_local_prefill_vs_native_fresh':metrics(local[:,-1:],fresh['output_last'])}
+            # This second path propagates reference outputs, rather than resetting each block to native inputs.
+            streamed=block(streamed,position_embeddings=positions(streamed),attention_mask=mask(seq) if full else None)
+            row['streamed_reference_vs_native_fresh']=metrics(streamed[:,-1:],fresh['output_last'])
+            cache=DynamicCache(config=cfg)
+            ref=block(cached['prefill_input'],position_embeddings=positions(cached['prefill_input']),attention_mask=mask(256) if full else None,past_key_values=cache)
+            for t in range(step):
+                x=cached['decode_inputs'][:,t:t+1];ref=block(x,position_embeddings=positions(x,256+t),attention_mask=None,past_key_values=cache)
+            row['independent_cache_replay_vs_native_cached']=metrics(ref[:,-1:],cached['decode_outputs'][:,-1:])
+            # Evaluate native cached-input history with the reference's fresh-prefill path too.
+            all_inputs=torch.cat((cached['prefill_input'],cached['decode_inputs']),1);replay_fresh=block(all_inputs,position_embeddings=positions(all_inputs),attention_mask=mask(seq) if full else None)
+            row['independent_cache_vs_independent_fresh_on_same_layer_history']=metrics(ref[:,-1:],replay_fresh[:,-1:])
+            d['rows'].append(row);save(d);print(json.dumps(row),flush=True)
+            del block,fresh,cached,local,cache,ref,all_inputs,replay_fresh,x;gc.collect();torch.cuda.empty_cache()
+        # Independently project the streamed final state, one head, without whole-model dense weights.
+        norm=hf.Qwen3_5RMSNorm(cfg.hidden_size,cfg.rms_norm_eps).cuda().to(torch.bfloat16);norm.weight=torch.nn.Parameter(get('model.language_model.norm.weight').cuda(),requires_grad=False)
+        head=linear('lm_head');assert head is not None
+        logits=head(norm(streamed[:,-1:]));lp=logits[0,-1].float().log_softmax(-1);vals,tokens=lp.topk(20)
+        d['streamed_reference_prediction']={'top_ids':tokens.tolist(),'top_logprobs':vals.tolist(),'target_id':fixture['teacher_token_ids'][step],'target_logprob':lp[fixture['teacher_token_ids'][step]].item()}
+        import numpy as np
+        np.save(out/'streamed-reference-logprobs.npy',lp.cpu().numpy())
+        d['peak_cuda_allocated_bytes']=torch.cuda.max_memory_allocated();del norm,head,logits,lp,vals,tokens,rotary,streamed,ids
+    handles.clear();gc.collect();torch.cuda.synchronize();torch.cuda.empty_cache();torch.cuda.synchronize();d['released_memory']={'allocated_bytes':torch.cuda.memory_allocated(),'reserved_bytes':torch.cuda.memory_reserved()};assert d['released_memory']['allocated_bytes']<=16*1024**2 and d['released_memory']['reserved_bytes']<=64*1024**2
+    d['status']='complete';save(d);print('INDEPENDENT_LAYER_REFERENCE_COMPLETE',flush=True)

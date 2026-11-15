@@ -1,0 +1,63 @@
+{
+  "status": "complete",
+  "mode": "preflight",
+  "scope": "Tiny independent compressed-tensors activation QDQ and denseFP32 matmul; existing .01/.03125 tolerances unchanged",
+  "cases": [
+    {
+      "kind": "nvfp4",
+      "M": 1,
+      "N": 128,
+      "K": 128,
+      "max_abs": 0.0
+    },
+    {
+      "kind": "fp8",
+      "M": 1,
+      "N": 128,
+      "K": 128,
+      "max_abs": 0.0
+    },
+    {
+      "kind": "nvfp4",
+      "M": 3,
+      "N": 128,
+      "K": 256,
+      "max_abs": 0.0
+    },
+    {
+      "kind": "fp8",
+      "M": 3,
+      "N": 128,
+      "K": 256,
+      "max_abs": 0.0
+    },
+    {
+      "kind": "nvfp4",
+      "M": 16,
+      "N": 256,
+      "K": 128,
+      "max_abs": 0.03125
+    },
+    {
+      "kind": "fp8",
+      "M": 16,
+      "N": 256,
+      "K": 128,
+      "max_abs": 2.384185791015625e-06
+    },
+    {
+      "kind": "nvfp4",
+      "M": 128,
+      "N": 128,
+      "K": 256,
+      "max_abs": 0.125
+    },
+    {
+      "kind": "fp8",
+      "M": 128,
+      "N": 128,
+      "K": 256,
+      "max_abs": 0.00390625
+    }
+  ]
+}

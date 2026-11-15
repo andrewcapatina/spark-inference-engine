@@ -1,0 +1,10 @@
+{
+  "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6",
+  "transformers_version": "5.19.0",
+  "official_modeling_qwen3_5_sha256": "aac2a1bcca88829afc6dbdf83f97155ebf64d800ee9d703af3802a9aebcfcd18",
+  "compressed_tensors_sources": {
+    "quant_args.py": "c606a17f3ee6bf4e820041186c816437cb8a19cf8a1a360d0408083e37377fbd",
+    "utils/helpers.py": "7bdea7dd218f314249f19d72ca8b707de78284b989b05b2f3778b6b065dce91f",
+    "lifecycle/forward.py": "37b21c5c383a4d592023dfd1f8ed9755a80b26e16585f4c2c4c3839803e2e98f"
+  }
+}
