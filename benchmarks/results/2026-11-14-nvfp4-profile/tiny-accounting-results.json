@@ -1,0 +1,239 @@
+{
+  "status": "complete",
+  "mode": "preflight",
+  "scope": "Bounded CPU/CUDA operator and memory profiling; timing controls separate; no engine source changes",
+  "cases": [],
+  "tiny_trace": {
+    "trace": "/results/quant-profile-accounting-20261115T041710Z/tiny-trace.json",
+    "trace_bytes": 16537,
+    "cuda_kernel_count": 2,
+    "kernel_gpu_ms_sum": 0.008288,
+    "copy_memset_gpu_ms_sum": 0.0,
+    "gpu_activity_span_ms": 0.00857568359375,
+    "gpu_active_union_ms": 0.0082880859375,
+    "gpu_gap_fraction_within_activity_span": 0.03353641177475375,
+    "kernel_time_note": "Sums may overlap across streams; active union avoids double counting. Gaps are profiled, not unprofiled launch-overhead measurements.",
+    "kernels": [
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)",
+        "calls": 1,
+        "gpu_ms": 0.006912
+      },
+      {
+        "name": "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, false, float, float, float, true, false, false, false>(cublasLt::cublasSplitKParams<float>, float const*, float const*, float*, float*, float const*, float const*, float const*, float const*, float*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)",
+        "calls": 1,
+        "gpu_ms": 0.0013759999999999998
+      }
+    ]
+  },
+  "events": {
+    "category_self_times": [
+      {
+        "phase": "generation_other",
+        "category": "model_other",
+        "calls": 8,
+        "self_cpu_ms": 0.12206399999999996,
+        "self_gpu_ms": 0.008287999999999898,
+        "allocated_bytes_sum": 65536,
+        "freed_bytes_sum": 65536
+      }
+    ],
+    "inclusive_scopes": [],
+    "operators_by_self_gpu": [
+      {
+        "phase": "generation_other",
+        "name": "aten::mm",
+        "calls": 1,
+        "self_cpu_ms": 0.08222400000000005,
+        "self_gpu_ms": 0.008287999999999898,
+        "allocated_bytes_sum": 65536,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "aten::matmul",
+        "calls": 1,
+        "self_cpu_ms": 0.004655999999999949,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceGetAttribute",
+        "calls": 1,
+        "self_cpu_ms": 0.0012000000000000454,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cuLaunchKernel",
+        "calls": 1,
+        "self_cpu_ms": 0.020671999999999913,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaLaunchKernelExC",
+        "calls": 1,
+        "self_cpu_ms": 0.007759999999999991,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "[memory]",
+        "calls": 1,
+        "self_cpu_ms": 0.0,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 65536
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceSynchronize",
+        "calls": 2,
+        "self_cpu_ms": 0.005552000000000021,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      }
+    ],
+    "operators_by_self_cpu": [
+      {
+        "phase": "generation_other",
+        "name": "aten::mm",
+        "calls": 1,
+        "self_cpu_ms": 0.08222400000000005,
+        "self_gpu_ms": 0.008287999999999898,
+        "allocated_bytes_sum": 65536,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cuLaunchKernel",
+        "calls": 1,
+        "self_cpu_ms": 0.020671999999999913,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaLaunchKernelExC",
+        "calls": 1,
+        "self_cpu_ms": 0.007759999999999991,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceSynchronize",
+        "calls": 2,
+        "self_cpu_ms": 0.005552000000000021,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "aten::matmul",
+        "calls": 1,
+        "self_cpu_ms": 0.004655999999999949,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceGetAttribute",
+        "calls": 1,
+        "self_cpu_ms": 0.0012000000000000454,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "[memory]",
+        "calls": 1,
+        "self_cpu_ms": 0.0,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 65536
+      }
+    ],
+    "operators_by_allocations": [
+      {
+        "phase": "generation_other",
+        "name": "aten::mm",
+        "calls": 1,
+        "self_cpu_ms": 0.08222400000000005,
+        "self_gpu_ms": 0.008287999999999898,
+        "allocated_bytes_sum": 65536,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "aten::matmul",
+        "calls": 1,
+        "self_cpu_ms": 0.004655999999999949,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceGetAttribute",
+        "calls": 1,
+        "self_cpu_ms": 0.0012000000000000454,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cuLaunchKernel",
+        "calls": 1,
+        "self_cpu_ms": 0.020671999999999913,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaLaunchKernelExC",
+        "calls": 1,
+        "self_cpu_ms": 0.007759999999999991,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      },
+      {
+        "phase": "generation_other",
+        "name": "[memory]",
+        "calls": 1,
+        "self_cpu_ms": 0.0,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 65536
+      },
+      {
+        "phase": "generation_other",
+        "name": "cudaDeviceSynchronize",
+        "calls": 2,
+        "self_cpu_ms": 0.005552000000000021,
+        "self_gpu_ms": 0.0,
+        "allocated_bytes_sum": 0,
+        "freed_bytes_sum": 0
+      }
+    ],
+    "notes": "CUPTI Activity Buffer bookkeeping is excluded because it duplicates GPU attribution. Scope totals are inclusive and overlap; categories use exclusive self times. Allocation sums are cumulative traffic, not peak live memory."
+  }
+}

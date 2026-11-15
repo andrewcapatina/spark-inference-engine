@@ -1,0 +1,22 @@
+{
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-native-20261115T041946Z/p256-native-trace.json": {
+    "bytes": 593605314,
+    "sha256": "78e17908df098a53a9e0eb83840c3d59cccbe92b1de483a640de807f6129bb80",
+    "storage": "local-only raw profiler trace; excluded from Git"
+  },
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-native-20261115T041946Z/p1024-native-trace.json": {
+    "bytes": 684456156,
+    "sha256": "711f421725a9584b7e3cd8f43119295e296e7217ac068071a1d9583adffbd4fc",
+    "storage": "local-only raw profiler trace; excluded from Git"
+  },
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-reference-recovery-20261115T042833Z/traces/p256_rank0.1794717214042819576.pt.trace.json.gz": {
+    "bytes": 12346090,
+    "sha256": "ca1fad594ac303c04c42ad3297e43d2897cd4fcf46b740ca24784d4ac12de59b",
+    "storage": "local-only raw profiler trace; excluded from Git"
+  },
+  "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-reference-recovery-20261115T042833Z/traces/p1024_rank0.1794717241986035911.pt.trace.json.gz": {
+    "bytes": 12466711,
+    "sha256": "0fdf5c7b7f1bd0ab17f9819210bb1c948c3bf896b52e6580caa1150fd75f5151",
+    "storage": "local-only raw profiler trace; excluded from Git"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "profiling_authorized": true,
+  "one_model_at_a_time": true,
+  "mode": "reference",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "prompt_lengths": [
+    256,
+    1024
+  ],
+  "new_tokens": 16,
+  "controls_repetitions": 3,
+  "record_shapes": false,
+  "profile_memory": true,
+  "with_stack": false,
+  "purpose": "Same matchedreferenceprofile; unchangedheadroom guard, recoveronlycacheofcompletednative tracefiles ifneeded",
+  "inactive_trace_run": "quant-profile-native-20261115T041946Z"
+}

@@ -1,0 +1,14 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.877s
+Self CUDA time total: 1.883s
+{"prompt_tokens": 1024, "control_ms": 1884.4419329998345, "profiled_ms": 1896.7242229991825}
+(MainProcess pid=101) INFO 11-15 04:34:20 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCore
+
+(EngineCore pid=164) INFO 11-15 04:34:20 [core.py:1454] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=164) INFO 11-15 04:34:20 [core.py:1635] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=164) INFO 11-15 04:34:20 [core.py:1666] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=164) INFO 11-15 04:34:20 [core.py:1499] [shutdown] EngineCore: exiting busy loop
+(EngineCore pid=164) INFO 11-15 04:34:20 [wrapper.py:194] Shutting down profiler
+(MainProcess pid=101) WARNING 11-15 04:34:25 [utils.py:648] [shutdown] Process manager: force killing remaining processes count=1
+(MainProcess pid=101) WARNING 11-15 04:34:25 [utils.py:653] [shutdown] Process manager: force killing remaining process EngineCore pid 164
+QUANT_PROFILE_COMPLETE reference

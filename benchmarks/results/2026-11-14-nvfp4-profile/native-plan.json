@@ -1,0 +1,16 @@
+{
+  "profiling_authorized": true,
+  "one_model_at_a_time": true,
+  "mode": "native",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "prompt_lengths": [
+    256,
+    1024
+  ],
+  "new_tokens": 16,
+  "controls_repetitions": 3,
+  "record_shapes": false,
+  "profile_memory": true,
+  "with_stack": false,
+  "purpose": "Native annotated CPU/CUDA/memory profiles,256/1024prompt16outputs with3unprofiled controls each; allkernels inclcustomops, no enginechanges"
+}

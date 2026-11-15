@@ -1,5 +1,7 @@
 # Performance summary across runs
 
+Latest [matched NVFP4 profiling](2026-11-14-nvfp4-profile/README.md): user priority is faster prompt processing. At1024 tokens, GDN state math30%, normalization16%, FP8 preparation14% of native prefill GPU time. First candidate: standalone fused GDN prefill, validated before local-Qwen integration. No engine optimization implemented;16-output controls are separate from128-output throughput baselines.
+
 Latest [preliminary accuracy screen](2026-11-14-nvfp4-accuracy-screen/README.md): native and matched vLLM both40/40 tasks, no truncation; native perplexity8.947 versus9.073 on446 prose tokens. All predeclared criteria passed. This does not establish general quality or resolve independent numerical parity. No engine change or new optimization selected.
 
 Earlier [layer/reference investigation](2026-11-14-nvfp4-layer-reference/README.md): official HF graph with shared native projection operators matches the real273-token native score vector exactly; independent QDQ/FP32 arithmetic still diverges. Real projection probes pass unchanged bounds. Representative quantized-model task accuracy remains unvalidated; no new optimization selected.

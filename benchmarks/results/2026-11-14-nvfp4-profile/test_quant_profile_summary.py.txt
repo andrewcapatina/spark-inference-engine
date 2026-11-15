@@ -1,0 +1,25 @@
+"""CPU controls for overlap, custom CUDA kernels and profiler bookkeeping."""
+import sys,json,tempfile,unittest
+from pathlib import Path
+from types import SimpleNamespace as E
+sys.path.insert(0,'/home/cap/spark-inference-overnight-20261113/acceptance')
+from quant_profile_summary import interval_union,trace_summary,phase_and_category,event_summary,raw_kernel_ownership
+class ProfileTests(unittest.TestCase):
+    def test_union_does_not_double_count_overlapping_streams(self):self.assertEqual(interval_union([(0,10),(5,15),(15,20),(25,27)]),22)
+    def test_custom_kernels_and_allocator_are_included(self):
+        events=[{'ph':'X','cat':'kernel','name':'custom::fp4','ts':0,'dur':1000},{'ph':'X','cat':'kernel','name':'norm','ts':500,'dur':1000},{'ph':'X','cat':'gpu_memcpy','name':'copy','ts':2000,'dur':500},{'ph':'i','name':'[memory]','args':{'Device Type':1,'Bytes':100,'Total Allocated':200,'Total Reserved':300}},{'ph':'i','name':'[memory]','args':{'Device Type':1,'Bytes':-50,'Total Allocated':150,'Total Reserved':300}}]
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'trace.json';p.write_text(json.dumps({'traceEvents':events}));v=trace_summary(p)
+        self.assertEqual(v['cuda_kernel_count'],2);self.assertEqual(v['kernel_gpu_ms_sum'],2);self.assertEqual(v['gpu_active_union_ms'],2);self.assertEqual(v['allocator_events']['peak_total_allocated_bytes'],200)
+    def test_specific_component_wins_over_enclosing_scope(self):
+        phase=E(name='native.engine.decode',cpu_parent=None);outer=E(name='native.quant.nvfp4',cpu_parent=phase);inner=E(name='primitive.nvfp4.gemm',cpu_parent=outer);op=E(name='custom::kernel',cpu_parent=inner);self.assertEqual(phase_and_category(op),('decode','nvfp4_gemm'))
+    def test_cupti_bookkeeping_does_not_duplicate_gpu_time(self):
+        base=dict(device_type='DeviceType.CPU',cpu_parent=None,self_cpu_time_total=1.,self_device_time_total=2000.,self_device_memory_usage=0)
+        events=[E(name='aten::mm',**base),E(name='Activity Buffer Request',**base)];v=event_summary(E(events=lambda:events));self.assertEqual(sum(r['self_gpu_ms'] for r in v['category_self_times']),2.)
+    def test_driver_kernel_without_external_id_uses_launch_correlation(self):
+        events=[{'ph':'X','cat':'user_annotation','name':'native.engine.decode','pid':5,'tid':5,'ts':0,'dur':20},{'ph':'X','cat':'user_annotation','name':'primitive.nvfp4.gemm','pid':5,'tid':5,'ts':2,'dur':8},{'ph':'X','cat':'cuda_runtime','name':'cudaLaunchKernelExC','pid':5,'tid':5,'ts':5,'dur':1,'args':{'correlation':99}},{'ph':'X','cat':'kernel','name':'driverFP4','pid':0,'tid':7,'ts':12,'dur':1000,'args':{'correlation':99}}]
+        v=raw_kernel_ownership(events);self.assertEqual(v['launch_unmatched_kernels'],0);self.assertEqual(v['categories'],[{'phase':'decode','category':'nvfp4_gemm','kernels':1,'gpu_ms':1.}])
+    def test_vllm_phase_labels_are_explicit(self):
+        for name,phase in [('execute_context_1(1024)_generation_0(0)','prefill'),('execute_context_0(0)_generation_1(1)','decode')]:
+            self.assertEqual(phase_and_category(E(name=name,cpu_parent=None))[0],phase)
+if __name__=='__main__':unittest.main()

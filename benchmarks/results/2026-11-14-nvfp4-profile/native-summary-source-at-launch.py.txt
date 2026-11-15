@@ -1,0 +1,48 @@
+"""CPU profiling summaries; all CUDA kernels count, including non-aten custom ops."""
+from pathlib import Path
+from collections import defaultdict
+import json,gzip
+
+def interval_union(intervals):
+    end=None;total=0.
+    for start,finish in sorted(intervals):
+        if end is None or start>end:total+=finish-start;end=finish
+        elif finish>end:total+=finish-end;end=finish
+    return total
+
+def trace_summary(path):
+    path=Path(path)
+    with (gzip.open(path,'rt') if path.suffix=='.gz' else path.open()) as f:data=json.load(f)
+    events=data.get('traceEvents',[]);kernels=defaultdict(lambda:{'calls':0,'gpu_ms':0.});intervals=[];copies=0.;count=0
+    for e in events:
+        cat=e.get('cat','');duration=e.get('dur',0)
+        if cat not in ('kernel','gpu_memcpy','gpu_memset') or e.get('ph')!='X':continue
+        intervals.append((e['ts'],e['ts']+duration))
+        if cat=='kernel':
+            row=kernels[e['name']];row['calls']+=1;row['gpu_ms']+=duration/1000;count+=1
+        else:copies+=duration/1000
+    assert count>0,'Trace has no CUDA kernels; not a GPU profile'
+    span=max(b for a,b in intervals)-min(a for a,b in intervals);active=interval_union(intervals)
+    return {'trace':str(path),'trace_bytes':path.stat().st_size,'cuda_kernel_count':count,'kernel_gpu_ms_sum':sum(r['gpu_ms'] for r in kernels.values()),'copy_memset_gpu_ms_sum':copies,'gpu_activity_span_ms':span/1000,'gpu_active_union_ms':active/1000,'gpu_gap_fraction_within_activity_span':1-active/span if span else 0,'kernel_time_note':'Sums may overlap across streams; active union avoids double counting. Gaps are profiled, not unprofiled launch-overhead measurements.','kernels':[{'name':name,**row} for name,row in sorted(kernels.items(),key=lambda kv:kv[1]['gpu_ms'],reverse=True)[:40]]}
+
+def phase_and_category(event):
+    names=[];node=event
+    while node is not None:
+        names.append(node.name);node=node.cpu_parent
+    phase='prefill' if 'native.engine.prefill' in names else 'decode' if 'native.engine.decode' in names else 'generation_other'
+    priorities=[('primitive.nvfp4.gemm','nvfp4_gemm'),('primitive.nvfp4.quantize','fp4_quantization'),('primitive.fp8.gemm','fp8_gemm'),('native.quant.fp8','fp8_activation_padding_misc'),('native.quant.nvfp4','nvfp4_scale_misc'),('native.gdn.state_update','gdn_state_math'),('native.layer.norm','normalization'),('native.layer.attention','attention_other'),('native.layer.gdn','gdn_other'),('native.layer.mlp','mlp_activation_other')]
+    return phase,next((category for scope,category in priorities if scope in names),'model_other')
+
+def event_summary(prof):
+    scopes={};ops={};categories={}
+    for e in prof.events():
+        if not str(e.device_type).endswith('CPU') or e.name.startswith('Activity Buffer '):continue
+        phase,category=phase_and_category(e);key=(phase,category);row=categories.setdefault(key,{'calls':0,'self_cpu_ms':0.,'self_gpu_ms':0.,'allocated_bytes_sum':0,'freed_bytes_sum':0})
+        row['calls']+=1;row['self_cpu_ms']+=e.self_cpu_time_total/1000;row['self_gpu_ms']+=e.self_device_time_total/1000;row['allocated_bytes_sum']+=max(0,e.self_device_memory_usage);row['freed_bytes_sum']+=max(0,-e.self_device_memory_usage)
+        if e.name.startswith(('native.','primitive.')):
+            row=scopes.setdefault((phase,e.name),{'calls':0,'total_cpu_ms':0.,'self_cpu_ms':0.,'total_gpu_ms':0.})
+            row['calls']+=1;row['total_cpu_ms']+=e.cpu_time_total/1000;row['self_cpu_ms']+=e.self_cpu_time_total/1000;row['total_gpu_ms']+=e.device_time_total/1000
+        else:
+            row=ops.setdefault((phase,e.name),{'calls':0,'self_cpu_ms':0.,'self_gpu_ms':0.,'allocated_bytes_sum':0,'freed_bytes_sum':0})
+            row['calls']+=1;row['self_cpu_ms']+=e.self_cpu_time_total/1000;row['self_gpu_ms']+=e.self_device_time_total/1000;row['allocated_bytes_sum']+=max(0,e.self_device_memory_usage);row['freed_bytes_sum']+=max(0,-e.self_device_memory_usage)
+    return {'category_self_times':[{'phase':p,'category':c,**r} for (p,c),r in categories.items()],'inclusive_scopes':[{'phase':p,'name':n,**r} for (p,n),r in scopes.items()],'operators_by_self_gpu':[{'phase':p,'name':n,**r} for (p,n),r in sorted(ops.items(),key=lambda kv:kv[1]['self_gpu_ms'],reverse=True)[:80]],'operators_by_self_cpu':[{'phase':p,'name':n,**r} for (p,n),r in sorted(ops.items(),key=lambda kv:kv[1]['self_cpu_ms'],reverse=True)[:50]],'operators_by_allocations':[{'phase':p,'name':n,**r} for (p,n),r in sorted(ops.items(),key=lambda kv:kv[1]['allocated_bytes_sum'],reverse=True)[:40]],'notes':'CUPTI Activity Buffer bookkeeping is excluded because it duplicates GPU attribution. Scope totals are inclusive and overlap; categories use exclusive self times. Allocation sums are cumulative traffic, not peak live memory.'}
