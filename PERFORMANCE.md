@@ -93,3 +93,7 @@ The isolated 27B 256-prompt/128-output stage passed three timed repetitions (med
 ## Post-update heavy-workload repeat
 
 The actual 27B 1024-prompt/128-output trial passed three timed repetitions plus warmup, separate CUDA-event observation and verified clean teardown after the user applied the Dashboard update. Median 31.417 s / 4.074 output tokens/s including prefill; no swap growth or reboot. Native implementation remained unchanged. Firmware and kernel both changed; one successful trial does not prove the earlier power-off fixed or establish an optimization speedup. See [complete evidence and limits](benchmarks/results/2026-11-14-post-update-27b-heavy/README.md).
+
+## Same-loaded-model comparison completed
+
+One27B model,256prompt,4 alternating pairs per output length:8outputs improved2.338→2.112s(9.66% lower latency);128outputs29.808→29.573s(0.79% lower). Every pair favored current source and all output hashes matched; current128-output throughput4.328tok/s including prefill. No reboot/swap growth; clean teardown verified. This resolves the earlier slowdown concern for this tested case, not all contexts/models. [Full paired evidence](benchmarks/results/2026-11-14-paired-27b/README.md).

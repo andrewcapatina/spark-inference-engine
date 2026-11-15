@@ -1,0 +1,129 @@
+{
+  "status": "paired_27b_complete",
+  "model": "actual27B GGUF expanded to BF16",
+  "prompt_tokens": 256,
+  "warmups_per_version_per_length": 1,
+  "pairs_per_length": 4,
+  "order": "AB/BA/AB/BA; A=before,B=current",
+  "rows": [
+    {
+      "output_tokens": 8,
+      "before_median_ms": 2337.949735499933,
+      "after_median_ms": 2112.1020780001345,
+      "before_output_tokens_per_second": 3.4218015377004365,
+      "after_output_tokens_per_second": 3.787695719505604,
+      "median_latency_reduction_pct": 9.660073271485652,
+      "pairs": [
+        {
+          "repetition": 0,
+          "before_ms": 2340.09924399993,
+          "after_ms": 2110.123111000121,
+          "saved_ms": 229.97613299980912,
+          "latency_reduction_pct": 9.827623062973649
+        },
+        {
+          "repetition": 1,
+          "before_ms": 2332.607860000053,
+          "after_ms": 2107.7876710000965,
+          "saved_ms": 224.82018899995637,
+          "latency_reduction_pct": 9.63814762246198
+        },
+        {
+          "repetition": 2,
+          "before_ms": 2335.800226999936,
+          "after_ms": 2116.2189130000115,
+          "saved_ms": 219.58131399992453,
+          "latency_reduction_pct": 9.400688957118186
+        },
+        {
+          "repetition": 3,
+          "before_ms": 2343.1972719999976,
+          "after_ms": 2114.081045000148,
+          "saved_ms": 229.11622699984946,
+          "latency_reduction_pct": 9.777931620938217
+        }
+      ],
+      "all_pairs_faster": true,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a"
+    },
+    {
+      "output_tokens": 128,
+      "before_median_ms": 29807.79612650008,
+      "after_median_ms": 29573.39625150007,
+      "before_output_tokens_per_second": 4.29417859196252,
+      "after_output_tokens_per_second": 4.328214416479384,
+      "median_latency_reduction_pct": 0.7863710352997922,
+      "pairs": [
+        {
+          "repetition": 0,
+          "before_ms": 29810.861281999903,
+          "after_ms": 29567.41973600015,
+          "saved_ms": 243.44154599975445,
+          "latency_reduction_pct": 0.8166203039116716
+        },
+        {
+          "repetition": 1,
+          "before_ms": 29806.353390000142,
+          "after_ms": 29579.372766999993,
+          "saved_ms": 226.98062300014863,
+          "latency_reduction_pct": 0.7615175866374158
+        },
+        {
+          "repetition": 2,
+          "before_ms": 29784.299779000095,
+          "after_ms": 29563.655755000127,
+          "saved_ms": 220.64402399996834,
+          "latency_reduction_pct": 0.7408064840776851
+        },
+        {
+          "repetition": 3,
+          "before_ms": 29809.23886300002,
+          "after_ms": 29584.688838999908,
+          "saved_ms": 224.5500240001129,
+          "latency_reduction_pct": 0.7532900287461887
+        }
+      ],
+      "all_pairs_faster": true,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176"
+    }
+  ],
+  "engine_files_unchanged": true,
+  "boot_unchanged": true,
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/paired-27b-20261115T002413Z-retry",
+  "native_commit": "18894a8",
+  "baseline_revision": "18894a8^",
+  "minimum_host_available_gib": 49.17766189575195,
+  "max_new_swap_bytes": 0,
+  "max_sampled_gpu_temperature_c": 82.0,
+  "max_sampled_thermal_zone_c": 89.8,
+  "worker_exit_code": 0,
+  "container_after": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "container_stop_seconds": 0.1139579190000859,
+  "fresh_cuda_probe": {
+    "free_bytes": 88093270016,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 8521728,
+    "cuda_reserved_bytes": 23068672,
+    "cuda_peak_allocated_bytes": 54356893696,
+    "cuda_peak_reserved_bytes": 56375640064,
+    "cuda_global_free_bytes": 85638148096,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 17813688320,
+    "VmRSS_bytes": 3051970560,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 120782626816,
+    "SwapFree_bytes": 17179865088
+  },
+  "general_gpu_hold_retained": true,
+  "kernel_review": "No OOM/Xid/thermal fault in trial-window journal",
+  "decision": "Retain existing local-Qwen patch: all measured pairs faster at both lengths; no long-output penalty reproduced. Limited to27B/256prompt/8and128outputs, not universal acceptance or next optimization."
+}

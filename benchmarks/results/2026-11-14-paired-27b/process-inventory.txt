@@ -1,0 +1,6 @@
+PID                 PPID                COMMAND             COMMAND
+96625               96594               docker-init         /sbin/docker-init -- /bin/sh -c trap "exit 0" TERM INT; sleep infinity & wait
+96750               96625               sh                  /bin/sh -c trap "exit 0" TERM INT; sleep infinity & wait
+96751               96750               sleep               sleep infinity
+96943               96594               timeout             timeout --kill-after=10 900 python3 /workspace/acceptance/check_paired_27b.py paired-27b-20261115T002413Z-retry
+96949               96943               python3             python3 /workspace/acceptance/check_paired_27b.py paired-27b-20261115T002413Z-retry

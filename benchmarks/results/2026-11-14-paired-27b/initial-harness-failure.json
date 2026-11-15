@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "error": "python3: can't open file '/acceptance/check_paired_27b.py': [Errno 2] No such file or directory\n",
+  "model_loaded": false,
+  "recovery": "Corrected /acceptance to /workspace/acceptance; separate run retained",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/paired-27b-20261115T002413Z"
+}

@@ -1,0 +1,362 @@
+{
+  "status": "complete",
+  "protocol": "Paired diagnostic, same loaded27B weights,256 prompt, alternating AB/BA order; no profiler",
+  "source_manifest": {
+    "engine_before": {
+      "spark_engine/qwen_model.py": "cb5d7dee1daa32e2cec6e960a69d2a8a2de74d46a7c24e62abfcf64239d0e315"
+    },
+    "engine_candidate": {
+      "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762"
+    },
+    "baseline_revision": "18894a8^",
+    "candidate_revision": "18894a8",
+    "user_authorized": true,
+    "model": "27B GGUF",
+    "prompt_tokens": 256,
+    "output_lengths": [
+      8,
+      128
+    ],
+    "timed_pairs_per_length": 4,
+    "warmup_each_version": 1,
+    "order": "warmup BA, then AB/BA/AB/BA",
+    "profiler": false,
+    "no_engine_file_edits": true
+  },
+  "rows": [
+    {
+      "version": "before",
+      "repetition": 0,
+      "new_tokens": 8,
+      "wall_ms": 2340.09924399993,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 26112479232,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051782144,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 61246427136,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 0,
+      "new_tokens": 8,
+      "wall_ms": 2110.123111000121,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 26431741952,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051786240,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 61565726720,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 1,
+      "new_tokens": 8,
+      "wall_ms": 2107.7876710000965,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 26570903552,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051790336,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 61705179136,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 1,
+      "new_tokens": 8,
+      "wall_ms": 2332.607860000053,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 26969100288,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051794432,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 62103449600,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 2,
+      "new_tokens": 8,
+      "wall_ms": 2335.800226999936,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 27255246848,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051794432,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 62389723136,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 2,
+      "new_tokens": 8,
+      "wall_ms": 2116.2189130000115,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 27269836800,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051794432,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 62404407296,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 3,
+      "new_tokens": 8,
+      "wall_ms": 2114.081045000148,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 27420573696,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051798528,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 62555209728,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 3,
+      "new_tokens": 8,
+      "wall_ms": 2343.1972719999976,
+      "output_sha256": "f264e15262fe890326a854ece684932a8720fdaf990b0bc6f9c3a5efb942cf1a",
+      "memory": {
+        "cuda_allocated_bytes": 53800573440,
+        "cuda_reserved_bytes": 56367251456,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56367251456,
+        "cuda_global_free_bytes": 27615887360,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051802624,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 62750629888,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 0,
+      "new_tokens": 128,
+      "wall_ms": 29810.861281999903,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28193460224,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051917312,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63331209216,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 0,
+      "new_tokens": 128,
+      "wall_ms": 29567.41973600015,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28183732224,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051925504,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63322304512,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 1,
+      "new_tokens": 128,
+      "wall_ms": 29579.372766999993,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28195135488,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051941888,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63334686720,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 1,
+      "new_tokens": 128,
+      "wall_ms": 29806.353390000142,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28170018816,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051941888,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63310823424,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 2,
+      "new_tokens": 128,
+      "wall_ms": 29784.299779000095,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28153503744,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051945984,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63295270912,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 2,
+      "new_tokens": 128,
+      "wall_ms": 29563.655755000127,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28168835072,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051945984,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63311474688,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "after",
+      "repetition": 3,
+      "new_tokens": 128,
+      "wall_ms": 29584.688838999908,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28186554368,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051950080,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63330086912,
+        "SwapFree_bytes": 17179865088
+      }
+    },
+    {
+      "version": "before",
+      "repetition": 3,
+      "new_tokens": 128,
+      "wall_ms": 29809.23886300002,
+      "output_sha256": "9ea36f74ba517feda4afdb86208b7ad1c7d88316896024dd7eeec9aba253e176",
+      "memory": {
+        "cuda_allocated_bytes": 53800573952,
+        "cuda_reserved_bytes": 56375640064,
+        "cuda_peak_allocated_bytes": 54356893696,
+        "cuda_peak_reserved_bytes": 56375640064,
+        "cuda_global_free_bytes": 28120715264,
+        "cuda_total_bytes": 130661003264,
+        "VmHWM_bytes": 17813688320,
+        "VmRSS_bytes": 3051958272,
+        "VmSwap_bytes": 0,
+        "MemAvailable_bytes": 63265189888,
+        "SwapFree_bytes": 17179865088
+      }
+    }
+  ],
+  "released_memory": {
+    "cuda_allocated_bytes": 8521728,
+    "cuda_reserved_bytes": 23068672,
+    "cuda_peak_allocated_bytes": 54356893696,
+    "cuda_peak_reserved_bytes": 56375640064,
+    "cuda_global_free_bytes": 85638148096,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 17813688320,
+    "VmRSS_bytes": 3051970560,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 120782626816,
+    "SwapFree_bytes": 17179865088
+  },
+  "instance_method_restored": true
+}

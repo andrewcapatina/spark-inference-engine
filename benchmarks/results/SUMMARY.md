@@ -1,5 +1,7 @@
 # Performance summary across runs
 
+The latest [same-loaded-model comparison](2026-11-14-paired-27b/README.md) found 9.66% lower latency for8 outputs and0.79% for128 outputs on27B with256 prompt tokens; all four pairs at each length favored the current loop. The earlier separate-process slowdown did not reproduce.
+
 The only native optimization so far removes the unused decode after the final requested output token. Local Qwen authored it (`18894a8`); all 56 Qwen gates and 15 Llama cases passed with unchanged numerical tolerances. It removes real work, but the saved timings do not establish a general throughput improvement.
 
 ## Closest before/after comparison
@@ -36,6 +38,6 @@ These recovery runs changed process isolation, cache history, cleanup and finall
 
 We have a working real-model baseline (9B about 10–11 output tokens/s; 27B about 4–4.3 including prefill), a correctness-preserving reduction in wasted work with a measured short-reply benefit, durable diagnostics, one-model isolation and verified clean teardown. We have not demonstrated a broad long-reply speedup, reduced model-memory footprint, a loading speedup, or the cause/fix of the three power-offs. Loading varied roughly 42–144 s for 27B with uncontrolled disk/NAS cache state and is excluded from generation timings.
 
-Next useful performance experiment: a bounded, alternating before/after comparison using one loaded model, identical prompts and outputs, and recorded clocks/temperatures. This would separate the small code effect from loading/cache differences and time drift before selecting another optimization. It has not been launched.
+The bounded alternating comparison has now completed; see the linked latest result. It supports a small long-reply benefit for the tested27B workload, without demonstrating universal throughput improvement. No subsequent optimization has been selected.
 
 Sources: [matched comparison](2026-11-14-final-decode/README.md), [original baseline](2026-11-14-interrupted/README.md), [capped recovery](2026-11-14-memory-diagnostics/README.md), [third power-off](2026-11-14-larger-27b-third-crash/README.md), [post-update result](2026-11-14-post-update-27b-heavy/README.md).

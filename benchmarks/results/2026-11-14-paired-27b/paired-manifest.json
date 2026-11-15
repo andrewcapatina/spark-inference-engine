@@ -1,0 +1,22 @@
+{
+  "engine_before": {
+    "spark_engine/qwen_model.py": "cb5d7dee1daa32e2cec6e960a69d2a8a2de74d46a7c24e62abfcf64239d0e315"
+  },
+  "engine_candidate": {
+    "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762"
+  },
+  "baseline_revision": "18894a8^",
+  "candidate_revision": "18894a8",
+  "user_authorized": true,
+  "model": "27B GGUF",
+  "prompt_tokens": 256,
+  "output_lengths": [
+    8,
+    128
+  ],
+  "timed_pairs_per_length": 4,
+  "warmup_each_version": 1,
+  "order": "warmup BA, then AB/BA/AB/BA",
+  "profiler": false,
+  "no_engine_file_edits": true
+}
