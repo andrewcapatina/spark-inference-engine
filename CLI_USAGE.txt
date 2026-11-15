@@ -47,3 +47,21 @@ Optional short replies for either command: append --max-new-tokens 32.
 The model server and overnight controller are not needed for native CLI chat.
 When finished, exit chat and stop the container if you started it:
   docker stop spark-prototype-agent
+
+Native mixed NVFP4/FP8 checkpoint (downloaded Unsloth Qwen3.8-27B)
+
+From /home/cap/Projects/spark-inference-engine:
+  python3 tools/chat_nvfp4.py
+  python3 tools/chat_nvfp4.py --max-new-tokens 128
+
+The launcher uses the already installed pinned GB10 GPU image in a dedicated
+experiment container, not a vLLM inference server. Project engine code loads and
+runs the model through its native API. It refuses an occupied experiment lock or
+existing GPU compute process, verifies model revision/file sizes, sets a 32GiB
+PyTorch allocator cap and monitors a 32GiB host floor/256MiB new-swap budget. It
+stops the container it started after CLI exit. It does not download dependencies.
+
+KV cache remains BF16; packed FP8/NVFP4 matrices are not expanded to full BF16.
+Only this downloaded quantization recipe is validated. Vision/MTP/sampling and
+long-context reliability remain outside the validation. CLI controls stay the
+same: /reset, /exit and greedy completed replies.

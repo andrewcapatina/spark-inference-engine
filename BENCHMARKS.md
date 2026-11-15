@@ -90,7 +90,7 @@ and [PyTorch Profiler](https://docs.pytorch.org/tutorials/recipes/recipes/profil
 
 The interrupted November 14 run is preserved in [the partial report](benchmarks/results/2026-11-14-interrupted/README.md). Subsequent harness revisions flush and fsync results and phase/sample telemetry (`phases.jsonl`). Telemetry runs outside measured generation intervals, but changes the protocol and must be reported separately from the original baseline.
 
-`--cuda-limit-gib` optionally sets the PyTorch caching allocator limit before loading. This does not limit CPU, driver or other non-PyTorch allocations and is not a guarantee against host shutdown. `--min-available-gib` (default 16) rejects work when system available memory is below that threshold at stage boundaries; it cannot catch a fast allocation spike inside a native call. These controls have not yet been GPU validated. See the [PyTorch allocator API](https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.set_per_process_memory_fraction.html). The heavy run remains stopped.
+`--cuda-limit-gib` optionally sets the PyTorch caching allocator limit before loading. This does not limit CPU, driver or other non-PyTorch allocations and is not a guarantee against host shutdown. `--min-available-gib` (default 16) rejects work when system available memory is below that threshold at stage boundaries; it cannot catch a fast allocation spike inside a native call. The allocator cap has been GPU-validated by a tiny rejection probe and bounded real-checkpoint runs; it did not prevent the earlier host power-offs. See the [PyTorch allocator API](https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.set_per_process_memory_fraction.html). The heavy run remains stopped.
 
 ## Consolidated findings
 
@@ -109,3 +109,18 @@ The second crash occurred in a27B-only scheduled worker after9B exited and the c
 ## Explicit clean release
 
 `--clean-release` runs after timed measurements: delete the text/model adapter, collect Python garbage, synchronize CUDA, empty the allocator cache, and record released allocated/reserved memory. It rejects more than16MiB tracked allocations or64MiB reservation remaining. This observes harness teardown; it changes no engine implementation or numerical tolerance. The clean-shutdown trial also verifies the model process exited, no GPU compute PID remains, container exit0, stable boot ID and host available-memory recovery. Filesystem cache and driver memory are distinct from live model storage. These checks are not proof against a host failure.
+
+## Quantized storage and runtime scratch cleanup
+
+The harness reports parameter_bytes, buffer_bytes and unique resident_tensor_bytes
+separately. Quantized weight buffers are model storage; parameter-only totals
+miss them. Unique storage accounts for aliased views without adding them twice.
+Generation timing is unchanged. Quantization metadata records the actual recipe
+and KV-cache precision.
+
+After timing, clean-release checks weak references to every model parameter and
+buffer, then clears idle cuBLAS and FlashInfer scratch caches before rechecking
+the same16MiB allocated/64MiB reserved limits. A no-model control on the newer
+runtime reproduced72MiB scratch and returned0/0 after cleanup; this is separate
+from model residency and is not an inference leak. Fresh-process GPU inventories,
+container exit and host recovery remain required. See native NVFP4 evidence.
