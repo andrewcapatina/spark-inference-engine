@@ -74,6 +74,10 @@ class QwenCausalLM(nn.Module):
         from safetensors.torch import load_file
         with open(os.path.join(directory, "config.json")) as f:
             cfg = json.load(f)
+        quant_cfg = cfg.get("quantization_config")
+        if quant_cfg:
+            from spark_engine.qwen_quantized import load_quantized_qwen
+            return load_quantized_qwen(directory, dtype=dtype, device=device)
         text_cfg = cfg.get("text_config", cfg)
         rope = text_cfg.get("rope_parameters", {"rope_theta": 10000000.0, "partial_rotary_factor": 0.25})
         rope_theta = float(rope.get("rope_theta", 10000000.0))
