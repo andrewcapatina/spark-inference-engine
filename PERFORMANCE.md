@@ -1,5 +1,7 @@
 # Performance measurements and first optimization
 
+For the current cross-run conclusion and comparison limits, see the [performance summary](benchmarks/results/SUMMARY.md).
+
 ## What is established
 
 The native engine runs both downloaded models on one GB10 using CUDA BF16. The complete original 9B benchmark produced approximately 10–11 output tokens/s. The completed original 27B cases produced approximately 4.1 output tokens/s. A separate capped 27B diagnostic completed the missing 1024-token prompt at 4.05 output tokens/s. These are development measurements, not production capacity guarantees.
