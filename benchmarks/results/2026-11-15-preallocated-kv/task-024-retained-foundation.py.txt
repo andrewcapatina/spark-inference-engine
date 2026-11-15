@@ -1,0 +1,10 @@
+import torch
+
+class _Cache(tuple):
+    pass
+
+def _make_cache(k, v, owner):
+    c = _Cache.__new__(_Cache, (k, v))
+    c._owner = owner
+    return c
+

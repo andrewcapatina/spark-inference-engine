@@ -1,0 +1,212 @@
+{
+  "status": "complete",
+  "started": "2026-11-15T13:25:45.283577+00:00",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "scope": "Synthetic standalone preallocated KV helper: exact values, snapshots, branch isolation, bounded storage and gradients; no real checkpoint",
+  "automatic_gpu_resume_held": true,
+  "model_server_loaded": false,
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/preallocated-kv-small-20261115T131402Z",
+  "engine_sha256": {
+    "spark_engine/qwen_kv_cache.py": "efc53686790fd856c67581d6c195d99ff21c6efadbcd07f11f66c0fb1608b700",
+    "spark_engine/qwen_layers.py": "ce1ca34a127cd1f5c99019953706608e74e497be804b5e3d7af1acc4be2b3d7d",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/qwen_kv_cache_impl.py": "b448a64293b6a913289679fc28c90a8df42a7ebd18247c40585f50c6f99d25d5",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_fp8.py": "0dd211dffa9bc7a0ffe25fbf67e8a8020dee8961b90d76a74b02fa2bd69a14bc",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "updated": "2026-11-15T13:26:09.685954+00:00",
+  "host_before": {
+    "MemTotal": 130661003264,
+    "MemFree": 60370038784,
+    "MemAvailable": 123822346240,
+    "Buffers": 943513600,
+    "Cached": 61591220224,
+    "SwapTotal": 17179865088,
+    "SwapFree": 17179533312,
+    "SReclaimable": 2100498432,
+    "swap_used_bytes": 331776
+  },
+  "gpu_before": {
+    "free_bytes": 59775758336,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "inactive_trace_cache_advice": [
+    {
+      "path": "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-native-20261115T041946Z/p256-native-trace.json",
+      "bytes": 593605314,
+      "data_unchanged": true
+    },
+    {
+      "path": "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/quant-profile-native-20261115T041946Z/p1024-native-trace.json",
+      "bytes": 684456156,
+      "data_unchanged": true
+    }
+  ],
+  "gpu_after_trace_cache_advice": {
+    "free_bytes": 59786915840,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "inactive_weight_cache_advice": [
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 0,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 2147483648,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 4294967296,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 6442450944,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 8589934592,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 10737418240,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 12884901888,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 15032385536,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 17179869184,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 19327352832,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model.safetensors",
+      "offset": 21474836480,
+      "bytes": 1093355616,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/unsloth/Qwen3.8-27B-NVFP4/model_mtp.safetensors",
+      "offset": 0,
+      "bytes": 849400392,
+      "data_unchanged": true
+    }
+  ],
+  "gpu_after_weight_cache_advice": {
+    "free_bytes": 59737010176,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "inactive_author_cache_advice": [
+    {
+      "path": "/mnt/nas-aimodels/huggingface/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF/Qwen3.8-27B-TurboFCFusion-735-882-Here-Uncen-NEO-CODER-MAX-Q8_0.gguf",
+      "offset": 0,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF/Qwen3.8-27B-TurboFCFusion-735-882-Here-Uncen-NEO-CODER-MAX-Q8_0.gguf",
+      "offset": 2147483648,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    },
+    {
+      "path": "/mnt/nas-aimodels/huggingface/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF/Qwen3.8-27B-TurboFCFusion-735-882-Here-Uncen-NEO-CODER-MAX-Q8_0.gguf",
+      "offset": 4294967296,
+      "bytes": 2147483648,
+      "data_unchanged": true
+    }
+  ],
+  "gpu_after_author_cache_advice": {
+    "free_bytes": 62344564736,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "command": [
+    "docker",
+    "exec",
+    "-w",
+    "/workspace",
+    "spark-prototype-vllm-nvfp4",
+    "timeout",
+    "--kill-after=10",
+    "1800",
+    "python3",
+    "/harness/check_preallocated_attention_cache.py",
+    "preallocated-kv-small-20261115T131402Z",
+    "candidate"
+  ],
+  "worker_exit_code": 0,
+  "results_file": "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/preallocated-kv-small-20261115T131402Z/results.json",
+  "gpu_after_worker": {
+    "free_bytes": 62298722304,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "container_stop_seconds": 0.11415001899877097,
+  "container_after": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "host_after": {
+    "MemTotal": 130661003264,
+    "MemFree": 62843408384,
+    "MemAvailable": 123747708928,
+    "Buffers": 943632384,
+    "Cached": 59042828288,
+    "SwapTotal": 17179865088,
+    "SwapFree": 17179533312,
+    "SReclaimable": 2100727808,
+    "swap_used_bytes": 331776
+  },
+  "host_available_recovered_within_4gib": true,
+  "scope_result": "Diagnostic worker completed and teardown verified; numerical analysis remains separate",
+  "finished": "2026-11-15T13:26:09.685944+00:00"
+}

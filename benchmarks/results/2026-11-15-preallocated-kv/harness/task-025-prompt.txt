@@ -1,0 +1,27 @@
+Write ONLY the COMPLETE append_attention_cache(cache, k, v) FUNCTION, at module indentation, no Markdown/prose. You are the only engine implementation author. This is a smaller recovery task: keep the previously authored tuple wrapper/factory below EXACTLY as supplied; do not return them, only the new append function, at most38 nonblanklines. Supervisor will assemble your retained module prefix and new function verbatim, without repairing any implementation.
+
+Retained local-model module prefix:
+import torch
+
+class _Cache(tuple):
+    pass
+
+def _make_cache(k, v, owner):
+    c = _Cache.__new__(_Cache, (k, v))
+    c._owner = owner
+    return c
+
+
+Actual failures in prior append: normal first input is (past_k,past_v), a PLAIN TUPLE with no _owner, so direct cache._owner fails; None inputs are not part of this API. Branching from an older prefix must use its VISIBLE tensor length, not owner.cursor. .contiguous() copies on every call, defeating reuse. Dtype/device/past-gradient fallback checks were missing.
+
+Input is ALWAYS a tuple-compatible pair of tensors [B,KV,T,D]. New k,v are [B,KV,N,D], N>=1, positive B/KV/D. Return values must exactly match torch.cat([cache[0],k],dim=2), torch.cat([cache[1],v],dim=2). Return an ordinary tuple on fallback; _make_cache on fast path.
+
+Implement these explicit cases:
+- Fallback to ordinary torch.cat unless torch.inference_mode is enabled, ALL FOUR past/new tensors have requires_grad False, and past_k/k and past_v/v have matching dtype/device. No None handling needed. Preserve native torch.cat promotion/autograd semantics through fallback.
+- Read the visible old length T from cache[0].shape[2]. Read optional owner with getattr(cache, '_owner', None), because the initial tuple has no attribute. New length is T+N.
+- Reuse an existing owner ONLY when owner['cursor']==T AND owner['k'].shape[2]>=T+N. Otherwise allocate a NEW owner for first call, growth OR branch. This rule preserves every old returned logical prefix.
+- New backing capacity is CEILING(T+N divided by256) times256. Allocate K/V on each matching input's dtype/device and B/KV/D shape, then copy ONLY the visible T past tokens from cache tensors into the new buffers. Never copy through the old owner's larger cursor on a branch.
+- Append k/v into backing [T:T+N], then set owner['cursor']=T+N. Owner cursor is shared by caches using that owner; never rewind it. Thus a later call from an older cache forks to NEW backing instead of overwriting an existing tail.
+- Return _make_cache(backing-K slice[:,:,:T+N,:], corresponding V slice, owner). These must be views: NO .contiguous(), .clone(), torch.cat or full-prefix copy when reusing capacity. No globals/model attributes, CPU copies, syncs, numerical changes, or new dependencies.
+
+The tests cover first plain tuple, batches1/2, FP32/BF16, strided inputs, 256-slot allocation boundaries, sequential storage reuse, saved cache values, two independent branches from an older snapshot with interleaved continuation, gradients, no_grad fallback, mixed dtype promotion. Return only the complete function.

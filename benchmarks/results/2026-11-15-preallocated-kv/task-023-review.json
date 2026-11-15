@@ -1,0 +1,11 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "9a2671944f41131418d0adbc4c2e4aa4c33bcce7c3a9f6cbe1f28eff12d60559",
+  "reasons": [
+    "Returns ordinary custom _Cache, not tuple-compatible isinstance(tuple) contract",
+    "Defines _Cache inside function so its identity changes every call and isinstance never recognizes earlier caches",
+    "T is visible length, so T+N<=cache.k.shape[2] is unreachable for positive N; no capacity metadata or reuse",
+    "No shared furthest cursor, no explicit branch copy-on-write ownership",
+    "Capacity is max(T+N,256), not rounded to256; loop never runs"
+  ]
+}

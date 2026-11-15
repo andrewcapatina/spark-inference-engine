@@ -1,0 +1,25 @@
+```python
+import math
+
+def append_attention_cache(cache, k, v):
+    past_k, past_v = cache
+    B, KV, N, D = k.shape
+    T = past_k.shape[2]
+    new_len = T + N
+    owner = getattr(cache, '_owner', None)
+    if owner is not None and owner['cursor'] == T and owner['k'].shape[2] >= new_len:
+        owner['k'][:, :, T:new_len, :] = k
+        owner['v'][:, :, T:new_len, :] = v
+        owner['cursor'] = new_len
+        return _make_cache(owner['k'][:, :, :new_len, :], owner['v'][:, :, :new_len, :], owner)
+    cap = math.ceil(new_len / 256) * 256
+    new_owner = {'k': torch.empty((B, KV, cap, D), dtype=k.dtype, device=k.device),
+                 'v': torch.empty((B, KV, cap, D), dtype=v.dtype, device=v.device),
+                 'cursor': 0}
+    new_owner['k'][:, :, :T, :] = past_k
+    new_owner['v'][:, :, :T, :] = past_v
+    new_owner['k'][:, :, T:new_len, :] = k
+    new_owner['v'][:, :, T:new_len, :] = v
+    new_owner['cursor'] = new_len
+    return _make_cache(new_owner['k'][:, :, :new_len, :], new_owner['v'][:, :, :new_len, :], new_owner)
+```

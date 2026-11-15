@@ -1,0 +1,47 @@
+import torch
+
+def swizzle_nvfp4_scales(scale):
+    rows, cols = scale.shape
+    pad_rows = (128 - rows % 128) % 128
+    pad_cols = (4 - cols % 4) % 4
+    if pad_rows or pad_cols:
+        scale = torch.nn.functional.pad(scale, (0, pad_cols, 0, pad_rows), value=0.0)
+    rows, cols = scale.shape
+    return (scale.reshape(1, rows // 128, 4, 32, cols // 4, 4)
+            .permute(0, 1, 4, 3, 2, 5).contiguous()
+            .reshape(rows, cols))
+
+class NVFP4Linear(torch.nn.Module):
+    def __init__(self, weight_packed, weight_scale, weight_global_scale, input_global_scale):
+        super().__init__()
+        assert weight_packed.dtype == torch.uint8 and weight_packed.dim() == 2
+        assert weight_scale.dtype == torch.float8_e4m3fn and weight_scale.dim() == 2
+        N, K2 = weight_packed.shape
+        assert N % 128 == 0 and K2 * 2 % 128 == 0
+        assert weight_scale.shape == (N, K2 * 2 // 16)
+        dev = weight_packed.device
+        for name, val in [("weight_global_scale", weight_global_scale), ("input_global_scale", input_global_scale)]:
+            if isinstance(val, torch.Tensor):
+                assert val.numel() == 1, f"{name} must be scalar tensor"
+                val = val.to(dtype=torch.float32, device=dev)
+            else:
+                val = torch.tensor(float(val), dtype=torch.float32, device=dev)
+            assert torch.isfinite(val) and val > 0, f"{name} must be finite positive"
+            self.register_buffer(name, val.reshape(1))
+        self.register_buffer("weight_packed", weight_packed)
+        self.register_buffer("weight_scale", weight_scale)
+        self.register_buffer("swizzled_scale", swizzle_nvfp4_scales(weight_scale))
+
+    def forward(self, x):
+        assert x.dtype == torch.bfloat16 and x.is_cuda and x.dim() >= 1
+        assert x.shape[-1] == self.weight_packed.shape[1] * 2
+        orig_shape = x.shape
+        x2d = x.reshape(-1, x.shape[-1])
+        import flashinfer
+        a, a_scales = flashinfer.fp4_quantize(x2d, self.input_global_scale, is_sf_swizzled_layout=True)
+        alpha = torch.tensor(1.0 / (self.input_global_scale * self.weight_global_scale),
+                             dtype=torch.float32, device=x.device)
+        out = flashinfer.mm_fp4(a, self.weight_packed.T, a_scales.view(torch.uint8),
+                                self.swizzled_scale.view(torch.uint8).T, alpha=alpha,
+                                out_dtype=x.dtype, backend="cutlass")
+        return out.reshape(*orig_shape[:-1], out.shape[-1])

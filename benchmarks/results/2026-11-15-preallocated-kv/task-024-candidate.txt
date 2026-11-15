@@ -1,0 +1,40 @@
+```python
+import torch
+
+class _Cache(tuple):
+    pass
+
+def _make_cache(k, v, owner):
+    c = _Cache.__new__(_Cache, (k, v))
+    c._owner = owner
+    return c
+
+def append_attention_cache(cache, k, v):
+    if not torch.is_inference_mode_enabled() or any(t.requires_grad for t in (k, v)):
+        if isinstance(cache, tuple):
+            return (torch.cat([cache[0], k], dim=2), torch.cat([cache[1], v], dim=2))
+        return (k, v)
+    if not isinstance(cache, tuple):
+        cap = max(k.shape[2], 256)
+        owner = {"k": torch.empty((k.shape[0], k.shape[1], cap, k.shape[3]), dtype=k.dtype, device=k.device),
+                 "v": torch.empty((v.shape[0], v.shape[1], cap, v.shape[3]), dtype=v.dtype, device=v.device),
+                 "cursor": 0}
+        owner["k"][:, :, :k.shape[2]] = k
+        owner["v"][:, :, :v.shape[2]] = v
+        owner["cursor"] = k.shape[2]
+        return _make_cache(owner["k"][:, :, :k.shape[2]].contiguous(), owner["v"][:, :, :v.shape[2]].contiguous(), owner)
+    owner = cache._owner
+    n = k.shape[2]
+    if owner["cursor"] + n > owner["k"].shape[2]:
+        new_cap = ((owner["k"].shape[2] + n + 255) // 256) * 256
+        new_owner = {"k": torch.empty((owner["k"].shape[0], owner["k"].shape[1], new_cap, owner["k"].shape[3]), dtype=owner["k"].dtype, device=owner["k"].device),
+                     "v": torch.empty((owner["v"].shape[0], owner["v"].shape[1], new_cap, owner["v"].shape[3]), dtype=owner["v"].dtype, device=owner["v"].device),
+                     "cursor": owner["cursor"]}
+        new_owner["k"][:, :, :owner["cursor"]] = owner["k"][:, :, :owner["cursor"]]
+        new_owner["v"][:, :, :owner["cursor"]] = owner["v"][:, :, :owner["cursor"]]
+        owner = new_owner
+    owner["k"][:, :, owner["cursor"]:owner["cursor"] + n] = k
+    owner["v"][:, :, owner["cursor"]:owner["cursor"] + n] = v
+    owner["cursor"] += n
+    return _make_cache(owner["k"][:, :, :owner["cursor"]].contiguous(), owner["v"][:, :, :owner["cursor"]].contiguous(), owner)
+```

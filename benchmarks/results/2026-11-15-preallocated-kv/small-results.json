@@ -1,0 +1,1470 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Synthetic standalone helper contracts only; not engine integration or real27B validation",
+  "cases": [
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.float32",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 1,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 2,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "kv_heads": 4,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 1,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 2,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 0,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 1,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 63,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 64,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 65,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 255,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 256,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 257,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 511,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 4
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 512,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 513,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "kv_heads": 4,
+      "prefix_tokens": 1024,
+      "six_sequential_appends_exact": true,
+      "forks_and_interleaved_branches_exact": true,
+      "bounded_capacity": true,
+      "storage_reuses": 5
+    }
+  ],
+  "gradient_cases": 4,
+  "storage_reuses": 696,
+  "no_grad_fallback_case": true,
+  "requires_grad_inference_fallback_case": true,
+  "dtype_promotion_case": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 23041024,
+    "cuda_peak_reserved_bytes": 33554432,
+    "cuda_global_free_bytes": 62129139712,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 772354048,
+    "VmRSS_bytes": 772354048,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 123034771456,
+    "SwapFree_bytes": 17179533312
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "dadbe6cd8f678e73817a30ddf22b383717b24f456f53b978edd296b3a4d78336",
+  "rationale": [
+    "Only helper import and replacement of cache append construction; all attention math unchanged",
+    "Returns helper object intact before group expansion, preserving owner metadata",
+    "Standalone helper144cases+gradient/promotion fallback passed; integrated output and realmodel tests remainpending"
+  ]
+}

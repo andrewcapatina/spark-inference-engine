@@ -1,0 +1,46 @@
+```python
+import torch
+
+def append_attention_cache(cache, k, v):
+    if not torch.is_inference_mode_enabled():
+        return (torch.cat([cache[0], k], dim=2), torch.cat([cache[1], v], dim=2))
+    if cache[0].requires_grad or k.requires_grad or cache[1].requires_grad or v.requires_grad:
+        return (torch.cat([cache[0], k], dim=2), torch.cat([cache[1], v], dim=2))
+    if cache[0].dtype != k.dtype or cache[0].device != k.device:
+        return (torch.cat([cache[0], k], dim=2), torch.cat([cache[1], v], dim=2))
+    if cache[1].dtype != v.dtype or cache[1].device != v.device:
+        return (torch.cat([cache[0], k], dim=2), torch.cat([cache[1], v], dim=2))
+
+    class _Cache:
+        __slots__ = ("k", "v")
+        def __init__(self, k, v):
+            self.k = k
+            self.v = v
+        def __getitem__(self, i):
+            return (self.k, self.v)[i]
+        def __iter__(self):
+            return iter((self.k, self.v))
+        def __len__(self):
+            return 2
+
+    if not isinstance(cache, _Cache):
+        cache = _Cache(cache[0], cache[1])
+
+    B, KV, T, D = cache.k.shape
+    N = k.shape[2]
+    if T + N <= cache.k.shape[2]:
+        cache.k[:, :, T:T+N, :] = k
+        cache.v[:, :, T:T+N, :] = v
+        return _Cache(cache.k[:, :, :T+N, :], cache.v[:, :, :T+N, :])
+
+    new_cap = max(T + N, 256)
+    while new_cap < T + N:
+        new_cap *= 2
+    new_k = torch.empty((B, KV, new_cap, D), dtype=cache.k.dtype, device=cache.k.device)
+    new_v = torch.empty((B, KV, new_cap, D), dtype=cache.v.dtype, device=cache.v.device)
+    new_k[:, :, :T, :] = cache.k[:, :, :T, :]
+    new_v[:, :, :T, :] = cache.v[:, :, :T, :]
+    new_k[:, :, T:T+N, :] = k
+    new_v[:, :, T:T+N, :] = v
+    return _Cache(new_k[:, :, :T+N, :], new_v[:, :, :T+N, :])
+```

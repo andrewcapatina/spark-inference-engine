@@ -1,0 +1,43 @@
+Author ONLY the COMPLETE INDENTED QwenAttention.decode method below, SAME signature, no Markdown/prose. At most6 changed lines. This is integration ONLY; do not rewrite helper or change attention math.
+
+The local-authored standalone helper spark_engine.qwen_kv_cache.append_attention_cache(cache,k,v) passed144 exact state/storage/branch cases plus gradient/dtype tests. It returns a tuple-compatible unrepeated K/V cache with past+new values, and uses ordinary torch.cat fallback outside inference_mode. Import it INSIDE decode, then use it instead of the current two torch.cat calls and cache tuple creation. Save its returned object as cache_out, then unpack cache_out into k_full,v_full for attention. Return cache_out exactly, preserving its metadata; do not rebuild a plain tuple. Keep repeat_interleave AFTER saving/unpacking the unrepeated cache. Preserve all projections, normalization, RoPE, scales, softmax, gate and output projection EXACTLY. No other new code or behavior. Compact convolution history remains quarantined.
+
+Existing public helper, context only; do not repeat:
+import torch
+from .qwen_kv_cache_impl import append_attention_cache as _fast_append
+
+def append_attention_cache(cache, k, v):
+    past_k, past_v = cache
+    if (torch.is_inference_mode_enabled()
+            and not past_k.requires_grad and not past_v.requires_grad
+            and not k.requires_grad and not v.requires_grad
+            and past_k.dtype == k.dtype and past_k.device == k.device
+            and past_v.dtype == v.dtype and past_v.device == v.device):
+        return _fast_append(cache, k, v)
+    return (torch.cat([past_k, k], dim=2), torch.cat([past_v, v], dim=2))
+
+Current COMPLETE decode to revise with only that integration:
+    def decode(self, hidden, position_embeddings, cache):
+        bsz, seq, _ = hidden.shape
+        qg = self.q_proj(hidden).view(bsz, seq, self.num_heads, self.head_dim * 2)
+        q, gate = qg[..., :self.head_dim], qg[..., self.head_dim:]
+        k = self.k_proj(hidden).view(bsz, seq, self.num_kv_heads, self.head_dim)
+        v = self.v_proj(hidden).view(bsz, seq, self.num_kv_heads, self.head_dim)
+        q = self.q_norm(q).transpose(1, 2)
+        k = self.k_norm(k).transpose(1, 2)
+        v = v.transpose(1, 2)
+        cos, sin = position_embeddings
+        q, k = apply_partial_rope(q, k, cos, sin)
+        cache_k, cache_v = cache
+        k_full = torch.cat([cache_k, k], dim=2)
+        v_full = torch.cat([cache_v, v], dim=2)
+        cache_out = (k_full, v_full)
+        if self.num_groups > 1:
+            k_full = k_full.repeat_interleave(self.num_groups, dim=1)
+            v_full = v_full.repeat_interleave(self.num_groups, dim=1)
+        scores = torch.matmul(q, k_full.transpose(-2, -1)) * self.scaling
+        attn = torch.softmax(scores, dim=-1, dtype=torch.float32).to(q.dtype)
+        out = torch.matmul(attn, v_full).transpose(1, 2)
+        out = out * torch.sigmoid(gate)
+        out = out.reshape(bsz, seq, -1)
+        return self.o_proj(out), cache_out

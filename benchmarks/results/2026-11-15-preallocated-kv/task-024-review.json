@@ -1,0 +1,11 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "3821540113a4e0c66bb63e7b462531a16f5c904d07ca7a520ec959f0278b3421",
+  "reasons": [
+    "Initial plain (past_k,past_v) tuple has no _owner: function raises AttributeError",
+    "Branch uses owner.cursor instead of visible prefix length; wrong logical branch tail",
+    "contiguous() copies every returned prefix and prevents storage reuse",
+    "Missing past.requires_grad and dtype/device mismatch fallback checks"
+  ],
+  "retained_foundation_sha256": "36c8765e1792675caf0a36295855a23723755c0544e7ff30d4cf54787114e746"
+}

@@ -1,0 +1,58 @@
+{
+  "status": "clean",
+  "accepted_engine_restored_byte_exact": true,
+  "containers": {
+    "spark-prototype-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-model": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-vllm-nvfp4": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-quant-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    }
+  },
+  "service_main_pid": 0,
+  "gpu_compute_processes": "",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "same_boot_all_stages": true,
+  "global_gpu_hold_retained": true,
+  "telemetry": {
+    "/home/cap/spark-inference-overnight-20261113/runs/preallocated-attention-kv-20261115T083924Z/local-qwen-author-host-memory.jsonl": {
+      "min_available_bytes": 90481856512,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/preallocated-kv-small-20261115T131402Z/host-memory.jsonl": {
+      "min_available_bytes": 123001217024,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/preallocated-kv-decode-20261115T132820Z/host-memory.jsonl": {
+      "min_available_bytes": 121728348160,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/preallocated-kv-ab-20261115T132901Z/host-memory.jsonl": {
+      "min_available_bytes": 77565001728,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/preallocated-kv-profile-20261115T133525Z/host-memory.jsonl": {
+      "min_available_bytes": 77180067840,
+      "max_per_worker_swap_growth_bytes": 0
+    }
+  },
+  "maximum_per_worker_swap_growth_bytes": 0
+}

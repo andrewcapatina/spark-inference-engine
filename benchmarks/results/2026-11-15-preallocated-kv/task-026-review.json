@@ -1,0 +1,10 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "efc53686790fd856c67581d6c195d99ff21c6efadbcd07f11f66c0fb1608b700",
+  "private_core_sha256": "b448a64293b6a913289679fc28c90a8df42a7ebd18247c40585f50c6f99d25d5",
+  "rationale": [
+    "Public guard checks inference_mode, allfour gradient flags and both dtype/device pairs; ordinarycatfallback preserves autograd/promotion",
+    "Private025 core handles initial plain tuple, visible-prefix growth and branch ownership cursor; tuplewrapper024 retainedexact",
+    "No engine integration, unvalidated experimental helper only; synthetic tests must pass before integration"
+  ]
+}

@@ -1,0 +1,44 @@
+Author ONLY a tiny NEW PUBLIC module spark_engine/qwen_kv_cache.py, at most15 nonblanklines. Return complete Python source, no Markdown/prose. Do NOT reimplement the fast append or cache class.
+
+The following already-local-authored code will live VERBATIM in the private module spark_engine/qwen_kv_cache_impl.py. Its append_attention_cache is ONLY valid under inference_mode with matching dtypes/devices and no tensor gradients. Your public module must import that private function under an alias, and expose append_attention_cache(cache,k,v) with the full guard/fallback contract.
+
+Public function contract:
+1. cache is ALWAYS a tuple-like pair (past_k,past_v), never None. New k,v are tensors.
+2. Call the private fast helper ONLY if torch.is_inference_mode_enabled() is True, ALL FOUR tensors (past_k,past_v,k,v) have requires_grad False, past_k.dtype==k.dtype AND past_k.device==k.device AND past_v.dtype==v.dtype AND past_v.device==v.device.
+3. OTHERWISE return the ordinary tuple (torch.cat([past_k,k],dim=2), torch.cat([past_v,v],dim=2)). This preserves dtype promotion and autograd. No partial casting or ignoring old cache values. torch.no_grad alone is fallback, not the fast path.
+4. The valid fast path simply returns the private helper's result. No other behavior, new class, changes to fast code, mutation or storage allocations in your wrapper.
+
+Use only torch and a relative import of append_attention_cache from .qwen_kv_cache_impl under a private alias. You write ONLY this tiny guard wrapper module. The private source below is CONTEXT ONLY; do not output or rewrite it:
+import torch
+
+class _Cache(tuple):
+    pass
+
+def _make_cache(k, v, owner):
+    c = _Cache.__new__(_Cache, (k, v))
+    c._owner = owner
+    return c
+
+import math
+
+def append_attention_cache(cache, k, v):
+    past_k, past_v = cache
+    B, KV, N, D = k.shape
+    T = past_k.shape[2]
+    new_len = T + N
+    owner = getattr(cache, '_owner', None)
+    if owner is not None and owner['cursor'] == T and owner['k'].shape[2] >= new_len:
+        owner['k'][:, :, T:new_len, :] = k
+        owner['v'][:, :, T:new_len, :] = v
+        owner['cursor'] = new_len
+        return _make_cache(owner['k'][:, :, :new_len, :], owner['v'][:, :, :new_len, :], owner)
+    cap = math.ceil(new_len / 256) * 256
+    new_owner = {'k': torch.empty((B, KV, cap, D), dtype=k.dtype, device=k.device),
+                 'v': torch.empty((B, KV, cap, D), dtype=v.dtype, device=v.device),
+                 'cursor': 0}
+    new_owner['k'][:, :, :T, :] = past_k
+    new_owner['v'][:, :, :T, :] = past_v
+    new_owner['k'][:, :, T:new_len, :] = k
+    new_owner['v'][:, :, T:new_len, :] = v
+    new_owner['cursor'] = new_len
+    return _make_cache(new_owner['k'][:, :, :new_len, :], new_owner['v'][:, :, :new_len, :], new_owner)

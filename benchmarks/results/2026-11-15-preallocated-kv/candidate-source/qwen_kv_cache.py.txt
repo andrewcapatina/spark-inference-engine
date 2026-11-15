@@ -1,0 +1,12 @@
+import torch
+from .qwen_kv_cache_impl import append_attention_cache as _fast_append
+
+def append_attention_cache(cache, k, v):
+    past_k, past_v = cache
+    if (torch.is_inference_mode_enabled()
+            and not past_k.requires_grad and not past_v.requires_grad
+            and not k.requires_grad and not v.requires_grad
+            and past_k.dtype == k.dtype and past_k.device == k.device
+            and past_v.dtype == v.dtype and past_v.device == v.device):
+        return _fast_append(cache, k, v)
+    return (torch.cat([past_k, k], dim=2), torch.cat([past_v, v], dim=2))
