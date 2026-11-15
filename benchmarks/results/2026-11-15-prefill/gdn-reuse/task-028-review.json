@@ -1,0 +1,9 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "9f6f01fc19100771c0bcd9157bdff15c08ccbd9a6393dc6ea83623932be28169",
+  "rationale": [
+    "Only gated_delta_chunk changed: mask predicate hoisted once per call, k*beta and exp(cumulative_decay) reused per chunk",
+    "No reassociation, precision, state layout, dispatch or decoding changes; all state matmuls/solves preserved",
+    "No compiler/backend/library replacement or persistent model/global state; targeted exact-output/state tests required before real timing"
+  ]
+}

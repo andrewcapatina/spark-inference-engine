@@ -1,0 +1,9 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "f7bc01a6fe4a0bda9f5aabd4c74cb4ecce8c2d25a2eb7d19119717168f52a893",
+  "rationale": [
+    "Only one scale_a expression changed: BF16 abs/amax before FP32 cast; original FP32 division/clamp maintained",
+    "Finite BF16 max is selection of exactly representable input magnitude; verify exact scale and FP8 bytes in tests",
+    "All guards/GEMM/padding/output code unchanged; no GDN candidate or decode-cache changes present"
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/harness/check_prefill_fp8_reduce.py", line 74, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/harness/check_prefill_fp8_reduce.py", line 52, in main
+    block=layer(128,128);patterns=torch.arange(65536,dtype=torch.int32).to(torch.int16).view(torch.bfloat16);finite=patterns[torch.isfinite(patterns)];assert finite.numel()==65280;x=finite.reshape(-1,128).cuda();projection(block,x,'all65280_finite_bf16_patterns');d['finite_bf16_patterns_covered']=finite.numel();del patterns,finite,x
+                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_prefill_fp8_reduce.py", line 31, in projection
+    before=x.clone();a,old,old_dtype=watched(original,block,x);b,new,new_dtype=watched(candidate,block,x);equal(a,b);equal(old[0],new[0]);equal(old[1],new[1]);assert old[2]==new[2];assert old_dtype=='torch.float32' and new_dtype=='torch.bfloat16';assert old[1].dtype==torch.float32;equal(x,before);assert torch.isfinite(a).all();d['projection_cases'].append({'kind':label,'input_shape':list(x.shape),'input_contiguous':x.is_contiguous(),'scale_dtype':str(new[1].dtype),'exact_scales_fp8_bytes_and_output':True})
+                                                                                                                                                                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

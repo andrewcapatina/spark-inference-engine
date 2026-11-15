@@ -1,0 +1,8 @@
+{
+  "classification": "new_harness_fixture_failure_not_implementation",
+  "failed_run": "prefill-fp8-small-20261115T143039Z",
+  "observed_failure": "Exhaustive finite BF16 range with random projection violated added output-finiteness assertion; preceding exact output/FP8 bytes/scales checks passed. Large sums can exceed BF16/FP32 intermediate range.",
+  "fixture_fix": "Only exhaustive input-range test now uses identity FP8 weights with small fixed weight scale. Random projection/layout tests, exact comparators, finiteness assertion and all frozen acceptance tests unchanged.",
+  "engine_changes_during_recovery": false,
+  "initial_harness_snapshot": "Reconstructed from the one fixture substitution; not a launch-time snapshot. Failure log/trial retained verbatim."
+}

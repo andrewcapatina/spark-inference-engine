@@ -1,0 +1,1808 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Synthetic exact FP8 primitive/tiny-model tests only; no real-checkpoint validation",
+  "projection_cases": [
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        3,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        3,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        3,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        3,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        3,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        3,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        15,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        15,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        15,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        15,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        15,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        15,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        16,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        16,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        16,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        16,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        16,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        16,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        17,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        17,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        17,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        17,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        17,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        17,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        63,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        63,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        63,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        63,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        63,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        63,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        64,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        64,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        64,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        64,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        64,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        64,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        65,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        65,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        65,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        65,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        65,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        65,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        255,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        255,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        255,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        255,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        255,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        255,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        256,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        256,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        256,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        256,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        257,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        257,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        257,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        257,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        257,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        257,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1024,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1024,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1024,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1024,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1024,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1024,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        3,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        3,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        3,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        3,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        3,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        3,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        15,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        15,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        15,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        15,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        15,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        15,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        16,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        16,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        16,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        16,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        16,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        16,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        17,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        17,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        17,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        17,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        17,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        17,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        63,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        63,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        63,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        63,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        63,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        63,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        64,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        64,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        64,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        64,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        64,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        64,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        65,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        65,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        65,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        65,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        65,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        65,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        255,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        255,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        255,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        255,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        255,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        255,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        256,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        256,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        256,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        256,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        256,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        257,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        257,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        257,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        257,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        257,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        257,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1024,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1024,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1024,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        1,
+        1024,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1024,
+        256
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "random_padding_and_layout",
+      "input_shape": [
+        2,
+        1024,
+        256
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "all65280_finite_bf16_patterns",
+      "input_shape": [
+        510,
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "zero_subnormal_clamp_boundary_and_large",
+      "input_shape": [
+        10,
+        128
+      ],
+      "input_contiguous": false,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "vector_input",
+      "input_shape": [
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "vector_input",
+      "input_shape": [
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    },
+    {
+      "kind": "vector_input",
+      "input_shape": [
+        128
+      ],
+      "input_contiguous": true,
+      "scale_dtype": "torch.float32",
+      "exact_scales_fp8_bytes_and_output": true
+    }
+  ],
+  "model_cases": [
+    {
+      "batch": 1,
+      "prompt_tokens": 1,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 15,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 16,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 17,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 63,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 64,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 65,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 255,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 256,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 1,
+      "prompt_tokens": 257,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 1,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 15,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 16,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 17,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 63,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 64,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 65,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 255,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 256,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    },
+    {
+      "batch": 2,
+      "prompt_tokens": 257,
+      "prefill_next_decode_cache_and16_generated_ids_exact": true
+    }
+  ],
+  "isolated_timings": [
+    {
+      "input_tokens": 256,
+      "synthetic_real_projection_shape": [
+        10240,
+        5120
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms": 0.31516799330711365
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.35836800932884216
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.2887679934501648
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 0.35235199332237244
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 0.35702401399612427
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.2938559949398041
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.28486400842666626
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 0.3158400058746338
+        }
+      ],
+      "medians": {
+        "original": 0.3340959995985031,
+        "reuse": 0.29131199419498444
+      },
+      "speedup": 1.1468666112487012
+    },
+    {
+      "input_tokens": 1024,
+      "synthetic_real_projection_shape": [
+        10240,
+        5120
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms": 1.1108160018920898
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.8495039939880371
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.8537600040435791
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.120959997177124
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.120959997177124
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.8550080060958862
+        },
+        {
+          "backend": "reuse",
+          "cuda_ms": 0.8501759767532349
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.114527940750122
+        }
+      ],
+      "medians": {
+        "original": 1.117743968963623,
+        "reuse": 0.851967990398407
+      },
+      "speedup": 1.3119553569623323
+    }
+  ],
+  "finite_bf16_patterns_covered": 65280,
+  "unchanged_independent_fp8_and_quantized_loader_checks_passed": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 232783872,
+    "cuda_peak_reserved_bytes": 234881024,
+    "cuda_global_free_bytes": 62458990592,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 2269552640,
+    "VmRSS_bytes": 2269552640,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121702633472,
+    "SwapFree_bytes": 17179533312
+  }
+}

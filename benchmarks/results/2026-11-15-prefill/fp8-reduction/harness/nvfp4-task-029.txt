@@ -1,0 +1,30 @@
+Author ONLY the COMPLETE INDENTED FP8Linear.forward method below, same signature. Python source only, no Markdown/prose. At most TWO changed lines. You alone author engine implementation.
+
+Goal: faster prompt processing by avoiding a full-sized FP32 copy solely for finding row maxima. Current input is BF16. For finite BF16 values, abs and max select an exactly representable BF16 value; widening only the row maxima to FP32 therefore preserves the ORIGINAL FP32 row maximum exactly.
+
+Modify ONLY the scale_a expression: compute abs and rowwise amax on the original BF16 x2d, THEN convert the small amax result to FP32 BEFORE dividing by448.0 and BEFORE clamping to1e-6. Keep dim=-1, keepdim=True and all constants exactly. Do not perform BF16 division/clamping. Scale dtype MUST remain FP32. Quantized activation bytes, scales and GEMM output must remain EXACTLY identical to original. Input remains unchanged.
+
+Keep every assertion, flattening, x2d/scale_a quantization, contiguity,16-row padding, scale_b, torch._scaled_mm settings including use_fast_accum=True, output trimming/reshape unchanged. No other optimization, compiler/custom kernel, casting weight, state/cache change, dispatch flag or new helper/import. This projection is shared; preserve one-token and arbitrary prompt shapes, noncontiguous input and row-padding behavior. Main evaluation is large-prompt prefill latency and prompt tokens/sec, NOT output-token speed.
+
+Return complete existing method with only that precision-preserving reduction change:
+    def forward(self, x):
+        assert x.dtype == torch.bfloat16, "input must be bfloat16"
+        assert x.is_cuda, "input must be on CUDA"
+        assert x.shape[-1] == self.weight.shape[1], "K mismatch"
+        orig_shape = x.shape
+        x2d = x.reshape(-1, x.shape[-1])
+        M, K = x2d.shape
+        scale_a = torch.clamp(torch.amax(x2d.float().abs(), dim=-1, keepdim=True) / 448.0, min=1e-6)
+        x_q = (x2d / scale_a).to(torch.float8_e4m3fn)
+        if not x_q.is_contiguous():
+            x_q = x_q.contiguous()
+        pad = (16 - M % 16) % 16
+        if pad:
+            x_q = torch.nn.functional.pad(x_q, (0, 0, 0, pad))
+            scale_a = torch.nn.functional.pad(scale_a, (0, 0, 0, pad))
+        scale_b = self.weight_scale.t()
+        out = torch._scaled_mm(x_q, self.weight.t(), scale_a, scale_b,
+                               out_dtype=torch.bfloat16, use_fast_accum=True)
+        if pad:
+            out = out[:M]
+        return out.reshape(orig_shape[:-1] + (self.weight.shape[0],))
