@@ -71,6 +71,7 @@ class QwenAttention(nn.Module):
         cache_k, cache_v = cache
         k_full = torch.cat([cache_k, k], dim=2)
         v_full = torch.cat([cache_v, v], dim=2)
+        cache_out = (k_full, v_full)
         if self.num_groups > 1:
             k_full = k_full.repeat_interleave(self.num_groups, dim=1)
             v_full = v_full.repeat_interleave(self.num_groups, dim=1)
@@ -79,7 +80,7 @@ class QwenAttention(nn.Module):
         out = torch.matmul(attn, v_full).transpose(1, 2)
         out = out * torch.sigmoid(gate)
         out = out.reshape(bsz, seq, -1)
-        return self.o_proj(out), (torch.cat([cache_k, k], dim=2), torch.cat([cache_v, v], dim=2))
+        return self.o_proj(out), cache_out
 
     def forward(self, hidden, position_embeddings, attention_mask=None):
         bsz, seq, _ = hidden.shape
