@@ -1,0 +1,79 @@
+{
+  "status": "post_update_real_27b_heavy_trial_passed",
+  "run_directory": "/home/cap/spark-inference-overnight-20261113/runs/post-firmware-27b-heavy-20261115T000929Z",
+  "native_engine_commit": "18894a8",
+  "native_engine_unchanged": true,
+  "prompt_tokens": 1024,
+  "output_tokens": 128,
+  "warmups": 1,
+  "timed_repetitions": 3,
+  "separate_event_run": true,
+  "profiler": false,
+  "model_tokenizer_load_ms": 144052.676775,
+  "repetitions": 3,
+  "median_wall_ms": 31416.64075999995,
+  "min_wall_ms": 31409.25898299997,
+  "max_wall_ms": 31478.93108799997,
+  "median_generated_tokens_per_second": 4.074273916738137,
+  "peak_cuda_allocated_bytes": 55546993152,
+  "peak_cuda_reserved_bytes": 56346279936,
+  "repeated_outputs_match": true,
+  "first_token_cuda_ms": 1911.9510498046875,
+  "prefill_tokens_per_second_cuda": 535.6070165563233,
+  "decode_tokens_per_second_cuda": 4.3000206060288635,
+  "selected_tokens": 128,
+  "observed_decode_calls": 127,
+  "output_sha256": "85c78cdb4d3363161be19cd210a185eace53ab08397de97a8fc20e52c4023fce",
+  "prior_pre_update_native_output_matched": true,
+  "peak_cuda_allocated_including_load_gib": 52.46591377258301,
+  "minimum_host_available_gib": 46.563575744628906,
+  "max_new_swap_bytes": 0,
+  "max_gpu_temperature_c": 81.0,
+  "max_reported_thermal_zone_c": 88.4,
+  "max_gpu_power_w": 85.91,
+  "health_samples": 124,
+  "released_allocation_bytes": 8519680,
+  "released_reservation_bytes": 20971520,
+  "gpu_after_worker": {
+    "free_bytes": 88077570048,
+    "total_bytes": 130661003264,
+    "allocated_bytes": 0,
+    "reserved_bytes": 0
+  },
+  "container_after": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "container_stop_seconds": 0.11388173299997106,
+  "host_available_before_gib": 115.35092544555664,
+  "host_available_after_gib": 115.18766403198242,
+  "same_boot": true,
+  "firmware_after": [
+    {
+      "Name": "Embedded Controller",
+      "Vendor": "NVIDIA",
+      "Version": "0x03000d07",
+      "VersionFormat": "hex"
+    },
+    {
+      "Name": "UEFI Device Firmware",
+      "Vendor": "NVIDIA",
+      "Version": "0x02009e0f",
+      "VersionFormat": "hex"
+    },
+    {
+      "Name": "UEFI Device Firmware",
+      "Vendor": "NVIDIA",
+      "Version": "0x00000519",
+      "VersionFormat": "hex"
+    }
+  ],
+  "kernel_after": "7.0.0-1025-nvidia",
+  "driver_after": "580.178.04",
+  "general_gpu_hold_retained": true,
+  "prior_shutdown_cause": "unproven",
+  "long_session_stability_validated": false,
+  "kernel_review": "No OOM, Xid or thermal fault in trial-window kernel journal; ordinary container networking and DMA messages only"
+}

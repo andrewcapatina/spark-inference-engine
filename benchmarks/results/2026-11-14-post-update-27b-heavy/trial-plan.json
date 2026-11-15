@@ -1,0 +1,52 @@
+{
+  "user_requested_direct_heavy_trial": true,
+  "prompt_tokens": 1024,
+  "new_tokens": 128,
+  "warmups": 1,
+  "timed_repetitions": 3,
+  "separate_cuda_event_run": true,
+  "profiler": false,
+  "model": "27B GGUF only",
+  "cuda_cap_gib": 56,
+  "host_floor_gib": 32,
+  "swap_growth_limit_mib": 256,
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "firmware_after": [
+    {
+      "Name": "Embedded Controller",
+      "Vendor": "NVIDIA",
+      "Version": "0x03000d07",
+      "VersionFormat": "hex"
+    },
+    {
+      "Name": "UEFI Device Firmware",
+      "Vendor": "NVIDIA",
+      "Version": "0x02009e0f",
+      "VersionFormat": "hex"
+    },
+    {
+      "Name": "UEFI Device Firmware",
+      "Vendor": "NVIDIA",
+      "Version": "0x00000519",
+      "VersionFormat": "hex"
+    }
+  ],
+  "kernel_after": "7.0.0-1025-nvidia",
+  "nvidia_module_after": "NVRM version: NVIDIA UNIX Open Kernel Module for aarch64  580.178.04  Release Build  (dvs-builder@U22-I3-G08-04-4)  Tue Jul  7 13:36:23 UTC 2026",
+  "previous_failed_trial": "/home/cap/spark-inference-overnight-20261113/runs/clean-27b-large-20261114T232636Z",
+  "engine_sha256": {
+    "spark_engine/qwen_layers.py": "484a651acb05b93fd7b72b13c775d6ceb416733f86ed2780fd92ebb4e88d52e5",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "3bdeec109ac01966a5f0909729d9af206675423163bc860c689d503287121001",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "db96f15ee0f06835345756054332134fa0c54df907221b99638ac4455cbe314c",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_model.py": "bcc62436118d81897bf6b6924028fea605c174637aee9a788792ab3d0b3a5762"
+  },
+  "measurement_sha256": "1f4252ced839d889ef56ec4db64f3318bf4026bbbfbd80e19a8fab3718f54d21",
+  "general_and_legacy_large_holds_retained": true
+}

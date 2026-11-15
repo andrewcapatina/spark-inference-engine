@@ -87,3 +87,7 @@ Separate one-model trials used 256 raw prompt tokens, 8 output tokens, 1 warmup 
 ## Latest larger-workload result
 
 The isolated 27B 256-prompt/128-output stage passed three timed repetitions (median 29.799 s) and verified clean teardown. The fresh 1024-prompt/128-output stage completed warmup and one 31.800 s timed reply, then the host powered off spontaneously just after the next repetition began. The user confirms original NVIDIA adapter/cable. One model, no profiler, clean stage boundaries and recovered headroom did not prevent the failure. Larger work is held; no complete baseline or blanket speedup is claimed. See [third-crash evidence](benchmarks/results/2026-11-14-larger-27b-third-crash/README.md).
+
+## Post-update heavy-workload repeat
+
+The actual 27B 1024-prompt/128-output trial passed three timed repetitions plus warmup, separate CUDA-event observation and verified clean teardown after the user applied the Dashboard update. Median 31.417 s / 4.074 output tokens/s including prefill; no swap growth or reboot. Native implementation remained unchanged. Firmware and kernel both changed; one successful trial does not prove the earlier power-off fixed or establish an optimization speedup. See [complete evidence and limits](benchmarks/results/2026-11-14-post-update-27b-heavy/README.md).
