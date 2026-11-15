@@ -157,8 +157,8 @@ class QwenGatedDeltaNet(nn.Module):
 
     def prefill(self, hidden):
         bsz, seq, _ = hidden.shape
-        mixed = self.in_proj_qkv(hidden).transpose(1, 2)
-        mixed = F.silu(self.conv1d(mixed)[:, :, :seq]).transpose(1, 2)
+        raw = self.in_proj_qkv(hidden).transpose(1, 2)
+        mixed = F.silu(self.conv1d(raw)[:, :, :seq]).transpose(1, 2)
         q, k, v = torch.split(mixed, [self.key_dim, self.key_dim, self.value_dim], dim=-1)
         q = q.view(bsz, seq, self.num_k_heads, self.k_dim)
         k = k.view(bsz, seq, self.num_k_heads, self.k_dim)
@@ -176,7 +176,6 @@ class QwenGatedDeltaNet(nn.Module):
         out = self.norm(out, z)
         out = out.view(bsz, seq, -1)
         out = self.out_proj(out)
-        raw = self.in_proj_qkv(hidden).transpose(1, 2)
         conv_state = torch.zeros(bsz, self.conv_dim, self.conv_kernel, device=hidden.device, dtype=hidden.dtype)
         if seq >= self.conv_kernel:
             conv_state = raw[:, :, -self.conv_kernel:]
