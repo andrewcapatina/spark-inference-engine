@@ -27,7 +27,8 @@ class NativeQwenText:
         device = next(self.engine.parameters()).device
         ids = self.tokenizer.apply_chat_template(
             messages, tokenize=True, return_tensors="pt",
-            add_generation_prompt=True, enable_thinking=False
+            add_generation_prompt=True, enable_thinking=False,
+            return_dict=False
         )
         input_ids = ids.to(device)
         with torch.inference_mode():
