@@ -111,6 +111,23 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         state = torch.zeros((bsz, nvh, k.shape[-1], v.shape[-1]), dtype=torch.float32, device=v.device)
     else:
         state = initial_state.to(v.device, dtype=torch.float32)
+    prepare_keys = None
+    if (eligible and n_chunks > 0 and nvh > 0 and k.shape[-1] > 0
+            and k.shape[:2] == (bsz, nvh) and beta.shape == g.shape == k.shape[:-1]
+            and k.device == beta.device == g.device and k.stride(-1) == 1
+            and ((k.stride(1) == k.shape[-1] and k.stride(2) == nvh * k.shape[-1])
+                 or (k.stride(2) == k.shape[-1] and k.stride(1) >= padded_time * k.shape[-1]))
+            and k.numel() <= 2147483647
+            and all(all(s >= 0 for s in x.stride()) and
+                    sum(max(0, n - 1) * s for n, s in zip(x.shape, x.stride())) <= 2147483647
+                    for x in (k, beta))):
+        try:
+            from spark_engine.qwen_key_prepare import _make_key_preparer
+        except ModuleNotFoundError as e:
+            if e.name is None or (e.name != "triton" and not e.name.startswith("triton.")):
+                raise
+        else:
+            prepare_keys = _make_key_preparer(k, beta, chunk_size)
     for c in range(n_chunks):
         start = c * chunk_size
         end = start + chunk_size
@@ -128,14 +145,20 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
         pairwise_decay = pairwise_decay.masked_fill(mask == 0, float('-inf'))
         pairwise_decay = pairwise_decay.exp()
         # Auxiliary system: K^T Q with decay
-        ut_system = (k_c * beta_c.unsqueeze(-1)) @ k_c.transpose(-2, -1) * pairwise_decay
+        if prepare_keys is None:
+            ut_system = (k_c * beta_c.unsqueeze(-1)) @ k_c.transpose(-2, -1) * pairwise_decay
+        else:
+            weighted_k, decayed_k = prepare_keys(k_c, beta_c, cum_decay_c.exp())
+            ut_system = weighted_k @ k_c.transpose(-2, -1) * pairwise_decay
+            del weighted_k
         # Intra-chunk attention: Q K^T with decay
         intra_chunk_attn = q_c @ k_c.transpose(-2, -1) * pairwise_decay
         # Solve auxiliary system (unitriangular)
         # v_new = solve(ut_system, v_c * beta_c)
         # k_cumdecay = solve(ut_system, k_c * cum_decay.exp())
         v_beta = v_c * beta_c.unsqueeze(-1)
-        decayed_k = (k_c * beta_c.unsqueeze(-1)) * cum_decay_c.exp().unsqueeze(-1)
+        if prepare_keys is None:
+            decayed_k = (k_c * beta_c.unsqueeze(-1)) * cum_decay_c.exp().unsqueeze(-1)
         # Use torch.linalg.solve_triangular for unitriangular system
         v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
         k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
