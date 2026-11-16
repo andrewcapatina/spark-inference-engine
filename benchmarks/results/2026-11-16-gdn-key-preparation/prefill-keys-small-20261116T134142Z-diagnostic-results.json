@@ -1,0 +1,5744 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Standalone original-layout FP32 key products, not checkpoint validation",
+  "cases": [
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          786432,
+          128,
+          6144,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          786432,
+          16384,
+          128,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          6144,
+          1,
+          48,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3072,
+          1,
+          48,
+          1
+        ],
+        [
+          3072,
+          1,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3072,
+          1,
+          48,
+          1
+        ],
+        [
+          3072,
+          1,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          6144,
+          128,
+          1,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3072,
+          64,
+          1,
+          1
+        ],
+        [
+          3072,
+          64,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3072,
+          64,
+          1,
+          1
+        ],
+        [
+          3072,
+          64,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          98304,
+          16,
+          768,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          49152,
+          16,
+          768,
+          1
+        ],
+        [
+          49152,
+          16,
+          768,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          49152,
+          16,
+          768,
+          1
+        ],
+        [
+          49152,
+          16,
+          768,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          98304,
+          2048,
+          16,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          49152,
+          1024,
+          16,
+          1
+        ],
+        [
+          49152,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          49152,
+          1024,
+          16,
+          1
+        ],
+        [
+          49152,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          792576,
+          129,
+          6192,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          396288,
+          129,
+          6192,
+          1
+        ],
+        [
+          396288,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          396288,
+          129,
+          6192,
+          1
+        ],
+        [
+          396288,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          792576,
+          16512,
+          129,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          396288,
+          8256,
+          129,
+          1
+        ],
+        [
+          396288,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          396288,
+          8256,
+          129,
+          1
+        ],
+        [
+          396288,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          12288,
+          128,
+          6144,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          6144,
+          128,
+          6144,
+          1
+        ],
+        [
+          6144,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          6144,
+          128,
+          6144,
+          1
+        ],
+        [
+          6144,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          12288,
+          256,
+          128,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          6144,
+          128,
+          128,
+          1
+        ],
+        [
+          6144,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          6144,
+          128,
+          128,
+          1
+        ],
+        [
+          6144,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          96,
+          1,
+          48,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          1,
+          48,
+          1
+        ],
+        [
+          48,
+          1,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          1,
+          48,
+          1
+        ],
+        [
+          48,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          96,
+          2,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          48,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          48,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          1536,
+          16,
+          768,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          768,
+          16,
+          768,
+          1
+        ],
+        [
+          768,
+          16,
+          768,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          768,
+          16,
+          768,
+          1
+        ],
+        [
+          768,
+          16,
+          768,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          1536,
+          32,
+          16,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          768,
+          16,
+          16,
+          1
+        ],
+        [
+          768,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          768,
+          16,
+          16,
+          1
+        ],
+        [
+          768,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          12384,
+          129,
+          6192,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          6192,
+          129,
+          6192,
+          1
+        ],
+        [
+          6192,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          6192,
+          129,
+          6192,
+          1
+        ],
+        [
+          6192,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          12384,
+          258,
+          129,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          6192,
+          129,
+          129,
+          1
+        ],
+        [
+          6192,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          6192,
+          129,
+          129,
+          1
+        ],
+        [
+          6192,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          36864,
+          128,
+          6144,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          18432,
+          128,
+          6144,
+          1
+        ],
+        [
+          18432,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          18432,
+          128,
+          6144,
+          1
+        ],
+        [
+          18432,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          36864,
+          768,
+          128,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          18432,
+          384,
+          128,
+          1
+        ],
+        [
+          18432,
+          384,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          18432,
+          384,
+          128,
+          1
+        ],
+        [
+          18432,
+          384,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          288,
+          1,
+          48,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          144,
+          1,
+          48,
+          1
+        ],
+        [
+          144,
+          1,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          144,
+          1,
+          48,
+          1
+        ],
+        [
+          144,
+          1,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          288,
+          6,
+          1,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          144,
+          3,
+          1,
+          1
+        ],
+        [
+          144,
+          3,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          144,
+          3,
+          1,
+          1
+        ],
+        [
+          144,
+          3,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          4608,
+          16,
+          768,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          2304,
+          16,
+          768,
+          1
+        ],
+        [
+          2304,
+          16,
+          768,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          2304,
+          16,
+          768,
+          1
+        ],
+        [
+          2304,
+          16,
+          768,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          4608,
+          96,
+          16,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          2304,
+          48,
+          16,
+          1
+        ],
+        [
+          2304,
+          48,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          2304,
+          48,
+          16,
+          1
+        ],
+        [
+          2304,
+          48,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          37152,
+          129,
+          6192,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          18576,
+          129,
+          6192,
+          1
+        ],
+        [
+          18576,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          18576,
+          129,
+          6192,
+          1
+        ],
+        [
+          18576,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          37152,
+          774,
+          129,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          18576,
+          387,
+          129,
+          1
+        ],
+        [
+          18576,
+          387,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          18576,
+          387,
+          129,
+          1
+        ],
+        [
+          18576,
+          387,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          798720,
+          128,
+          6144,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          399360,
+          128,
+          6144,
+          1
+        ],
+        [
+          399360,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          399360,
+          128,
+          6144,
+          1
+        ],
+        [
+          399360,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          798720,
+          16640,
+          128,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          399360,
+          8320,
+          128,
+          1
+        ],
+        [
+          399360,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          399360,
+          8320,
+          128,
+          1
+        ],
+        [
+          399360,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          6240,
+          1,
+          48,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3120,
+          1,
+          48,
+          1
+        ],
+        [
+          3120,
+          1,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3120,
+          1,
+          48,
+          1
+        ],
+        [
+          3120,
+          1,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          6240,
+          130,
+          1,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3120,
+          65,
+          1,
+          1
+        ],
+        [
+          3120,
+          65,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3120,
+          65,
+          1,
+          1
+        ],
+        [
+          3120,
+          65,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          99840,
+          16,
+          768,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          49920,
+          16,
+          768,
+          1
+        ],
+        [
+          49920,
+          16,
+          768,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          49920,
+          16,
+          768,
+          1
+        ],
+        [
+          49920,
+          16,
+          768,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          99840,
+          2080,
+          16,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          49920,
+          1040,
+          16,
+          1
+        ],
+        [
+          49920,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          49920,
+          1040,
+          16,
+          1
+        ],
+        [
+          49920,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          804960,
+          129,
+          6192,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          402480,
+          129,
+          6192,
+          1
+        ],
+        [
+          402480,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          402480,
+          129,
+          6192,
+          1
+        ],
+        [
+          402480,
+          129,
+          6192,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          804960,
+          16770,
+          129,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          402480,
+          8385,
+          129,
+          1
+        ],
+        [
+          402480,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          402480,
+          8385,
+          129,
+          1
+        ],
+        [
+          402480,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          16384,
+          128,
+          128,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8192,
+          128,
+          128,
+          1
+        ],
+        [
+          8192,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8192,
+          128,
+          128,
+          1
+        ],
+        [
+          8192,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          16384,
+          16384,
+          128,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          8192,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          8192,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          128,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          64,
+          1,
+          1,
+          1
+        ],
+        [
+          64,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          64,
+          1,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          1,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          2048,
+          16,
+          16,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1024,
+          16,
+          16,
+          1
+        ],
+        [
+          1024,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1024,
+          16,
+          16,
+          1
+        ],
+        [
+          1024,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          2048,
+          2048,
+          16,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1024,
+          1024,
+          16,
+          1
+        ],
+        [
+          1024,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1024,
+          1024,
+          16,
+          1
+        ],
+        [
+          1024,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          16512,
+          129,
+          129,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8256,
+          129,
+          129,
+          1
+        ],
+        [
+          8256,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8256,
+          129,
+          129,
+          1
+        ],
+        [
+          8256,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          16512,
+          16512,
+          129,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8256,
+          8256,
+          129,
+          1
+        ],
+        [
+          8256,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8256,
+          8256,
+          129,
+          1
+        ],
+        [
+          8256,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          256,
+          128,
+          128,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          256,
+          256,
+          128,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          32,
+          16,
+          16,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          16,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          16,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          32,
+          32,
+          16,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          16,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          16,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          258,
+          129,
+          129,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          258,
+          258,
+          129,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          128,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          768,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          384,
+          384,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          384,
+          384,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          1,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          6,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          96,
+          16,
+          16,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          48,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          48,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          96,
+          96,
+          16,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          48,
+          16,
+          1
+        ],
+        [
+          48,
+          48,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          48,
+          16,
+          1
+        ],
+        [
+          48,
+          48,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          774,
+          129,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          774,
+          774,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          387,
+          387,
+          129,
+          1
+        ],
+        [
+          387,
+          387,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          387,
+          387,
+          129,
+          1
+        ],
+        [
+          387,
+          387,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          16640,
+          128,
+          128,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8320,
+          128,
+          128,
+          1
+        ],
+        [
+          8320,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8320,
+          128,
+          128,
+          1
+        ],
+        [
+          8320,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          16640,
+          16640,
+          128,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          8320,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          8320,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          130,
+          1,
+          1,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          65,
+          1,
+          1,
+          1
+        ],
+        [
+          65,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          65,
+          1,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          130,
+          130,
+          1,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          2080,
+          16,
+          16,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1040,
+          16,
+          16,
+          1
+        ],
+        [
+          1040,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1040,
+          16,
+          16,
+          1
+        ],
+        [
+          1040,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          2080,
+          2080,
+          16,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1040,
+          1040,
+          16,
+          1
+        ],
+        [
+          1040,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1040,
+          1040,
+          16,
+          1
+        ],
+        [
+          1040,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          16770,
+          129,
+          129,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8385,
+          129,
+          129,
+          1
+        ],
+        [
+          8385,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8385,
+          129,
+          129,
+          1
+        ],
+        [
+          8385,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          16770,
+          16770,
+          129,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          8385,
+          8385,
+          129,
+          1
+        ],
+        [
+          8385,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          8385,
+          8385,
+          129,
+          1
+        ],
+        [
+          8385,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          49152,
+          128,
+          384,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24576,
+          128,
+          384,
+          1
+        ],
+        [
+          24576,
+          128,
+          384,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24576,
+          128,
+          384,
+          1
+        ],
+        [
+          24576,
+          128,
+          384,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          49152,
+          16384,
+          128,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          24576,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          24576,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          384,
+          1,
+          3,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          192,
+          1,
+          3,
+          1
+        ],
+        [
+          192,
+          1,
+          3,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          192,
+          1,
+          3,
+          1
+        ],
+        [
+          192,
+          1,
+          3,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          1,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          192,
+          64,
+          1,
+          1
+        ],
+        [
+          192,
+          64,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          192,
+          64,
+          1,
+          1
+        ],
+        [
+          192,
+          64,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          6144,
+          16,
+          48,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3072,
+          16,
+          48,
+          1
+        ],
+        [
+          3072,
+          16,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3072,
+          16,
+          48,
+          1
+        ],
+        [
+          3072,
+          16,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "input_strides": [
+        [
+          6144,
+          2048,
+          16,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          3072,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          3072,
+          1024,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          49536,
+          129,
+          387,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24768,
+          129,
+          387,
+          1
+        ],
+        [
+          24768,
+          129,
+          387,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24768,
+          129,
+          387,
+          1
+        ],
+        [
+          24768,
+          129,
+          387,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          49536,
+          16512,
+          129,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24768,
+          8256,
+          129,
+          1
+        ],
+        [
+          24768,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24768,
+          8256,
+          129,
+          1
+        ],
+        [
+          24768,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          128,
+          384,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          384,
+          128,
+          384,
+          1
+        ],
+        [
+          384,
+          128,
+          384,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          384,
+          128,
+          384,
+          1
+        ],
+        [
+          384,
+          128,
+          384,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          256,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          1,
+          3,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          3,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          2,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          96,
+          16,
+          48,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          16,
+          48,
+          1
+        ],
+        [
+          48,
+          16,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          16,
+          48,
+          1
+        ],
+        [
+          48,
+          16,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "input_strides": [
+        [
+          96,
+          32,
+          16,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          48,
+          16,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          48,
+          16,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          774,
+          129,
+          387,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          387,
+          129,
+          387,
+          1
+        ],
+        [
+          387,
+          129,
+          387,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          387,
+          129,
+          387,
+          1
+        ],
+        [
+          387,
+          129,
+          387,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          774,
+          258,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          2304,
+          128,
+          384,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1152,
+          128,
+          384,
+          1
+        ],
+        [
+          1152,
+          128,
+          384,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1152,
+          128,
+          384,
+          1
+        ],
+        [
+          1152,
+          128,
+          384,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          2304,
+          768,
+          128,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1152,
+          384,
+          128,
+          1
+        ],
+        [
+          1152,
+          384,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1152,
+          384,
+          128,
+          1
+        ],
+        [
+          1152,
+          384,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          18,
+          1,
+          3,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          9,
+          1,
+          3,
+          1
+        ],
+        [
+          9,
+          1,
+          3,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          9,
+          1,
+          3,
+          1
+        ],
+        [
+          9,
+          1,
+          3,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          18,
+          6,
+          1,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          9,
+          3,
+          1,
+          1
+        ],
+        [
+          9,
+          3,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          9,
+          3,
+          1,
+          1
+        ],
+        [
+          9,
+          3,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          288,
+          16,
+          48,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          144,
+          16,
+          48,
+          1
+        ],
+        [
+          144,
+          16,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          144,
+          16,
+          48,
+          1
+        ],
+        [
+          144,
+          16,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "input_strides": [
+        [
+          288,
+          96,
+          16,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          144,
+          48,
+          16,
+          1
+        ],
+        [
+          144,
+          48,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          144,
+          48,
+          16,
+          1
+        ],
+        [
+          144,
+          48,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          2322,
+          129,
+          387,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1161,
+          129,
+          387,
+          1
+        ],
+        [
+          1161,
+          129,
+          387,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1161,
+          129,
+          387,
+          1
+        ],
+        [
+          1161,
+          129,
+          387,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          2322,
+          774,
+          129,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          3,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          1161,
+          387,
+          129,
+          1
+        ],
+        [
+          1161,
+          387,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          1161,
+          387,
+          129,
+          1
+        ],
+        [
+          1161,
+          387,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          49920,
+          128,
+          384,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24960,
+          128,
+          384,
+          1
+        ],
+        [
+          24960,
+          128,
+          384,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24960,
+          128,
+          384,
+          1
+        ],
+        [
+          24960,
+          128,
+          384,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          49920,
+          16640,
+          128,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          24960,
+          8320,
+          128,
+          1
+        ],
+        [
+          24960,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          24960,
+          8320,
+          128,
+          1
+        ],
+        [
+          24960,
+          8320,
+          128,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          390,
+          1,
+          3,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          195,
+          1,
+          3,
+          1
+        ],
+        [
+          195,
+          1,
+          3,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          195,
+          1,
+          3,
+          1
+        ],
+        [
+          195,
+          1,
+          3,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          390,
+          130,
+          1,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          195,
+          65,
+          1,
+          1
+        ],
+        [
+          195,
+          65,
+          1,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          195,
+          65,
+          1,
+          1
+        ],
+        [
+          195,
+          65,
+          1,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          6240,
+          16,
+          48,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3120,
+          16,
+          48,
+          1
+        ],
+        [
+          3120,
+          16,
+          48,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3120,
+          16,
+          48,
+          1
+        ],
+        [
+          3120,
+          16,
+          48,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "input_strides": [
+        [
+          6240,
+          2080,
+          16,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          3120,
+          1040,
+          16,
+          1
+        ],
+        [
+          3120,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          3120,
+          1040,
+          16,
+          1
+        ],
+        [
+          3120,
+          1040,
+          16,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "time_major",
+      "shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          50310,
+          129,
+          387,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          25155,
+          129,
+          387,
+          1
+        ],
+        [
+          25155,
+          129,
+          387,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          25155,
+          129,
+          387,
+          1
+        ],
+        [
+          25155,
+          129,
+          387,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "head_major",
+      "shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          50310,
+          16770,
+          129,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          65,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          25155,
+          8385,
+          129,
+          1
+        ],
+        [
+          25155,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          25155,
+          8385,
+          129,
+          1
+        ],
+        [
+          25155,
+          8385,
+          129,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "finite_extremes_signedzero_subnormal",
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "finite_extremes_signedzero_subnormal",
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "ordered_rounding",
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          3072,
+          64,
+          1
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "broadcast_beta_and_decay",
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          3072,
+          0,
+          0
+        ],
+        [
+          3072,
+          0,
+          0
+        ]
+      ],
+      "output_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    },
+    {
+      "label": "empty_batch",
+      "shape": [
+        0,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          3072,
+          64,
+          1
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "output_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "reference_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "bitwise_and_layout_and_ownership_exact": true
+    }
+  ],
+  "timings": [
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.01334999967366457
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.019133999943733215
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.018672000616788864
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.013445000164210796
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.013069000095129013
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.01886500045657158
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.018623000010848045
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.013125999830663204
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.013003000058233738
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.01868399977684021
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.018689999356865883
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.01255900040268898
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.012559999711811543
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.018727999180555344
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_prepare": 0.018658999353647232
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_prepare": 0.01256799977272749
+    }
+  ],
+  "invalid_cases": [
+    "cpu",
+    "dtype",
+    "rank",
+    "prefix",
+    "unsupported_stride",
+    "int32_output_limit"
+  ],
+  "first_use_seconds": 0.7977356140036136,
+  "reassociation_counterexample_elements": 139017,
+  "median_cuda_ms": {
+    "original": 0.013036000076681376,
+    "candidate": 0.018686999566853046
+  },
+  "outside_inference_mode_rejected": true
+}

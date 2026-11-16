@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "fixture_sha256": "5170bcf6995600233f8f207c0137d1c0768de5a552eaae890b1a73e50af32803",
+  "source": "previously accepted value-cast benchmark/profile, frozen before this candidate",
+  "expanded_trial_prompts_and_all128ids_match": true,
+  "engine_reads_fixture": false
+}

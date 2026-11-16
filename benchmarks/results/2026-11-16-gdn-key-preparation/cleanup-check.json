@@ -1,0 +1,198 @@
+{
+  "status": "clean",
+  "containers": {
+    "spark-prototype-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-model": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-vllm-nvfp4": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    },
+    "spark-prototype-quant-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false
+    }
+  },
+  "service_main_pid": 0,
+  "gpu_compute_processes": "",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "same_boot": true,
+  "holds_retained": {
+    "STOP": true,
+    "GPU_WORKLOAD_HOLD": true,
+    "LARGE_WORKLOAD_HOLD": true
+  },
+  "stages": [
+    {
+      "run": "prefill-keys-ab-20261116T135110Z",
+      "status": "failed",
+      "error": {
+        "type": "AssertionError",
+        "message": "Worker failed; inspect retained log"
+      }
+    },
+    {
+      "run": "prefill-keys-ab-20261116T140529Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-ab-20261116T141509Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-diagnostic-20261116T135723Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-integration-20261116T134849Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-integration-20261116T141141Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-integration-20261116T142539Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-layout-20261116T135015Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-pack-20261116T142312Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-small-20261116T134006Z",
+      "status": "failed",
+      "error": {
+        "type": "AssertionError",
+        "message": "Worker failed; inspect retained log"
+      }
+    },
+    {
+      "run": "prefill-keys-small-20261116T134142Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-small-20261116T134322Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-small-20261116T134801Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-variants-20261116T134528Z",
+      "status": "complete",
+      "error": null
+    },
+    {
+      "run": "prefill-keys-variants-20261116T134650Z",
+      "status": "complete",
+      "error": null
+    }
+  ],
+  "telemetry": [
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-ab-20261116T135110Z/host-memory.jsonl",
+      "min_available_bytes": 77773271040,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-ab-20261116T140529Z/host-memory.jsonl",
+      "min_available_bytes": 77121359872,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-ab-20261116T141509Z/host-memory.jsonl",
+      "min_available_bytes": 77099114496,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-diagnostic-20261116T135723Z/host-memory.jsonl",
+      "min_available_bytes": 77377196032,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-integration-20261116T134849Z/host-memory.jsonl",
+      "min_available_bytes": 120899551232,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-integration-20261116T141141Z/host-memory.jsonl",
+      "min_available_bytes": 120983597056,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-integration-20261116T142539Z/host-memory.jsonl",
+      "min_available_bytes": 120894361600,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-layout-20261116T135015Z/host-memory.jsonl",
+      "min_available_bytes": 122074546176,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-pack-20261116T142312Z/host-memory.jsonl",
+      "min_available_bytes": 123181813760,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-small-20261116T134006Z/host-memory.jsonl",
+      "min_available_bytes": 123341107200,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-small-20261116T134142Z/host-memory.jsonl",
+      "min_available_bytes": 123140542464,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-small-20261116T134322Z/host-memory.jsonl",
+      "min_available_bytes": 123111317504,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-small-20261116T134801Z/host-memory.jsonl",
+      "min_available_bytes": 123085156352,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-variants-20261116T134528Z/host-memory.jsonl",
+      "min_available_bytes": 123150090240,
+      "max_new_swap_bytes": 0
+    },
+    {
+      "file": "/home/cap/spark-inference-overnight-20261113/runs/prefill-keys-variants-20261116T134650Z/host-memory.jsonl",
+      "min_available_bytes": 123162898432,
+      "max_new_swap_bytes": 0
+    }
+  ]
+}

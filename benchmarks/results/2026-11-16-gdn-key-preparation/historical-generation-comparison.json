@@ -1,0 +1,311 @@
+{
+  "scope": "Saved256-token A/B generations; prompts compared by original sharedbenchmarkdefinition, no newGPUwork",
+  "rows": [
+    {
+      "run": "prefill-fp8-ab-20261115T143700Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-fp8-ab-20261115T143700Z",
+      "backend": "reuse",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-gated-ab-20261116T033601Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-gated-ab-20261116T033601Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-gdn-ab-20261115T140936Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-gdn-ab-20261115T140936Z",
+      "backend": "reuse",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-keys-ab-20261116T135110Z",
+      "backend": "original",
+      "matches_failed_baseline": true,
+      "matches_failed_candidate": false,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        78326,
+        271,
+        8160
+      ],
+      "sha": "025628504219"
+    },
+    {
+      "run": "prefill-norm-ab-20261115T174126Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-norm-ab-20261115T174126Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-solve-ab-20261116T052902Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-solve-ab-20261116T052902Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-solve-ab-20261116T052902Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-solve-ab-20261116T052902Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-state-ab-20261116T043441Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-value-ab-20261116T063623Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-value-ab-20261116T063623Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-value-ab-20261116T063623Z",
+      "backend": "original",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    },
+    {
+      "run": "prefill-value-ab-20261116T063623Z",
+      "backend": "candidate",
+      "matches_failed_baseline": false,
+      "matches_failed_candidate": true,
+      "prefix": [
+        11,
+        33633,
+        11,
+        321,
+        2708,
+        9989,
+        13,
+        198
+      ],
+      "sha": "79b306415024"
+    }
+  ]
+}

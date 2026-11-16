@@ -1,10 +1,14 @@
 # Qwen support: implementation workflow
 
 Current user-authorized exception (2026-11-16 UTC): Codex may directly implement
-and debug the focused GDN independent-chunk batching optimization. The user
+and debug the focused GDN optimizations, including existing-layout fused key
+preparation following the rejected independent-chunk batching experiment. The user
 approved this after explicitly discussing the earlier local-model-only rule.
 This exception does not relax correctness, scope, isolation or rollback rules.
-The experiment completed without adoption; accepted engine3139a9b is restored.
+Batching completed without adoption; engine3139a9b is the accepted baseline.
+The fused-key follow-up also completed without adoption: its full-model warm
+gain was too small for the added complexity. Retained prototypes and baseline
+generation-variation evidence are documented in LOCAL_MODEL_HANDOFF.md.
 Read LOCAL_MODEL_HANDOFF.md before resuming local-model tasks. Historical work
 below used the local-model-only workflow; that remains the default outside this
 authorized work package.

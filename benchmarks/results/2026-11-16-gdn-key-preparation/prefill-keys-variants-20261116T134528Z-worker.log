@@ -1,0 +1,7 @@
+torch_three_products {'median_eager_cuda_ms': 0.012747999746352434, 'median_graph_cuda_ms': 0.01005600020289421}
+checked_helper {'median_eager_cuda_ms': 0.01820250041782856, 'median_graph_cuda_ms': 0.004113500006496906}
+kernel_block128 {'median_eager_cuda_ms': 0.009356999769806862, 'median_graph_cuda_ms': 0.00437349989078939}
+kernel_block256 {'median_eager_cuda_ms': 0.009347000159323215, 'median_graph_cuda_ms': 0.004246999975293875}
+kernel_block512 {'median_eager_cuda_ms': 0.009368500206619501, 'median_graph_cuda_ms': 0.004115500021725893}
+kernel_block1024 {'median_eager_cuda_ms': 0.009361500386148691, 'median_graph_cuda_ms': 0.004400500096380711}
+kernel_block2048 {'median_eager_cuda_ms': 0.009283499792218208, 'median_graph_cuda_ms': 0.004313499899581075}

@@ -1,0 +1,10 @@
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:59] profiler_stop
+{"length": 256, "medians": {"original": 1.6319519877433777, "candidate": 1.6055840253829956}}
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:59] profiler_stop
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-11-16 13:50:51 92:92 SyncActivityProfilerHandler.cpp:59] profiler_stop
+{"length": 1024, "medians": {"original": 7.664463996887207, "candidate": 7.264703989028931}}

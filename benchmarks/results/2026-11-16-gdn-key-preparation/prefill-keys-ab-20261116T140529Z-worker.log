@@ -1,0 +1,6 @@
+PREFILL_KEYS_AB_MODEL_LOADED
+/workspace/spark_engine/qwen_nvfp4.py:42: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  alpha = torch.tensor(1.0 / (self.input_global_scale * self.weight_global_scale),
+{"prompt_tokens": 256, "prefill": {"original": {"median_prefill_cuda_ms": 258.4722442626953, "median_prefill_wall_ms": 258.4886050026398, "prompt_tokens_per_second_cuda": 990.4351654091622}, "candidate": {"median_prefill_cuda_ms": 256.86183166503906, "median_prefill_wall_ms": 256.87776299309917, "prompt_tokens_per_second_cuda": 996.644765555659}}, "less_prefill_time_pct": 0.6230504951315163, "generation_ids_exact": true}
+{"prompt_tokens": 1024, "prefill": {"original": {"median_prefill_cuda_ms": 1012.8279113769531, "median_prefill_wall_ms": 1012.8502334846416, "prompt_tokens_per_second_cuda": 1011.0305892023239}, "candidate": {"median_prefill_cuda_ms": 1004.3687438964844, "median_prefill_wall_ms": 1004.3918620067416, "prompt_tokens_per_second_cuda": 1019.5458652241163}}, "less_prefill_time_pct": 0.8352028400331557, "generation_ids_exact": true}
+PREFILL_KEYS_AB_COMPLETE

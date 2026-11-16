@@ -1,0 +1,66 @@
+"""Exact pointwise GDN key preparation without RHS packing or solve changes."""
+import torch
+import triton
+import triton.language as tl
+
+
+@triton.jit
+def _key_prepare(k, beta, decay, weighted, decayed, total,
+                 ks, bs, es, H: tl.constexpr, T: tl.constexpr,
+                 D: tl.constexpr, TIME_MAJOR: tl.constexpr, BLOCK: tl.constexpr):
+    offsets = tl.program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = offsets < total
+    feature = offsets % D
+    row = offsets // D
+    if TIME_MAJOR:
+        head = row % H
+        time = row // H % T
+    else:
+        time = row % T
+        head = row // T % H
+    batch = row // (H * T)
+    key = tl.load(k + batch * ks[0] + head * ks[1] + time * ks[2] + feature,
+                  mask, other=0).to(tl.float32)
+    b = tl.load(beta + batch * bs[0] + head * bs[1] + time * bs[2], mask, other=0).to(tl.float32)
+    e = tl.load(decay + batch * es[0] + head * es[1] + time * es[2], mask, other=0).to(tl.float32)
+    w = key * b
+    d = w * e
+    tl.store(weighted + offsets, w, mask)
+    tl.store(decayed + offsets, d, mask)
+
+
+def prepare_keys(k, beta, exp_decay):
+    """Return K*beta and its FP32-rounded product with caller's eager exp.
+
+    Support feature-contiguous time-major or head-major key chunks. Outputs
+    match the compact dimension order of the original Torch pointwise ops.
+    """
+    assert torch.is_inference_mode_enabled()
+    assert k.ndim == 4 and beta.ndim == exp_decay.ndim == 3
+    assert k.is_cuda and beta.is_cuda and exp_decay.is_cuda
+    assert k.device == beta.device == exp_decay.device
+    assert k.dtype == beta.dtype == exp_decay.dtype == torch.float32
+    batch, heads, time, width = k.shape
+    assert heads > 0 and time > 0 and width > 0
+    assert beta.shape == exp_decay.shape == k.shape[:-1]
+    assert k.stride(-1) == 1
+    time_major = k.stride(1) == width and k.stride(2) == heads * width
+    head_major = k.stride(2) == width and k.stride(1) >= time * width
+    assert time_major or head_major
+    total = k.numel()
+    assert total <= 2147483647
+    for tensor in (k, beta, exp_decay):
+        assert all(s >= 0 for s in tensor.stride())
+        assert sum(max(0, size - 1) * stride for size, stride in zip(tensor.shape, tensor.stride())) <= 2147483647
+    shape = (batch, time, heads, width) if time_major else k.shape
+    weighted = torch.empty(shape, dtype=k.dtype, device=k.device)
+    decayed = torch.empty_like(weighted)
+    if total:
+        _key_prepare[(triton.cdiv(total, 512),)](
+            k, beta, exp_decay, weighted, decayed, total,
+            k.stride(), beta.stride(), exp_decay.stride(),
+            H=heads, T=time, D=width, TIME_MAJOR=time_major, BLOCK=512,
+            num_warps=4, enable_fp_fusion=False)
+    if time_major:
+        return weighted.transpose(1, 2), decayed.transpose(1, 2)
+    return weighted, decayed

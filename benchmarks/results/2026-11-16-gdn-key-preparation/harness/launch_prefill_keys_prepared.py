@@ -1,0 +1,3 @@
+from pathlib import Path
+import sys,runpy
+r=Path('/home/cap/spark-inference-overnight-20261113');kind=sys.argv[1];controllers={'variants':'run_prefill_keys_variants.py','layout':'run_prefill_keys_layout.py','pack':'run_prefill_keys_pack.py','diagnostic':'run_prefill_keys_diagnostic.py','baseline':'run_prefill_keys_profile.py','small':'run_prefill_keys_small.py','integration':'run_prefill_keys_integration.py','ab':'run_prefill_keys_ab.py','profile':'run_prefill_keys_candidate_profile.py','accuracy':'run_prefill_keys_accuracy.py'};controller=controllers[kind];path=Path((r/('feedback/prefill-keys-'+kind+'-run.txt')).read_text().strip());sys.argv=[str(r/controller),'--run',str(path)];runpy.run_path(str(r/controller),run_name='__main__')

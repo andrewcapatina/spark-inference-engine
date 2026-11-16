@@ -1,0 +1,2297 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Diagnostic only: exact AB allocation/priming sequence, six generations and paired teacher-forced decode; not acceptance",
+  "primary_metrics": [
+    "median_prefill_cuda_ms",
+    "median_prefill_wall_ms",
+    "prompt_tokens_per_second_cuda"
+  ],
+  "triton_cache_dir": "/results/prefill-keys-diagnostic-20261116T135723Z/fresh-triton-cache",
+  "original_function_sha256": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+  "cases": [
+    {
+      "prompt_tokens": 256,
+      "prefill_repetitions": [
+        {
+          "backend": "original",
+          "cuda_ms": 258.4264221191406,
+          "wall_ms": 258.4812069835607,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 259.0050964355469,
+          "wall_ms": 259.0223630249966,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 256.9691162109375,
+          "wall_ms": 256.98554900009185,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 258.8150939941406,
+          "wall_ms": 258.83173701004125,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 258.67364501953125,
+          "wall_ms": 258.6901049944572,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 256.60028076171875,
+          "wall_ms": 256.6168259945698,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 255.7604217529297,
+          "wall_ms": 255.77665999298915,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 256.9129638671875,
+          "wall_ms": 256.9294680142775,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 259.62591552734375,
+          "wall_ms": 259.6420139889233,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 254.84934997558594,
+          "wall_ms": 254.86514999647625,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 258.4031066894531,
+          "wall_ms": 258.41919000959024,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 258.6664733886719,
+          "wall_ms": 258.6829350038897,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 258.7112121582031,
+          "wall_ms": 258.72746398090385,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 257.373046875,
+          "wall_ms": 257.38977501168847,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 254.82730102539062,
+          "wall_ms": 254.84377300017513,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 259.0309143066406,
+          "wall_ms": 259.0469860006124,
+          "peak_allocated_bytes": 23239909888
+        }
+      ],
+      "first_validation_prefill_wall_seconds": {
+        "original": 2.1254338579892647,
+        "candidate": 0.30627727901446633
+      },
+      "generation_validation": [
+        {
+          "backend": "original",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        },
+        {
+          "backend": "candidate",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        },
+        {
+          "backend": "original",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        },
+        {
+          "backend": "candidate",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        },
+        {
+          "backend": "original",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        },
+        {
+          "backend": "candidate",
+          "output_token_ids": [
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            3296,
+            1083,
+            449,
+            4087,
+            13,
+            63074,
+            4779,
+            11,
+            33633,
+            11,
+            321,
+            2708,
+            9989,
+            13,
+            198,
+            814,
+            20139,
+            1204,
+            264,
+            6165,
+            10263,
+            264,
+            271,
+            8160,
+            369,
+            264,
+            2923,
+            13909,
+            28253,
+            15673,
+            314,
+            1204,
+            264,
+            6165,
+            11036,
+            264,
+            3296,
+            310,
+            7936,
+            449,
+            4087,
+            11,
+            20434,
+            383,
+            279,
+            12417,
+            314,
+            4779,
+            321,
+            33633,
+            13,
+            271,
+            13962,
+            220,
+            16,
+            13,
+            561,
+            9237,
+            33214,
+            25,
+            561,
+            40687,
+            4044,
+            61361,
+            36593,
+            198,
+            1206,
+            3418,
+            1204
+          ],
+          "matches_first": true,
+          "first_mismatch": null
+        }
+      ],
+      "prefill_logits_and_all_cache_contents_element_exact": true,
+      "next_decode_logits_and_all_cache_contents_element_exact": true,
+      "summary": {
+        "original": {
+          "median_prefill_cuda_ms": 258.6924285888672,
+          "median_prefill_wall_ms": 258.70878448768053,
+          "prompt_tokens_per_second_cuda": 989.5921631585662
+        },
+        "candidate": {
+          "median_prefill_cuda_ms": 256.7846984863281,
+          "median_prefill_wall_ms": 256.80118749733083,
+          "prompt_tokens_per_second_cuda": 996.9441384515756
+        }
+      },
+      "prefill_speedup": 1.007429298216695,
+      "less_prefill_time_pct": 0.7374510776930965,
+      "generation_ids_element_exact": true,
+      "generation_repeats_per_backend": 3,
+      "original_first_token_cuda_diagnostic": {
+        "total_cuda_ms": 262.6158447265625,
+        "prefill_cuda_ms": 262.5760498046875,
+        "first_token_cuda_ms": 262.6158447265625,
+        "decode_call_cuda_ms": [],
+        "observed_decode_calls": 0,
+        "selected_tokens": 1,
+        "final_selection_marker": "generate_return_cuda_event",
+        "decode_token_window_cuda_ms": null,
+        "decode_tokens_per_second_cuda": null,
+        "final_unused_decode_cuda_ms": null,
+        "prefill_tokens_per_second_cuda": 974.9556373874199,
+        "output_sha256": "5fd1b79ebdef9619a57916a3bfc264b54d37a792659b3693f8ab36ec3ebce448"
+      },
+      "candidate_first_token_cuda_diagnostic": {
+        "total_cuda_ms": 259.3648376464844,
+        "prefill_cuda_ms": 259.3354187011719,
+        "first_token_cuda_ms": 259.3648376464844,
+        "decode_call_cuda_ms": [],
+        "observed_decode_calls": 0,
+        "selected_tokens": 1,
+        "final_selection_marker": "generate_return_cuda_event",
+        "decode_token_window_cuda_ms": null,
+        "decode_tokens_per_second_cuda": null,
+        "final_unused_decode_cuda_ms": null,
+        "prefill_tokens_per_second_cuda": 987.1385917208046,
+        "output_sha256": "5fd1b79ebdef9619a57916a3bfc264b54d37a792659b3693f8ab36ec3ebce448"
+      }
+    }
+  ],
+  "teacher_pairs": [
+    {
+      "backends": [
+        "original",
+        "original"
+      ],
+      "prefill_logit_differences": [],
+      "prefill_cache_differences": [],
+      "decode_steps": [
+        {
+          "step": 1,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 2,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 3,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 4,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 5,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 6,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 7,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 8,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 9,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 10,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 11,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 12,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 13,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 14,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 15,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 16,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 17,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 18,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 19,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 20,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 21,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 22,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 23,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 24,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 25,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 26,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 27,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 28,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 29,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 30,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 31,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 32,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 33,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 34,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 35,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 36,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 37,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 38,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 39,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 40,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 41,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 42,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 43,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 44,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 45,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 46,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 47,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 48,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 49,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 50,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 51,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 52,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 53,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 54,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 55,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 56,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 57,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 58,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 59,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 60,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 61,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 62,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 63,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 64,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 65,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 66,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 67,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 68,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 69,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 70,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 71,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 72,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 73,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 74,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 75,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 76,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 77,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 78,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 79,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 80,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 81,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 82,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 83,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 84,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 85,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 86,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 87,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 88,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 89,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 90,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 91,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 92,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 93,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 94,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 95,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 96,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 97,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 98,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 99,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 100,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 101,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 102,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 103,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 104,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 105,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 106,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 107,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 108,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 109,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 110,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 111,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 112,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 113,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 114,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 115,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 116,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 117,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 118,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 119,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 120,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 121,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 122,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 123,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 124,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 125,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 126,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 127,
+          "logit_differences": [],
+          "cache_differences": []
+        }
+      ]
+    },
+    {
+      "backends": [
+        "original",
+        "candidate"
+      ],
+      "prefill_logit_differences": [],
+      "prefill_cache_differences": [],
+      "decode_steps": [
+        {
+          "step": 1,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 2,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 3,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 4,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 5,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 6,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 7,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 8,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 9,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 10,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 11,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 12,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 13,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 14,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 15,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 16,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 17,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 18,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 19,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 20,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 21,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 22,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 23,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 24,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 25,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 26,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 27,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 28,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 29,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 30,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 31,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 32,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 33,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 34,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 35,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 36,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 37,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 38,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 39,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 40,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 41,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 42,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 43,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 44,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 45,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 46,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 47,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 48,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 49,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 50,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 51,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 52,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 53,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 54,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 55,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 56,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 57,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 58,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 59,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 60,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 61,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 62,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 63,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 64,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 65,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 66,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 67,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 68,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 69,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 70,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 71,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 72,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 73,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 74,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 75,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 76,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 77,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 78,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 79,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 80,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 81,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 82,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 83,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 84,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 85,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 86,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 87,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 88,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 89,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 90,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 91,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 92,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 93,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 94,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 95,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 96,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 97,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 98,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 99,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 100,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 101,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 102,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 103,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 104,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 105,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 106,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 107,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 108,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 109,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 110,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 111,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 112,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 113,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 114,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 115,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 116,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 117,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 118,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 119,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 120,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 121,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 122,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 123,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 124,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 125,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 126,
+          "logit_differences": [],
+          "cache_differences": []
+        },
+        {
+          "step": 127,
+          "logit_differences": [],
+          "cache_differences": []
+        }
+      ]
+    }
+  ],
+  "load_seconds": 154.34380939698895,
+  "quantization_metadata": {
+    "format": "nvfp4_fp8",
+    "kv_cache_dtype": "bfloat16",
+    "nvfp4_linears": 168,
+    "fp8_linears": 233
+  },
+  "live_model_tensors_after_release": [],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 23846379008,
+    "cuda_peak_reserved_bytes": 24440209408,
+    "cuda_global_free_bytes": 45886795776,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22576549888,
+    "VmRSS_bytes": 2303356928,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122018414592,
+    "SwapFree_bytes": 17056907264
+  }
+}

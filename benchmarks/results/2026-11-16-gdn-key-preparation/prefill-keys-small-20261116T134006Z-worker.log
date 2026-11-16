@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/harness/check_gdn_key_prepare.py", line 29, in <module>
+    beta=torch.rand(batch,time*2,heads*2,device='cuda')[:,::2,::2].transpose(1,2);e=torch.rand(batch,heads,time,device='cuda');check(k,beta,e,layout)
+                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_key_prepare.py", line 14, in check
+    before=[x.clone() for x in [k,b,e]];expected=reference(k,b,e);torch.cuda.synchronize();start=time.perf_counter();actual=prepare_keys(k,b,e);torch.cuda.synchronize()
+                                                                                                 ^^^^^^^^^^^^^^^^^
+AttributeError: 'int' object has no attribute 'perf_counter'

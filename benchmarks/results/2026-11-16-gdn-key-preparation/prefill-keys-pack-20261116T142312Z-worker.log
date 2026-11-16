@@ -1,0 +1,8 @@
+{'layout': 'time_major', 'full_prompt_length': 128, 'call_seconds': 0.5713367440039292, 'compiled_key_variants': 1, 'bitwise_exact': True}
+{'layout': 'time_major', 'full_prompt_length': 256, 'call_seconds': 9.0016023023054e-05, 'compiled_key_variants': 1, 'bitwise_exact': True}
+{'layout': 'time_major', 'full_prompt_length': 512, 'call_seconds': 4.3343985453248024e-05, 'compiled_key_variants': 1, 'bitwise_exact': True}
+{'layout': 'time_major', 'full_prompt_length': 1024, 'call_seconds': 9.479999425821006e-05, 'compiled_key_variants': 1, 'bitwise_exact': True}
+{'layout': 'head_major', 'full_prompt_length': 128, 'call_seconds': 0.03918878501281142, 'compiled_key_variants': 2, 'bitwise_exact': True}
+{'layout': 'head_major', 'full_prompt_length': 256, 'call_seconds': 6.910398951731622e-05, 'compiled_key_variants': 2, 'bitwise_exact': True}
+{'layout': 'head_major', 'full_prompt_length': 512, 'call_seconds': 3.7663994589820504e-05, 'compiled_key_variants': 2, 'bitwise_exact': True}
+{'layout': 'head_major', 'full_prompt_length': 1024, 'call_seconds': 4.075199831277132e-05, 'compiled_key_variants': 2, 'bitwise_exact': True}

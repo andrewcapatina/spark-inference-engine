@@ -1,0 +1,2 @@
+Review found constexpr input strides vary with full padded prompt length, potentially recompiling on growing conversation. Finish current AB then replace stride-value specialization and verify cache reuse before quality/acceptance.
+Completed: runtime strides reuse one compilation per layout at128/256/512/1024; final component gates pass. Candidate is nevertheless not adopted for insufficient full-model gain.

@@ -1,0 +1,1 @@
+{"cases": 101, "median_cuda_ms": {"original": 0.013036000076681376, "candidate": 0.018686999566853046}, "reassociation_counterexamples": 139017}
