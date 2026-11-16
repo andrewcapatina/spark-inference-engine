@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "ad5958f9bf0c47deda413770d4e4b90ac759317390d7d8b8deb7bf5a41069da4",
+  "review": "Only eligible value float removed; explicit FP32 zeros/output/provided-state conversion; all original loop/solves/GEMM/state math unchanged. Numerical eligibility and fallback behavior require strict tests.",
+  "implementation_author": "local Qwen only"
+}

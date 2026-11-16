@@ -1,0 +1,15 @@
+# Next prefill options after value-cast validation
+
+The accepted gated-normalization profile at1,024 tokens attributes357.82ms (35.9% of995.97ms) to GDN state computation. FP8/FP4 GEMMs total228.11ms (22.9%); normalization118.64ms (11.9%); remaining FP8 preparation76.54ms (7.7%); attention-other71.19ms (7.1%); GDN-other64.72ms (6.5%); MLP activation46.28ms (4.6%). Categories partition GPU time; inclusive parent scopes must not be added to these. Profile overhead means these are prioritization evidence, not unprofiled speed predictions.
+
+1. Preferred larger experiment: batch chunk-local GDN preparation/triangular transforms across prompt chunks, while preserving the sequential carried-state scan. The current function constructs independent query/key systems and two triangular transforms separately inside every chunk iteration. Move only mathematically independent work; preserve original two RHS products, lower-unit solve semantics, state expressions, initial-state ownership and BF16/FP32 boundaries. First ask local Qwen for a bounded design/prototype; run strict direct/strided/state-continuation and full-checkpoint gates. Batched GEMM/solve dispatch can select different arithmetic and fail exactness: do not assume equivalence or relax existing tests. Account for extra workspace; no unbounded long-context allocation. Making ALL GDN-state computation twice as fast would at most reduce total GPU work by~18%; this is an upper-bound illustration, not a promised gain for batching.
+
+2. GDN data-layout/copy ownership: measured original copy leaf time~64.93ms. Paired RHS fusion made copies worse (~73.73ms), and four simple solver-layout variants were all slower. Any retry must explain precisely which actual materialization disappears; avoid another RHS-only rewrite. Measure allocation/copy traffic as well as operator time.
+
+3. GEMM tuning: current GEMMs use installed Cutlass/PyTorch/FlashInfer paths. Larger gains require supported faster kernel selection at actual dimensions and preserved existing numerical gates. Do not substitute serving engines, install packages, or silently change quantization/accumulation semantics.
+
+4. Further pointwise fusion: bounded opportunity in FP8 preparation, MLP activation and residual normalization conversions. Lower priority after several small wins and two unadopted GDN experiments. A microbenchmark win is insufficient if full-prefill copies erase it.
+
+No additional engine implementation has been written for these options. Local Qwen remains the only engine author. Only the value-cast candidate is currently under validation.
+
+Iteration-speed priority for the harness: combine benchmark, frozen quality and profile phases around one resident native27B object in a single guarded worker, preserving all existing gates and end-of-worker release/cleanup assertions. Keep original9B/27B regressions separate. Current three native phases reload the same checkpoint independently; reducing those repeated cold loads should improve supervision throughput, not engine tok/s. No harness refactor has yet been applied.

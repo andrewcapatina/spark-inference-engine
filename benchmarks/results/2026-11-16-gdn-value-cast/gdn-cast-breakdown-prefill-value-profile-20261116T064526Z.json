@@ -1,0 +1,4340 @@
+{
+  "status": "cpu_diagnostic_complete",
+  "scope": "Existing real27B one-token/zero-decode profile only; no GPU run or engine edits. Inclusive totals overlap; exclusive leaf totals partition GDN kernels.",
+  "cases": [
+    {
+      "initial_kernel_launching_operations_by_layer": [
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.035904000000000005,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002784,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033025,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012288,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022431999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034272,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012704,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023424,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030369,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.013056,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011200000000000001,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023488,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031393,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034207999999999995,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012224,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001056,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021761,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031391999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002592,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034336,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012960000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001056,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.026049,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.028192000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034752000000000005,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011872,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001248,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022049,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.032735999999999994,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0027519999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034496,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.013023999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000928,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022143999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031039999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002656,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012320000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022528,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031488,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0027519999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033280000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012352,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001088,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.024032,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.032255000000000006,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002656,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.032479999999999995,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012865,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001408,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023104,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030816,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033536,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012672000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0014730000000000001,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022719999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031616,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002624,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033408,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.01184,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0010249999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001248,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022879999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03232,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033345,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012416,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0014399999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021152,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03136,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033600000000000005,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012545,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001856,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03168,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034912,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012096,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.02224,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031808,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034689,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.0112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001504,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021856,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031969000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002624,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.03504,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011007999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000992,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001312,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.02256,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031904,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002176,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.03296,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012960000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.00128,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022303999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031456,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034783999999999995,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001312,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021184,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03168,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002624,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033184,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.013249,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021216000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.032544,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002784,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033536,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012065,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000928,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023872,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031008,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033601,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012544000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000896,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011519999999999998,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.02048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031424,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034496,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011297,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001248,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0224,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031232,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002592,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033568,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012416,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0009599999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001184,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022528,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03168,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033313,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.01264,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0014399999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022047999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0312,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.001984,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033921,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012768,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000896,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022719999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031424,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033377000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012672000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001536,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022753,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031968,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033856000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011936,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021536000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030785,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002816,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012448,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0011519999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00128,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023232,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.032032,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034465,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012032,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001248,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011519999999999998,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.02352,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031905,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0023039999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033152,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011744,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021376000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031584,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0023039999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034273000000000005,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.013472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.023009,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.038048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0044480000000000006,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033248,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012352,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0009599999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021825,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034112,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012672000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0009599999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011519999999999998,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021889,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031584,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033248,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011200000000000001,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022463999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030945,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002784,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.03376,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012192,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0009599999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0011200000000000001,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022688,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030816,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0022400000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.01264,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021664000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.030944,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.0344,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012672000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000896,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022431999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.03376,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012416,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0014399999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001504,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022751999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0020800000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.0344,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011328,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.03168,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0027519999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011136,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001248,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021471,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031904,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034464,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011936,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0011200000000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001184,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.021984,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031136,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033825,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.012064,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000896,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022047999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031553,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002624,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034592,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011872,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001024,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001216,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022849,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031328,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0022400000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034624,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011968,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001408,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022688,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031424,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002912,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033281,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011744,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.000864,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00128,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.022335999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031937,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0022400000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.033248,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.013696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0014399999999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001408,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.02096,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.031648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.002048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.034686999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.011968,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001504,
+            "kernels": 1
+          }
+        ]
+      ],
+      "initial_fp32_cast_gpu_ms": {
+        "query": 1.075239,
+        "key": 1.520359
+      },
+      "rhs_preparation": {
+        "matched_preparations": 192,
+        "three_product_gpu_ms": 5.01638,
+        "three_product_kernels": 576
+      },
+      "state_pointwise_tail": {
+        "matched_updates": 192,
+        "multiply_gpu_ms": 2.873618,
+        "add_gpu_ms": 3.4433480000000003,
+        "matmul_gpu_ms": 4.089531,
+        "multiply_kernels": 192,
+        "add_kernels": 192
+      },
+      "prompt_tokens": 256,
+      "gdn_gpu_ms": 76.2649450000005,
+      "gdn_kernels": 8448,
+      "exclusive_leaf_operator_totals": [
+        {
+          "name": "aten::mul",
+          "kernels": 1920,
+          "gpu_ms": 18.088020000000004
+        },
+        {
+          "name": "aten::bmm",
+          "kernels": 1152,
+          "gpu_ms": 16.624556000000005
+        },
+        {
+          "name": "aten::linalg_solve_triangular",
+          "kernels": 384,
+          "gpu_ms": 13.441842000000005
+        },
+        {
+          "name": "aten::copy_",
+          "kernels": 864,
+          "gpu_ms": 11.806880000000023
+        },
+        {
+          "name": "aten::add",
+          "kernels": 480,
+          "gpu_ms": 4.488062000000006
+        },
+        {
+          "name": "aten::sub",
+          "kernels": 576,
+          "gpu_ms": 2.733970000000005
+        },
+        {
+          "name": "aten::fill_",
+          "kernels": 288,
+          "gpu_ms": 2.005677000000003
+        },
+        {
+          "name": "aten::exp",
+          "kernels": 960,
+          "gpu_ms": 1.4687120000000056
+        },
+        {
+          "name": "aten::div",
+          "kernels": 48,
+          "gpu_ms": 1.2587269999999997
+        },
+        {
+          "name": "aten::sum",
+          "kernels": 96,
+          "gpu_ms": 1.144837
+        },
+        {
+          "name": "aten::masked_fill_",
+          "kernels": 192,
+          "gpu_ms": 1.0868179999999994
+        },
+        {
+          "name": "aten::cumsum",
+          "kernels": 240,
+          "gpu_ms": 0.7348820000000024
+        },
+        {
+          "name": "aten::arange",
+          "kernels": 768,
+          "gpu_ms": 0.6457309999999971
+        },
+        {
+          "name": "aten::tril",
+          "kernels": 192,
+          "gpu_ms": 0.3420189999999998
+        },
+        {
+          "name": "aten::eq",
+          "kernels": 192,
+          "gpu_ms": 0.2690589999999994
+        },
+        {
+          "name": "aten::rsqrt",
+          "kernels": 96,
+          "gpu_ms": 0.12515300000000004
+        }
+      ],
+      "inclusive_operator_totals": [
+        {
+          "name": "aten::mul",
+          "kernels": 1920,
+          "gpu_ms": 18.088020000000004
+        },
+        {
+          "name": "aten::bmm",
+          "kernels": 1152,
+          "gpu_ms": 16.624556000000005
+        },
+        {
+          "name": "aten::matmul",
+          "kernels": 1152,
+          "gpu_ms": 16.624556000000005
+        },
+        {
+          "name": "aten::linalg_solve_triangular",
+          "kernels": 1344,
+          "gpu_ms": 15.890938999999978
+        },
+        {
+          "name": "aten::copy_",
+          "kernels": 864,
+          "gpu_ms": 11.806880000000023
+        },
+        {
+          "name": "aten::clone",
+          "kernels": 288,
+          "gpu_ms": 4.523164999999995
+        },
+        {
+          "name": "aten::contiguous",
+          "kernels": 288,
+          "gpu_ms": 4.523164999999995
+        },
+        {
+          "name": "aten::add",
+          "kernels": 480,
+          "gpu_ms": 4.488062000000006
+        },
+        {
+          "name": "aten::to",
+          "kernels": 192,
+          "gpu_ms": 3.4288829999999977
+        },
+        {
+          "name": "aten::_to_copy",
+          "kernels": 192,
+          "gpu_ms": 3.4288829999999977
+        },
+        {
+          "name": "aten::sub",
+          "kernels": 576,
+          "gpu_ms": 2.733970000000005
+        },
+        {
+          "name": "aten::fill_",
+          "kernels": 288,
+          "gpu_ms": 2.005677000000003
+        },
+        {
+          "name": "aten::zero_",
+          "kernels": 96,
+          "gpu_ms": 1.7997239999999997
+        },
+        {
+          "name": "aten::exp",
+          "kernels": 960,
+          "gpu_ms": 1.4687120000000056
+        },
+        {
+          "name": "aten::div",
+          "kernels": 48,
+          "gpu_ms": 1.2587269999999997
+        },
+        {
+          "name": "aten::cumsum",
+          "kernels": 480,
+          "gpu_ms": 1.190212000000003
+        },
+        {
+          "name": "aten::zeros_like",
+          "kernels": 48,
+          "gpu_ms": 1.150954
+        },
+        {
+          "name": "aten::sum",
+          "kernels": 96,
+          "gpu_ms": 1.144837
+        },
+        {
+          "name": "aten::masked_fill",
+          "kernels": 192,
+          "gpu_ms": 1.0868179999999994
+        },
+        {
+          "name": "aten::masked_fill_",
+          "kernels": 192,
+          "gpu_ms": 1.0868179999999994
+        },
+        {
+          "name": "aten::zeros",
+          "kernels": 48,
+          "gpu_ms": 0.6487699999999997
+        },
+        {
+          "name": "aten::arange",
+          "kernels": 768,
+          "gpu_ms": 0.6457309999999971
+        },
+        {
+          "name": "aten::tril",
+          "kernels": 192,
+          "gpu_ms": 0.3420189999999998
+        },
+        {
+          "name": "aten::eq",
+          "kernels": 192,
+          "gpu_ms": 0.2690589999999994
+        },
+        {
+          "name": "aten::ones",
+          "kernels": 192,
+          "gpu_ms": 0.20595299999999964
+        },
+        {
+          "name": "aten::rsqrt",
+          "kernels": 96,
+          "gpu_ms": 0.12515300000000004
+        }
+      ],
+      "kernel_families": [
+        {
+          "name": "void batch_trsm_left_kernel<float, 64, 4, 3, false, true, true>(cublasTrsmBatchParams2<float>, float, float const*, int)",
+          "kernels": 384,
+          "gpu_ms": 13.441842000000005
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+          "kernels": 1248,
+          "gpu_ms": 12.16775399999998
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+          "kernels": 672,
+          "gpu_ms": 8.377996999999988
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_tn_align1>(cutlass_80_simt_sgemm_64x64_8x5_tn_align1::Params)",
+          "kernels": 384,
+          "gpu_ms": 5.275837
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+          "kernels": 384,
+          "gpu_ms": 4.378877000000006
+        },
+        {
+          "name": "void magma_sgemmEx_kernel<float, float, float, true, true, 6, 3, 6, 3, 4>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)",
+          "kernels": 192,
+          "gpu_ms": 4.089531
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+          "kernels": 480,
+          "gpu_ms": 3.868414000000001
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)",
+          "kernels": 192,
+          "gpu_ms": 2.910195999999999
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1})",
+          "kernels": 576,
+          "gpu_ms": 2.733970000000005
+        },
+        {
+          "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+          "kernels": 144,
+          "gpu_ms": 2.7084299999999994
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nt_align1>(cutlass_80_simt_sgemm_128x32_8x5_nt_align1::Params)",
+          "kernels": 192,
+          "gpu_ms": 2.2551499999999995
+        },
+        {
+          "name": "void magma_sgemmEx_kernel<float, float, float, true, false, 6, 4, 6, 3, 4>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)",
+          "kernels": 192,
+          "gpu_ms": 2.093841999999998
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+          "kernels": 192,
+          "gpu_ms": 2.0518519999999993
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+          "kernels": 288,
+          "gpu_ms": 2.005677000000003
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+          "kernels": 48,
+          "gpu_ms": 1.2587269999999997
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 768,
+          "gpu_ms": 1.2039740000000052
+        },
+        {
+          "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4>)",
+          "kernels": 96,
+          "gpu_ms": 1.144837
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1} const&)::{lambda(int)#1})",
+          "kernels": 192,
+          "gpu_ms": 1.0868179999999994
+        },
+        {
+          "name": "void at::native::tensor_kernel_scan_innermost_dim<float, std::plus<float> >(float*, float const*, unsigned int, unsigned int, unsigned int, float, std::plus<float>)",
+          "kernels": 240,
+          "gpu_ms": 0.7348820000000024
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 48,
+          "gpu_ms": 0.720453
+        },
+        {
+          "name": "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}, function_traits<at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>::result_type*)",
+          "kernels": 768,
+          "gpu_ms": 0.6457309999999971
+        },
+        {
+          "name": "void at::native::triu_tril_kernel<float, int, false, 2, false>(at::cuda::detail::TensorInfo<float, int>, at::cuda::detail::TensorInfo<float const, int>, long, long, int)",
+          "kernels": 192,
+          "gpu_ms": 0.3420189999999998
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul>)",
+          "kernels": 192,
+          "gpu_ms": 0.2690589999999994
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+          "kernels": 192,
+          "gpu_ms": 0.2647380000000002
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 96,
+          "gpu_ms": 0.12515300000000004
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul> >(int, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>)",
+          "kernels": 96,
+          "gpu_ms": 0.10918499999999998
+        }
+      ],
+      "trace": "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/prefill-value-profile-20261116T064526Z/p256-native-trace.json",
+      "trace_bytes": 57957318,
+      "baseline_engine_source_sha256": {
+        "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+        "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+        "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+        "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+        "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+        "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+        "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+        "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+        "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+        "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+        "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+        "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+        "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+        "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+        "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+        "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514",
+        "tools/benchmark_qwen.py": "2dbefbd8e213326ebcf6bb9bb668c41a2a9a9afc66c5c61afe69d81911d23c21"
+      }
+    },
+    {
+      "initial_kernel_launching_operations_by_layer": [
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16096100000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.172481,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00432,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.22537700000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.060351999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001984,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16009700000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16739300000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.005312,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.22217699999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.062689,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001888,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.198849,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.164129,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003872,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21968100000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.062529,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001824,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001984,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.158817,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16403299999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.004288,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.219745,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.061759999999999995,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001888,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.156545,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16137700000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.219137,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.061697,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001888,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16003299999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.161217,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0037440000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.219809,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.062048,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001856,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.160385,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.166273,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.218945,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.061824,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.002016,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.163137,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.16064099999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.226145,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.061984000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001824,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.164959,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.164321,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.218881,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.062176999999999996,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0019199999999999998,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.159969,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.169793,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.216993,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.065217,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001856,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.002016,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.165441,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.160512,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.212738,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.063808,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.156001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.154529,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.211585,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.07020799999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.148673,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.151777,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0036160000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.20956899999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.063168,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.147489,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15145699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.207617,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.07222400000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145793,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15001599999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003584,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.209057,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.065665,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.146656,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.150753,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.207425,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.064289,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145248,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.151841,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00352,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.212993,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.072865,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14649700000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.152481,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003872,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.210977,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.075776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14716900000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15235200000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0037440000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.214274,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.07164799999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.146401,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.154017,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003584,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.225601,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.070049,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.169953,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.244418,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.011648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.249856,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.09801699999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00256,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.149057,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.153281,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003584,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21116900000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067008,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001632,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.149761,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15635300000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.212961,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067521,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.146368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15417699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003552,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.213121,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.069569,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.148001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.150945,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0038079999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21273699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.069152,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145857,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.155649,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.212577,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.071615,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14630500000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.157696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.212194,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.073184,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001824,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.152417,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.153953,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.214721,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.06924899999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.144768,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.149601,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0036160000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.209537,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.069473,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001536,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14544100000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15024,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.213825,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.071712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14729699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15689699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.208225,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.068576,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14947300000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.152833,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0038399999999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.209089,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.0688,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.146977,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.149856,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003649,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.211457,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067488,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001888,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15561699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.153025,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21360099999999999,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067104,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14816100000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.147488,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21174500000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.073729,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001888,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.152129,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.150177,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0036160000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.213377,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.073792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145345,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.151713,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.209985,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.07116800000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.002016,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15043199999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.156001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.211553,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.06905700000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001472,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14342500000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15235200000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.21331299999999997,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.070752,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145921,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.154849,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.211041,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.164193,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.189089,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0037440000000000004,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.210977,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.069536,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15190399999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.157121,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003776,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.215553,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.07177700000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001952,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.148512,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15504099999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.210273,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.073409,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001696,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14499299999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15145599999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.0036160000000000003,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.208544,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.070145,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.0015680000000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15228899999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.151072,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.00368,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.20921700000000001,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.067233,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001792,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001664,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.145857,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15561699999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.211137,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.085889,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.002112,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.146593,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.14947300000000002,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003712,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.213345,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.071424,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001504,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.00176,
+            "kernels": 1
+          }
+        ],
+        [
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.15247999999999998,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.151968,
+            "kernels": 1
+          },
+          {
+            "name": "aten::to",
+            "gpu_ms": 0.003648,
+            "kernels": 1
+          },
+          {
+            "name": "aten::mul",
+            "gpu_ms": 0.208897,
+            "kernels": 1
+          },
+          {
+            "name": "aten::sum",
+            "gpu_ms": 0.072321,
+            "kernels": 1
+          },
+          {
+            "name": "aten::add",
+            "gpu_ms": 0.001728,
+            "kernels": 1
+          },
+          {
+            "name": "aten::rsqrt",
+            "gpu_ms": 0.001824,
+            "kernels": 1
+          }
+        ]
+      ],
+      "initial_fp32_cast_gpu_ms": {
+        "query": 7.328646000000001,
+        "key": 7.593734
+      },
+      "rhs_preparation": {
+        "matched_preparations": 768,
+        "three_product_gpu_ms": 19.555197,
+        "three_product_kernels": 2304
+      },
+      "state_pointwise_tail": {
+        "matched_updates": 768,
+        "multiply_gpu_ms": 11.05909,
+        "add_gpu_ms": 13.794916,
+        "matmul_gpu_ms": 15.683697,
+        "multiply_kernels": 768,
+        "add_kernels": 768
+      },
+      "prompt_tokens": 1024,
+      "gdn_gpu_ms": 340.7330429999937,
+      "gdn_kernels": 30912,
+      "exclusive_leaf_operator_totals": [
+        {
+          "name": "aten::mul",
+          "kernels": 7104,
+          "gpu_ms": 95.530207
+        },
+        {
+          "name": "aten::bmm",
+          "kernels": 4608,
+          "gpu_ms": 66.18863099999975
+        },
+        {
+          "name": "aten::copy_",
+          "kernels": 2592,
+          "gpu_ms": 56.64319000000014
+        },
+        {
+          "name": "aten::linalg_solve_triangular",
+          "kernels": 1536,
+          "gpu_ms": 53.677216000000065
+        },
+        {
+          "name": "aten::add",
+          "kernels": 1632,
+          "gpu_ms": 17.785436000000036
+        },
+        {
+          "name": "aten::sub",
+          "kernels": 2304,
+          "gpu_ms": 10.32672999999996
+        },
+        {
+          "name": "aten::div",
+          "kernels": 48,
+          "gpu_ms": 10.171217
+        },
+        {
+          "name": "aten::fill_",
+          "kernels": 864,
+          "gpu_ms": 6.8960670000000555
+        },
+        {
+          "name": "aten::sum",
+          "kernels": 96,
+          "gpu_ms": 6.631267000000003
+        },
+        {
+          "name": "aten::exp",
+          "kernels": 3840,
+          "gpu_ms": 5.428986000000174
+        },
+        {
+          "name": "aten::masked_fill_",
+          "kernels": 768,
+          "gpu_ms": 3.9045319999999974
+        },
+        {
+          "name": "aten::arange",
+          "kernels": 3072,
+          "gpu_ms": 2.573546000000019
+        },
+        {
+          "name": "aten::cumsum",
+          "kernels": 816,
+          "gpu_ms": 2.4878849999999906
+        },
+        {
+          "name": "aten::tril",
+          "kernels": 768,
+          "gpu_ms": 1.3857290000000024
+        },
+        {
+          "name": "aten::eq",
+          "kernels": 768,
+          "gpu_ms": 0.9236200000000013
+        },
+        {
+          "name": "aten::rsqrt",
+          "kernels": 96,
+          "gpu_ms": 0.17878400000000005
+        }
+      ],
+      "inclusive_operator_totals": [
+        {
+          "name": "aten::mul",
+          "kernels": 7104,
+          "gpu_ms": 95.530207
+        },
+        {
+          "name": "aten::bmm",
+          "kernels": 4608,
+          "gpu_ms": 66.18863099999975
+        },
+        {
+          "name": "aten::matmul",
+          "kernels": 4608,
+          "gpu_ms": 66.18863099999975
+        },
+        {
+          "name": "aten::linalg_solve_triangular",
+          "kernels": 5376,
+          "gpu_ms": 62.70928900000166
+        },
+        {
+          "name": "aten::copy_",
+          "kernels": 2592,
+          "gpu_ms": 56.64319000000014
+        },
+        {
+          "name": "aten::to",
+          "kernels": 192,
+          "gpu_ms": 22.239695999999995
+        },
+        {
+          "name": "aten::_to_copy",
+          "kernels": 192,
+          "gpu_ms": 22.239695999999995
+        },
+        {
+          "name": "aten::clone",
+          "kernels": 864,
+          "gpu_ms": 19.71312500000002
+        },
+        {
+          "name": "aten::contiguous",
+          "kernels": 864,
+          "gpu_ms": 19.71312500000002
+        },
+        {
+          "name": "aten::add",
+          "kernels": 1632,
+          "gpu_ms": 17.785436000000036
+        },
+        {
+          "name": "aten::sub",
+          "kernels": 2304,
+          "gpu_ms": 10.32672999999996
+        },
+        {
+          "name": "aten::div",
+          "kernels": 48,
+          "gpu_ms": 10.171217
+        },
+        {
+          "name": "aten::fill_",
+          "kernels": 864,
+          "gpu_ms": 6.8960670000000555
+        },
+        {
+          "name": "aten::sum",
+          "kernels": 96,
+          "gpu_ms": 6.631267000000003
+        },
+        {
+          "name": "aten::zero_",
+          "kernels": 96,
+          "gpu_ms": 6.077950000000001
+        },
+        {
+          "name": "aten::exp",
+          "kernels": 3840,
+          "gpu_ms": 5.428986000000174
+        },
+        {
+          "name": "aten::zeros_like",
+          "kernels": 48,
+          "gpu_ms": 5.2336930000000015
+        },
+        {
+          "name": "aten::cumsum",
+          "kernels": 1632,
+          "gpu_ms": 4.094613999999947
+        },
+        {
+          "name": "aten::masked_fill",
+          "kernels": 768,
+          "gpu_ms": 3.9045319999999974
+        },
+        {
+          "name": "aten::masked_fill_",
+          "kernels": 768,
+          "gpu_ms": 3.9045319999999974
+        },
+        {
+          "name": "aten::arange",
+          "kernels": 3072,
+          "gpu_ms": 2.573546000000019
+        },
+        {
+          "name": "aten::tril",
+          "kernels": 768,
+          "gpu_ms": 1.3857290000000024
+        },
+        {
+          "name": "aten::eq",
+          "kernels": 768,
+          "gpu_ms": 0.9236200000000013
+        },
+        {
+          "name": "aten::zeros",
+          "kernels": 48,
+          "gpu_ms": 0.8442569999999999
+        },
+        {
+          "name": "aten::ones",
+          "kernels": 768,
+          "gpu_ms": 0.818116999999999
+        },
+        {
+          "name": "aten::rsqrt",
+          "kernels": 96,
+          "gpu_ms": 0.17878400000000005
+        }
+      ],
+      "kernel_families": [
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+          "kernels": 4704,
+          "gpu_ms": 62.7847899999999
+        },
+        {
+          "name": "void batch_trsm_left_kernel<float, 64, 4, 3, false, true, true>(cublasTrsmBatchParams2<float>, float, float const*, int)",
+          "kernels": 1536,
+          "gpu_ms": 53.677216000000065
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+          "kernels": 2400,
+          "gpu_ms": 34.403494000000016
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul> >(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+          "kernels": 1632,
+          "gpu_ms": 24.380762999999945
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_tn_align1>(cutlass_80_simt_sgemm_64x64_8x5_tn_align1::Params)",
+          "kernels": 1536,
+          "gpu_ms": 21.91527100000004
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+          "kernels": 1536,
+          "gpu_ms": 17.61887600000002
+        },
+        {
+          "name": "void magma_sgemmEx_kernel<float, float, float, true, true, 6, 3, 6, 3, 4>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)",
+          "kernels": 768,
+          "gpu_ms": 15.683696999999999
+        },
+        {
+          "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+          "kernels": 144,
+          "gpu_ms": 15.110700999999993
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)",
+          "kernels": 768,
+          "gpu_ms": 11.336999999999998
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1})",
+          "kernels": 2304,
+          "gpu_ms": 10.32672999999996
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::BUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+          "kernels": 48,
+          "gpu_ms": 10.171217
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nt_align1>(cutlass_80_simt_sgemm_128x32_8x5_nt_align1::Params)",
+          "kernels": 768,
+          "gpu_ms": 8.922897999999991
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+          "kernels": 768,
+          "gpu_ms": 8.364654000000003
+        },
+        {
+          "name": "void magma_sgemmEx_kernel<float, float, float, true, false, 6, 4, 6, 3, 4>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)",
+          "kernels": 768,
+          "gpu_ms": 8.329764999999998
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 48,
+          "gpu_ms": 7.128994999999998
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul> >(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+          "kernels": 864,
+          "gpu_ms": 6.8960670000000555
+        },
+        {
+          "name": "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::sum_functor<float, float, float>::operator()(at::TensorIterator&)::{lambda(float, float)#1}>, unsigned int, float, 4, 4>)",
+          "kernels": 96,
+          "gpu_ms": 6.631267000000003
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 3072,
+          "gpu_ms": 4.4398320000000275
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1}>(at::TensorIteratorBase&, at::native::(anonymous namespace)::masked_fill_kernel(at::TensorIterator&, c10::Scalar const&)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float, bool)#1} const&)::{lambda(int)#1})",
+          "kernels": 768,
+          "gpu_ms": 3.9045319999999974
+        },
+        {
+          "name": "void (anonymous namespace)::elementwise_kernel_with_index<int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(int, at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}, function_traits<at::native::arange_cuda_out(c10::Scalar const&, c10::Scalar const&, c10::Scalar const&, at::Tensor&)::{lambda()#1}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>::result_type*)",
+          "kernels": 3072,
+          "gpu_ms": 2.573546000000019
+        },
+        {
+          "name": "void at::native::tensor_kernel_scan_innermost_dim<float, std::plus<float> >(float*, float const*, unsigned int, unsigned int, unsigned int, float, std::plus<float>)",
+          "kernels": 816,
+          "gpu_ms": 2.4878849999999906
+        },
+        {
+          "name": "void at::native::triu_tril_kernel<float, int, false, 2, false>(at::cuda::detail::TensorInfo<float, int>, at::cuda::detail::TensorInfo<float const, int>, long, long, int)",
+          "kernels": 768,
+          "gpu_ms": 1.3857290000000024
+        },
+        {
+          "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::exp_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+          "kernels": 768,
+          "gpu_ms": 0.9891539999999959
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, bool, at::native::(anonymous namespace)::CompareEqFunctor<float> >, std::array<char*, 2ul>)",
+          "kernels": 768,
+          "gpu_ms": 0.9236200000000013
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::rsqrt_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+          "kernels": 96,
+          "gpu_ms": 0.17878400000000005
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul> >(int, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul>)",
+          "kernels": 96,
+          "gpu_ms": 0.16656000000000012
+        }
+      ],
+      "trace": "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/prefill-value-profile-20261116T064526Z/p1024-native-trace.json",
+      "trace_bytes": 147089025,
+      "baseline_engine_source_sha256": {
+        "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+        "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+        "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+        "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+        "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+        "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+        "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+        "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+        "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+        "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+        "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+        "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+        "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+        "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+        "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+        "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514",
+        "tools/benchmark_qwen.py": "2dbefbd8e213326ebcf6bb9bb668c41a2a9a9afc66c5c61afe69d81911d23c21"
+      }
+    }
+  ]
+}

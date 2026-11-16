@@ -203,6 +203,12 @@ arithmetic. Cached decode selects the recurrent path. Normalizations,
 attention softmax and recurrent calculations use FP32 where the source
 explicitly casts; BF16 weights do not mean every intermediate is BF16.
 
+For BF16 CUDA inference, the chunked path retains the value tensor in BF16 until
+its first multiplication by FP32 beta. That multiplication promotes to FP32;
+output storage, triangular solves and carried state stay FP32. Other execution
+modes retain eager value widening. This removes one conversion per GDN layer
+without changing state arithmetic. See the [value-cast measurements](benchmarks/results/2026-11-16-gdn-value-cast/README.md).
+
 ## Request state and conversation history
 
 Here `B` is batch size, `T` cached token count, and head dimensions come from
