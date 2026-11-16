@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "468a924ec8117995b35b7047537c33660abab448a2efb7c61f55008727a33e63",
+  "review": "One concatenate, one original lower-unit Torch triangular solve, asymmetric RHS split at v_beta width. No mutation/casts/state/integration. Numerical equivalence and performance still diagnostic gates.",
+  "validation": "pending standalone paired-solve tests"
+}

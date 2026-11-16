@@ -1,0 +1,291 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Layout-specific isolated RHS packing only, not model validation or whole-engine speedup",
+  "cases": [
+    {
+      "length_source": 256,
+      "layout": "feature_contiguous",
+      "input_strides": [
+        [
+          1572864,
+          128,
+          6144,
+          1
+        ],
+        [
+          1572864,
+          128,
+          6144,
+          1
+        ],
+        [
+          12288,
+          1,
+          48
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.030697999522089958
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.01413000002503395
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013499000109732151
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.02887200005352497
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.029008999466896057
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013570000417530537
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013357000425457954
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.02874399907886982
+        }
+      ],
+      "medians": {
+        "original": 0.028940499760210514,
+        "flat": 0.013534500263631344
+      }
+    },
+    {
+      "length_source": 256,
+      "layout": "conv_time_contiguous",
+      "input_strides": [
+        [
+          1572864,
+          32768,
+          1,
+          256
+        ],
+        [
+          1572864,
+          128,
+          6144,
+          1
+        ],
+        [
+          12288,
+          1,
+          48
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.02982099913060665
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.01356200035661459
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013350999914109707
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.028773000463843346
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.02896299958229065
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013466999866068363
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013256000354886055
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.028737999498844147
+        }
+      ],
+      "medians": {
+        "original": 0.028868000023066998,
+        "flat": 0.013408999890089035
+      }
+    },
+    {
+      "length_source": 1024,
+      "layout": "feature_contiguous",
+      "input_strides": [
+        [
+          6291456,
+          128,
+          6144,
+          1
+        ],
+        [
+          6291456,
+          128,
+          6144,
+          1
+        ],
+        [
+          49152,
+          1,
+          48
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.027659999206662178
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013434999622404575
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013151000253856182
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.027658000588417053
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.027789000421762466
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013292999938130379
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.014367000199854374
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.03751799836754799
+        }
+      ],
+      "medians": {
+        "original": 0.027724499814212322,
+        "flat": 0.013363999780267477
+      }
+    },
+    {
+      "length_source": 1024,
+      "layout": "conv_time_contiguous",
+      "input_strides": [
+        [
+          6291456,
+          131072,
+          1,
+          1024
+        ],
+        [
+          6291456,
+          128,
+          6144,
+          1
+        ],
+        [
+          49152,
+          1,
+          48
+        ],
+        [
+          3072,
+          64,
+          1
+        ]
+      ],
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.03615399822592735
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013787000440061092
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013082999736070633
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.027847999706864357
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.027993999421596527
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013275000266730785
+        },
+        {
+          "backend": "flat",
+          "cuda_ms_per_pack": 0.013280999846756458
+        },
+        {
+          "backend": "original",
+          "cuda_ms_per_pack": 0.03268599882721901
+        }
+      ],
+      "medians": {
+        "original": 0.030339999124407768,
+        "flat": 0.013278000056743622
+      }
+    }
+  ],
+  "flat_source_sha256": "0fb6a61d6c68eabee6b3fa509094d54819ab6f1d6a1e62944b5c7689785faa26",
+  "candidate_source_sha256": "0fb6a61d6c68eabee6b3fa509094d54819ab6f1d6a1e62944b5c7689785faa26",
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 63123456,
+    "cuda_peak_reserved_bytes": 94371840,
+    "cuda_global_free_bytes": 63612760064,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 824389632,
+    "VmRSS_bytes": 824389632,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 123015229440,
+    "SwapFree_bytes": 17179529216
+  }
+}

@@ -1,0 +1,131 @@
+"""Instrument existing engine/runtime calls only; no engine implementation changes."""
+from pathlib import Path
+from contextlib import contextmanager
+import sys,json,time,gc,weakref,hashlib,statistics,os,importlib.util
+
+def main():
+    import torch
+    from torch.profiler import profile,ProfilerActivity,record_function
+    sys.path.insert(0,'/workspace');sys.path.insert(0,'/harness')
+    from quant_profile_summary import trace_summary,event_summary
+    run,mode=sys.argv[1:3];out=Path('/results')/run;out.mkdir(exist_ok=True)
+    torch.set_num_threads(4);torch.manual_seed(0);torch.backends.cuda.matmul.allow_tf32=False
+    d={'status':'preflight','mode':mode,'scope':'Prefill and first-token CPU/CUDA operator/memory profile; ONE output token and NO decode calls; loading excluded','cases':[],'norm_input_shapes':{},'rhs_input_layouts':{}}
+    def save():
+        p=out/'results.tmp'
+        with p.open('w') as f:json.dump(d,f,indent=2,allow_nan=False);f.flush();os.fsync(f.fileno())
+        p.replace(out/'results.json')
+    spec=importlib.util.spec_from_file_location('bench','/workspace/tools/benchmark_qwen.py');bench=importlib.util.module_from_spec(spec);spec.loader.exec_module(bench)
+    if mode=='preflight':
+        torch.cuda.init();a=torch.randn(128,128,device='cuda');b=a@a;torch.cuda.synchronize()
+        with profile(activities=[ProfilerActivity.CPU,ProfilerActivity.CUDA],record_shapes=False,profile_memory=True,with_stack=False) as prof:
+            b=a@a;torch.cuda.synchronize()
+        prof.export_chrome_trace(str(out/'tiny-trace.json'));d['tiny_trace']=trace_summary(out/'tiny-trace.json');d['events']=event_summary(prof);assert abs(sum(x['self_gpu_ms'] for x in d['events']['category_self_times'])-d['tiny_trace']['kernel_gpu_ms_sum'])<.001;del a,b,prof;bench.clear_cuda_library_workspaces(torch);d['status']='complete';save();print('CUDA_PROFILER_PREFLIGHT_PASSED',flush=True);return
+    import inspect
+    d['installed_runtime']={'torch':torch.__version__,'cuda':torch.version.cuda,'triton_available':importlib.util.find_spec('triton') is not None}
+    if d['installed_runtime']['triton_available']:
+        import triton
+        d['installed_runtime']['triton']=triton.__version__;d['installed_runtime']['triton_jit_signature']=str(inspect.signature(triton.jit))
+    import torch._inductor
+    d['compiler_option_names']=[x for x in torch._inductor.list_options() if any(v in x for v in ['emulate_precision','eager_numerics','fp_fusion'])];save()
+    from transformers import PreTrainedTokenizerFast
+    tokenizer=PreTrainedTokenizerFast.from_pretrained('/model',local_files_only=True);base=tokenizer.encode(bench.PROMPT,add_special_tokens=False)
+    d.update(status='loading',prompt_base_token_ids=base,prompt_lengths=[256,1024],new_tokens=1,repetitions=3,record_shapes=False,profile_memory=True,with_stack=False,source=bench.source_info());save()
+    def digest(values):
+        import struct
+        return hashlib.sha256(struct.pack('<'+'q'*len(values),*values)).hexdigest()
+    if mode=='native':
+        from spark_engine.qwen_model import QwenCausalLM
+        torch.cuda.init();torch.cuda.set_per_process_memory_fraction(32*1024**3/torch.cuda.get_device_properties(0).total_memory)
+        model=QwenCausalLM.from_pretrained('/model');refs=[(n,weakref.ref(t)) for n,t in list(model.named_parameters())+list(model.named_buffers())]
+        @contextmanager
+        def annotations():
+            import flashinfer
+            import spark_engine.qwen_layers as layers
+            import spark_engine.qwen_model as models
+            from spark_engine.qwen_fp8 import FP8Linear
+            from spark_engine.qwen_nvfp4 import NVFP4Linear
+            import spark_engine.qwen_ops as ops
+            patches=[]
+            def wrap(obj,name,label):
+                had=name in vars(obj);previous=vars(obj).get(name);original=getattr(obj,name)
+                def call(*args,**kwargs):
+                    with record_function(label):return original(*args,**kwargs)
+                setattr(obj,name,call);patches.append((obj,name,had,previous))
+            try:
+                for method in ['prefill','decode']:wrap(model,method,'native.engine.'+method)
+                for cls,label in [(layers.QwenGatedDeltaNet,'native.layer.gdn'),(layers.QwenAttention,'native.layer.attention')]:
+                    for method in ['prefill','decode']:wrap(cls,method,label)
+                for obj,name,label in [(models.QwenMLP,'forward','native.layer.mlp'),(layers.QwenRMSNorm,'forward','native.layer.norm'),(FP8Linear,'forward','native.quant.fp8'),(NVFP4Linear,'forward','native.quant.nvfp4'),(layers,'gated_delta_rule','native.gdn.state_update'),(flashinfer,'fp4_quantize','primitive.nvfp4.quantize'),(flashinfer,'mm_fp4','primitive.nvfp4.gemm'),(torch,'_scaled_mm','primitive.fp8.gemm'),(model.lm_head,'forward','native.model.lm_head')]:wrap(obj,name,label)
+                for mixer in model.modules():
+                    if isinstance(mixer,layers.QwenGatedDeltaNet):wrap(mixer.in_proj_qkv,'forward','native.gdn.qkv_projection')
+                for obj,name,label in [(layers,'qwen_rms_norm','native.norm.plain'),(ops,'gated_rms_norm','native.norm.gated'),(ops,'gated_rms_norm_prefill','native.norm.gated')]:
+                    wrap(obj,name,label)
+                # Read-only metadata observation; no alternative normalization implementation.
+                wrap_shape_original=layers.QwenRMSNorm.forward
+                def observe_shape(self,x,z=None,**kwargs):
+                    key=json.dumps({'kind':'gated' if z is not None else 'plain','x_shape':list(x.shape),'x_stride':list(x.stride()),'x_dtype':str(x.dtype),'weight_dtype':str(self.weight.dtype),'z_shape':list(z.shape) if z is not None else None},sort_keys=True)
+                    d['norm_input_shapes'][key]=d['norm_input_shapes'].get(key,0)+1
+                    return wrap_shape_original(self,x,z,**kwargs)
+                patches.append((layers.QwenRMSNorm,'forward',True,layers.QwenRMSNorm.forward));layers.QwenRMSNorm.forward=observe_shape
+                import spark_engine.qwen_norm_tail as tail
+                wrap(tail,'norm_tail','native.norm.tail')
+                import spark_engine.qwen_gated_norm_tail as gated_tail
+                wrap(gated_tail,'gated_norm_tail','native.norm.gated_tail')
+                import spark_engine.qwen_gdn_prepared_solve as prepared_solve
+                wrap(prepared_solve,'solve_prepared','native.gdn.prepared_solve')
+                wrap(prepared_solve,'pack_rhs','native.gdn.rhs_pack')
+                pack_observed=prepared_solve.pack_rhs
+                def observe_rhs_layout(*args):
+                    key=str(length)
+                    if key not in d['rhs_input_layouts']:d['rhs_input_layouts'][key]=[{'shape':list(v.shape),'stride':list(v.stride()),'dtype':str(v.dtype)} for v in args]
+                    return pack_observed(*args)
+                patches.append((prepared_solve,'pack_rhs',True,prepared_solve.pack_rhs));prepared_solve.pack_rhs=observe_rhs_layout
+                yield
+            finally:
+                for obj,name,had,previous in reversed(patches):
+                    if had:setattr(obj,name,previous)
+                    else:delattr(obj,name)
+    elif mode=='reference':
+        import vllm
+        from vllm import LLM,SamplingParams
+        config=dict(model='/model',tokenizer='/model',trust_remote_code=False,dtype='bfloat16',max_model_len=2048,max_num_seqs=1,max_num_batched_tokens=2048,gpu_memory_utilization=.40,kv_cache_memory_bytes=512*1024**2,enable_prefix_caching=False,kv_cache_dtype='bfloat16',enforce_eager=True,language_model_only=True,seed=0,profiler_config={'profiler':'torch','torch_profiler_dir':str(out/'traces'),'torch_profiler_activities':['CPU','CUDA'],'torch_profiler_with_stack':False,'torch_profiler_record_shapes':False,'torch_profiler_with_memory':True,'torch_profiler_use_gzip':True})
+        d['reference_settings']=config;d['vllm_version']=vllm.__version__;llm=LLM(**config);params=SamplingParams(temperature=0,max_tokens=1,min_tokens=1,ignore_eos=True,seed=0)
+    else:raise ValueError(mode)
+    d['status']='profiling';save();print('PROFILE_MODEL_LOADED '+mode,flush=True)
+    with torch.inference_mode():
+        for length in [256,1024]:
+            values=(base*((length+len(base)-1)//len(base)))[:length];case={'prompt_tokens':length,'prompt_token_ids':values,'controls':[]}
+            def generate():
+                if mode=='native':
+                    generated=model.generate(ids,1,None);tokens=generated[0,length:].tolist();del generated;return tokens
+                output=llm.generate([{'prompt_token_ids':values}],params,use_tqdm=False)[0];assert output.prompt_token_ids==values;return list(output.outputs[0].token_ids)
+            if mode=='native':ids=torch.tensor([values],device='cuda')
+            warm=generate();assert len(warm)==1
+            for rep in range(3):
+                if mode=='native':torch.cuda.synchronize();torch.cuda.reset_peak_memory_stats()
+                start=time.perf_counter();tokens=generate()
+                if mode=='native':torch.cuda.synchronize()
+                elapsed=(time.perf_counter()-start)*1000;assert tokens==warm;case['controls'].append({'wall_ms':elapsed,'output_sha256':digest(tokens)})
+            case['median_control_ms']=statistics.median(x['wall_ms'] for x in case['controls']);case['output_token_ids']=warm
+            if mode=='native':
+                case['cuda_event_diagnostic']=bench.timed_diagnostic(torch,model,ids,1);assert case['cuda_event_diagnostic']['output_sha256']==digest(warm);assert case['cuda_event_diagnostic']['observed_decode_calls']==0 and case['cuda_event_diagnostic']['selected_tokens']==1
+                torch.cuda.reset_peak_memory_stats()
+                with annotations():
+                    with profile(activities=[ProfilerActivity.CPU,ProfilerActivity.CUDA],record_shapes=False,profile_memory=True,with_stack=False) as prof:
+                        start=time.perf_counter();tokens=generate();torch.cuda.synchronize();elapsed=(time.perf_counter()-start)*1000
+                assert tokens==warm;path=out/f'p{length}-native-trace.json';prof.export_chrome_trace(str(path));case['profile']={'wall_ms':elapsed,'output_matches_control':True,'cuda_peak_allocated_bytes':torch.cuda.max_memory_allocated(),'events':event_summary(prof),'trace_summary':trace_summary(path)};del prof,ids
+            else:
+                before=set((out/'traces').rglob('*'));llm.start_profile(profile_prefix=f'p{length}');start=time.perf_counter();tokens=generate();elapsed=(time.perf_counter()-start)*1000;llm.stop_profile();assert tokens==warm
+                paths=[p for p in set((out/'traces').rglob('*'))-before if p.name.endswith(('.json','.json.gz'))];assert paths, 'No reference trace exported'
+                summaries=[]
+                for path in paths:
+                    try:summaries.append(trace_summary(path))
+                    except AssertionError:pass
+                assert summaries,'No CUDA kernels in reference traces';case['profile']={'wall_ms':elapsed,'output_matches_control':True,'traces':summaries}
+            d['cases'].append(case);save();print(json.dumps({'prompt_tokens':length,'control_ms':case['median_control_ms'],'profiled_ms':elapsed}),flush=True)
+    if mode=='native':
+        del model;gc.collect();d['live_model_tensors_after_release']=[n for n,r in refs if r() is not None];assert not d['live_model_tensors_after_release'];d['released_library_workspaces']=bench.clear_cuda_library_workspaces(torch);d['released_memory']=bench.memory(torch);save();assert d['released_memory']['cuda_allocated_bytes']<=16*1024**2 and d['released_memory']['cuda_reserved_bytes']<=64*1024**2
+    else:del llm;gc.collect()
+    d['status']='complete';save();print('QUANT_PROFILE_COMPLETE '+mode,flush=True)
+if __name__=='__main__':main()

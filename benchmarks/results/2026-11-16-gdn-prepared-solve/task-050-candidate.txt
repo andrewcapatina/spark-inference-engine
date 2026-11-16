@@ -1,0 +1,9 @@
+--- a/gated_delta_chunk.py
++++ b/gated_delta_chunk.py
+@@ -58,7 +58,7 @@
+         try:
+             from spark_engine.qwen_gdn_prepared_solve import solve_prepared
+         except ModuleNotFoundError as e:
+-            if e.name is None:
++            if e.name is not None and e.name != "triton" and not e.name.startswith("triton."):
+                 raise

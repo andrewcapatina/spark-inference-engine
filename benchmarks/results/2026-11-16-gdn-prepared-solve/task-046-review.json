@@ -1,0 +1,10 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "df35019b830d8a650e3afcd763b809decd4ca9082cdc825bb6df8b6140304a5e",
+  "reasons": [
+    "H/C/V/K and all strides are runtime despite explicit compile-time contract, causing expensive integer division/modulo.",
+    "Wrapper lacks explicit CUDA guard.",
+    "Use requested constexpr stride tuples to keep module within50nonblanklines."
+  ],
+  "arithmetic_review": "FP32 product order, masking, row-major output and arbitrary-stride formulas otherwise consistent."
+}

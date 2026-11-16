@@ -1,0 +1,7 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "98d8d5b6740532296b5d9df44de295269dff3a3fc64e23415875cf401f2b2b55",
+  "reasons": [
+    "columns_fortran RHS remains [B,H,V+K,C] rather than transposing back to logical [B,H,C,V+K] before solve; return splits wrong axis and transposes again. Other three variants appear consistent."
+  ]
+}

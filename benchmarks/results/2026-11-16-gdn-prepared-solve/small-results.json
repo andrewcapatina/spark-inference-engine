@@ -1,0 +1,4676 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Paired-solve diagnostic only, no integration/checkpoint validation. Strict all_cases_bitwise_exact flag is required before any integration. Timings include cat/solve/split versus BOTH solves.",
+  "cases": [
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          16,
+          1
+        ],
+        [
+          256,
+          256,
+          16,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          512,
+          512,
+          32,
+          2
+        ],
+        [
+          512,
+          512,
+          32,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          1,
+          16
+        ],
+        [
+          256,
+          256,
+          1,
+          16
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          16,
+          1
+        ],
+        [
+          256,
+          256,
+          16,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          512,
+          512,
+          32,
+          2
+        ],
+        [
+          512,
+          512,
+          32,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          1,
+          16
+        ],
+        [
+          256,
+          256,
+          1,
+          16
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          16,
+          1
+        ],
+        [
+          256,
+          256,
+          16,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          512,
+          512,
+          32,
+          2
+        ],
+        [
+          512,
+          512,
+          32,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          1,
+          16
+        ],
+        [
+          256,
+          256,
+          1,
+          16
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          16,
+          1
+        ],
+        [
+          256,
+          256,
+          16,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          512,
+          512,
+          32,
+          2
+        ],
+        [
+          512,
+          512,
+          32,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        1,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        16
+      ],
+      "rhs_strides": [
+        [
+          256,
+          256,
+          1,
+          16
+        ],
+        [
+          256,
+          256,
+          1,
+          16
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          6144,
+          2048,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          6144,
+          2048,
+          32,
+          2
+        ],
+        [
+          12288,
+          4096,
+          64,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          1,
+          64
+        ],
+        [
+          6144,
+          2048,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          6144,
+          2048,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          6144,
+          2048,
+          32,
+          2
+        ],
+        [
+          12288,
+          4096,
+          64,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          1,
+          64
+        ],
+        [
+          6144,
+          2048,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          6144,
+          2048,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          6144,
+          2048,
+          32,
+          2
+        ],
+        [
+          12288,
+          4096,
+          64,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          1,
+          64
+        ],
+        [
+          6144,
+          2048,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          6144,
+          2048,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          6144,
+          2048,
+          32,
+          2
+        ],
+        [
+          12288,
+          4096,
+          64,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        3,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          3072,
+          1024,
+          1,
+          64
+        ],
+        [
+          6144,
+          2048,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          128,
+          1
+        ],
+        [
+          16384,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          32768,
+          16384,
+          256,
+          2
+        ],
+        [
+          32768,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          1,
+          64
+        ],
+        [
+          16384,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          128,
+          1
+        ],
+        [
+          16384,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          32768,
+          16384,
+          256,
+          2
+        ],
+        [
+          32768,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          1,
+          64
+        ],
+        [
+          16384,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          128,
+          1
+        ],
+        [
+          16384,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          32768,
+          16384,
+          256,
+          2
+        ],
+        [
+          32768,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          1,
+          64
+        ],
+        [
+          16384,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          128,
+          1
+        ],
+        [
+          16384,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          32768,
+          16384,
+          256,
+          2
+        ],
+        [
+          32768,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        2,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          16384,
+          8192,
+          1,
+          64
+        ],
+        [
+          16384,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          786432,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          393216,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          786432,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          393216,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          786432,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          393216,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          786432,
+          16384,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          393216,
+          8192,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          196608,
+          4096,
+          64,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          393216,
+          8192,
+          128,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          196608,
+          4096,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          196608,
+          4096,
+          64,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          393216,
+          8192,
+          128,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          196608,
+          4096,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          196608,
+          4096,
+          64,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          393216,
+          8192,
+          128,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          196608,
+          4096,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          196608,
+          4096,
+          64,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          393216,
+          8192,
+          128,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        64
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          196608,
+          4096,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          127,
+          1
+        ],
+        [
+          16512,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          32512,
+          16256,
+          254,
+          2
+        ],
+        [
+          33024,
+          16512,
+          258,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          1,
+          64
+        ],
+        [
+          16512,
+          8256,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          127,
+          1
+        ],
+        [
+          16512,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          32512,
+          16256,
+          254,
+          2
+        ],
+        [
+          33024,
+          16512,
+          258,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          1,
+          64
+        ],
+        [
+          16512,
+          8256,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          127,
+          1
+        ],
+        [
+          16512,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          32512,
+          16256,
+          254,
+          2
+        ],
+        [
+          33024,
+          16512,
+          258,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          1,
+          64
+        ],
+        [
+          16512,
+          8256,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          127,
+          1
+        ],
+        [
+          16512,
+          8256,
+          129,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          32512,
+          16256,
+          254,
+          2
+        ],
+        [
+          33024,
+          16512,
+          258,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        2,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        127,
+        129
+      ],
+      "rhs_strides": [
+        [
+          16256,
+          8128,
+          1,
+          64
+        ],
+        [
+          16512,
+          8256,
+          1,
+          64
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_contiguous",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          128,
+          1
+        ],
+        [
+          4096,
+          4096,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_gapped",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          8192,
+          8192,
+          256,
+          2
+        ],
+        [
+          8192,
+          8192,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "random_transposed",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          1,
+          32
+        ],
+        [
+          4096,
+          4096,
+          1,
+          32
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_contiguous",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          128,
+          1
+        ],
+        [
+          4096,
+          4096,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_gapped",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          8192,
+          8192,
+          256,
+          2
+        ],
+        [
+          8192,
+          8192,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "identity_transposed",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          1,
+          32
+        ],
+        [
+          4096,
+          4096,
+          1,
+          32
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_contiguous",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          128,
+          1
+        ],
+        [
+          4096,
+          4096,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_gapped",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          8192,
+          8192,
+          256,
+          2
+        ],
+        [
+          8192,
+          8192,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_v_transposed",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          1,
+          32
+        ],
+        [
+          4096,
+          4096,
+          1,
+          32
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_contiguous",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          128,
+          1
+        ],
+        [
+          4096,
+          4096,
+          128,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_gapped",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          8192,
+          8192,
+          256,
+          2
+        ],
+        [
+          8192,
+          8192,
+          256,
+          2
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "zero_k_transposed",
+      "system_shape": [
+        1,
+        1,
+        32,
+        32
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          4096,
+          4096,
+          1,
+          32
+        ],
+        [
+          4096,
+          4096,
+          1,
+          32
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "cpu_diagnostic",
+      "system_shape": [
+        1,
+        2,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          512,
+          256,
+          16,
+          1
+        ],
+        [
+          1024,
+          512,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "cpu_diagnostic",
+      "system_shape": [
+        1,
+        2,
+        16,
+        16
+      ],
+      "rhs_widths": [
+        16,
+        32
+      ],
+      "rhs_strides": [
+        [
+          512,
+          256,
+          16,
+          1
+        ],
+        [
+          1024,
+          512,
+          32,
+          1
+        ]
+      ],
+      "dtype": "torch.float64",
+      "device": "cpu",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    }
+  ],
+  "captured_gdn_cases": [
+    {
+      "label": "captured_original_gdn_length64_chunk0",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length256_chunk0",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length256_chunk1",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length256_chunk2",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length256_chunk3",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk0",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk1",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk2",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk3",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk4",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk5",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk6",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk7",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk8",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk9",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk10",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk11",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk12",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk13",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk14",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    },
+    {
+      "label": "captured_original_gdn_length1024_chunk15",
+      "system_shape": [
+        1,
+        48,
+        64,
+        64
+      ],
+      "rhs_widths": [
+        128,
+        128
+      ],
+      "rhs_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ]
+      ],
+      "dtype": "torch.float32",
+      "device": "cuda:0",
+      "outputs": [
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        },
+        {
+          "bitwise_exact": true,
+          "max_abs": 0.0,
+          "different_elements": 0
+        }
+      ],
+      "input_ownership_unchanged": true,
+      "all_outputs_bitwise_exact": true
+    }
+  ],
+  "timings": [
+    {
+      "backend": "original",
+      "cuda_ms_per_pair": 0.0835219994187355,
+      "wall_ms_per_pair": 0.08546256231056759
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pair": 0.08134400099515915,
+      "wall_ms_per_pair": 0.08199750027415575
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pair": 0.08114799857139587,
+      "wall_ms_per_pair": 0.08170756245817756
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pair": 0.08347000181674957,
+      "wall_ms_per_pair": 0.08400949991482776
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pair": 0.08333399891853333,
+      "wall_ms_per_pair": 0.08387556317757117
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pair": 0.08105400204658508,
+      "wall_ms_per_pair": 0.08158649961842457
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pair": 0.08125399798154831,
+      "wall_ms_per_pair": 0.08178556254279101
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pair": 0.08410999923944473,
+      "wall_ms_per_pair": 0.08460749995720107
+    }
+  ],
+  "median_cuda_ms_per_pair": {
+    "original": 0.08349600061774254,
+    "candidate": 0.08120099827647209
+  },
+  "all_cases_bitwise_exact": true,
+  "captured_gdn_bitwise_exact": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 333279744,
+    "cuda_peak_reserved_bytes": 360710144,
+    "cuda_global_free_bytes": 63450312704,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1202462720,
+    "VmRSS_bytes": 1202462720,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122594963456,
+    "SwapFree_bytes": 17179529216
+  }
+}

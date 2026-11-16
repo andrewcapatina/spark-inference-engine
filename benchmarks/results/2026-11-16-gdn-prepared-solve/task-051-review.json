@@ -1,0 +1,11 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "239adb43fd60e9cf52525327891325395f82febf6c84d0aab133a6adc10bd636",
+  "parent_candidate_task": "049",
+  "parent_candidate_sha256": "10fdf7766b496d1d804890746760059f4e7686ed0450ddd012df241408ad2305",
+  "guard_line_task": "051",
+  "guard_line_sha256": "0dbf3f81643148a28a40ee78a610cb8eef603921a8308ed11792c7e156ceadd8",
+  "composition": "Replace exactly one namespace-guard line with local051 line; preserve local049 body verbatim, including original None guard.",
+  "arithmetic_review": "AST identical to baseline after removing optional import and restoring unchanged four-statement eager RHS/two-solve fallback; fast arguments are original system/v/k/beta/eagerexp. State/matrix/output operations unchanged.",
+  "validation": "pending combined integration tests"
+}

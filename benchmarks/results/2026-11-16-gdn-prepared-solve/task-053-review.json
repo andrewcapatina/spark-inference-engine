@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "9deda5c280eb735b2ad92207b5536b3ec26fdbd45b0220cee842bb5287701992",
+  "review": "Four layout variants have correct logical matrix dimensions, original lower-unit flags, proper value/key split or leading batchindex; unequal batch widths use originaltwo solves; input ownership unchanged. No default integration.",
+  "validation": "pending numerical/layout/performance diagnostic"
+}

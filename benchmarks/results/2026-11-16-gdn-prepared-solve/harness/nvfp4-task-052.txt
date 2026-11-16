@@ -1,0 +1,9 @@
+Return ONLY complete standalone Torch module spark_engine/qwen_gdn_solve_variants.py, <=40nonblanklines, noMarkdown/prose. Include importtorch and ONE public function solve_variant(system,v_beta,decayed_k,variant). You alone write implementation; no integration/otherenginefiles.
+
+We compare alternative exact solves/layouts against original TWO torch.linalg.solve_triangular calls. Inputs are ORIGINAL already-rounded FP32 RHS tensors. A shape[B,H,C,C], v_beta[B,H,C,V], decayed_k[B,H,C,K]. Do NOT change/cast inputs or math/settings. All solves upper=False,unitriangular=True, no catches/mutation/globalstate/compiler/dependencies.
+
+variant=='columns': concatenate RHS alonglastaxis via Torchcat, one originalsolve, split atV. This is previously bitwise-tested but fullmodelgain only0.2%; copieserase benefit.
+variant=='columns_fortran': transpose lasttwoaxes of eachRHS, concatenate along the now secondlast axis (theRHS-column axis), transpose resultback. This produces logical[B,H,C,V+K] but columnmajor innerlayout. Solve once, split atV.
+variant=='batch': ONLY ifV==K, stack the twoRHS tensors along NEW LEADING axis0. Expand system with a matching new leading axis2 (broadcastview, do not materializemanually). Solve once on [2,B,H,C,V] RHS and expanded A, return solution[0],solution[1]. Preservebatchindex distinction! IfV!=K, fall back to original two separate solves, no padding.
+variant=='batch_fortran': ONLY ifV==K, transpose bothRHS lastaxes, stack onnewleadingaxis0, transpose RHS lastaxesback. Logicalshape[2,B,H,C,V] with columnmajor innerlayout. Expand sameA leadingaxis2, solveonce, return [0],[1]. Unequalwidthfallback originaltwo asabove.
+Unknownvariant raiseValueError. Function returns tuple outputswithrespectiveoriginalshapes. Views intonewsolution allocation allowed; neveralias/mutateinputRHS/system. No inferenceforcing. All layouts must undergo bitwise/F32timing checks before anyintegration. Sourceonly <=40nonblanklines.

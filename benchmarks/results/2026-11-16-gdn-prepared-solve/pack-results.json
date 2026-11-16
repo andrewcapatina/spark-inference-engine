@@ -1,0 +1,11297 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Standalone FP32 RHS preparation bitwise test; no GDN/model integration or whole-checkpoint speed claim",
+  "cases": [
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          32,
+          32,
+          32,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        48,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          32,
+          32,
+          32,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        48,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          32,
+          32,
+          32,
+          2
+        ],
+        [
+          64,
+          64,
+          64,
+          2
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        48,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          16,
+          16,
+          1,
+          1
+        ],
+        [
+          32,
+          32,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        48,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          16,
+          16,
+          16,
+          1
+        ],
+        [
+          32,
+          32,
+          32,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        48,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          256,
+          256,
+          256,
+          2
+        ],
+        [
+          256,
+          256,
+          256,
+          2
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          127,
+          127,
+          127,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          127,
+          127,
+          127,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          254,
+          254,
+          254,
+          2
+        ],
+        [
+          258,
+          258,
+          258,
+          2
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          127,
+          127,
+          1,
+          1
+        ],
+        [
+          129,
+          129,
+          1,
+          1
+        ],
+        [
+          4,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          127,
+          127,
+          127,
+          1
+        ],
+        [
+          129,
+          129,
+          129,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        256,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        6,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        6,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          6,
+          2,
+          2
+        ],
+        [
+          6,
+          6,
+          2,
+          2
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        6,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          3,
+          1,
+          3
+        ],
+        [
+          3,
+          3,
+          1,
+          3
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        6,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        6,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          48,
+          16,
+          1
+        ],
+        [
+          96,
+          96,
+          32,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        144,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          96,
+          32,
+          32,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        144,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          96,
+          96,
+          32,
+          2
+        ],
+        [
+          192,
+          192,
+          64,
+          2
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        144,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          48,
+          1,
+          3
+        ],
+        [
+          96,
+          96,
+          1,
+          3
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        144,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          48,
+          16,
+          1
+        ],
+        [
+          96,
+          96,
+          32,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        144,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          768,
+          256,
+          2
+        ],
+        [
+          768,
+          768,
+          256,
+          2
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          384,
+          1,
+          3
+        ],
+        [
+          384,
+          384,
+          1,
+          3
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          384,
+          384,
+          128,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          381,
+          127,
+          1
+        ],
+        [
+          387,
+          387,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          127,
+          127,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          762,
+          762,
+          254,
+          2
+        ],
+        [
+          774,
+          774,
+          258,
+          2
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          381,
+          1,
+          3
+        ],
+        [
+          387,
+          387,
+          1,
+          3
+        ],
+        [
+          12,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          381,
+          127,
+          1
+        ],
+        [
+          387,
+          387,
+          129,
+          1
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        768,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        128,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          64,
+          1,
+          1,
+          1
+        ],
+        [
+          64,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        128,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          128,
+          128,
+          2,
+          2
+        ],
+        [
+          128,
+          128,
+          2,
+          2
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        128,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          64,
+          64,
+          1,
+          64
+        ],
+        [
+          64,
+          64,
+          1,
+          64
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        128,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1,
+          1
+        ],
+        [
+          64,
+          64,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        128,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          1024,
+          1024,
+          16,
+          1
+        ],
+        [
+          2048,
+          2048,
+          32,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3072,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          1024,
+          16,
+          16,
+          1
+        ],
+        [
+          2048,
+          32,
+          32,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3072,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          2048,
+          2048,
+          32,
+          2
+        ],
+        [
+          4096,
+          4096,
+          64,
+          2
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3072,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          1024,
+          1024,
+          1,
+          64
+        ],
+        [
+          2048,
+          2048,
+          1,
+          64
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3072,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          1024,
+          1024,
+          16,
+          1
+        ],
+        [
+          2048,
+          2048,
+          32,
+          1
+        ],
+        [
+          64,
+          64,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        3072,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          8192,
+          128,
+          128,
+          1
+        ],
+        [
+          8192,
+          128,
+          128,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          16384,
+          16384,
+          256,
+          2
+        ],
+        [
+          16384,
+          16384,
+          256,
+          2
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          8192,
+          8192,
+          1,
+          64
+        ],
+        [
+          8192,
+          8192,
+          1,
+          64
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          8192,
+          8192,
+          128,
+          1
+        ],
+        [
+          64,
+          64,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          8128,
+          8128,
+          127,
+          1
+        ],
+        [
+          8256,
+          8256,
+          129,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          8128,
+          127,
+          127,
+          1
+        ],
+        [
+          8256,
+          129,
+          129,
+          1
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          16256,
+          16256,
+          254,
+          2
+        ],
+        [
+          16512,
+          16512,
+          258,
+          2
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          8128,
+          8128,
+          1,
+          64
+        ],
+        [
+          8256,
+          8256,
+          1,
+          64
+        ],
+        [
+          256,
+          2,
+          4
+        ],
+        [
+          64,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          8128,
+          8128,
+          127,
+          1
+        ],
+        [
+          8256,
+          8256,
+          129,
+          1
+        ],
+        [
+          64,
+          64,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        16384,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        130,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          65,
+          1,
+          1,
+          1
+        ],
+        [
+          65,
+          1,
+          1,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        130,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          130,
+          130,
+          2,
+          2
+        ],
+        [
+          130,
+          130,
+          2,
+          2
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        130,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          65,
+          65,
+          1,
+          65
+        ],
+        [
+          65,
+          65,
+          1,
+          65
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        130,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1,
+          1
+        ],
+        [
+          65,
+          65,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        130,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          1040,
+          1040,
+          16,
+          1
+        ],
+        [
+          2080,
+          2080,
+          32,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3120,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          1040,
+          16,
+          16,
+          1
+        ],
+        [
+          2080,
+          32,
+          32,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3120,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          2080,
+          2080,
+          32,
+          2
+        ],
+        [
+          4160,
+          4160,
+          64,
+          2
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3120,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          1040,
+          1040,
+          1,
+          65
+        ],
+        [
+          2080,
+          2080,
+          1,
+          65
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        3120,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          1040,
+          1040,
+          16,
+          1
+        ],
+        [
+          2080,
+          2080,
+          32,
+          1
+        ],
+        [
+          65,
+          65,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        3120,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          8320,
+          128,
+          128,
+          1
+        ],
+        [
+          8320,
+          128,
+          128,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          16640,
+          16640,
+          256,
+          2
+        ],
+        [
+          16640,
+          16640,
+          256,
+          2
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          8320,
+          8320,
+          1,
+          65
+        ],
+        [
+          8320,
+          8320,
+          1,
+          65
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          8320,
+          8320,
+          128,
+          1
+        ],
+        [
+          65,
+          65,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        1,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          8255,
+          8255,
+          127,
+          1
+        ],
+        [
+          8385,
+          8385,
+          129,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        1,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          8255,
+          127,
+          127,
+          1
+        ],
+        [
+          8385,
+          129,
+          129,
+          1
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        1,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          16510,
+          16510,
+          254,
+          2
+        ],
+        [
+          16770,
+          16770,
+          258,
+          2
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        1,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          8255,
+          8255,
+          1,
+          65
+        ],
+        [
+          8385,
+          8385,
+          1,
+          65
+        ],
+        [
+          260,
+          2,
+          4
+        ],
+        [
+          65,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        1,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        1,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          8255,
+          8255,
+          127,
+          1
+        ],
+        [
+          8385,
+          8385,
+          129,
+          1
+        ],
+        [
+          65,
+          65,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        16640,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          6,
+          2,
+          2,
+          2
+        ],
+        [
+          6,
+          2,
+          2,
+          2
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          1,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          16,
+          16,
+          1
+        ],
+        [
+          96,
+          32,
+          32,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        144,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          16,
+          48,
+          1
+        ],
+        [
+          96,
+          32,
+          96,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        144,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          96,
+          32,
+          32,
+          2
+        ],
+        [
+          192,
+          64,
+          64,
+          2
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        144,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          16,
+          1,
+          1
+        ],
+        [
+          96,
+          32,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        144,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        1,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          16,
+          1
+        ],
+        [
+          0,
+          0,
+          32,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        144,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          384,
+          128,
+          128,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          384,
+          1
+        ],
+        [
+          384,
+          128,
+          384,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          768,
+          256,
+          256,
+          2
+        ],
+        [
+          768,
+          256,
+          256,
+          2
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          1,
+          1
+        ],
+        [
+          384,
+          128,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        1,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          127,
+          127,
+          1
+        ],
+        [
+          387,
+          129,
+          129,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        1,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          127,
+          381,
+          1
+        ],
+        [
+          387,
+          129,
+          387,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        1,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          762,
+          254,
+          254,
+          2
+        ],
+        [
+          774,
+          258,
+          258,
+          2
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        1,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          127,
+          1,
+          1
+        ],
+        [
+          387,
+          129,
+          1,
+          1
+        ],
+        [
+          12,
+          2,
+          12
+        ],
+        [
+          3,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        1,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          127,
+          1
+        ],
+        [
+          0,
+          0,
+          129,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        768,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          9,
+          3,
+          1,
+          1
+        ],
+        [
+          9,
+          3,
+          1,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        18,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          9,
+          1,
+          3,
+          1
+        ],
+        [
+          9,
+          1,
+          3,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        18,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          18,
+          6,
+          2,
+          2
+        ],
+        [
+          18,
+          6,
+          2,
+          2
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        18,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          9,
+          3,
+          1,
+          3
+        ],
+        [
+          9,
+          3,
+          1,
+          3
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        18,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        18,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          144,
+          48,
+          16,
+          1
+        ],
+        [
+          288,
+          96,
+          32,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        432,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          144,
+          16,
+          48,
+          1
+        ],
+        [
+          288,
+          32,
+          96,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        432,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          288,
+          96,
+          32,
+          2
+        ],
+        [
+          576,
+          192,
+          64,
+          2
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        432,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          144,
+          48,
+          1,
+          3
+        ],
+        [
+          288,
+          96,
+          1,
+          3
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        432,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        3,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          16,
+          1
+        ],
+        [
+          0,
+          0,
+          32,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        432,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          1152,
+          384,
+          128,
+          1
+        ],
+        [
+          1152,
+          384,
+          128,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          1152,
+          128,
+          384,
+          1
+        ],
+        [
+          1152,
+          128,
+          384,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          2304,
+          768,
+          256,
+          2
+        ],
+        [
+          2304,
+          768,
+          256,
+          2
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          1152,
+          384,
+          1,
+          3
+        ],
+        [
+          1152,
+          384,
+          1,
+          3
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        3,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          1143,
+          381,
+          127,
+          1
+        ],
+        [
+          1161,
+          387,
+          129,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        3,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          1143,
+          127,
+          381,
+          1
+        ],
+        [
+          1161,
+          129,
+          387,
+          1
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        3,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          2286,
+          762,
+          254,
+          2
+        ],
+        [
+          2322,
+          774,
+          258,
+          2
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        3,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          1143,
+          381,
+          1,
+          3
+        ],
+        [
+          1161,
+          387,
+          1,
+          3
+        ],
+        [
+          36,
+          2,
+          12
+        ],
+        [
+          9,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        3,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          127,
+          1
+        ],
+        [
+          0,
+          0,
+          129,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        2304,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          192,
+          64,
+          1,
+          1
+        ],
+        [
+          192,
+          64,
+          1,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        384,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          192,
+          1,
+          3,
+          1
+        ],
+        [
+          192,
+          1,
+          3,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        384,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          384,
+          128,
+          2,
+          2
+        ],
+        [
+          384,
+          128,
+          2,
+          2
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        384,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          192,
+          64,
+          1,
+          64
+        ],
+        [
+          192,
+          64,
+          1,
+          64
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        384,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        384,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          3072,
+          1024,
+          16,
+          1
+        ],
+        [
+          6144,
+          2048,
+          32,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9216,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          3072,
+          16,
+          48,
+          1
+        ],
+        [
+          6144,
+          32,
+          96,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9216,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          6144,
+          2048,
+          32,
+          2
+        ],
+        [
+          12288,
+          4096,
+          64,
+          2
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9216,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          3072,
+          1024,
+          1,
+          64
+        ],
+        [
+          6144,
+          2048,
+          1,
+          64
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9216,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        64,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          16,
+          1
+        ],
+        [
+          0,
+          0,
+          32,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        9216,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          24576,
+          128,
+          384,
+          1
+        ],
+        [
+          24576,
+          128,
+          384,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          49152,
+          16384,
+          256,
+          2
+        ],
+        [
+          49152,
+          16384,
+          256,
+          2
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          24576,
+          8192,
+          1,
+          64
+        ],
+        [
+          24576,
+          8192,
+          1,
+          64
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        64,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          24384,
+          8128,
+          127,
+          1
+        ],
+        [
+          24768,
+          8256,
+          129,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        64,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          24384,
+          127,
+          381,
+          1
+        ],
+        [
+          24768,
+          129,
+          387,
+          1
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        64,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          48768,
+          16256,
+          254,
+          2
+        ],
+        [
+          49536,
+          16512,
+          258,
+          2
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        64,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          24384,
+          8128,
+          1,
+          64
+        ],
+        [
+          24768,
+          8256,
+          1,
+          64
+        ],
+        [
+          768,
+          2,
+          12
+        ],
+        [
+          192,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        64,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          127,
+          1
+        ],
+        [
+          0,
+          0,
+          129,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          195,
+          65,
+          1,
+          1
+        ],
+        [
+          195,
+          65,
+          1,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        390,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          195,
+          1,
+          3,
+          1
+        ],
+        [
+          195,
+          1,
+          3,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        390,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          390,
+          130,
+          2,
+          2
+        ],
+        [
+          390,
+          130,
+          2,
+          2
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        390,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          195,
+          65,
+          1,
+          65
+        ],
+        [
+          195,
+          65,
+          1,
+          65
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        390,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        390,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          3120,
+          1040,
+          16,
+          1
+        ],
+        [
+          6240,
+          2080,
+          32,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9360,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          3120,
+          16,
+          48,
+          1
+        ],
+        [
+          6240,
+          32,
+          96,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9360,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          6240,
+          2080,
+          32,
+          2
+        ],
+        [
+          12480,
+          4160,
+          64,
+          2
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9360,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          3120,
+          1040,
+          1,
+          65
+        ],
+        [
+          6240,
+          2080,
+          1,
+          65
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        9360,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        65,
+        16
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          16,
+          1
+        ],
+        [
+          0,
+          0,
+          32,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        9360,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          24960,
+          8320,
+          128,
+          1
+        ],
+        [
+          24960,
+          8320,
+          128,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          24960,
+          128,
+          384,
+          1
+        ],
+        [
+          24960,
+          128,
+          384,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          49920,
+          16640,
+          256,
+          2
+        ],
+        [
+          49920,
+          16640,
+          256,
+          2
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          24960,
+          8320,
+          1,
+          65
+        ],
+        [
+          24960,
+          8320,
+          1,
+          65
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          128,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        2,
+        3,
+        65,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          24765,
+          8255,
+          127,
+          1
+        ],
+        [
+          25155,
+          8385,
+          129,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        2,
+        3,
+        65,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          24765,
+          127,
+          381,
+          1
+        ],
+        [
+          25155,
+          129,
+          387,
+          1
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        2,
+        3,
+        65,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          49530,
+          16510,
+          254,
+          2
+        ],
+        [
+          50310,
+          16770,
+          258,
+          2
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        2,
+        3,
+        65,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          24765,
+          8255,
+          1,
+          65
+        ],
+        [
+          25155,
+          8385,
+          1,
+          65
+        ],
+        [
+          780,
+          2,
+          12
+        ],
+        [
+          195,
+          1,
+          3
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        2,
+        3,
+        65,
+        127
+      ],
+      "k_shape": [
+        2,
+        3,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          0,
+          0,
+          127,
+          1
+        ],
+        [
+          0,
+          0,
+          129,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        49920,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        96,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          48,
+          1,
+          48,
+          1
+        ],
+        [
+          48,
+          1,
+          48,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        96,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          96,
+          2,
+          2,
+          2
+        ],
+        [
+          96,
+          2,
+          2,
+          2
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        96,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          48,
+          1,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        96,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "input_strides": [
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        96,
+        2,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          768,
+          16,
+          16,
+          1
+        ],
+        [
+          1536,
+          32,
+          32,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        2304,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          768,
+          16,
+          768,
+          1
+        ],
+        [
+          1536,
+          32,
+          1536,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        2304,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          1536,
+          32,
+          32,
+          2
+        ],
+        [
+          3072,
+          64,
+          64,
+          2
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        2304,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          768,
+          16,
+          1,
+          1
+        ],
+        [
+          1536,
+          32,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        2304,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        1,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        32
+      ],
+      "input_strides": [
+        [
+          16,
+          0,
+          16,
+          1
+        ],
+        [
+          32,
+          0,
+          32,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        2304,
+        48,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          6144,
+          128,
+          128,
+          1
+        ],
+        [
+          6144,
+          128,
+          128,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          6144,
+          128,
+          6144,
+          1
+        ],
+        [
+          6144,
+          128,
+          6144,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          12288,
+          256,
+          256,
+          2
+        ],
+        [
+          12288,
+          256,
+          256,
+          2
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          6144,
+          128,
+          1,
+          1
+        ],
+        [
+          6144,
+          128,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        128
+      ],
+      "input_strides": [
+        [
+          128,
+          0,
+          128,
+          1
+        ],
+        [
+          128,
+          0,
+          128,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          6096,
+          127,
+          127,
+          1
+        ],
+        [
+          6192,
+          129,
+          129,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          6096,
+          127,
+          6096,
+          1
+        ],
+        [
+          6192,
+          129,
+          6192,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          12192,
+          254,
+          254,
+          2
+        ],
+        [
+          12384,
+          258,
+          258,
+          2
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          6096,
+          127,
+          1,
+          1
+        ],
+        [
+          6192,
+          129,
+          1,
+          1
+        ],
+        [
+          192,
+          2,
+          192
+        ],
+        [
+          48,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        1,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        1,
+        129
+      ],
+      "input_strides": [
+        [
+          127,
+          0,
+          127,
+          1
+        ],
+        [
+          129,
+          0,
+          129,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        12288,
+        256,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          144,
+          3,
+          1,
+          1
+        ],
+        [
+          144,
+          3,
+          1,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        288,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          144,
+          1,
+          48,
+          1
+        ],
+        [
+          144,
+          1,
+          48,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        288,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          288,
+          6,
+          2,
+          2
+        ],
+        [
+          288,
+          6,
+          2,
+          2
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        288,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          144,
+          3,
+          1,
+          3
+        ],
+        [
+          144,
+          3,
+          1,
+          3
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        288,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        1
+      ],
+      "input_strides": [
+        [
+          3,
+          0,
+          1,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        288,
+        6,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          2304,
+          48,
+          16,
+          1
+        ],
+        [
+          4608,
+          96,
+          32,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6912,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          2304,
+          16,
+          768,
+          1
+        ],
+        [
+          4608,
+          32,
+          1536,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6912,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          4608,
+          96,
+          32,
+          2
+        ],
+        [
+          9216,
+          192,
+          64,
+          2
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6912,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          2304,
+          48,
+          1,
+          3
+        ],
+        [
+          4608,
+          96,
+          1,
+          3
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6912,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        3,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        32
+      ],
+      "input_strides": [
+        [
+          48,
+          0,
+          16,
+          1
+        ],
+        [
+          96,
+          0,
+          32,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        6912,
+        144,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          18432,
+          384,
+          128,
+          1
+        ],
+        [
+          18432,
+          384,
+          128,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          18432,
+          128,
+          6144,
+          1
+        ],
+        [
+          18432,
+          128,
+          6144,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          36864,
+          768,
+          256,
+          2
+        ],
+        [
+          36864,
+          768,
+          256,
+          2
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          18432,
+          384,
+          1,
+          3
+        ],
+        [
+          18432,
+          384,
+          1,
+          3
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        128
+      ],
+      "input_strides": [
+        [
+          384,
+          0,
+          128,
+          1
+        ],
+        [
+          384,
+          0,
+          128,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          18288,
+          381,
+          127,
+          1
+        ],
+        [
+          18576,
+          387,
+          129,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          18288,
+          127,
+          6096,
+          1
+        ],
+        [
+          18576,
+          129,
+          6192,
+          1
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          36576,
+          762,
+          254,
+          2
+        ],
+        [
+          37152,
+          774,
+          258,
+          2
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          18288,
+          381,
+          1,
+          3
+        ],
+        [
+          18576,
+          387,
+          1,
+          3
+        ],
+        [
+          576,
+          2,
+          192
+        ],
+        [
+          144,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        3,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        3,
+        129
+      ],
+      "input_strides": [
+        [
+          381,
+          0,
+          127,
+          1
+        ],
+        [
+          387,
+          0,
+          129,
+          1
+        ],
+        [
+          3,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        36864,
+        768,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          3072,
+          64,
+          1,
+          1
+        ],
+        [
+          3072,
+          64,
+          1,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6144,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          3072,
+          1,
+          48,
+          1
+        ],
+        [
+          3072,
+          1,
+          48,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6144,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          6144,
+          128,
+          2,
+          2
+        ],
+        [
+          6144,
+          128,
+          2,
+          2
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6144,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          3072,
+          64,
+          1,
+          64
+        ],
+        [
+          3072,
+          64,
+          1,
+          64
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6144,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        1
+      ],
+      "input_strides": [
+        [
+          64,
+          0,
+          1,
+          1
+        ],
+        [
+          64,
+          0,
+          1,
+          1
+        ],
+        [
+          64,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        6144,
+        128,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          49152,
+          1024,
+          16,
+          1
+        ],
+        [
+          98304,
+          2048,
+          32,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        147456,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          49152,
+          16,
+          768,
+          1
+        ],
+        [
+          98304,
+          32,
+          1536,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        147456,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          98304,
+          2048,
+          32,
+          2
+        ],
+        [
+          196608,
+          4096,
+          64,
+          2
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        147456,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          49152,
+          1024,
+          1,
+          64
+        ],
+        [
+          98304,
+          2048,
+          1,
+          64
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        147456,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        64,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        32
+      ],
+      "input_strides": [
+        [
+          1024,
+          0,
+          16,
+          1
+        ],
+        [
+          2048,
+          0,
+          32,
+          1
+        ],
+        [
+          64,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        147456,
+        3072,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          393216,
+          8192,
+          128,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          393216,
+          128,
+          6144,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          786432,
+          16384,
+          256,
+          2
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          393216,
+          8192,
+          1,
+          64
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          8192,
+          0,
+          128,
+          1
+        ],
+        [
+          8192,
+          0,
+          128,
+          1
+        ],
+        [
+          64,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          390144,
+          8128,
+          127,
+          1
+        ],
+        [
+          396288,
+          8256,
+          129,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          390144,
+          127,
+          6096,
+          1
+        ],
+        [
+          396288,
+          129,
+          6192,
+          1
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          780288,
+          16256,
+          254,
+          2
+        ],
+        [
+          792576,
+          16512,
+          258,
+          2
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          390144,
+          8128,
+          1,
+          64
+        ],
+        [
+          396288,
+          8256,
+          1,
+          64
+        ],
+        [
+          12288,
+          2,
+          192
+        ],
+        [
+          3072,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        64,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        64,
+        129
+      ],
+      "input_strides": [
+        [
+          8128,
+          0,
+          127,
+          1
+        ],
+        [
+          8256,
+          0,
+          129,
+          1
+        ],
+        [
+          64,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        786432,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          3120,
+          65,
+          1,
+          1
+        ],
+        [
+          3120,
+          65,
+          1,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6240,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          3120,
+          1,
+          48,
+          1
+        ],
+        [
+          3120,
+          1,
+          48,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6240,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          6240,
+          130,
+          2,
+          2
+        ],
+        [
+          6240,
+          130,
+          2,
+          2
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6240,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          3120,
+          65,
+          1,
+          65
+        ],
+        [
+          3120,
+          65,
+          1,
+          65
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        6240,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        1
+      ],
+      "input_strides": [
+        [
+          65,
+          0,
+          1,
+          1
+        ],
+        [
+          65,
+          0,
+          1,
+          1
+        ],
+        [
+          65,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        6240,
+        130,
+        2,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          49920,
+          1040,
+          16,
+          1
+        ],
+        [
+          99840,
+          2080,
+          32,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        149760,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          49920,
+          16,
+          768,
+          1
+        ],
+        [
+          99840,
+          32,
+          1536,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        149760,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          99840,
+          2080,
+          32,
+          2
+        ],
+        [
+          199680,
+          4160,
+          64,
+          2
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        149760,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          49920,
+          1040,
+          1,
+          65
+        ],
+        [
+          99840,
+          2080,
+          1,
+          65
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        149760,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        65,
+        16
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        32
+      ],
+      "input_strides": [
+        [
+          1040,
+          0,
+          16,
+          1
+        ],
+        [
+          2080,
+          0,
+          32,
+          1
+        ],
+        [
+          65,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        149760,
+        3120,
+        48,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          399360,
+          8320,
+          128,
+          1
+        ],
+        [
+          399360,
+          8320,
+          128,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          399360,
+          128,
+          6144,
+          1
+        ],
+        [
+          399360,
+          128,
+          6144,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          798720,
+          16640,
+          256,
+          2
+        ],
+        [
+          798720,
+          16640,
+          256,
+          2
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          399360,
+          8320,
+          1,
+          65
+        ],
+        [
+          399360,
+          8320,
+          1,
+          65
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        128
+      ],
+      "input_strides": [
+        [
+          8320,
+          0,
+          128,
+          1
+        ],
+        [
+          8320,
+          0,
+          128,
+          1
+        ],
+        [
+          65,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "contiguous",
+      "v_shape": [
+        1,
+        48,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          396240,
+          8255,
+          127,
+          1
+        ],
+        [
+          402480,
+          8385,
+          129,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gdn",
+      "v_shape": [
+        1,
+        48,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          396240,
+          127,
+          6096,
+          1
+        ],
+        [
+          402480,
+          129,
+          6192,
+          1
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "gapped",
+      "v_shape": [
+        1,
+        48,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          792480,
+          16510,
+          254,
+          2
+        ],
+        [
+          804960,
+          16770,
+          258,
+          2
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "transposed",
+      "v_shape": [
+        1,
+        48,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          396240,
+          8255,
+          1,
+          65
+        ],
+        [
+          402480,
+          8385,
+          1,
+          65
+        ],
+        [
+          12480,
+          2,
+          192
+        ],
+        [
+          3120,
+          1,
+          48
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "broadcast",
+      "v_shape": [
+        1,
+        48,
+        65,
+        127
+      ],
+      "k_shape": [
+        1,
+        48,
+        65,
+        129
+      ],
+      "input_strides": [
+        [
+          8255,
+          0,
+          127,
+          1
+        ],
+        [
+          8385,
+          0,
+          129,
+          1
+        ],
+        [
+          65,
+          0,
+          1
+        ],
+        [
+          48,
+          1,
+          0
+        ]
+      ],
+      "output_stride": [
+        798720,
+        16640,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "signedzero_subnormal_finite_extremes",
+      "v_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        20,
+        20,
+        20,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "signedzero_subnormal_finite_extremes",
+      "v_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "k_shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "input_strides": [
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          10,
+          10,
+          10,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "output_stride": [
+        20,
+        20,
+        20,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "must_keep_two_multiply_roundings",
+      "v_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        1,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          192,
+          64,
+          1
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    },
+    {
+      "label": "empty_batch",
+      "v_shape": [
+        0,
+        3,
+        64,
+        128
+      ],
+      "k_shape": [
+        0,
+        3,
+        64,
+        128
+      ],
+      "input_strides": [
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          24576,
+          8192,
+          128,
+          1
+        ],
+        [
+          192,
+          64,
+          1
+        ],
+        [
+          192,
+          64,
+          1
+        ]
+      ],
+      "output_stride": [
+        49152,
+        16384,
+        256,
+        1
+      ],
+      "bitwise_output_and_inputs_exact": true
+    }
+  ],
+  "timings": [
+    {
+      "backend": "original",
+      "cuda_ms_per_pack": 0.04470900073647499
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pack": 0.013995000161230564
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pack": 0.013523000292479992
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pack": 0.04231400042772293
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pack": 0.04266899824142456
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pack": 0.013651000335812569
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_pack": 0.013496999628841877
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_pack": 0.042187001556158066
+    }
+  ],
+  "first_use_seconds": 0.7104062239959603,
+  "invalid_cases": [
+    "cpu",
+    "dtype",
+    "rank",
+    "prefix",
+    "int32_limit_without_large_allocation"
+  ],
+  "reassociation_counterexample_elements": 8767,
+  "median_cuda_ms_per_pack": {
+    "original": 0.042491499334573746,
+    "candidate": 0.01358700031414628
+  },
+  "outside_inference_mode_rejected": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 21858816,
+    "cuda_peak_reserved_bytes": 27262976,
+    "cuda_global_free_bytes": 63469629440,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 971829248,
+    "VmRSS_bytes": 971829248,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122755436544,
+    "SwapFree_bytes": 17179529216
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "10fdf7766b496d1d804890746760059f4e7686ed0450ddd012df241408ad2305",
+  "reasons": [
+    "Import guard accepts any name starting triton, including unrelated triton_extra; only triton or triton. namespace may fall back."
+  ],
+  "arithmetic_review": "Prepared fast branch and original four-line fallback otherwise appear narrow; state/matrix/exp arithmetic unchanged."
+}

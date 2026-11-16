@@ -1,0 +1,6 @@
+ReturnONLY ONE Python if-statement header endingcolon, no body/noMarkdown/noDiff/no prose. You author this replacement engine line.
+
+Context: inside exceptModuleNotFoundError, a SEPARATE previous block already says ife.nameisNone:raise. DO NOT change that previousblock. We only replace the following existingline:
+if e.name != "triton" and not e.name.startswith("triton"):
+
+Its body is bare raise. Correct this ONE header so body raises for everyunrelatednonNone name including triton_extra and tritonx. Body must NOT raise only for name exactlytriton or beginning with namespaceprefix triton. (triton followedbydot). Keep exactstring check plusnamespaceprefixcheck; oneheaderonly.

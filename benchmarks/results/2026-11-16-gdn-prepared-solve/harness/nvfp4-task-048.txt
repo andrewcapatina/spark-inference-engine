@@ -1,0 +1,5 @@
+Return ONLY complete standalone module spark_engine/qwen_gdn_prepared_solve.py, <=15nonblanklines, sourceonly, noMarkdown/prose. You alone author implementation.
+
+Include importtorch and top-level import pack_rhs from spark_engine.qwen_gdn_rhs_pack (top-level intentionally makes missingTriton visible during optionalmoduleimport). Public function solve_prepared(system,v,k,beta,exp_decay).
+
+Call pack_rhs(v,k,beta,exp_decay) once to produce the new contiguous FP32 combinedRHS [v*beta,(k*beta)*exp_decay]. That helper already enforces CUDA/inference/shape/dtype/ownership and original two-multiply rounding; do not duplicate/reorder math. Call original torch.linalg.solve_triangular EXACTLY ONCE with originalsystem and packedRHS, upper=False, unitriangular=True. Split solution lastaxis at v.shape[-1], returning tuple(v_new,k_cumdecay) with respective widthsV/K. No equalwidthassumption, mutation, casts, caches, contexts or catches. Original eagerexp supplied bycaller, not recomputedhere. Any error propagates. No engineintegration/otherfunctions yet.

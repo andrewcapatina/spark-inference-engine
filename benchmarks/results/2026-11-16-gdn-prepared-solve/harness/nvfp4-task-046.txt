@@ -1,0 +1,13 @@
+Return ONLY complete module spark_engine/qwen_gdn_rhs_pack.py, <=50nonblanklines, sourceonly. Include torch,triton,triton.language as tl; one JITkernel _pack_rhs_kernel and wrapper pack_rhs(v,k,beta,exp_decay). You alone write implementation. No engineintegration/solver/stateupdate yet.
+
+Purpose: replace THREE original eager FP32 products plus Torchcat with ONE exact pointwise kernel producing the SAME CONTIGUOUS ROW-MAJOR combinedRHS. Original reference operands:
+first RHS = v * beta.unsqueeze(-1)
+second RHS = (k * beta.unsqueeze(-1)) * exp_decay.unsqueeze(-1)
+combined = torch.cat((firstRHS,secondRHS),dim=-1).
+Two kproducts MUST retain original separate FP32 rounding/order. No reassociation/FMA, casts/reductions/exp/solve; exp_decay is ORIGINAL eager Torch FP32 exp provided by caller. Original v/k/beta all alreadyFP32 from GDN. No transpose/Fortran-outputlayout: preserve standard row-major Torchcat output to keep already-tested pairedsolve arithmetic/layout unchanged.
+
+v[B,H,C,V], k[B,H,C,K], beta/exp_decay[B,H,C]. AllCUDAFP32 same device. Inputs can be arbitrary positive/zero strides (sliced/transposed/expanded), never flatten asifcontiguous. Wrapper asserts inferencealreadyenabled, matchingprefixshapes/ranks, positive H,C,V,K, sameCUDAdevice andFP32dtype; totaloutput elements<=2147483647. Allow B0 by returningnewempty output withoutlaunch. Allocate new contiguous torch.empty((B,H,C,V+K),dtype=torch.float32,device=v.device). No mutation/retaining inputs/caches/forcingcontexts.
+
+Kernel vectorflat offset tl.program_id(0)*BLOCK+tl.arange(0,BLOCK), totalmask, BLOCK1024constexpr. Combinedcolumn=offset%(V+K); logicalrow=offset//(V+K); time=logicalrow%C; head=(logicalrow//C)%H; batch=logicalrow//(C*H). Derive inputaddresses from these indices and ALL actualinputstrides. Pass stride tuples for each input as tl.constexpr parameters (v/k fourstrides, beta/exp three). H,C,V,K constexpr and totalruntime. First-half cols<V readv(feature=col); secondhalf cols>=V readk(feature=col-V); mask those loads separately to avoidOOB. beta load forvalidoutput; exp load forsecondhalfonly. Compute first FP32v*beta; compute FP32weighted_k=k*beta thenFP32weighted_k*exp, selectappropriatehalf via tl.where, storeflatnewRHS withtotalmask.
+
+Launch gridceil(total/1024), num_warps4, enable_fp_fusion=False. Explicitly annotate all shape/stride metadata constexpr, no runtimeintegerdivision by compiletime dimensions. No loops/approxtranscendentals/globaltensors/specialfixed48head assumptions. Include imports and both completefunctions; <=50nonblanklines.

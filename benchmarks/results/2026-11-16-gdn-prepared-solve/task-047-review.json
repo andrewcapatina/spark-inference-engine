@@ -1,0 +1,7 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "0fb6a61d6c68eabee6b3fa509094d54819ab6f1d6a1e62944b5c7689785faa26",
+  "review": "Flat output/row/head/batch and arbitrary stride input indexing/masks correct; shape divisors constexpr; FP32 left-associated products with fusionoff; full CUDA/device/rank/prefix/dtype/size guards and freshC output.",
+  "implementation_variation": "Stride tuples are runtime rather than requested constexpr; this affects address arithmetic and JIT specialization, not numerical precision. Allowed for isolated measurement; strict byte/rounding/ownership tests unchanged.",
+  "validation": "pending standalone packing tests"
+}

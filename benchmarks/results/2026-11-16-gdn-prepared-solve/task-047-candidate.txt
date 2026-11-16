@@ -1,0 +1,49 @@
+```python
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def _pack_rhs_kernel(v, k, beta, exp_decay, out,
+                     H: tl.constexpr, C: tl.constexpr, V: tl.constexpr, K: tl.constexpr,
+                     SV, SK, SB, SE, total, BLOCK: tl.constexpr):
+    off = tl.program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = off < total
+    col = off % (V + K)
+    row = off // (V + K)
+    t = row % C
+    h = (row // C) % H
+    b = row // (C * H)
+    v_addr = v + b * SV[0] + h * SV[1] + t * SV[2] + col * SV[3]
+    k_addr = k + b * SK[0] + h * SK[1] + t * SK[2] + (col - V) * SK[3]
+    b_addr = beta + b * SB[0] + h * SB[1] + t * SB[2]
+    e_addr = exp_decay + b * SE[0] + h * SE[1] + t * SE[2]
+    v_val = tl.load(v_addr, mask=mask & (col < V), other=0.0)
+    k_val = tl.load(k_addr, mask=mask & (col >= V), other=0.0)
+    b_val = tl.load(b_addr, mask=mask, other=0.0)
+    e_val = tl.load(e_addr, mask=mask & (col >= V), other=0.0)
+    out_val = tl.where(col < V, v_val * b_val, k_val * b_val * e_val)
+    tl.store(out + off, out_val, mask=mask)
+
+def pack_rhs(v, k, beta, exp_decay):
+    assert torch.is_inference_mode_enabled()
+    assert v.is_cuda and k.is_cuda and beta.is_cuda and exp_decay.is_cuda
+    assert v.device == k.device == beta.device == exp_decay.device
+    assert v.dim() == 4 and k.dim() == 4 and beta.dim() == 3 and exp_decay.dim() == 3
+    B, H, C, V = v.shape
+    _, _, _, K = k.shape
+    assert k.shape[:3] == (B, H, C) and beta.shape == (B, H, C) and exp_decay.shape == (B, H, C)
+    assert v.dtype == k.dtype == beta.dtype == exp_decay.dtype == torch.float32
+    assert H > 0 and C > 0 and V > 0 and K > 0
+    total = B * H * C * (V + K)
+    assert total <= 2147483647
+    out = torch.empty((B, H, C, V + K), dtype=torch.float32, device=v.device)
+    if B == 0:
+        return out
+    grid = (triton.cdiv(total, 1024),)
+    _pack_rhs_kernel[grid](v, k, beta, exp_decay, out,
+                           H, C, V, K,
+                           v.stride(), k.stride(), beta.stride(), exp_decay.stride(),
+                           total, BLOCK=1024, num_warps=4, enable_fp_fusion=False)
+    return out
+```

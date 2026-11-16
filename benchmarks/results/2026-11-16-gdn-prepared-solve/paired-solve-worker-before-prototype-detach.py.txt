@@ -1,0 +1,64 @@
+"""Diagnostic for local-model paired solve: strict bitwise gate, full two-solve timing baseline."""
+from pathlib import Path
+import sys,json,gc,time,statistics,importlib.util
+sys.path.insert(0,'/workspace')
+def main():
+ import torch
+ from spark_engine.qwen_gdn_solve_pair import solve_pair
+ run,mode=sys.argv[1:3];out=Path('/results')/run;out.mkdir(exist_ok=True);torch.set_num_threads(4);torch.manual_seed(45045);torch.backends.cuda.matmul.allow_tf32=False;torch.cuda.init();torch.cuda.set_per_process_memory_fraction(8*1024**3/torch.cuda.get_device_properties(0).total_memory)
+ d={'status':'running','mode':mode,'scope':'Paired-solve diagnostic only, no integration/checkpoint validation. Strict all_cases_bitwise_exact flag is required before any integration. Timings include cat/solve/split versus BOTH solves.','cases':[],'captured_gdn_cases':[],'timings':[]}
+ def save():(out/'results.json').write_text(json.dumps(d,indent=2)+'\n')
+ def bit_equal(a,b):return a.shape==b.shape and a.dtype==b.dtype and torch.equal(a.contiguous().view(torch.int64 if a.dtype==torch.float64 else torch.int32),b.contiguous().view(torch.int64 if b.dtype==torch.float64 else torch.int32))
+ def reference(a,b,c):return torch.linalg.solve_triangular(a,b,upper=False,unitriangular=True),torch.linalg.solve_triangular(a,c,upper=False,unitriangular=True)
+ def check(a,b,c,label,group,expected=None):
+  before=[x.clone() for x in [a,b,c]];old=reference(a,b,c) if expected is None else expected;actual=solve_pair(a,b,c);assert isinstance(actual,tuple) and len(actual)==2;record={'label':label,'system_shape':list(a.shape),'rhs_widths':[b.shape[-1],c.shape[-1]],'rhs_strides':[list(b.stride()),list(c.stride())],'dtype':str(a.dtype),'device':str(a.device),'outputs':[]}
+  for x,y in zip(old,actual):
+   assert x.shape==y.shape and x.dtype==y.dtype;assert torch.isfinite(y).all();record['outputs'].append({'bitwise_exact':bit_equal(x,y),'max_abs':(x-y).abs().max().item(),'different_elements':int(torch.count_nonzero(x!=y).item())})
+  for x,y in zip([a,b,c],before):assert bit_equal(x,y),'Input mutated'
+  assert all(v.data_ptr()!=x.data_ptr() for v in actual for x in [a,b,c]);record['input_ownership_unchanged']=True;record['all_outputs_bitwise_exact']=all(x['bitwise_exact'] for x in record['outputs']);group.append(record);save()
+ save()
+ with torch.inference_mode():
+  for b,h,n,nv,nk in [(1,1,16,16,16),(1,3,64,16,32),(2,2,64,128,128),(1,48,64,128,128),(1,48,64,128,64),(1,2,64,127,129),(1,1,32,128,128)]:
+   for variant in ['random','identity','zero_v','zero_k']:
+    for layout in ['contiguous','gapped','transposed']:
+     a=torch.tril(torch.randn(b,h,n,n,device='cuda')*.01)
+     def rhs(width):
+      if layout=='gapped':return (torch.randn(b,h,n,width*2,device='cuda')*.1)[...,::2]
+      if layout=='transposed':return torch.randn(b,h,width,n,device='cuda').transpose(-1,-2)*.1
+      return torch.randn(b,h,n,width,device='cuda')*.1
+     v=rhs(nv);k=rhs(nk)
+     if variant=='identity':a.zero_()
+     elif variant=='zero_v':v.zero_()
+     elif variant=='zero_k':k.zero_()
+     check(a,v,k,variant+'_'+layout,d['cases'])
+  ns={};exec(compile(Path('/harness/qwen_ops_before_solve_processing.py.txt').read_text(),'retained-gdn-before-paired-solves','exec'),ns);gdn=ns['gated_delta_chunk'];original_solve=torch.linalg.solve_triangular;captured=[]
+  for length in [64,256,1024]:
+   def rand():return torch.randn(1,length,48,128,device='cuda',dtype=torch.bfloat16)
+   q,k,v=rand(),rand(),rand();g=-torch.rand(1,length,48,device='cuda')*.1;beta=torch.rand_like(g)
+   def observe(a,b,*args,**kwargs):
+    value=original_solve(a,b,*args,**kwargs);captured.append((a.clone(),b.clone(),value.clone()));return value
+   torch.linalg.solve_triangular=observe
+   try:result=gdn(q,k,v,g,beta)
+   finally:torch.linalg.solve_triangular=original_solve
+   assert len(captured)==2*((length+63)//64)
+   for i in range(0,len(captured),2):
+    a,b,x=captured[i];a2,c,y=captured[i+1];assert bit_equal(a,a2);check(a,b,c,'captured_original_gdn_length'+str(length)+'_chunk'+str(i//2),d['captured_gdn_cases'],expected=(x,y))
+   captured.clear();del q,k,v,g,beta,result,a,b,c,x,y,a2
+  for dtype in [torch.float32,torch.float64]:
+   a=torch.tril(torch.randn(1,2,16,16,dtype=dtype)*.01);v=torch.randn(1,2,16,16,dtype=dtype)*.1;k=torch.randn(1,2,16,32,dtype=dtype)*.1;check(a,v,k,'cpu_diagnostic',d['cases'])
+  a=torch.tril(torch.randn(1,48,64,64,device='cuda')*.01);v=torch.randn(1,48,64,128,device='cuda')*.1;k=torch.randn_like(v)*.1
+  count=[0]
+  def observe_count(*args,**kwargs):count[0]+=1;return original_solve(*args,**kwargs)
+  torch.linalg.solve_triangular=observe_count
+  try:result=solve_pair(a,v,k)
+  finally:torch.linalg.solve_triangular=original_solve
+  assert count[0]==1;del result
+  for fn in [reference,solve_pair]:
+   for _ in range(3):result=fn(a,v,k);del result
+  for label in ['original','candidate','candidate','original']*2:
+   fn=reference if label=='original' else solve_pair;e1,e2=torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True);torch.cuda.synchronize();start=time.perf_counter();e1.record()
+   for _ in range(16):result=fn(a,v,k)
+   e2.record();e2.synchronize();d['timings'].append({'backend':label,'cuda_ms_per_pair':e1.elapsed_time(e2)/16,'wall_ms_per_pair':(time.perf_counter()-start)*1000/16});del result
+  d['median_cuda_ms_per_pair']={label:statistics.median(x['cuda_ms_per_pair'] for x in d['timings'] if x['backend']==label) for label in ['original','candidate']};del a,v,k,e1,e2
+ d['all_cases_bitwise_exact']=all(c['all_outputs_bitwise_exact'] for c in d['cases']+d['captured_gdn_cases']);d['captured_gdn_bitwise_exact']=all(c['all_outputs_bitwise_exact'] for c in d['captured_gdn_cases']);gc.collect();spec=importlib.util.spec_from_file_location('bench','/workspace/tools/benchmark_qwen.py');bench=importlib.util.module_from_spec(spec);spec.loader.exec_module(bench);d['released_library_workspaces']=bench.clear_cuda_library_workspaces(torch);d['released_memory']=bench.memory(torch);save();assert d['released_memory']['cuda_allocated_bytes']<=16*1024**2 and d['released_memory']['cuda_reserved_bytes']<=64*1024**2;assert len(d['cases'])==86 and len(d['captured_gdn_cases'])==21;d['status']='complete';save();print('PAIRED_SOLVE_DIAGNOSTIC_COMPLETE exact='+str(d['all_cases_bitwise_exact']),flush=True)
+if __name__=='__main__':main()

@@ -1,0 +1,8 @@
+{
+  "decision": "reject_before_composition_or_placement",
+  "candidate_patch_sha256": "59b420065ac70b2a4f8ea78e22976365530fa537ebd6db40207c6124b468d937",
+  "reasons": [
+    "Patch edits the already-correct None guard, leaving the broad second namespace guard unchanged. It would raise AttributeError for nameNone."
+  ],
+  "engine_files_changed": false
+}

@@ -1,0 +1,57 @@
+```python
+import torch
+import triton
+import triton.language as tl
+
+@triton.jit
+def _pack_rhs_kernel(v, k, beta, exp_decay, out,
+                     B, H, C, V, K, total,
+                     v_s0, v_s1, v_s2, v_s3,
+                     k_s0, k_s1, k_s2, k_s3,
+                     b_s0, b_s1, b_s2,
+                     e_s0, e_s1, e_s2,
+                     BLOCK: tl.constexpr):
+    off = tl.program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = off < total
+    col = off % (V + K)
+    row = off // (V + K)
+    t = row % C
+    h = (row // C) % H
+    b = row // (C * H)
+    v_addr = v + b * v_s0 + h * v_s1 + t * v_s2 + col * v_s3
+    k_addr = k + b * k_s0 + h * k_s1 + t * k_s2 + (col - V) * k_s3
+    b_addr = beta + b * b_s0 + h * b_s1 + t * b_s2
+    e_addr = exp_decay + b * e_s0 + h * e_s1 + t * e_s2
+    v_val = tl.load(v_addr, mask=mask & (col < V), other=0.0)
+    k_val = tl.load(k_addr, mask=mask & (col >= V), other=0.0)
+    b_val = tl.load(b_addr, mask=mask, other=0.0)
+    e_val = tl.load(e_addr, mask=mask & (col >= V), other=0.0)
+    first = v_val * b_val
+    wk = k_val * b_val
+    second = wk * e_val
+    out_val = tl.where(col < V, first, second)
+    tl.store(out + off, out_val, mask=mask)
+
+def pack_rhs(v, k, beta, exp_decay):
+    assert torch.is_inference_mode_enabled()
+    B, H, C, V = v.shape
+    _, _, _, K = k.shape
+    assert k.shape[:3] == (B, H, C) and beta.shape == (B, H, C) and exp_decay.shape == (B, H, C)
+    assert v.dtype == k.dtype == beta.dtype == exp_decay.dtype == torch.float32
+    assert v.device == k.device == beta.device == exp_decay.device
+    assert H > 0 and C > 0 and V > 0 and K > 0
+    total = B * H * C * (V + K)
+    assert total <= 2147483647
+    out = torch.empty((B, H, C, V + K), dtype=torch.float32, device=v.device)
+    if B == 0:
+        return out
+    grid = (triton.cdiv(total, 1024),)
+    _pack_rhs_kernel[grid](v, k, beta, exp_decay, out,
+                           B, H, C, V, K, total,
+                           v.stride(0), v.stride(1), v.stride(2), v.stride(3),
+                           k.stride(0), k.stride(1), k.stride(2), k.stride(3),
+                           beta.stride(0), beta.stride(1), beta.stride(2),
+                           exp_decay.stride(0), exp_decay.stride(1), exp_decay.stride(2),
+                           BLOCK=1024, num_warps=4, enable_fp_fusion=False)
+    return out
+```

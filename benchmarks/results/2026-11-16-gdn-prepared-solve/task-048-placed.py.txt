@@ -1,0 +1,9 @@
+import torch
+from spark_engine.qwen_gdn_rhs_pack import pack_rhs
+
+def solve_prepared(system, v, k, beta, exp_decay):
+    rhs = pack_rhs(v, k, beta, exp_decay)
+    sol = torch.linalg.solve_triangular(system, rhs, upper=False, unitriangular=True)
+    v_new = sol[..., :v.shape[-1]]
+    k_cumdecay = sol[..., v.shape[-1]:]
+    return v_new, k_cumdecay

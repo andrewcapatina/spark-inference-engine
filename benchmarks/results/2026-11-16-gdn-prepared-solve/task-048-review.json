@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "fab5af59ae60821fd8e81c3a763ce08cf6b6dbe414fbeb6026433642841b1ecb",
+  "review": "Top-level local pack import makes missingTriton visible at optional import; one exact packed RHS, one original lower-unit solve, split by valuewidth. No mutation/casts/contexts/catches.",
+  "validation": "pending full GDN integration tests"
+}
