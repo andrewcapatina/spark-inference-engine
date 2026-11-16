@@ -1,0 +1,11 @@
+{
+  "status": "inconclusive_diagnostic",
+  "classification": "sanitizer/runtime limitation or true warning unresolved",
+  "termination": "Supervisor terminated only worker after no forward progress on large FP8 head for approximately three minutes; enclosing controller stopped container",
+  "cuda_initcheck_flags": 100,
+  "fp8_first_copy_bytes": 496640,
+  "candidate_absent": true,
+  "no_engine_change": true,
+  "not_a_correctness_pass": true,
+  "next": "Initialized full output sentinel test and whole-model stepwise-logit trace"
+}

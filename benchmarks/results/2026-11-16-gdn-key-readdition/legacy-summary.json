@@ -1,0 +1,216 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Historical failure replay only: exact retained constant-stride source, original16-prefill ABBA priming, uninstrumented128-ID replies against pinned canonical. Not current engine acceptance or speed evidence",
+  "primary_metrics": [
+    "median_prefill_cuda_ms",
+    "median_prefill_wall_ms",
+    "prompt_tokens_per_second_cuda"
+  ],
+  "triton_cache_dir": "/results/readd-legacy-20261116T161649Z/fresh-triton-cache",
+  "original_function_sha256": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+  "cases": [
+    {
+      "prompt_tokens": 256,
+      "prefill_repetitions": [
+        {
+          "backend": "original",
+          "cuda_ms": 258.5450134277344,
+          "wall_ms": 258.5952600056771,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 255.67942810058594,
+          "wall_ms": 255.69768899003975,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 254.00711059570312,
+          "wall_ms": 254.02297399705276,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 256.8755798339844,
+          "wall_ms": 256.89182500354946,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 256.1711730957031,
+          "wall_ms": 256.1887640040368,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 253.9523468017578,
+          "wall_ms": 253.96942099905573,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 254.646240234375,
+          "wall_ms": 254.6626100083813,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 253.9251251220703,
+          "wall_ms": 253.9416610088665,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 257.8212585449219,
+          "wall_ms": 257.83800799399614,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 255.2371826171875,
+          "wall_ms": 255.25304599432275,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 256.927490234375,
+          "wall_ms": 256.943634012714,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 259.1695556640625,
+          "wall_ms": 259.18596898554824,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 258.7809143066406,
+          "wall_ms": 258.7977259827312,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 257.2757568359375,
+          "wall_ms": 257.29222799418494,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "candidate",
+          "cuda_ms": 257.18963623046875,
+          "wall_ms": 257.2075870120898,
+          "peak_allocated_bytes": 23239909888
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 256.18560791015625,
+          "wall_ms": 256.2030370172579,
+          "peak_allocated_bytes": 23239909888
+        }
+      ],
+      "first_validation_prefill_wall_seconds": {
+        "original": 2.029341173998546,
+        "candidate": 0.29634202900342643
+      },
+      "generation_validation": [
+        {
+          "backend": "original",
+          "output_token_ids_count": 128,
+          "output_token_ids_sha256": "457a9abe79c552618ca00b1b91d39d5db2b93971317278907ab7a355ca34506d"
+        },
+        {
+          "backend": "candidate",
+          "output_token_ids_count": 128,
+          "output_token_ids_sha256": "457a9abe79c552618ca00b1b91d39d5db2b93971317278907ab7a355ca34506d"
+        },
+        {
+          "backend": "original",
+          "output_token_ids_count": 128,
+          "output_token_ids_sha256": "457a9abe79c552618ca00b1b91d39d5db2b93971317278907ab7a355ca34506d"
+        },
+        {
+          "backend": "candidate",
+          "output_token_ids_count": 128,
+          "output_token_ids_sha256": "457a9abe79c552618ca00b1b91d39d5db2b93971317278907ab7a355ca34506d"
+        }
+      ],
+      "prefill_logits_and_all_cache_contents_element_exact": true,
+      "next_decode_logits_and_all_cache_contents_element_exact": true,
+      "summary": {
+        "original": {
+          "median_prefill_cuda_ms": 257.3484191894531,
+          "median_prefill_wall_ms": 257.3649164987728,
+          "prompt_tokens_per_second_cuda": 994.7603362254949
+        },
+        "candidate": {
+          "median_prefill_cuda_ms": 255.45830535888672,
+          "median_prefill_wall_ms": 255.47536749218125,
+          "prompt_tokens_per_second_cuda": 1002.1204816197002
+        }
+      },
+      "prefill_speedup": 1.0073989132117316,
+      "less_prefill_time_pct": 0.7344571365619945,
+      "generation_ids_element_exact": true,
+      "generation_repeats_per_backend": 2,
+      "original_first_token_cuda_diagnostic": {
+        "total_cuda_ms": 260.6761169433594,
+        "prefill_cuda_ms": 260.6434326171875,
+        "first_token_cuda_ms": 260.6761169433594,
+        "decode_call_cuda_ms": [],
+        "observed_decode_calls": 0,
+        "selected_tokens": 1,
+        "final_selection_marker": "generate_return_cuda_event",
+        "decode_token_window_cuda_ms": null,
+        "decode_tokens_per_second_cuda": null,
+        "final_unused_decode_cuda_ms": null,
+        "prefill_tokens_per_second_cuda": 982.1847319513805,
+        "output_sha256": "5fd1b79ebdef9619a57916a3bfc264b54d37a792659b3693f8ab36ec3ebce448"
+      },
+      "candidate_first_token_cuda_diagnostic": {
+        "total_cuda_ms": 256.7626037597656,
+        "prefill_cuda_ms": 256.73291015625,
+        "first_token_cuda_ms": 256.7626037597656,
+        "decode_call_cuda_ms": [],
+        "observed_decode_calls": 0,
+        "selected_tokens": 1,
+        "final_selection_marker": "generate_return_cuda_event",
+        "decode_token_window_cuda_ms": null,
+        "decode_tokens_per_second_cuda": null,
+        "final_unused_decode_cuda_ms": null,
+        "prefill_tokens_per_second_cuda": 997.1452426733917,
+        "output_sha256": "5fd1b79ebdef9619a57916a3bfc264b54d37a792659b3693f8ab36ec3ebce448"
+      }
+    }
+  ],
+  "load_seconds": 162.44362159998855,
+  "quantization_metadata": {
+    "format": "nvfp4_fp8",
+    "kv_cache_dtype": "bfloat16",
+    "nvfp4_linears": 168,
+    "fp8_linears": 233
+  },
+  "live_model_tensors_after_release": [],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 23245387776,
+    "cuda_peak_reserved_bytes": 23959961600,
+    "cuda_global_free_bytes": 49195728896,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 22576295936,
+    "VmRSS_bytes": 2303029248,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121656623104,
+    "SwapFree_bytes": 17057472512
+  },
+  "archival_transformation": "Token-ID arrays replaced with counts and SHA256 of compact JSON; full original results retained at paths/hash in diagnostic-stage-index.json."
+}

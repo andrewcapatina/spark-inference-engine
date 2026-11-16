@@ -1,0 +1,119 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Fixed-input real-weight linear primitives and argmax, candidate absent; not whole-model validation",
+  "linear_cases": [
+    {
+      "primitive": "bf16_gate",
+      "rows": 1,
+      "input_width": 5120,
+      "repeats": 512,
+      "differences": []
+    },
+    {
+      "primitive": "bf16_gate",
+      "rows": 16,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    },
+    {
+      "primitive": "bf16_gate",
+      "rows": 256,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    },
+    {
+      "primitive": "fp8_head",
+      "rows": 1,
+      "input_width": 5120,
+      "repeats": 512,
+      "differences": []
+    },
+    {
+      "primitive": "fp8_head",
+      "rows": 16,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    },
+    {
+      "primitive": "fp8_head",
+      "rows": 256,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    },
+    {
+      "primitive": "nvfp4_mlp",
+      "rows": 1,
+      "input_width": 5120,
+      "repeats": 512,
+      "differences": []
+    },
+    {
+      "primitive": "nvfp4_mlp",
+      "rows": 16,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    },
+    {
+      "primitive": "nvfp4_mlp",
+      "rows": 256,
+      "input_width": 5120,
+      "repeats": 32,
+      "differences": []
+    }
+  ],
+  "argmax_cases": [
+    {
+      "tied_indices": [
+        9989,
+        78326
+      ],
+      "expected_index": 9989,
+      "repeats": 2048,
+      "wrong_indices": []
+    },
+    {
+      "tied_indices": [
+        0,
+        248319
+      ],
+      "expected_index": 0,
+      "repeats": 2048,
+      "wrong_indices": []
+    },
+    {
+      "tied_indices": [
+        65535,
+        131071
+      ],
+      "expected_index": 65535,
+      "repeats": 2048,
+      "wrong_indices": []
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 1438067712,
+    "cuda_peak_reserved_bytes": 1457520640,
+    "cuda_global_free_bytes": 60714893312,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 2169491456,
+    "VmRSS_bytes": 1877532672,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121716719616,
+    "SwapFree_bytes": 17057042432
+  }
+}

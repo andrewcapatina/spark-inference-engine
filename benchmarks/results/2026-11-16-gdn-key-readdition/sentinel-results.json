@@ -1,0 +1,51 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "FP8 LM-head initialized output sentinel diagnostic, candidate absent; not whole-model validation",
+  "linear_cases": [],
+  "argmax_cases": [],
+  "sentinel_cases": [
+    {
+      "sentinel": "nan",
+      "output_aliases_buffer": true,
+      "valid_row_matches_reference": true,
+      "valid_row_nonfinite": 0,
+      "all_rows_nonfinite": 0,
+      "residual_sentinel_allrows": 0
+    },
+    {
+      "sentinel": "123.0",
+      "output_aliases_buffer": true,
+      "valid_row_matches_reference": true,
+      "valid_row_nonfinite": 0,
+      "all_rows_nonfinite": 0,
+      "residual_sentinel_allrows": 0
+    },
+    {
+      "sentinel": "-123.0",
+      "output_aliases_buffer": true,
+      "valid_row_matches_reference": true,
+      "valid_row_nonfinite": 0,
+      "all_rows_nonfinite": 0,
+      "residual_sentinel_allrows": 0
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 1280431616,
+    "cuda_peak_reserved_bytes": 1296039936,
+    "cuda_global_free_bytes": 61693390848,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1894400000,
+    "VmRSS_bytes": 899686400,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122792697856,
+    "SwapFree_bytes": 17057374208
+  }
+}

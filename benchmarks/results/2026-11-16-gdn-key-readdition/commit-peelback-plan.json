@@ -1,0 +1,37 @@
+{
+  "authorization": "User suggested peeling back commits if source remains difficult to find",
+  "status": "prepared_not_executed_no_reproducible_bad_endpoint",
+  "order": [
+    {
+      "commit": "3139a9bb8e8f78152b3ca9a9e2c02dceaea95d95",
+      "subject": "Defer BF16 GDN value widening while preserving FP32 state math"
+    },
+    {
+      "commit": "ea70e47070106ba4b2ef8888a622d55beab8c581",
+      "subject": "Fuse gated RMSNorm prefill tail with explicit rounding and dispatch"
+    },
+    {
+      "commit": "dd139d076629c9e4cccc9f0c5aa6cfb5745e7222",
+      "subject": "Fuse ordinary RMSNorm prefill pointwise tail with exact rounding"
+    },
+    {
+      "commit": "2beb3fdaf7dd38801ccb549997603953da000977",
+      "subject": "Reduce FP8 activation maxima before FP32 conversion"
+    },
+    {
+      "commit": "6621762e66cac83f9ce123c6683c70d63d943079",
+      "subject": "Reuse attention KV concatenations for returned decode cache"
+    },
+    {
+      "commit": "6dd8d9fa655e35c2283244328995e423fde32b75",
+      "subject": "Reuse GDN QKV projection during prefill"
+    },
+    {
+      "commit": "56c6f08ca2bc3014e3948ee59f97369c459d8804",
+      "subject": "Dispatch quantized Qwen checkpoints to the native streaming loader"
+    }
+  ],
+  "method": "Use isolated source snapshots and same pinned prompt/128IDs/runtime, one large model per process. First reproduce bad source; compare before and after relevant commit repeatedly. Never mark a commit good from a single passing stochastic attempt. Use entire engine tree for each revision, preserve active verified source.",
+  "prototype_caveat": "Historical failures occurred during uncommitted prototypes; Git commits alone exclude them. Retained failed source trees and harness versions must also be tested.",
+  "evidence": "30 candidate-absent baseline,8current A/B and4exact historical-source replies all canonical; no reproducible bad endpoint"
+}

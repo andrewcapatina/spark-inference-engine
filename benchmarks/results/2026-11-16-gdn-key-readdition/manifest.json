@@ -1,0 +1,120 @@
+{
+  "user_authorized_nvfp4_update": true,
+  "user_authorized_prefill_optimization": true,
+  "implementation_author": "Codex, explicitly authorized outlier investigation and fused-key readdition",
+  "authorization": "User: Lets figure out the outlier, then readd the optimization and verify again. Small valid improvements are acceptable; do not weaken correctness.",
+  "baseline_commit": "bb73d9ae0a438d45780e1d22924bbf3cbc79a56c",
+  "accepted_engine_commit": "3139a9b",
+  "engine_before": {
+    "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+    "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "current_engine_sha256": {
+    "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+    "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+    "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+  },
+  "baseline_directory": "/home/cap/Projects/spark-inference-engine/benchmark_runs/gdn-outlier-readd-20261116T145716Z/engine-before",
+  "previous_key_run": "/home/cap/spark-inference-overnight-20261113/runs/prefill-gdn-keys-20261116T133845Z",
+  "retained_candidate_directory": "/home/cap/Projects/spark-inference-engine/benchmark_runs/prefill-gdn-keys-20261116T133845Z/full-final-runtime-stride-engine-before-rollback",
+  "status": "validated_retained_outlier_unresolved",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "stages": [
+    {
+      "kind": "integration",
+      "run": "readd-integration-20261116T155043Z",
+      "status": "complete"
+    },
+    {
+      "kind": "ab",
+      "run": "readd-ab-20261116T155118Z",
+      "status": "complete"
+    },
+    {
+      "kind": "accuracy",
+      "run": "readd-accuracy-20261116T155912Z",
+      "status": "complete"
+    },
+    {
+      "kind": "profile",
+      "run": "readd-profile-20261116T160224Z",
+      "status": "complete"
+    }
+  ],
+  "diagnostics": [
+    {
+      "kind": "baseline",
+      "run": "readd-baseline-20261116T145716Z"
+    },
+    {
+      "kind": "aa",
+      "run": "readd-aa-20261116T150647Z"
+    },
+    {
+      "kind": "primitives",
+      "run": "readd-primitives-20261116T151258Z"
+    },
+    {
+      "kind": "inspect",
+      "run": "readd-inspect-20261116T153815Z"
+    },
+    {
+      "kind": "sanitizer",
+      "run": "readd-sanitizer-20261116T154026Z"
+    },
+    {
+      "kind": "sentinel",
+      "run": "readd-sentinel-20261116T154607Z"
+    },
+    {
+      "kind": "trace",
+      "run": "readd-trace-20261116T154626Z"
+    },
+    {
+      "kind": "legacy",
+      "run": "readd-legacy-20261116T161649Z"
+    }
+  ],
+  "outlier_root_cause": "Unresolved historical one-off; 30 clean-baseline generations canonical; four full128-step logit traces bitwise exact and finite, CPU/GPU argmax match. Initcheck inconclusive, initialized-output head sentinel tests pass. No claim of root-cause repair.",
+  "protected_validation": {
+    "qwen": 56,
+    "llama": 15,
+    "numerical_fixtures_unchanged": true
+  },
+  "historical_replay_run": "/home/cap/spark-inference-overnight-20261113/runs/readd-legacy-20261116T161649Z",
+  "engine_commit": "f1e760f9d4ba6f5d0db72513f1f2fbab5b049f01",
+  "finished": "2026-11-16T16:22:46.226026+00:00",
+  "decision": "Retain runtime-stride fused keys after strict verification; small measured gains accepted by user. Historical outlier not reproduced or repaired. Future recurrence must retain logits and use source-snapshot commit peelback.",
+  "root_cause_status": "unresolved_unreproduced",
+  "baseline_only_canonical_replies": 30,
+  "current_ab_canonical_replies": 8,
+  "historical_source_canonical_replies": 4
+}

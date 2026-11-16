@@ -1,0 +1,475 @@
+[
+  {
+    "kind": "baseline",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-baseline-20261116T145716Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-baseline-20261116T145716Z/trial-status.json": {
+        "bytes": 4243,
+        "sha256": "1646d88de50685dc63419783a1eec46b428812be41cd2d35e9e87fbd4e39c7e9"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-baseline-20261116T145716Z/27b-worker.log": {
+        "bytes": 2780,
+        "sha256": "beaaa82e59d376231aecca72b54fd01369003e57f4dcd23f94d6ef36e44cbf8e"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-baseline-20261116T145716Z/results.json": {
+        "bytes": 50603,
+        "sha256": "0cd06e08a981db04651254aef3d02eb6a3969c2746e2dc3721f74e5967fd7305"
+      }
+    }
+  },
+  {
+    "kind": "aa",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-aa-20261116T150647Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-aa-20261116T150647Z/trial-status.json": {
+        "bytes": 6547,
+        "sha256": "70dea17313823b0f813d8e658a4829c839b91122a6ecb4ce49caedb6d8215bcf"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-aa-20261116T150647Z/27b-worker.log": {
+        "bytes": 1227,
+        "sha256": "0343476fa9959443e9d630c3ab7779c6bb672ec7bf466450ac1e280cc413b654"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-aa-20261116T150647Z/results.json": {
+        "bytes": 71036,
+        "sha256": "3a2c133e1415df4d20b6097356c197e5c0e4077acb449c1a803714315b86d7fc"
+      }
+    }
+  },
+  {
+    "kind": "primitives",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-primitives-20261116T151258Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-primitives-20261116T151258Z/trial-status.json": {
+        "bytes": 6583,
+        "sha256": "a88d302b5458a79c1e7d51d28e5508d8c88c550ced6557fa8d271c23f8104930"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-primitives-20261116T151258Z/27b-worker.log": {
+        "bytes": 1482,
+        "sha256": "d60931a5667055d4ef400097cc4e7966b9785f79bd95bdb8a5cec1f4e0235bf4"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-primitives-20261116T151258Z/results.json": {
+        "bytes": 2492,
+        "sha256": "8a623abbae4c285dd3f1c4a7bd1a605248540046338e8d3f659c687965cc869a"
+      }
+    }
+  },
+  {
+    "kind": "inspect",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-inspect-20261116T153815Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-inspect-20261116T153815Z/trial-status.json": {
+        "bytes": 3828,
+        "sha256": "9dcd8ce9b177e6d23505f9c37de60744b74e18afd718249a610da76a8591f957"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-inspect-20261116T153815Z/27b-worker.log": {
+        "bytes": 753,
+        "sha256": "9f43bda798818b06df3c86370eb3273b6d7ff3807180f3a16eb0f41bd5203ce0"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-inspect-20261116T153815Z/results.json": {
+        "bytes": 773,
+        "sha256": "74737693606df01956ee8e48135e57351cf4d1914717f27cd7be7010b869ecab"
+      }
+    }
+  },
+  {
+    "kind": "sanitizer",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-sanitizer-20261116T154026Z",
+    "status": "failed",
+    "worker_exit_code": 71,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-sanitizer-20261116T154026Z/trial-status.json": {
+        "bytes": 3570,
+        "sha256": "2a61a93ea5377a50ed4f677d113223392c1699c5fe9b38359ae2fc7a199169fe"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-sanitizer-20261116T154026Z/27b-worker.log": {
+        "bytes": 795080,
+        "sha256": "de8a0bfba0c4829273e02cce2961c46d9bcc34c30b2e3916285e1c8547b77737"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-sanitizer-20261116T154026Z/results.json": {
+        "bytes": 434,
+        "sha256": "750531221ecccc0dc2015468aff1c466878043247485032938fc38bc15f65332"
+      }
+    }
+  },
+  {
+    "kind": "sentinel",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-sentinel-20261116T154607Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-sentinel-20261116T154607Z/trial-status.json": {
+        "bytes": 4256,
+        "sha256": "09ab5cad98bbbf7f1aaca3d63959f8411629ee6ea62654782d471f92f4f97e0d"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-sentinel-20261116T154607Z/27b-worker.log": {
+        "bytes": 553,
+        "sha256": "e21413c92d22b0e59d6974e8f20b1416ec8f9a598c5deb374030b3e65814e091"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-sentinel-20261116T154607Z/results.json": {
+        "bytes": 1434,
+        "sha256": "ab5bf80bef21c4746eb8ecf7094b3b3e2dbf48cae1bacba2a6334d25724d0524"
+      }
+    }
+  },
+  {
+    "kind": "trace",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-trace-20261116T154626Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "6b6f4e4f7b55cc98fb8f139bdfbfc895de84ebf326a8781dd00d22fa0e775159",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-trace-20261116T154626Z/trial-status.json": {
+        "bytes": 4234,
+        "sha256": "c7a666689590043a1c4d96ef4e47576f67c262f2283649202fc3b566377c172b"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-trace-20261116T154626Z/27b-worker.log": {
+        "bytes": 794,
+        "sha256": "40b0f141a20e343754ea9591ca52d6aa847e688dc91a76a34e0d48df23e4ecee"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-trace-20261116T154626Z/results.json": {
+        "bytes": 10103,
+        "sha256": "60ba227f8714375df952c7af30be2a3a67fbc6e84b21cc4085b4218c11a4638e"
+      }
+    }
+  },
+  {
+    "kind": "integration",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-integration-20261116T155043Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-integration-20261116T155043Z/trial-status.json": {
+        "bytes": 6694,
+        "sha256": "396f3a21ef306e4f6ae5e9bd93675485649ad87766502b3e1a167793f3ddc5bf"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-integration-20261116T155043Z/27b-worker.log": {
+        "bytes": 563,
+        "sha256": "47714a367fe14045518feb9444ddbe00a414b1a4fcab70f17311e2a3220e98d5"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-integration-20261116T155043Z/results.json": {
+        "bytes": 108003,
+        "sha256": "08a8dc7eca786fec439daa1d10cf5070d2815ba1bf3ca345d9ee7556a6056597"
+      }
+    }
+  },
+  {
+    "kind": "ab",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-ab-20261116T155118Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-ab-20261116T155118Z/trial-status.json": {
+        "bytes": 4332,
+        "sha256": "76806e45cc63994d0b72b8d6bef9979adfef2ee3efe2fd89e5524a763436252c"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-ab-20261116T155118Z/27b-worker.log": {
+        "bytes": 1229,
+        "sha256": "ff6e7c609c67f1062fc44768c0dbe73dd13d3127a26c4e293a8297786d414471"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-ab-20261116T155118Z/results.json": {
+        "bytes": 57031,
+        "sha256": "c9ce2794ee68015cb74e47532668871398a079488d88e7d346abf360acfa2713"
+      }
+    }
+  },
+  {
+    "kind": "accuracy",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-accuracy-20261116T155912Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-accuracy-20261116T155912Z/trial-status.json": {
+        "bytes": 6754,
+        "sha256": "5642256580cc34c055d971861cf761974918d67c1d017b9f6ce8a964bb72e0be"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-accuracy-20261116T155912Z/27b-worker.log": {
+        "bytes": 3838,
+        "sha256": "564b38040a1a7b925de5d9ff4b38b8d4c870c9b1430e25b6466097198d99b1a9"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-accuracy-20261116T155912Z/results.json": {
+        "bytes": 79340,
+        "sha256": "df456e7b60f02a2f84be80c1bd15d9189330a5fabee6f4953b33b84de2f8e745"
+      }
+    }
+  },
+  {
+    "kind": "profile",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-profile-20261116T160224Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-profile-20261116T160224Z/trial-status.json": {
+        "bytes": 6703,
+        "sha256": "d0a2e4b77068c03e0816047335da38ae8ff2ee1a7390f0617611423ca9865e1c"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-profile-20261116T160224Z/27b-worker.log": {
+        "bytes": 897,
+        "sha256": "eba5b60e2d049742e40d97f481467907aad948f49bfb9e50ad0b0dc420528180"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-profile-20261116T160224Z/results.json": {
+        "bytes": 258628,
+        "sha256": "d841032c44851ab25506951ab7c3bbcc54a04e12b31ee5b470bcc7e4fbef6f95"
+      }
+    }
+  },
+  {
+    "kind": "legacy",
+    "run": "/home/cap/spark-inference-overnight-20261113/runs/readd-legacy-20261116T161649Z",
+    "status": "complete",
+    "worker_exit_code": 0,
+    "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+    "engine_sha256": {
+      "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+      "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+      "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+      "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+      "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+      "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+      "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+      "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+      "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+      "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+      "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+      "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+      "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+      "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+      "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+      "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+      "spark_engine/qwen_model.py": "db7ff34753de7b604085ec231533c4588faad1cfe51a35a1f8799c37f2715514"
+    },
+    "files": {
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-legacy-20261116T161649Z/trial-status.json": {
+        "bytes": 4348,
+        "sha256": "203e447573979c185d5a327a2a22838c45d5b31b5ba35d408d0f2f2368f00dd8"
+      },
+      "/home/cap/spark-inference-overnight-20261113/runs/readd-legacy-20261116T161649Z/27b-worker.log": {
+        "bytes": 802,
+        "sha256": "76091d9cf92259d92493ac8954a082a8b329caf027890441b097f0d58aad56d0"
+      },
+      "/home/cap/spark-inference-overnight-20261113/feedback/nvfp4-reference/readd-legacy-20261116T161649Z/results.json": {
+        "bytes": 16041,
+        "sha256": "876cde1870ab0645aee22108caaa6fae7e25134defd306a369f962ac613e360a"
+      }
+    }
+  }
+]

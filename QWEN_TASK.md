@@ -5,10 +5,15 @@ and debug the focused GDN optimizations, including existing-layout fused key
 preparation following the rejected independent-chunk batching experiment. The user
 approved this after explicitly discussing the earlier local-model-only rule.
 This exception does not relax correctness, scope, isolation or rollback rules.
-Batching completed without adoption; engine3139a9b is the accepted baseline.
-The fused-key follow-up also completed without adoption: its full-model warm
-gain was too small for the added complexity. Retained prototypes and baseline
-generation-variation evidence are documented in LOCAL_MODEL_HANDOFF.md.
+Batching completed without adoption. Key preparation was subsequently readded and
+verified as engine f1e760f: full real NVFP4 output/cache/128-ID checks, frozen40/446
+quality, all56Qwen/15Llama protected gates passed. Small measured gains are accepted
+by the user. Historical generation outlier remains unexplained, not reproduced in
+30baseline-only replies,8current A/B replies or4exact old-source replay replies.
+On recurrence, retain logits and use the recorded source-snapshot commit peelback;
+uncommitted prototype trees must also be included. Do not label the cause fixed.
+Current report: benchmarks/results/2026-11-16-gdn-key-readdition/README.md.
+All experiment containers stopped, GPU idle, service inactive; holds retained.
 Read LOCAL_MODEL_HANDOFF.md before resuming local-model tasks. Historical work
 below used the local-model-only workflow; that remains the default outside this
 authorized work package.

@@ -1,5 +1,18 @@
 # Engine development handoff
 
+Current accepted engine: `f1e760f` (2026-11-16). The user authorized readding
+runtime-stride GDN key preparation and accepting small correct gains. All exact
+real27B output/cache and8x128-ID checks, frozen40answers/446NLL, and56Qwen/15Llama
+protected gates passed. Prefill savings:2.49ms at256tokens,8.26ms at1024tokens
+(~0.96%/~0.82%); no output-token throughput claim. Baseline-only30replies and
+exact older-source4replies were also canonical; historical outlier cause remains
+unresolved. Repeated success is not a repair. Future mismatch captures retain
+logits; user recommends source-snapshot commit peelback, including uncommitted
+rejected trees. See feedback/prefill-readd-main-run.txt and
+benchmarks/results/2026-11-16-gdn-key-readdition/README.md. All containers stopped,
+GPU idle, service inactive, holds retained. Earlier unadopted descriptions below
+are historical; they do not override this accepted checkpoint.
+
 The user authorized Codex to implement GDN optimization work directly,
 including the subsequent fused-key preparation prototype, as an exception to
 the earlier local-model-only authoring rule.

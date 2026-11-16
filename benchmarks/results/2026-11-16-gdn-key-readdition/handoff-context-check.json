@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "network_calls": 0,
+  "model_loaded": false,
+  "engine_writes": false,
+  "handoff_present": true,
+  "handoff_sha256": "b981526cb72d00874a1f98ec162c41d5011d2f0dfa766d53be93f09eb0e3f88a",
+  "task_prompt_sha256": "8d5469e414b8847863ab1e5513cd51c4045d4d4caa6a90366c848a59212f5366",
+  "handoff_bytes": 8446
+}
