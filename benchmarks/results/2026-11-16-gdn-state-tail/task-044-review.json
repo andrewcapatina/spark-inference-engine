@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_testing",
+  "candidate_source_sha256": "e2e39e1bc9d5c755d282a6253698b32c4d751d169f4d2fd30a6b948b567874ec",
+  "review": "AST equals original entire function after removing optional BF16 CUDA inference import block and replacing final state conditional with its unchanged Torch fallback. Helper receives identical eager GEMM. nameNone import guard fixed; helper failures propagate.",
+  "validation": "pending direct/tiny/real checkpoint tests"
+}

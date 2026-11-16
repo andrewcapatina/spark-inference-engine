@@ -1,0 +1,9 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "4b809316ad82d72f9db0f88c29d7b4fc1a8cd1c2132965c2820dce3c146eea04",
+  "reasons": [
+    "ModuleNotFoundError with name=None currently raises AttributeError in startswith rather than propagating original import error."
+  ],
+  "review": "Other arithmetic/dispatch changes narrowly scoped and consistent; preserve them.",
+  "engine_files_changed": false
+}

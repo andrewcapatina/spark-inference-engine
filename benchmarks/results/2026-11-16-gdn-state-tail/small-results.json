@@ -1,0 +1,1665 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Isolated pointwise state tail, not GDN integration or checkpoint speedup; original FP32 multiply then add is fixed reference",
+  "cases": [
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        1,
+        1
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        3,
+        5
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        3,
+        5
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        3,
+        5
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        3,
+        5
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        3,
+        5
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        64,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        64
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        64
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        64
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        64
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        128,
+        64
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        127,
+        129
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        127,
+        129
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        127,
+        129
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        127,
+        129
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        127,
+        129
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        3,
+        5
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        3,
+        5
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        64
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        64
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        127,
+        129
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        127,
+        129
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        1,
+        1
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        1,
+        1
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        1,
+        1
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        3,
+        5
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        3,
+        5
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        3,
+        5
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        64,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        64,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        64,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        128
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        128
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        128
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        64
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        64
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        128,
+        64
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        127,
+        129
+      ],
+      "label": "random",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_state",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        127,
+        129
+      ],
+      "label": "unit_decay",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        48,
+        127,
+        129
+      ],
+      "label": "zero_update",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "label": "signedzero_subnormal_finite_extremes",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "label": "signedzero_subnormal_finite_extremes",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "label": "signedzero_subnormal_finite_extremes",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "label": "must_not_fuse_multiply_add",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        0,
+        48,
+        128,
+        128
+      ],
+      "label": "empty",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        0,
+        128,
+        128
+      ],
+      "label": "empty",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "other_dtype_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "other_dtype_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "cpu_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "cpu_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "strided_state",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "strided_update",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "strided_decay",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "broadcast_decay_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "label": "parameter_in_inference",
+      "fast_launches": 1,
+      "bitwise_output_and_input_ownership": true
+    },
+    {
+      "shape": [
+        1,
+        3,
+        16,
+        16
+      ],
+      "label": "no_grad_fallback",
+      "fast_launches": 0,
+      "bitwise_output_and_input_ownership": true
+    }
+  ],
+  "gradient_cases": 2,
+  "chain_cases": [
+    {
+      "steps": 1,
+      "every_transition_bitwise_exact": true,
+      "old_state_snapshots_unchanged": true
+    },
+    {
+      "steps": 16,
+      "every_transition_bitwise_exact": true,
+      "old_state_snapshots_unchanged": true
+    },
+    {
+      "steps": 128,
+      "every_transition_bitwise_exact": true,
+      "old_state_snapshots_unchanged": true
+    },
+    {
+      "steps": 768,
+      "every_transition_bitwise_exact": true,
+      "old_state_snapshots_unchanged": true
+    }
+  ],
+  "timings": [
+    {
+      "backend": "original",
+      "cuda_ms_per_call": 0.017198000103235245
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_call": 0.01128000020980835
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_call": 0.010789000429213047
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_call": 0.01408500038087368
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_call": 0.013779999688267708
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_call": 0.011106999590992928
+    },
+    {
+      "backend": "candidate",
+      "cuda_ms_per_call": 0.010761000216007233
+    },
+    {
+      "backend": "original",
+      "cuda_ms_per_call": 0.013608000241219997
+    }
+  ],
+  "first_use_records": [
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "first_use_seconds": 1.0052555269940058
+    },
+    {
+      "shape": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "first_use_seconds": 0.044128270994406193
+    },
+    {
+      "shape": [
+        1,
+        1,
+        64,
+        128
+      ],
+      "first_use_seconds": 0.03515326500928495
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        128
+      ],
+      "first_use_seconds": 0.03429341899754945
+    },
+    {
+      "shape": [
+        1,
+        1,
+        128,
+        64
+      ],
+      "first_use_seconds": 2.180799492634833e-05
+    },
+    {
+      "shape": [
+        1,
+        1,
+        127,
+        129
+      ],
+      "first_use_seconds": 0.04336216999217868
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        10
+      ],
+      "first_use_seconds": 0.040523189993109554
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1,
+        128
+      ],
+      "first_use_seconds": 0.059265654999762774
+    },
+    {
+      "shape": [
+        2,
+        3,
+        16,
+        16
+      ],
+      "first_use_seconds": 0.03404277699883096
+    }
+  ],
+  "median_cuda_ms_per_call": {
+    "original": 0.013932500034570694,
+    "candidate": 0.010948000010102987
+  },
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 3151872,
+    "cuda_reserved_bytes": 23068672,
+    "cuda_peak_allocated_bytes": 49808384,
+    "cuda_peak_reserved_bytes": 67108864,
+    "cuda_global_free_bytes": 59755847680,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 972468224,
+    "VmRSS_bytes": 972468224,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122782924800,
+    "SwapFree_bytes": 17179529216
+  }
+}

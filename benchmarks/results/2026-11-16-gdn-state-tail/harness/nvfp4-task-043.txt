@@ -1,0 +1,55 @@
+Return FULL standalone module qwen_gdn_state_tail.py below, sourceonly <=50nonblanklines. Your arithmetic/guards/ownership/fallback are correct. Fix exactly ONE specialization omission: kernel row_elements parameter MUST be annotated row_elements: tl.constexpr (not runtime). Preserve all other source including enable_fp_fusion=False and separate FP32 mul/add. No integration/otheralgorithm. Fullmoduleonly.
+
+import torch
+import triton
+import triton.language as tl
+
+
+@triton.jit
+def _state_tail_kernel(
+    state_ptr, update_ptr, decay_ptr, out_ptr,
+    total, row_elements,
+    BLOCK: tl.constexpr,
+):
+    offsets = tl.program_id(0) * BLOCK + tl.arange(0, BLOCK)
+    mask = offsets < total
+    decay_row = offsets // row_elements
+    s = tl.load(state_ptr + offsets, mask=mask, other=0.0, eviction_policy="evict_last")
+    u = tl.load(update_ptr + offsets, mask=mask, other=0.0, eviction_policy="evict_last")
+    d = tl.load(decay_ptr + decay_row, mask=mask, other=0.0, eviction_policy="evict_last")
+    prod = s * d
+    out = prod + u
+    tl.store(out_ptr + offsets, out, mask=mask, eviction_policy="evict_last")
+
+
+def state_tail(state, chunk_decay, update):
+    if not torch.is_inference_mode_enabled():
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if not (state.is_cuda and update.is_cuda and chunk_decay.is_cuda):
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if state.device != update.device or state.device != chunk_decay.device:
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if not (state.is_contiguous() and update.is_contiguous() and chunk_decay.is_contiguous()):
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if not (state.dtype == torch.float32 and update.dtype == torch.float32 and chunk_decay.dtype == torch.float32):
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if state.dim() != 4 or update.dim() != 4 or chunk_decay.dim() != 2:
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if state.shape != update.shape or chunk_decay.shape != state.shape[:2]:
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if state.shape[-2] <= 0 or state.shape[-1] <= 0:
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    total = state.numel()
+    if total > 2147483647:
+        return state * chunk_decay.unsqueeze(-1).unsqueeze(-1) + update
+    if total == 0:
+        return torch.empty_like(state)
+    out = torch.empty_like(state)
+    row_elements = state.shape[-2] * state.shape[-1]
+    grid = (triton.cdiv(total, 1024),)
+    _state_tail_kernel[grid](
+        state, update, chunk_decay, out,
+        total, row_elements,
+        BLOCK=1024, num_warps=4, enable_fp_fusion=False,
+    )
+    return out

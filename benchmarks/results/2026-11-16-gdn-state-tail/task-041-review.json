@@ -1,0 +1,9 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "b95cbcb887afd551eb56b4cd057a797b2e06a55152516a63cbdbeae381413b8c",
+  "reasons": [
+    "row_elements must be tl.constexpr as requested; runtime integer division needlessly slows exact pointwise kernel."
+  ],
+  "arithmetic_review": "Separate FP32 multiply and add, fusion disabled; guards/fallback/new ownership otherwise consistent.",
+  "engine_files_changed": false
+}

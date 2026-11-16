@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "7b64fa5a958107005d8de83e32a87105550577b7ff3de93f3cf1cf09e920f57e",
+  "review": "Flat/masked FP32 mul then add; enable_fp_fusionFalse; compiletime row_elements; complete same-device/contiguous/dtype/shape/size guards; fallbackoriginalTorch and freshoutputownership. Evictionpolicy is a performance choice to verify in tests.",
+  "validation": "pending standalone tests, not integrated"
+}
