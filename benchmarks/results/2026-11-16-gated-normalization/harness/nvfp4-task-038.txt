@@ -1,0 +1,19 @@
+Return only ONE complete Python function gated_rms_norm_prefill(x, weight, z, eps=1e-6), <=45nonblanklines. It will be ADDED to spark_engine/qwen_ops.py; do not redefine/change any existing function or imports. torch is already imported. You alone author implementation. Standalone sourcefunction only, no Markdown/prose.
+
+Dedicated gated PREFILL entry point for existing helper spark_engine.qwen_gated_norm_tail.gated_norm_tail(x_fp32,inverse_rms,weight,silu_fp32). Original gated_rms_norm below remains unchanged and is fallback. Helper is inference-only, FP32 x/inverse/SiLU, BF16weight/output, contiguous tensors on same CUDAdevice. It preserves BF16normalized andBF16weightproduct rounding explicitly. DO NOT alter statistics or SiLU approximations.
+
+Before fastpath require torch.is_inference_mode_enabled(), x/z/weight CUDA same device, x and z BF16 exactlysameshape, rank>=2, x/z/weight contiguous, weight1D BF16 length x.shape[-1], positive lastwidth and x.numel()>0 <=2147483647. If any unsupported metadata or outsideinference, immediately return original gated_rms_norm(x,weight,z,eps), preserving originalCPU/autograd/no_grad/layout/dtype/broadcast behavior. Do NOT require weight.requires_gradFalse (Parameters ininference allowed). No token/row heuristic: caller explicitly chooses PREFILL; decode callers never use this entrypoint.
+
+Eligible case: lazyimport gated_norm_tail inside a try containing ONLY import. Catch ModuleNotFoundError only if e.name exactly triton or starts triton.; those imports alone fall back to original. Other import failures re-raise; missing e.name re-raise. All helper execution errors propagate outside try.
+Then compute x.float(), variance=xfloat.pow(2).mean(-1,keepdim=True), inverse=torch.rsqrt(variance+eps) and gate=torch.nn.functional.silu(z.to(torch.float32)) using these original eager operations. Callhelper with xfloat,inverse,originalweight,gate and return. No duplicate normalization, no reduction/SiLU in customkernel, no new globalstate/caches/dependencies, no swallowed runtimeerrors, no changes to original ordinary/gated RMSNorm or any other engine function.
+
+Actual retained original fallback, for arithmetic reference ONLY (do not include/redefine it inresponse):
+def gated_rms_norm(x, weight, z, eps=1e-6):
+    """Qwen3.5 gated RMSNorm: norm(x) * weight * silu(z)."""
+    dtype = x.dtype
+    x = x.float()
+    variance = x.pow(2).mean(-1, keepdim=True)
+    x = x * torch.rsqrt(variance + eps)
+    x = weight * x.to(dtype)
+    z = torch.nn.functional.silu(z.to(torch.float32))
+    return (x * z).to(dtype)

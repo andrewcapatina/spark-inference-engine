@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_function_placement",
+  "candidate_source_sha256": "7dc49bc8f237f80b126137d7fa546b37236d590604394b2e73c10e530cae96fb",
+  "review": "Guarded dedicated prefill entry; exact eager FP32 statistics and SiLU, metadata and missing-Triton-only fallback, helper execution outside try.",
+  "validation": "pending integration/tiny-model/real-checkpoint tests"
+}

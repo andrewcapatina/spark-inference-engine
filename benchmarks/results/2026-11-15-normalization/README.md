@@ -54,3 +54,5 @@ python3 /home/cap/spark-inference-overnight-20261113/launch_prefill_norm_prepare
 ```
 
 Next measured option: gated-normalization pointwise fusion. It has a separate SiLU gate and different shapes, so it needs its own numerical investigation and local-model task; this checkpoint does not implement it.
+
+Subsequent [gated-normalization experiment](../2026-11-16-gated-normalization/README.md) completed with a further measured1.8%/3.0% warm prefill reduction at256/1024tokens. The option discussion above describes the preceding checkpoint.

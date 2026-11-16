@@ -1,0 +1,2348 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Standalone gated pointwise tail only; original eager FP32 statistics and SiLU captured observationally. Not real-checkpoint or integration validation.",
+  "cases": [
+    {
+      "shape": [
+        1,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        1
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        1
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        1
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        1
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        16
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        16
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        16
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        16
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        127
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        127
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        127
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        127
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        128
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        128
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        129
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        129
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        129
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        129
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        3,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        63,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        64,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        65,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        256
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        256
+      ],
+      "variant": "zeros",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        256
+      ],
+      "variant": "unit_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1024,
+        256
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        12288,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        49152,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        17,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        2,
+        65,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        1,
+        64,
+        48,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        510,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        510,
+        128
+      ],
+      "variant": "zero_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        510,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        510,
+        128
+      ],
+      "variant": "bounded_weight",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        10,
+        128
+      ],
+      "variant": "bounded_weight",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        10,
+        128
+      ],
+      "variant": "negative_weight",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        10,
+        128
+      ],
+      "variant": "zero_weight",
+      "x_source_contiguous": false,
+      "z_source_contiguous": false,
+      "parameter_requires_grad": false,
+      "output_and_inputs_bitwise_exact": true
+    },
+    {
+      "shape": [
+        17,
+        128
+      ],
+      "variant": "random",
+      "x_source_contiguous": true,
+      "z_source_contiguous": true,
+      "parameter_requires_grad": true,
+      "output_and_inputs_bitwise_exact": true
+    }
+  ],
+  "first_use_records": [
+    {
+      "width": 1,
+      "first_use_seconds": 0.9833942170080263,
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "width": 16,
+      "first_use_seconds": 0.03804392299207393,
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "width": 127,
+      "first_use_seconds": 0.04865607799729332,
+      "shape": [
+        1,
+        127
+      ]
+    },
+    {
+      "width": 128,
+      "first_use_seconds": 0.0382991249935003,
+      "shape": [
+        1,
+        128
+      ]
+    },
+    {
+      "width": 129,
+      "first_use_seconds": 0.05036328799906187,
+      "shape": [
+        1,
+        129
+      ]
+    },
+    {
+      "width": 256,
+      "first_use_seconds": 0.03795721899950877,
+      "shape": [
+        1,
+        256
+      ]
+    }
+  ],
+  "triton_cache_dir": "/results/prefill-gated-small-20261116T024109Z/fresh-triton-cache",
+  "invalid_cases": [
+    "weight_length",
+    "weight_fp32",
+    "weight_stride",
+    "inverse_rows",
+    "silu_shape",
+    "x_dtype",
+    "silu_dtype",
+    "weight_cpu"
+  ],
+  "finite_bf16_x_patterns_covered": 65280,
+  "finite_bf16_z_patterns_covered": 65280,
+  "outside_inference_mode_rejected": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 208012800,
+    "cuda_peak_reserved_bytes": 224395264,
+    "cuda_global_free_bytes": 59789991936,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1003847680,
+    "VmRSS_bytes": 1003847680,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122829914112,
+    "SwapFree_bytes": 17179529216
+  }
+}

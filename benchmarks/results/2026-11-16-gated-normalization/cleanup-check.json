@@ -1,0 +1,99 @@
+{
+  "status": "clean",
+  "containers": {
+    "spark-prototype-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:c6812c2105dc541ae2827ca7b740d92decfdcb9cba51d85431e589fb9bf2d3db"
+    },
+    "spark-prototype-model": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:612b43a60a344a4dbbe34142f1cea1668a23c9a3b4367e4abd0f8aa9902880af"
+    },
+    "spark-prototype-vllm-nvfp4": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    },
+    "spark-prototype-quant-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    }
+  },
+  "service_main_pid": 0,
+  "gpu_compute_processes": "",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "same_boot_all_stages": true,
+  "global_gpu_hold_retained": true,
+  "legacy_stop_retained": true,
+  "large_workload_hold_retained": true,
+  "telemetry": {
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/qwen-small-host-memory.jsonl": {
+      "min_available_bytes": 121463336960,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/qwen-real9b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 84918091776,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/generation-budget-repository-host-memory.jsonl": {
+      "min_available_bytes": 123397787648,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/qwen-real9b-host-memory.jsonl": {
+      "min_available_bytes": 83553689600,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/legacy-runtime-inspection-host-memory.jsonl": {
+      "min_available_bytes": 123433009152,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/qwen-real27b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 52010868736,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/local-qwen-author-host-memory.jsonl": {
+      "min_available_bytes": 91862994944,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/llama-protected-host-memory.jsonl": {
+      "min_available_bytes": 118950301696,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-normalization-20261116T014607Z/qwen-real27b-host-memory.jsonl": {
+      "min_available_bytes": 52628107264,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-small-20261116T024109Z/host-memory.jsonl": {
+      "min_available_bytes": 122668740608,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-integration-20261116T033539Z/host-memory.jsonl": {
+      "min_available_bytes": 121587372032,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-ab-20261116T033601Z/host-memory.jsonl": {
+      "min_available_bytes": 77567201280,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-accuracy-20261116T034130Z/host-memory.jsonl": {
+      "min_available_bytes": 77122011136,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/prefill-gated-profile-20261116T034451Z/host-memory.jsonl": {
+      "min_available_bytes": 76850401280,
+      "max_per_worker_swap_growth_bytes": 0
+    }
+  },
+  "maximum_per_worker_swap_growth_bytes": 0
+}

@@ -77,7 +77,8 @@ request scheduler, HTTP server or continuous batching system.
 | [qwen_text.py](spark_engine/qwen_text.py) | `NativeQwenText`: offline tokenizer/template and native text APIs |
 | [qwen_model.py](spark_engine/qwen_model.py) | `QwenCausalLM`: loading, embeddings, layers, `prefill`, `decode`, `generate` |
 | [qwen_layers.py](spark_engine/qwen_layers.py) | Decoder layer, full attention, gated delta network, MLP and normalization dispatch |
-| [qwen_ops.py](spark_engine/qwen_ops.py) | Normalization, partial RoPE and FP32/chunked delta-rule arithmetic |
+| [qwen_ops.py](spark_engine/qwen_ops.py) | Normalization, guarded prefill dispatch, partial RoPE and FP32/chunked delta-rule arithmetic |
+| [qwen_norm_tail.py](spark_engine/qwen_norm_tail.py), [qwen_gated_norm_tail.py](spark_engine/qwen_gated_norm_tail.py) | Local-Qwen-authored Triton pointwise tails for ordinary and gated BF16 prefill normalization |
 | [qwen_gguf.py](spark_engine/qwen_gguf.py) | GGUF metadata/tensors, dequantization, layout restoration, tokenizer and loader |
 | [qwen_quantized.py](spark_engine/qwen_quantized.py) | Strict streaming reader, meta construction, packed linear replacement and complete tensor coverage |
 | [qwen_nvfp4.py](spark_engine/qwen_nvfp4.py) | NVFP4 block-scale layout, packed weight buffers and FlashInfer/CUTLASS quantized GEMM |
@@ -236,9 +237,18 @@ turn is not appended to successful history. Replies print after completion.
 | CLI/session policy and which template/tokenizer to use | Fast BPE tokenization, chat-template rendering and text decoding |
 
 `eval()` and `torch.inference_mode()` select inference behavior for the text
-APIs. The project is not training these models during chat. It currently has
-no custom CUDA/Triton kernels, `torch.compile` integration, CUDA-graph capture,
-explicit memory-budget manager or multi-Spark executor.
+APIs. The project is not training these models during chat. It now includes
+two small Triton pointwise normalization kernels authored by local Qwen. FP32
+normalization reductions, reciprocal square roots and gated SiLU stay in
+PyTorch; the kernels preserve the original intermediate rounding. Gated dispatch
+uses an explicit prefill flag for prompts of at least 16 tokens; default forward
+and decode retain the original gated path. Missing Triton retains Torch fallback;
+installed Triton needs a writable compiler cache that permits loading shared libraries.
+See the [ordinary](benchmarks/results/2026-11-15-normalization/README.md) and
+[gated](benchmarks/results/2026-11-16-gated-normalization/README.md) validation reports.
+There is no accepted `torch.compile` integration, CUDA-graph capture, dedicated
+engine memory-budget manager or multi-Spark executor. The experiment harness
+provides external allocator and host-memory guards.
 
 ## Findings to measure in the next phase
 

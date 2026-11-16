@@ -1,0 +1,607 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Primitive/gradient/tiny-model dispatch tests only, not real-checkpoint validation",
+  "primitive_cases": [
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        15,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        16,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        17,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        48,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        65,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        768,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        12288,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        17,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        2,
+        65,
+        16
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        15,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        16,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        17,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        48,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        768,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        12288,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        17,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        2,
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        15,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        16,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        17,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        48,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        65,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        768,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        12288,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        1,
+        17,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "eligible_explicit_prefill",
+      "shape": [
+        2,
+        65,
+        256
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 1,
+      "exact": true
+    },
+    {
+      "label": "non_bf16_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.float32",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "non_bf16_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.float16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "cpu_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "cpu_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.float32",
+      "weight_dtype": "torch.float32",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "unsupported_weight_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.float32",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "unsupported_weight_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "unsupported_weight_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "fp32_gate_input_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "noncontiguous_x_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "noncontiguous_gate_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    },
+    {
+      "label": "no_grad_fallback",
+      "shape": [
+        65,
+        128
+      ],
+      "dtype": "torch.bfloat16",
+      "weight_dtype": "torch.bfloat16",
+      "tail_calls": 0,
+      "exact": true
+    }
+  ],
+  "model_cases": [
+    {
+      "batch": 1,
+      "length": 1,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 15,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 16,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 17,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 63,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 64,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 65,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 255,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 256,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 1,
+      "length": 257,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 1,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 15,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 16,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 17,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 63,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 64,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 65,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 255,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 256,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    },
+    {
+      "batch": 2,
+      "length": 257,
+      "prefill_forward_nextdecode_cache_16ids_exact": true,
+      "decode_and_forward_tail_calls": 0
+    }
+  ],
+  "gradient_cases": 2,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [
+      "('mm_fp4_workspace', device(type='cuda', index=0))"
+    ],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 80750080,
+    "cuda_peak_reserved_bytes": 119537664,
+    "cuda_global_free_bytes": 58361110528,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 2307969024,
+    "VmRSS_bytes": 2307575808,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 121654439936,
+    "SwapFree_bytes": 17179529216
+  }
+}

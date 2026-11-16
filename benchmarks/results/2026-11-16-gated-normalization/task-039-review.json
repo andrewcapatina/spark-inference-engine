@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_function_placement",
+  "candidate_source_sha256": "849c2eb689ef4d5f0af6d73ba72b1a005a9eb238e949b1547b9e2f625bf5f7ad",
+  "review": "Backward compatible keyword-only prefill=False; ordinary branch unchanged; explicit gated prefill routes only when requested; module hooks preserved.",
+  "validation": "pending integration/tiny-model/real-checkpoint tests"
+}

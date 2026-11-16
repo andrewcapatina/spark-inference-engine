@@ -1,0 +1,20 @@
+Return only a complete standalone Python module spark_engine/qwen_gated_norm_tail.py. At most50 nonblank lines, no Markdown/prose. You alone author engine implementation. Do NOT edit any other engine files. There is no integration yet.
+
+Task: a small Triton pointwise tail for Qwen gated RMSNorm, preserving every eager rounding step. Do NOT implement any reduction, rsqrt, sigmoid/exp/SiLU. The original PyTorch function performs FP32 normalization statistics and original PyTorch FP32 SiLU outside your module.
+
+Public wrapper: gated_norm_tail(x_fp32, inverse_rms, weight, silu_fp32).
+- Assert caller is already in torch.inference_mode(); never enter the mode yourself.
+- All four inputs must be CUDA tensors on exactly the same device and contiguous.
+- x_fp32 dtype float32, rank>=1, positive last width. inverse_rms dtypefloat32, numel equals x.numel()/width. weight dtypebfloat16 ONLY,1D lengthwidth. silu_fp32 dtypefloat32 with exactly x.shape. Support empty total with positive width by returning newempty output without launch.
+- Allocate NEW BF16 output with x.shape; never mutate/retain inputs, no caches/globaltensors/autograd.
+- Exactly one vector pointwise kernel for nonempty inputs; flatcontiguous indexing, grid ceil(total/1024), BLOCK1024, num_warps4, enable_fp_fusion=False. WIDTH andBLOCK constexpr. tl.program_id(0), tl.arange(0,BLOCK), totalmask. Inverse row index offsets//WIDTH, weight column offsets%WIDTH; x/silu flatindexoffsets. No strides/loops/perrowprograms. Assert total<=2147483647.
+
+CRITICAL arithmetic order per element, matching eager operations:
+1. FP32 load x and inverse, multiply in FP32, explicitly round result to BF16.
+2. Load BF16 weight, widen weight and the rounded normalized value to FP32, multiply, explicitly round THAT product to BF16. This second rounding is mandatory: original torch BF16 weight * BF16 normalized gives BF16.
+3. Widen that rounded weighted value to FP32, multiply by supplied original PyTorch FP32 SiLU value, cast final product to BF16 and store.
+Never combine the two multiplications, never add1to weight (gatednorm uses directweight). Explicit FP32<->BF16 casts must preserve the two intermediate roundings. No approximate transcendental/reduction arithmetic, TF32, fp16 or float64.
+
+Include torch,triton,triton.language as tl imports and only two functions: one @triton.jit kernel named _gated_norm_tail_kernel, and public gated_norm_tail. No side effects beyond output allocation and kernel launch. Shape checks should accept inverse anyshape withcorrectnumel, including keepdim.
+
+It will be tested bitwise against original PyTorch gated RMSNorm, using original eager inverse and eager SiLU: all finite BF16 patterns, zeros/signedzero, realwidth128, realrows up to49152, partialblocks, varied rank/layout after .float(), ownership, invalidmetadata/inferenceguard, exactcast/weight-product intermediates. No wholemodel speedup claimed until independent integration/checkpoint tests.

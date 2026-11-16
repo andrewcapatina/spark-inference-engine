@@ -1,0 +1,28 @@
+def gated_rms_norm_prefill(x, weight, z, eps=1e-6):
+    if not torch.is_inference_mode_enabled():
+        return gated_rms_norm(x, weight, z, eps)
+    if not (x.is_cuda and z.is_cuda and weight.is_cuda):
+        return gated_rms_norm(x, weight, z, eps)
+    if x.device != z.device or x.device != weight.device:
+        return gated_rms_norm(x, weight, z, eps)
+    if x.dtype != torch.bfloat16 or z.dtype != torch.bfloat16 or weight.dtype != torch.bfloat16:
+        return gated_rms_norm(x, weight, z, eps)
+    if x.shape != z.shape or x.dim() < 2:
+        return gated_rms_norm(x, weight, z, eps)
+    if not (x.is_contiguous() and z.is_contiguous() and weight.is_contiguous()):
+        return gated_rms_norm(x, weight, z, eps)
+    if weight.dim() != 1 or weight.shape[0] != x.shape[-1]:
+        return gated_rms_norm(x, weight, z, eps)
+    if x.shape[-1] <= 0 or x.numel() <= 0 or x.numel() > 2147483647:
+        return gated_rms_norm(x, weight, z, eps)
+    try:
+        from spark_engine.qwen_gated_norm_tail import gated_norm_tail
+    except ModuleNotFoundError as e:
+        if e.name == "triton" or (e.name is not None and e.name.startswith("triton.")):
+            return gated_rms_norm(x, weight, z, eps)
+        raise
+    x_float = x.float()
+    variance = x_float.pow(2).mean(-1, keepdim=True)
+    inverse_rms = torch.rsqrt(variance + eps)
+    gate = torch.nn.functional.silu(z.to(torch.float32))
+    return gated_norm_tail(x_float, inverse_rms, weight, gate)

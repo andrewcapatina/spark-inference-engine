@@ -1,0 +1,10 @@
+```python
+    def forward(self, x, z=None, *, prefill=False):
+        if z is None:
+            return qwen_rms_norm(x, self.weight, self.eps)
+        if prefill:
+            from spark_engine.qwen_ops import gated_rms_norm_prefill
+            return gated_rms_norm_prefill(x, self.weight, z, self.eps)
+        from spark_engine.qwen_ops import gated_rms_norm
+        return gated_rms_norm(x, self.weight, z, self.eps)
+```

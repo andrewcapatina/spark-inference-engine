@@ -1,0 +1,10 @@
+Return only the complete method def forward(self, x, z=None, *, prefill=False) for existing class QwenRMSNorm in spark_engine/qwen_layers.py. <=12nonblanklines. No Markdown/class/module/importoutsidefunction. Change ONLY this method, preserving existing behavior by default. You alone write implementation.
+
+Existingmethod:
+    def forward(self, x, z=None):
+        if z is None:
+            return qwen_rms_norm(x, self.weight, self.eps)
+        from spark_engine.qwen_ops import gated_rms_norm
+        return gated_rms_norm(x, self.weight, z, self.eps)
+
+New optionalkeyword prefill defaultsFalse; keep ordinary zNone branch exactlyunchanged. If z is notNone and prefillTrue, lazyimport spark_engine.qwen_ops.gated_rms_norm_prefill and return it with x,self.weight,z,self.eps. Otherwise preserve original lazyimport/call gated_rms_norm unchanged. No shape heuristic, no globalstate, no helperdirectimport, no catches. Defaultdecode/forward calls never selectnewentry. Existingweights/eps/modulehooks preserved. Only sourcemethod inresponse.

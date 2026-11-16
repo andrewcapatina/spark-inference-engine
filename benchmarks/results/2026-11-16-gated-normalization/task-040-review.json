@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_function_placement",
+  "candidate_source_sha256": "2f76ad7e562954a978114102b4d2477f35adfe7ac0dca2bfa50013062df778ee",
+  "review": "AST exactly baseline after removing sole prefill=(seq>=16) keyword on normalization call; cache/projection/state unchanged.",
+  "validation": "pending integration/tiny-model/real-checkpoint tests"
+}

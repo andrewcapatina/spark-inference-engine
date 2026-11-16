@@ -1,0 +1,6 @@
+{
+  "decision": "allow_exact_placement_for_single_gpu_tests",
+  "candidate_source_sha256": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+  "review": "Vector masks/row/column indexing correct; BF16normalized and BF16weighted intermediate casts explicit; original SiLU supplied separately; same-device/contiguity/dtype/width/inverse guards; fixed fusion off; outputnew and no retained tensors.",
+  "validation": "pending standalone tests; not integrated"
+}

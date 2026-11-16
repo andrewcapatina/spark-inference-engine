@@ -1,0 +1,10 @@
+{
+  "decision": "reject_before_placement",
+  "candidate_source_sha256": "800203eff43d2939a56f804e40fec8df3dcd8ef2644e6d9784811d7ccc8e5d75",
+  "reasons": [
+    "Wrapper derives width from weight but never verifies x last width equals weight length; inverse row indexing may be wrong for unsupported metadata.",
+    "Kernel width argument is runtime, not requested constexpr."
+  ],
+  "arithmetic_review": "Explicit BF16 intermediate rounds and FP32 multiplies appear correct; preserve exactly.",
+  "engine_files_changed": false
+}
