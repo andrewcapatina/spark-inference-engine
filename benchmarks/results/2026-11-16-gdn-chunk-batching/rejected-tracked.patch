@@ -1,0 +1,86 @@
+diff --git a/spark_engine/qwen_ops.py b/spark_engine/qwen_ops.py
+index 27e0c5b..57f7fa1 100644
+--- a/spark_engine/qwen_ops.py
++++ b/spark_engine/qwen_ops.py
+@@ -68,6 +68,22 @@ def _l2norm(x, dim=-1, eps=1e-6):
+     return x * inv
+ 
+ 
++def _prepare_gdn_chunks(q, k, v, g, beta):
++    """Independent FP32 transforms; leading dimensions may include chunks."""
++    cum_decay = g.cumsum(dim=-1)
++    pairwise_decay = cum_decay.unsqueeze(-1) - cum_decay.unsqueeze(-2)
++    size = q.shape[-2]
++    mask = torch.tril(torch.ones(size, size, device=q.device))
++    pairwise_decay = pairwise_decay.masked_fill(mask == 0, float('-inf')).exp()
++    ut_system = (k * beta.unsqueeze(-1)) @ k.transpose(-2, -1) * pairwise_decay
++    intra_chunk_attn = q @ k.transpose(-2, -1) * pairwise_decay
++    v_beta = v * beta.unsqueeze(-1)
++    decayed_k = (k * beta.unsqueeze(-1)) * cum_decay.exp().unsqueeze(-1)
++    v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
++    k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
++    return cum_decay, intra_chunk_attn, v_new, k_cumdecay
++
++
+ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
+     """Chunked gated delta rule matching official Qwen3.5 prefill arithmetic.
+ 
+@@ -111,6 +127,16 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
+         state = torch.zeros((bsz, nvh, k.shape[-1], v.shape[-1]), dtype=torch.float32, device=v.device)
+     else:
+         state = initial_state.to(v.device, dtype=torch.float32)
++    # Bound preparation temporaries independently of prompt length. CPU, grad
++    # and single-chunk calls keep the original per-chunk dispatch.
++    workspace_per_chunk = bsz * nvh * 4 * (
++        4 * chunk_size ** 2 + 6 * chunk_size * (k.shape[-1] + v.shape[-1]))
++    # Growing small cuBLAS batches can change solve rounding. Specialize to
++    # the native 27B single-request layout; other layouts retain the old path.
++    batch_layout = (eligible and bsz == 1 and nvh == 48 and chunk_size == 64
++                    and k.shape[-1] == 128 and v.shape[-1] == 128)
++    batch_chunks = min(8, max(1, (256 * 1024 ** 2) // max(1, workspace_per_chunk))) if batch_layout else 1
++    prepared = None
+     for c in range(n_chunks):
+         start = c * chunk_size
+         end = start + chunk_size
+@@ -119,26 +145,21 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
+         v_c = v[:, :, start:end]
+         beta_c = beta[:, :, start:end]
+         g_c = g[:, :, start:end]
+-        # Compute cumulative decay independently within each chunk
+-        cum_decay_c = g_c.cumsum(dim=-1)
+-        # Pairwise decay: exp(cum_decay[j] - cum_decay[i]) for j <= i
+-        pairwise_decay = cum_decay_c.unsqueeze(-1) - cum_decay_c.unsqueeze(-2)
+-        # Causal mask: strictly upper triangle gets -inf
+-        mask = torch.tril(torch.ones(chunk_size, chunk_size, device=q.device))
+-        pairwise_decay = pairwise_decay.masked_fill(mask == 0, float('-inf'))
+-        pairwise_decay = pairwise_decay.exp()
+-        # Auxiliary system: K^T Q with decay
+-        ut_system = (k_c * beta_c.unsqueeze(-1)) @ k_c.transpose(-2, -1) * pairwise_decay
+-        # Intra-chunk attention: Q K^T with decay
+-        intra_chunk_attn = q_c @ k_c.transpose(-2, -1) * pairwise_decay
+-        # Solve auxiliary system (unitriangular)
+-        # v_new = solve(ut_system, v_c * beta_c)
+-        # k_cumdecay = solve(ut_system, k_c * cum_decay.exp())
+-        v_beta = v_c * beta_c.unsqueeze(-1)
+-        decayed_k = (k_c * beta_c.unsqueeze(-1)) * cum_decay_c.exp().unsqueeze(-1)
+-        # Use torch.linalg.solve_triangular for unitriangular system
+-        v_new = torch.linalg.solve_triangular(ut_system, v_beta, upper=False, unitriangular=True)
+-        k_cumdecay = torch.linalg.solve_triangular(ut_system, decayed_k, upper=False, unitriangular=True)
++        if batch_chunks > 1 and n_chunks > 1:
++            if c % batch_chunks == 0:
++                prepared = None
++                cum_decay_c = intra_chunk_attn = v_new = k_cumdecay = None
++                count = min(batch_chunks, n_chunks - c)
++                stop = start + count * chunk_size
++                # Chunk-major packing makes each prepared chunk's batch/head
++                # matrices compact, including the later sequential state scan.
++                blocks = [x[:, :, start:stop].unflatten(2, (count, chunk_size)).movedim(2, 0).contiguous()
++                          for x in (q, k, v, g, beta)]
++                prepared = _prepare_gdn_chunks(*blocks)
++            cum_decay_c, intra_chunk_attn, v_new, k_cumdecay = (
++                x.select(0, c % batch_chunks) for x in prepared)
++        else:
++            cum_decay_c, intra_chunk_attn, v_new, k_cumdecay = _prepare_gdn_chunks(q_c, k_c, v_c, g_c, beta_c)
+         # Inter-chunk attention with previous state (apply within-chunk decay to query)
+         inter_chunk_attn = (q_c * cum_decay_c.exp().unsqueeze(-1)) @ state
+         # Correct intra-chunk values with carried state

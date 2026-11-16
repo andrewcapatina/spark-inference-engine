@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/harness/profile_gdn_batch_small.py", line 18, in <module>
+    row={'length':length,'inputs':[{'shape':list(x.shape),'stride':list(x.stride()),'dtype':str(x.dtype)} for x in args],'samples':[],'profiles':{}}
+                                                 ^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'shape'

@@ -1,0 +1,351 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Synthetic native48-head convolution layout only, each size output/state exact vs accepted; group16 uses512MiB estimate",
+  "cases": [
+    {
+      "length": 256,
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms": 1.64028799533844
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.7730560302734375
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.8519999980926514
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8559999465942383
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8639999628067017
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.849984049797058
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8562239408493042
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 2.31113600730896
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.8539199829101562
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.892416000366211
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.661087989807129
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.7720320224761963
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.8575999736785889
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8519680500030518
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8596800565719604
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8635519742965698
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.853503942489624
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.937343955039978
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 2.14847993850708
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.8715200424194336
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.7843519449234009
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.7753920555114746
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.8569920063018799
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8512959480285645
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8541439771652222
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8507200479507446
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8534079790115356
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.850208044052124
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.8375680446624756
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 2.0428481101989746
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 1.9399679899215698
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.836575984954834
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.8602240085601807
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8583359718322754
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.8534079790115356
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 1.859935998916626
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 1.8545600175857544
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 1.8506560325622559
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 1.7677119970321655
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 2.0537281036376953
+        }
+      ],
+      "medians": {
+        "original": 1.8819680213928223,
+        "group2": 1.8059840202331543,
+        "group4": 1.8572959899902344,
+        "group8": 1.8540319800376892,
+        "group16": 1.8569120168685913
+      }
+    },
+    {
+      "length": 1024,
+      "samples": [
+        {
+          "backend": "original",
+          "cuda_ms": 7.363327980041504
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.862815856933594
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.280192375183105
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.855392456054688
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.152992248535156
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.143808364868164
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.851840019226074
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.805952072143555
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 8.14748764038086
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.335072040557861
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 8.12934398651123
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.842495918273926
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.288064002990723
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.855104446411133
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.140671730041504
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.142623901367188
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.839839935302734
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.286272048950195
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.834432125091553
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.330495834350586
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.3405442237854
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.83571195602417
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.284799575805664
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.839200019836426
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.136768341064453
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.164575576782227
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 9.291168212890625
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.688192367553711
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.836319923400879
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.329408168792725
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.332575798034668
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.821599960327148
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.282367706298828
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.838815689086914
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.139424324035645
+        },
+        {
+          "backend": "group16",
+          "cuda_ms": 9.16643238067627
+        },
+        {
+          "backend": "group8",
+          "cuda_ms": 8.861568450927734
+        },
+        {
+          "backend": "group4",
+          "cuda_ms": 8.305824279785156
+        },
+        {
+          "backend": "group2",
+          "cuda_ms": 7.841856002807617
+        },
+        {
+          "backend": "original",
+          "cuda_ms": 7.344192028045654
+        }
+      ],
+      "medians": {
+        "original": 7.337808132171631,
+        "group2": 7.839087963104248,
+        "group4": 8.287168025970459,
+        "group8": 8.853472232818604,
+        "group16": 9.143216133117676
+      }
+    }
+  ]
+}

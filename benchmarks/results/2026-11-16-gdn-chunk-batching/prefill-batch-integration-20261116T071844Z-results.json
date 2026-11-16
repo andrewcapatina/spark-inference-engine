@@ -1,0 +1,10 @@
+{
+  "status": "running",
+  "mode": "candidate",
+  "scope": "Exact synthetic/real-layout and tiny-model tests only; isolated timings are not checkpoint speedups",
+  "direct_cases": [],
+  "block_cases": [],
+  "isolated_layout_timings": [],
+  "model_cases": [],
+  "gradient_cases": 0
+}

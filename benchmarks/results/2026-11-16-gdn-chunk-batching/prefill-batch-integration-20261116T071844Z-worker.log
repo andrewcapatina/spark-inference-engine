@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/harness/check_gdn_batch_integration.py", line 116, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 82, in main
+    for state in [False,True]:direct(batch,length,heads,kdim,vdim,dtype,state)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 47, in direct
+    a,old_count=counted(original,args,state,chunk);b,new_count=counted(candidate,args,state,chunk);equal(a,b);equal(list(args),snapshot)
+                                                                                                   ^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 21, in equal
+    for x,y in zip(a,b):equal(x,y)
+                        ^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 15, in equal
+    if torch.is_tensor(a):assert a.shape==b.shape and a.dtype==b.dtype and torch.equal(a,b),'Tensor changed'
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tensor changed

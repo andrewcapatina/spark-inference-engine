@@ -1,0 +1,6785 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Synthetic actual preparation shapes, original helper operations observationally captured; no real checkpoint",
+  "calls": [
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              576,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1858,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 3.725290298461914e-08,
+            "different_elements": 2298,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              576,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1953,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2430,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              576,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              16,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              16,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              36864,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              9216,
+              3072,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              768,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1873,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2338,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              768,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 3.5762786865234375e-07,
+            "different_elements": 1893,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2293,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              768,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1933,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2324,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              768,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              49152,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 3.5762786865234375e-07,
+            "different_elements": 1918,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2371,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              12288,
+              4096,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1912,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2407,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1878,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2346,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1776,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2363,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1888,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2318,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 4,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1900,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2358,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 5,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1818,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2303,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 6,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1872,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2343,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 7,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1871,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2341,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1845,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2318,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1872,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2364,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1891,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2358,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1887,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2360,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 4,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1875,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2378,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 5,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 2.384185791015625e-07,
+            "different_elements": 1859,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 5.960464477539063e-08,
+            "different_elements": 2399,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 6,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1883,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2332,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 7,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              192,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1536,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              48,
+              16,
+              48,
+              1
+            ],
+            "batch_slice_stride": [
+              48,
+              16,
+              48,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              12288,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              98304,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": false,
+            "max_abs": 4.76837158203125e-07,
+            "different_elements": 1873,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": false,
+            "max_abs": 2.9802322387695312e-08,
+            "different_elements": 2348,
+            "single_stride": [
+              3072,
+              1024,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              24576,
+              8192,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              9216,
+              192,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              128,
+              1
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              128,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              589824,
+              12288,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1179648,
+              24576,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              12288,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              12288,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              12288,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              12288,
+              256,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              786432,
+              16384,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 4,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 5,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 6,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 7,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "chunk": 0,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 1,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 2,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 3,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 4,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 5,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 6,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      },
+      {
+        "chunk": 7,
+        "operations": [
+          {
+            "name": "cum_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              3072,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              24576,
+              512,
+              1
+            ]
+          },
+          {
+            "name": "pairwise_decay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_beta",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "decayed_k",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ],
+            "batch_slice_stride": [
+              6144,
+              128,
+              6144,
+              1
+            ]
+          },
+          {
+            "name": "ut_system",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "intra_chunk_attn",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              196608,
+              4096,
+              64,
+              1
+            ],
+            "batch_slice_stride": [
+              1572864,
+              32768,
+              64,
+              1
+            ]
+          },
+          {
+            "name": "v_new",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          },
+          {
+            "name": "k_cumdecay",
+            "exact": true,
+            "max_abs": 0.0,
+            "different_elements": 0,
+            "single_stride": [
+              393216,
+              8192,
+              1,
+              64
+            ],
+            "batch_slice_stride": [
+              3145728,
+              65536,
+              1,
+              64
+            ]
+          }
+        ]
+      }
+    ]
+  ]
+}

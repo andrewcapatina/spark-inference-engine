@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/harness/check_gdn_batch_integration.py", line 119, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 94, in main
+    for length in [1,63,64,65,255,256,257,1024]:block_case(block,kind,batch,length)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 56, in block_case
+    hidden=torch.randn(batch,length,256,device='cuda',dtype=torch.bfloat16)[...,::2];before=hidden.clone();ops.gated_delta_chunk=original;a,ca=block.prefill(hidden);ops.gated_delta_chunk=candidate;b,cb=block.prefill(hidden);equal((a,ca),(b,cb));equal(hidden,before);next_hidden=torch.randn(batch,1,128,device='cuda',dtype=torch.bfloat16);equal(block.decode(next_hidden,ca),block.decode(next_hidden,cb));d['block_cases'].append({'weights':kind,'batch':batch,'length':length,'exact_prefill_cache_continuation':True})
+                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 23, in equal
+    for x,y in zip(a,b):equal(x,y)
+                        ^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 20, in equal
+    for key in a:equal(a[key],b[key])
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 17, in equal
+    d['failure']={'shape_before':list(a.shape),'shape_after':list(b.shape),'dtype_before':str(a.dtype),'dtype_after':str(b.dtype),'max_abs':float((a.float()-b.float()).abs().max()),'different_elements':int((a!=b).sum())};save();raise AssertionError('Tensor changed: '+str(d['failure']))
+                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tensor changed: {'shape_before': [1, 3, 128, 128], 'shape_after': [1, 3, 128, 128], 'dtype_before': 'torch.float32', 'dtype_after': 'torch.float32', 'max_abs': 1.4901161193847656e-08, 'different_elements': 16716}

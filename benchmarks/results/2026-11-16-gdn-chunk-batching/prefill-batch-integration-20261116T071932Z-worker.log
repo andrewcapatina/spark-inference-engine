@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/harness/check_gdn_batch_integration.py", line 119, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 85, in main
+    for state in [False,True]:direct(batch,length,heads,kdim,vdim,dtype,state)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 50, in direct
+    a,old_count=counted(original,args,state,chunk);b,new_count=counted(candidate,args,state,chunk);equal(a,b);equal(list(args),snapshot)
+                                                                                                   ^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 23, in equal
+    for x,y in zip(a,b):equal(x,y)
+                        ^^^^^^^^^^
+  File "/harness/check_gdn_batch_integration.py", line 17, in equal
+    d['failure']={'shape_before':list(a.shape),'shape_after':list(b.shape),'dtype_before':str(a.dtype),'dtype_after':str(b.dtype),'max_abs':float((a.float()-b.float()).abs().max()),'different_elements':int((a!=b).sum())};save();raise AssertionError('Tensor changed: '+str(d['failure']))
+                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tensor changed: {'shape_before': [1, 129, 3, 16], 'shape_after': [1, 129, 3, 16], 'dtype_before': 'torch.bfloat16', 'dtype_after': 'torch.bfloat16', 'max_abs': 6.103515625e-05, 'different_elements': 2}
