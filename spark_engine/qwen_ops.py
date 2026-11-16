@@ -81,7 +81,12 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
     # [batch,time,heads,feature] -> [batch,heads,time,feature]
     q = q.transpose(1, 2).float()
     k = k.transpose(1, 2).float()
-    v = v.transpose(1, 2).float()
+    eligible = (dtype == torch.bfloat16 and v.dtype == torch.bfloat16
+                and v.is_cuda and torch.is_inference_mode_enabled())
+    if eligible:
+        v = v.transpose(1, 2)
+    else:
+        v = v.transpose(1, 2).float()
     # [batch,time,heads] -> [batch,heads,time]
     beta = beta.transpose(1, 2).float()
     g = g.transpose(1, 2).float()
@@ -101,11 +106,11 @@ def gated_delta_chunk(q, k, v, g, beta, initial_state=None, chunk_size=64):
     # Official uses cumulative log-decay differences for pairwise decay
     cum_decay = g.cumsum(dim=-1)
     # Intra-chunk computation
-    out = torch.zeros_like(v)
+    out = torch.zeros_like(v, dtype=torch.float32)
     if initial_state is None:
-        state = torch.zeros((bsz, nvh, k.shape[-1], v.shape[-1]), dtype=v.dtype, device=v.device)
+        state = torch.zeros((bsz, nvh, k.shape[-1], v.shape[-1]), dtype=torch.float32, device=v.device)
     else:
-        state = initial_state.to(v)
+        state = initial_state.to(v.device, dtype=torch.float32)
     for c in range(n_chunks):
         start = c * chunk_size
         end = start + chunk_size
