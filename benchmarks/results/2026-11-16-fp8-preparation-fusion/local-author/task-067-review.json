@@ -1,0 +1,13 @@
+{
+  "status": "rejected_compilation",
+  "failure_run": "fp8-prep-prototype-20261117T063136Z",
+  "classification": "invalid implementation API",
+  "installed_api": {
+    "any": false,
+    "isnan": false,
+    "sum": true,
+    "max": true,
+    "div_rn": true
+  },
+  "recovery": "LocalQwen068 replaces only unsupported Nan predicate/reduction"
+}

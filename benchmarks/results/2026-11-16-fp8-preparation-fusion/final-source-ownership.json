@@ -1,0 +1,8 @@
+{
+  "status": "local_qwen_ownership_verified",
+  "kernel": "068 verbatim",
+  "FP8Linear.forward": "069 AST exact, class indentation only",
+  "pair_factory": "071 verbatim",
+  "engine_commit": "48d4cc758027f6f5c84d5fd6afa444d4968cdeae",
+  "all_other17_original_engine_files_unchanged": true
+}

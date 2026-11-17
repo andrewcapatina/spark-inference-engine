@@ -1,0 +1,19 @@
+{
+  "status": "failed",
+  "mode": "candidate",
+  "scope": "Synthetic FP8 preparation exact scales/bytes and isolated timings only; no real model or generation",
+  "candidate_sha256": "5eefd960b8e1c612db45cd995bd86c53fdbbe837a0123d44c993d30acef6b76b",
+  "cases": [],
+  "timings": [],
+  "installed_triton_api": {
+    "any": false,
+    "isnan": false,
+    "sum": true,
+    "max": true,
+    "div_rn": true
+  },
+  "error": {
+    "type": "CompilationError",
+    "message": "at 22:14:\n    cols = tl.arange(0, BLOCK)\n    mask = (row < rows) & (cols < width)\n    x_row = x_ptr + row * width\n    x_q_row = x_q_ptr + row * width\n    scale_row = scale_a_ptr + row\n\n    vals = tl.load(x_row + cols, mask=mask, other=0.0).to(tl.float32)\n    max_abs = tl.max(tl.abs(vals), axis=0)\n    scale_work = max_abs * 0.0022321429569274187\n    scale_work = tl.maximum(scale_work, 1e-6)\n\n    has_nan = tl.any(tl.isnan(vals), axis=0)\n              ^\nAttributeError(\"module 'triton.language' has no attribute 'any'\")"
+  }
+}

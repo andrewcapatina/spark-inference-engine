@@ -1,0 +1,71 @@
+{
+  "status": "complete",
+  "phase": "all_validations_complete",
+  "started": "2026-11-17T07:00:51.451116+00:00",
+  "main_run": "/home/cap/spark-inference-overnight-20261113/runs/fp8-prep-fusion-20261117T061723Z",
+  "primary_metrics": [
+    "prefill_cuda_ms",
+    "prefill_wall_ms",
+    "prompt_tokens_per_second"
+  ],
+  "stages": [
+    {
+      "stage": "accuracy",
+      "run": "fp8-prep-accuracy-20261117T070051Z",
+      "status": "complete"
+    },
+    {
+      "stage": "profile",
+      "run": "fp8-prep-profile-20261117T070407Z",
+      "status": "complete"
+    },
+    {
+      "stage": "legacy_precision",
+      "status": "complete"
+    },
+    {
+      "stage": "protected_regressions",
+      "status": "complete",
+      "commands": [
+        {
+          "label": "generation-budget-repository",
+          "exit_code": 0,
+          "elapsed_seconds": 1.02
+        },
+        {
+          "label": "qwen-small",
+          "exit_code": 0,
+          "elapsed_seconds": 9.22
+        },
+        {
+          "label": "qwen-real9b",
+          "exit_code": 0,
+          "elapsed_seconds": 165.01
+        },
+        {
+          "label": "qwen-real9b-conversation",
+          "exit_code": 0,
+          "elapsed_seconds": 161.83
+        },
+        {
+          "label": "qwen-real27b",
+          "exit_code": 0,
+          "elapsed_seconds": 153.64
+        },
+        {
+          "label": "qwen-real27b-conversation",
+          "exit_code": 0,
+          "elapsed_seconds": 149.46
+        },
+        {
+          "label": "llama-protected",
+          "exit_code": 0,
+          "elapsed_seconds": 7.7
+        }
+      ]
+    }
+  ],
+  "updated": "2026-11-17T07:18:24.891338+00:00",
+  "active_run": "/home/cap/spark-inference-overnight-20261113/runs/fp8-prep-profile-20261117T070407Z",
+  "finished": "2026-11-17T07:18:24.891329+00:00"
+}

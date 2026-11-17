@@ -1,0 +1,11 @@
+{
+  "status": "rejected_before_execution",
+  "classification": "kernel implementation errors",
+  "errors": [
+    "Padded programs load beyond input rows because no actual-row mask; post-launch zeroing cannot repair out-of-bounds reads",
+    "Missing explicit enable_fp_fusion=False",
+    "Global reciprocal is not declared constexpr",
+    "Serial128element reduction/reload loop instead of vectorized row"
+  ],
+  "recovery": "LocalQwen066: actual-row masking, direct zero padding, whole-block row vectorization, literal reciprocal and disabledFMA"
+}

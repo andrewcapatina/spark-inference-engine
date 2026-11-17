@@ -1,0 +1,12 @@
+Return ONLY a complete standalone Python module implementing prepare_fp8(x2d), no Markdown. You alone author implementation. This is a prototype, do not edit engine files. Use torch, triton, triton.language. One Triton program per row with masked reduction, target SM121. Fresh outputs, no mutation/cache, no weight/GEMM changes.
+
+Public API: prepare_fp8(x2d) returns (x_q, scale_a) when eligible, else None. Eligible: 2D CUDA contiguous BF16 under torch.is_inference_mode_enabled(), rows>=16, width in (5120,6144), padded_rows=((rows+15)//16)*16, padded_rows*width<=2147483647. Unsupported metadata returns None without GPU value checks. x_q is contiguous torch.float8_e4m3fn [padded_rows,width], scale_a contiguous FP32 [padded_rows,1]. Valid rows match original exact FP32 scales and FP8 bytes. Padding rows BOTH x_q and scale_a must be positive zero, matching torch.nn.functional.pad. Empty/other dtype/grad/no_grad/shape unsupported ->None.
+
+Reference:
+ scale_a=torch.clamp(torch.amax(x2d.abs(),dim=-1,keepdim=True).float()/448.0,min=1e-6)
+ x_q=(x2d/scale_a).to(torch.float8_e4m3fn)
+ then pad M to multiple16 with0 (including scale).
+
+CRITICAL MEASURED ROUNDING: Across all32640finite nonnegative BF16 maxima, Torch CUDA scalar division by448 matches FP32 multiplication by a FP32-rounded reciprocal exactly. Direct round-to-nearest division differs9878values. Therefore compute scale as absmax * FP32-rounded(1/448), then FP32 clamp minimum1e-6, not max/448 using div_rn. Exact reciprocal as FP32 value: 0.0022321429569274187. Explicitly avoid reassociation/FMA: enable_fp_fusion=False. Input-by-scale division IS true round-to-nearest: use tl.div_rn on FP32 x and the rounded scale. Round output to tl.float8e4nv with round-to-nearest-even. Preserve separate scale rounding before dividing. BF16 row max may be found in FP32 because BF16 values are exact there, but match NaN propagation and infinities. Mask invalid columns with0. Row maxima/scales and bytes will be checked directly, including zero/subnormal/extreme/signedzero and F8 rounding boundaries. No approximate reciprocal for x/scale.
+
+Use BLOCK=triton.next_power_of_2(width), sensible warps for8192elements. Handle padded rows explicitly; do not store1e-6 as padded scale. No GPU->CPU synchronization. Do not silently catch runtime/compiler errors. Missing Triton fallback will be handled by callers later. Current reference PyTorch source is authoritative; helper does not call reference model or generate.

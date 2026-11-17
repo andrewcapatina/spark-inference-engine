@@ -1,0 +1,941 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Real-weight integration and dispatch only; not whole-model validation",
+  "layer_cases": [
+    {
+      "layer": 56,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 56,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 56,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 56,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 56,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 56,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 57,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 57,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 57,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 57,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 57,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 57,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 58,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 58,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 58,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 58,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 58,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 58,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 59,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 59,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 59,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 59,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 59,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 59,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 60,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 60,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 60,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 60,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 60,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 60,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 61,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 61,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 61,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 61,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 61,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 61,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 62,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 62,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 62,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 62,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 62,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 62,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 63,
+      "rows": 1,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 63,
+      "rows": 15,
+      "exact": true,
+      "fused_preparations": 0,
+      "preparation_calls": []
+    },
+    {
+      "layer": 63,
+      "rows": 16,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            16,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            16,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 63,
+      "rows": 17,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            17,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            17,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 63,
+      "rows": 256,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            256,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            256,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    },
+    {
+      "layer": 63,
+      "rows": 1024,
+      "exact": true,
+      "fused_preparations": 1,
+      "preparation_calls": [
+        {
+          "shape": [
+            1024,
+            5120
+          ],
+          "fused": true
+        },
+        {
+          "shape": [
+            1024,
+            17408
+          ],
+          "fused": false
+        }
+      ]
+    }
+  ],
+  "linear_cases": [
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 1,
+      "exact": true,
+      "preparations": []
+    },
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 15,
+      "exact": true,
+      "preparations": []
+    },
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 16,
+      "exact": true,
+      "preparations": [
+        {
+          "shape": [
+            16,
+            6144
+          ],
+          "fused": true
+        }
+      ]
+    },
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 17,
+      "exact": true,
+      "preparations": [
+        {
+          "shape": [
+            17,
+            6144
+          ],
+          "fused": true
+        }
+      ]
+    },
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 256,
+      "exact": true,
+      "preparations": [
+        {
+          "shape": [
+            256,
+            6144
+          ],
+          "fused": true
+        }
+      ]
+    },
+    {
+      "prefix": "model.language_model.layers.0.linear_attn.out_proj",
+      "rows": 1024,
+      "exact": true,
+      "preparations": [
+        {
+          "shape": [
+            1024,
+            6144
+          ],
+          "fused": true
+        }
+      ]
+    }
+  ],
+  "fallback_cases": [
+    {
+      "case": "missing-triton",
+      "exact": true
+    },
+    {
+      "case": "missing-triton.runtime.driver",
+      "exact": true
+    },
+    {
+      "case": "missing-triton",
+      "exact": true
+    },
+    {
+      "case": "missing-triton.runtime.driver",
+      "exact": true
+    },
+    {
+      "case": "noncontiguous",
+      "exact": true
+    },
+    {
+      "case": "short",
+      "exact": true
+    },
+    {
+      "case": "no_grad",
+      "exact": true
+    }
+  ],
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 498237440,
+    "cuda_peak_reserved_bytes": 551550976,
+    "cuda_global_free_bytes": 57382506496,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1055473664,
+    "VmRSS_bytes": 967712768,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122608287744,
+    "SwapFree_bytes": 17062547456
+  }
+}

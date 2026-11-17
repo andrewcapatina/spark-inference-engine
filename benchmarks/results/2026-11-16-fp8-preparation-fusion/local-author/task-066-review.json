@@ -1,0 +1,10 @@
+{
+  "status": "rejected_numerical_nonfinite_propagation",
+  "failure_run": "fp8-prep-prototype-20261117T062623Z",
+  "finite_bf16_maxima_exact": 32640,
+  "cases_before_failure": 307,
+  "failure": "NaN row ignored; scale finite, byteswrong instead of allNan",
+  "reference_nan_scale_bits": "0x7fffffff",
+  "source_retained": "/home/cap/Projects/spark-inference-engine/benchmark_runs/fp8-prep-fusion-20261117T061723Z/rejected-066-prep_proto.py.txt",
+  "tests_unchanged": true
+}

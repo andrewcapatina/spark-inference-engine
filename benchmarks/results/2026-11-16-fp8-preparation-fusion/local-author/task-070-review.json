@@ -1,0 +1,4 @@
+{
+  "accepted": false,
+  "reason": "Optional-backend import guard uses literal triton.submodule; must accept arbitrary triton.* submodule names and propagate other ModuleNotFoundError. No engine placement; raw candidate retained."
+}

@@ -1,0 +1,68 @@
+def _make_pair_projector(gate, up):
+    if not isinstance(gate, FP8Linear) or not isinstance(up, FP8Linear):
+        return None
+    if type(gate) is not FP8Linear or type(up) is not FP8Linear:
+        return None
+    if gate.weight.device != up.weight.device:
+        return None
+    if gate.weight.shape[1] != up.weight.shape[1]:
+        return None
+    if gate.weight.shape[0] != up.weight.shape[0]:
+        return None
+    if gate._forward_hooks or gate._forward_pre_hooks:
+        return None
+    if up._forward_hooks or up._forward_pre_hooks:
+        return None
+    if "forward" in gate.__dict__:
+        return None
+    if "forward" in up.__dict__:
+        return None
+
+    device = gate.weight.device
+    k = gate.weight.shape[1]
+    n = gate.weight.shape[0]
+
+    def project(x):
+        assert x.is_cuda
+        assert x.is_contiguous()
+        assert x.dtype == torch.bfloat16
+        assert torch.is_inference_mode_enabled()
+        assert x.device == device
+        assert x.shape[-1] == k
+        orig_shape = x.shape
+        x2d = x.reshape(-1, k)
+        m = x2d.shape[0]
+        prepared = None
+        if m >= 16:
+            try:
+                from spark_engine.qwen_fp8_prepare import prepare_fp8
+            except ModuleNotFoundError as e:
+                if e.name != "triton" and not (e.name or "").startswith("triton."):
+                    raise
+            else:
+                prepared = prepare_fp8(x2d)
+        if prepared is None:
+            scale_a = torch.clamp(torch.amax(x2d.abs(), dim=-1, keepdim=True).float() / 448.0, min=1e-6)
+            x_q = (x2d / scale_a).to(torch.float8_e4m3fn)
+            if not x_q.is_contiguous():
+                x_q = x_q.contiguous()
+            pad = (16 - m % 16) % 16
+            if pad:
+                x_q = torch.nn.functional.pad(x_q, (0, 0, 0, pad))
+                scale_a = torch.nn.functional.pad(scale_a, (0, 0, 0, pad))
+        else:
+            x_q, scale_a = prepared
+            pad = (-m) % 16
+        scale_b_g = gate.weight_scale.t()
+        scale_b_u = up.weight_scale.t()
+        out_g = torch._scaled_mm(x_q, gate.weight.t(), scale_a, scale_b_g,
+                                 out_dtype=torch.bfloat16, use_fast_accum=True)
+        out_u = torch._scaled_mm(x_q, up.weight.t(), scale_a, scale_b_u,
+                                 out_dtype=torch.bfloat16, use_fast_accum=True)
+        if pad:
+            out_g = out_g[:m]
+            out_u = out_u[:m]
+        return (out_g.reshape(orig_shape[:-1] + (n,)),
+                out_u.reshape(orig_shape[:-1] + (n,)))
+
+    return project

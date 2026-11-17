@@ -1,0 +1,90 @@
+```python
+import torch
+import triton
+import triton.language as tl
+
+FP32_RECIPROCAL_448 = 0.0022321429569274187
+
+
+@triton.jit
+def _fp8_row_kernel(
+    x_ptr,
+    x_q_ptr,
+    scale_a_ptr,
+    width,
+    padded_rows,
+    BLOCK: tl.constexpr,
+):
+    row = tl.program_id(0)
+    row_start = row * width
+    x_row = x_ptr + row_start
+    x_q_row = x_q_ptr + row_start
+    scale_row = scale_a_ptr + row
+
+    max_abs = 0.0
+    for off in range(0, BLOCK, 128):
+        mask = off + tl.arange(0, 128) < width
+        vals = tl.load(x_row + off + tl.arange(0, 128), mask=mask, other=0.0).to(tl.float32)
+        row_max = tl.max(tl.abs(vals))
+        max_abs = tl.maximum(max_abs, row_max)
+
+    scale = max_abs * FP32_RECIPROCAL_448
+    scale = tl.maximum(scale, 1e-6)
+    tl.store(scale_row, scale)
+
+    for off in range(0, BLOCK, 128):
+        mask = off + tl.arange(0, 128) < width
+        vals = tl.load(x_row + off + tl.arange(0, 128), mask=mask, other=0.0).to(tl.float32)
+        scaled = tl.div_rn(vals, scale)
+        q = scaled.to(tl.float8e4nv)
+        tl.store(x_q_row + off + tl.arange(0, 128), q, mask=mask)
+
+
+def prepare_fp8(x2d):
+    if not torch.is_inference_mode_enabled():
+        return None
+    if not isinstance(x2d, torch.Tensor):
+        return None
+    if x2d.dim() != 2:
+        return None
+    if x2d.dtype != torch.bfloat16:
+        return None
+    if not x2d.is_cuda:
+        return None
+    if not x2d.is_contiguous():
+        return None
+    if x2d.requires_grad:
+        return None
+
+    rows, width = x2d.shape
+    if rows < 16:
+        return None
+    if width not in (5120, 6144):
+        return None
+
+    padded_rows = ((rows + 15) // 16) * 16
+    if padded_rows * width > 2147483647:
+        return None
+
+    x_q = torch.empty((padded_rows, width), dtype=torch.float8_e4m3fn, device=x2d.device)
+    scale_a = torch.empty((padded_rows, 1), dtype=torch.float32, device=x2d.device)
+
+    BLOCK = triton.next_power_of_2(width)
+    grid = (padded_rows,)
+    _fp8_row_kernel[grid](
+        x2d,
+        x_q,
+        scale_a,
+        width,
+        padded_rows,
+        BLOCK=BLOCK,
+        num_warps=8,
+    )
+
+    if padded_rows > rows:
+        pad_rows = padded_rows - rows
+        x_q[rows:] = 0
+        scale_a[rows:] = 0.0
+
+    return x_q, scale_a
+```

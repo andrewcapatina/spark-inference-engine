@@ -1,5 +1,17 @@
 # Qwen support: implementation workflow
 
+Completed fused FP8 preparation: accepted engine 48d4cc758027f6f5c84d5fd6afa444d4968cdeae.
+LocalQwen068kernel/069FP8forward/071pair placed verbatim; other17original
+engine files unchanged.359strict cases pass in both runtimes,54realweight
+integration cases exact; full27B outputs/caches/8canonical128IDs exact,
+40answers/446NLL exact,all56Qwen/15Llama protected gates pass.
+Warm prefill saves9.195ms/3.665%256 and53.943ms/5.476%1024,8/8positiveblocks
+each,peakmemoryunchanged.217fused kernels remove1302launches; GEMMs/state math
+unchanged. No additive-percentage or decode-speed claim. Allcontainersstopped,
+GPUidle/serviceinactive,sameboot/zero newSwap,holdsretained. No active task.
+Report benchmarks/results/2026-11-16-fp8-preparation-fusion/README.md.
+Historical outlier remains unexplained; raw rejected sources retained.
+
 Current user-authorized exception (2026-11-16 UTC): Codex may directly implement
 and debug the focused GDN optimizations, including existing-layout fused key
 preparation following the rejected independent-chunk batching experiment. The user

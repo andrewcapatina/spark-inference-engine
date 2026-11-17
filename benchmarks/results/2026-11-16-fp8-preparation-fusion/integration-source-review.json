@@ -1,0 +1,6 @@
+{
+  "status": "reviewed",
+  "local069_forward": "Original asserts, reshape, fallback prep, GEMM, cropping and result preserved; narrow import guard and runtime errors propagate",
+  "local071_pair": "Original factory guards, asserts, reshape, fallback prep, two GEMMs, cropping and result preserved; only070guard repaired",
+  "author": "Local Qwen only"
+}

@@ -1,0 +1,16 @@
+{
+  "spark_engine/qwen_fp8_prepare.py": {
+    "task": "068",
+    "sha256": "def9e2a1c108e14b356caa2552c4d09fc4543dc60b0df4354166ceb2ccca9baa"
+  },
+  "spark_engine/qwen_fp8.py": {
+    "task": "069",
+    "response_sha256": "3389a8fc3ce4c63fd3f6eebc3735f03b501d6d206440780fa9f0e39d90359b06",
+    "placed_body_sha256": "8795ab6e0d5a52c8a7bb56d4f20c6d35c01d508520ee0ee0d67251f806d93d91"
+  },
+  "spark_engine/qwen_mlp_fp8_pair.py": {
+    "task": "071",
+    "response_sha256": "7d06bc680bbb06d13391a83d52ae1a377ef5363758fa6b55ba0e986adeb6e68d",
+    "placed_body_sha256": "023ada2b31d81449da4c82adb970adc8118f5cde0a0a94023c972b23e51ac2fc"
+  }
+}
