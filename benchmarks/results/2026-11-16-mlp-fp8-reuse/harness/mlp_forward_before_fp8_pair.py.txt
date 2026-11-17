@@ -1,0 +1,12 @@
+def forward(self, x):
+        if (x.ndim == 3 and x.shape[0] == 1 and x.shape[1] >= 16
+                and x.is_cuda and x.dtype == torch.bfloat16
+                and torch.is_inference_mode_enabled()):
+            try:
+                from spark_engine.qwen_mlp_activation import silu_mul
+            except ModuleNotFoundError as e:
+                if e.name is None or not (e.name == "triton" or e.name.startswith("triton.")):
+                    raise
+            else:
+                return self.down_proj(silu_mul(self.gate_proj(x), self.up_proj(x)))
+        return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))

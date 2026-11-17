@@ -1,0 +1,20 @@
+Return ONLY the complete `def forward(self, x):` method, no Markdown. Modify the current accepted method only to optionally reuse FP8 gate/up preparation, while retaining accepted activation fusion. About25lines, no caches/module mutation. Globals already have torch.
+
+Keep existing eligibility, missing-Triton guard and final fallback expression source-identical. Within successful activation-helper import branch, before the current fused return:
+Only if x.is_contiguous() and BOTH gate_proj/up_proj are EXACT type FP8Linear from spark_engine.qwen_fp8, import `_make_pair_projector` from spark_engine.qwen_mlp_fp8_pair. Call the factory each forward; if it returns a callback, call that callback ONCE on x to obtain gate and up outputs, then return down_proj(silu_mul(gate_output, up_output)). If factory returns None, use the existing fused return with normal module calls. For non-FP8 pairs, do not import/call the pair helper at all. Factory checks dimensions/devices and hooks/instance-forward overrides and returns None on unsupported pairs. Callback asserts x CUDA BF16 contiguous inference and matching weight device/K.
+
+Use valid Torch API torch.is_inference_mode_enabled(), preserved from baseline. Do not change two GEMMs, weights, scales, padding, down_proj, dtype or activation. Do not change decode/CPU/grad/other-shape paths or error policy. Do not cache factory/callback/tensors. Pair helper imports must occur outside the existing missing-Triton try block so unrelated import failures propagate.
+
+Current accepted method:
+def forward(self, x):
+        if (x.ndim == 3 and x.shape[0] == 1 and x.shape[1] >= 16
+                and x.is_cuda and x.dtype == torch.bfloat16
+                and torch.is_inference_mode_enabled()):
+            try:
+                from spark_engine.qwen_mlp_activation import silu_mul
+            except ModuleNotFoundError as e:
+                if e.name is None or not (e.name == "triton" or e.name.startswith("triton.")):
+                    raise
+            else:
+                return self.down_proj(silu_mul(self.gate_proj(x), self.up_proj(x)))
+        return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))

@@ -1,0 +1,95 @@
+{
+  "status": "clean",
+  "containers": {
+    "spark-prototype-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:c6812c2105dc541ae2827ca7b740d92decfdcb9cba51d85431e589fb9bf2d3db"
+    },
+    "spark-prototype-model": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:612b43a60a344a4dbbe34142f1cea1668a23c9a3b4367e4abd0f8aa9902880af"
+    },
+    "spark-prototype-vllm-nvfp4": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    },
+    "spark-prototype-quant-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    }
+  },
+  "service_main_pid": 0,
+  "gpu_compute_processes": "",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "same_boot_all_stages": true,
+  "global_gpu_hold_retained": true,
+  "legacy_stop_retained": true,
+  "large_workload_hold_retained": true,
+  "telemetry": {
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/qwen-small-host-memory.jsonl": {
+      "min_available_bytes": 121438113792,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/qwen-real9b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 81872777216,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/generation-budget-repository-host-memory.jsonl": {
+      "min_available_bytes": 123150864384,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/qwen-real9b-host-memory.jsonl": {
+      "min_available_bytes": 82843901952,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/legacy-runtime-inspection-host-memory.jsonl": {
+      "min_available_bytes": 123629342720,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/qwen-real27b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 48788058112,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/local-qwen-author-host-memory.jsonl": {
+      "min_available_bytes": 91935580160,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/llama-protected-host-memory.jsonl": {
+      "min_available_bytes": 119549743104,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-fp8-reuse-20261117T031301Z/qwen-real27b-host-memory.jsonl": {
+      "min_available_bytes": 54122913792,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/fp8-pair-profile-20261117T035833Z/host-memory.jsonl": {
+      "min_available_bytes": 76771762176,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/fp8-pair-accuracy-20261117T035519Z/host-memory.jsonl": {
+      "min_available_bytes": 77139501056,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/fp8-pair-integration-20261117T032008Z/host-memory.jsonl": {
+      "min_available_bytes": 122225995776,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/fp8-pair-ab-20261117T034821Z/host-memory.jsonl": {
+      "min_available_bytes": 77734002688,
+      "max_per_worker_swap_growth_bytes": 0
+    }
+  },
+  "maximum_per_worker_swap_growth_bytes": 0
+}

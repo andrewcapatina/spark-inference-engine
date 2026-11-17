@@ -1,0 +1,28 @@
+Fix ONLY the contradictory eligibility guard in this forward method and return the COMPLETE method without Markdown. Standard four-space indentation for the method body.
+
+The current code requires type(gate_proj) == torch.nn.Linear before checking type(gate_proj)==FP8Linear. Those exact types cannot both hold, so the new branch NEVER executes. Remove the ordinary-Linear type conditions entirely. The outer new check should only test x.is_contiguous(); inside it import FP8Linear then retain the exact FP8Linear gate/up checks already present. Preserve EVERY other predicate, missing-Triton error policy, factory invocation, math and fallback expression. No other engine changes.
+
+Rejected method:
+def forward(self, x):
+        if (x.ndim == 3 and x.shape[0] == 1 and x.shape[1] >= 16
+                and x.is_cuda and x.dtype == torch.bfloat16
+                and torch.is_inference_mode_enabled()):
+            try:
+                from spark_engine.qwen_mlp_activation import silu_mul
+            except ModuleNotFoundError as e:
+                if e.name is None or not (e.name == "triton" or e.name.startswith("triton.")):
+                    raise
+            else:
+                if (x.is_contiguous()
+                        and type(self.gate_proj) is torch.nn.modules.linear.Linear
+                        and type(self.up_proj) is torch.nn.modules.linear.Linear):
+                    from spark_engine.qwen_fp8 import FP8Linear
+                    if (type(self.gate_proj) is FP8Linear
+                            and type(self.up_proj) is FP8Linear):
+                        from spark_engine.qwen_mlp_fp8_pair import _make_pair_projector
+                        projector = _make_pair_projector(self.gate_proj, self.up_proj)
+                        if projector is not None:
+                            gate_output, up_output = projector(x)
+                            return self.down_proj(silu_mul(gate_output, up_output))
+                return self.down_proj(silu_mul(self.gate_proj(x), self.up_proj(x)))
+        return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))

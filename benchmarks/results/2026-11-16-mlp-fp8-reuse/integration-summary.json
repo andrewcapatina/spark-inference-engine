@@ -1,0 +1,401 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "All8real-weight FP8 MLP layers and dispatch/fallbacks only; not whole-model timing or generation validation",
+  "real_layer_cases": [
+    {
+      "layer": 56,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 56,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 56,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 56,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 56,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 56,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 57,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 57,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 57,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 57,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 57,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 57,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 58,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 58,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 58,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 58,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 58,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 58,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 59,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 59,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 59,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 59,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 59,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 59,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 60,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 60,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 60,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 60,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 60,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 60,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 61,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 61,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 61,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 61,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 61,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 61,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 62,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 62,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 62,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 62,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 62,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 62,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 63,
+      "rows": 1,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 63,
+      "rows": 15,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "layer": 63,
+      "rows": 16,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 63,
+      "rows": 17,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 63,
+      "rows": 256,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "layer": 63,
+      "rows": 1024,
+      "pair_exact": true,
+      "block_exact": true,
+      "reuse_calls": 1
+    }
+  ],
+  "fallback_cases": [
+    {
+      "case": "normal",
+      "exact": true,
+      "reuse_calls": 1
+    },
+    {
+      "case": "gate_forward_hook",
+      "exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "case": "up_pre_hook",
+      "exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "case": "instance_forward",
+      "exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "case": "noncontiguous",
+      "exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "case": "batch2",
+      "exact": true,
+      "reuse_calls": 0
+    },
+    {
+      "case": "decode",
+      "exact": true,
+      "reuse_calls": 0
+    }
+  ],
+  "subclass_and_shape_rejections": 2,
+  "gradient_cases": 3,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 640843776,
+    "cuda_peak_reserved_bytes": 702545920,
+    "cuda_global_free_bytes": 56857313280,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1211478016,
+    "VmRSS_bytes": 1211478016,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122256601088,
+    "SwapFree_bytes": 17060229120
+  },
+  "archival_note": "Full original results retained at indexed paths/hashes; token IDs and timing samples use counts/compact-JSON SHA256."
+}

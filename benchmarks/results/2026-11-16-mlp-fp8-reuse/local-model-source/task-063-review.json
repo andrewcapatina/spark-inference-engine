@@ -1,0 +1,6 @@
+{
+  "status": "rejected_before_placement",
+  "classification": "implementation guard logic",
+  "reason": "Requires exact torch.nn.Linear and exact FP8Linear simultaneously, making reuse branch unreachable",
+  "recovery": "Local Qwen task064 removes contradictory ordinary-Linear guard; retain raw063"
+}

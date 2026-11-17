@@ -23,6 +23,16 @@ Warm prefill savings:4.87ms/1.90% at256tokens;16.59ms/1.65% at1024tokens.
 Current report: benchmarks/results/2026-11-16-mlp-prefill-activation/README.md.
 All containers stopped cleanly, GPU idle, service inactive, holds retained.
 Historical outlier cause remains unknown, not labeled repaired.
+FP8-only gate/up preparation reuse completed: accepted engine e54057e, on top
+of da80ee6 activation fusion. Local Qwen helper062+forward064 copied verbatim;
+063 unreachable guard rejected before placement. Only QwenMLP.forward and new
+qwen_mlp_fp8_pair.py changed. All isolated, full real-model, frozen40/446 and
+56Qwen/15Llama protected gates passed. 56fewer prefill launches; two separate
+GEMMs retained. 1024-token saving3.125ms/.315%;256-token effectivelyflat.
+No persistent caches, NVFP4/decode unchanged. Peak memory unchanged.
+Current report: benchmarks/results/2026-11-16-mlp-fp8-reuse/README.md.
+All containers stopped, GPUidle/serviceinactive, holds retained. Historical
+outlier cause remains unknown, not labeled fixed.
 Read LOCAL_MODEL_HANDOFF.md before resuming local-model tasks. Historical work
 below used the local-model-only workflow; that remains the default outside this
 authorized work package.

@@ -1,6 +1,32 @@
 # Engine development handoff
 
-Current accepted engine: `da80ee6` (MLP activation fusion), following `f1e760f`
+Current accepted engine: `e54057e` (FP8 MLP preparation reuse), on top of
+`da80ee6` activation fusion. Local Qwen authored helper062 and forward064,
+copied verbatim. Only QwenMLP.forward and qwen_mlp_fp8_pair.py changed. The
+shared callback AST matches the earlier validated058prototype; rejected063
+unreachable guard was retained before local repair064.
+
+Eight FP8 gate/up pairs share one input preparation and retain two GEMMs.
+A fresh factory is created each forward; no persistent metadata/request cache,
+no GPU value validation/sync, no NVFP4 changes. Factory declines incompatible
+shapes/devices, subclasses, per-module hooks and instance forward overrides.
+Existing activation/decode/CPU/gradient/error-policy paths are preserved.
+
+Whole27B incremental warm prefill:256tokens252.6239→252.6072ms (effectivelyflat,
+5/8positiveblocks);1024tokens992.2916→989.1666ms (save3.1250ms,.3149%,7/8positive).
+Do not claim a short-prompt speedup or add this percentage to prior gains.
+Full outputs/caches/8x128IDs exact,40answers/446NLL exact,56Qwen/15Llama gates
+passed including original9B/27B numerical and conversation. All8realFP8layers
+passed48pair/block cases,normal+6fallback dispatch cases,2metadata rejections,
+3gradients. Profile confirms8pairs/56fewer launches,233FP8/168NVFP4GEMMs and
+activation/GDN/norm counts unchanged. Peak memory unchanged. All containers
+stopped, GPUidle, serviceMainPID0, sameboot/zero new swap, holds retained.
+Report: benchmarks/results/2026-11-16-mlp-fp8-reuse/README.md.
+Main pointer: feedback/fp8-pair-main-run.txt. Historical outlier remains unknown.
+
+Previous accepted engine and activation work (historical):
+
+Previous accepted engine: `da80ee6` (MLP activation fusion), following `f1e760f`
 (GDN key preparation). Current report:
 benchmarks/results/2026-11-16-mlp-prefill-activation/README.md.
 Local Qwen authored all MLP implementation: helper059 and forward061, copied

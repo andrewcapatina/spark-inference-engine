@@ -1,0 +1,26 @@
+[
+  {
+    "task": "062",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 632,
+    "candidate_sha256": "0737c4d505a827312c9ab36d11f732167725405e9e46f14f2e5dc8e576c5f50b",
+    "role": "selected factory, shared callback AST unchanged from validated058"
+  },
+  {
+    "task": "063",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 312,
+    "candidate_sha256": "771cb0ad2fab21a76a4e22c24a220e150b9d47e8f53838836b774fe2362ba55e",
+    "role": "rejected unreachable type guard before placement"
+  },
+  {
+    "task": "064",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 281,
+    "candidate_sha256": "f3195724246c158ff5a92c419858fced13a835332cabc3245a3f347adddeaac8",
+    "role": "selected forward integration"
+  }
+]
