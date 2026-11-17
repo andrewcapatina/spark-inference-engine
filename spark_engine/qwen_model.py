@@ -73,9 +73,17 @@ class QwenMLP(nn.Module):
                 if e.name is None or not (e.name == "triton" or e.name.startswith("triton.")):
                     raise
             else:
+                if x.is_contiguous():
+                    from spark_engine.qwen_fp8 import FP8Linear
+                    if (type(self.gate_proj) is FP8Linear
+                            and type(self.up_proj) is FP8Linear):
+                        from spark_engine.qwen_mlp_fp8_pair import _make_pair_projector
+                        projector = _make_pair_projector(self.gate_proj, self.up_proj)
+                        if projector is not None:
+                            gate_output, up_output = projector(x)
+                            return self.down_proj(silu_mul(gate_output, up_output))
                 return self.down_proj(silu_mul(self.gate_proj(x), self.up_proj(x)))
         return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))
-
 
 class QwenCausalLM(nn.Module):
     @classmethod
