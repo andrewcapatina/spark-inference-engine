@@ -36,14 +36,27 @@ def _make_pair_projector(gate, up):
         orig_shape = x.shape
         x2d = x.reshape(-1, k)
         m = x2d.shape[0]
-        scale_a = torch.clamp(torch.amax(x2d.abs(), dim=-1, keepdim=True).float() / 448.0, min=1e-6)
-        x_q = (x2d / scale_a).to(torch.float8_e4m3fn)
-        if not x_q.is_contiguous():
-            x_q = x_q.contiguous()
-        pad = (16 - m % 16) % 16
-        if pad:
-            x_q = torch.nn.functional.pad(x_q, (0, 0, 0, pad))
-            scale_a = torch.nn.functional.pad(scale_a, (0, 0, 0, pad))
+        prepared = None
+        if m >= 16:
+            try:
+                from spark_engine.qwen_fp8_prepare import prepare_fp8
+            except ModuleNotFoundError as e:
+                if e.name != "triton" and not (e.name or "").startswith("triton."):
+                    raise
+            else:
+                prepared = prepare_fp8(x2d)
+        if prepared is None:
+            scale_a = torch.clamp(torch.amax(x2d.abs(), dim=-1, keepdim=True).float() / 448.0, min=1e-6)
+            x_q = (x2d / scale_a).to(torch.float8_e4m3fn)
+            if not x_q.is_contiguous():
+                x_q = x_q.contiguous()
+            pad = (16 - m % 16) % 16
+            if pad:
+                x_q = torch.nn.functional.pad(x_q, (0, 0, 0, pad))
+                scale_a = torch.nn.functional.pad(scale_a, (0, 0, 0, pad))
+        else:
+            x_q, scale_a = prepared
+            pad = (-m) % 16
         scale_b_g = gate.weight_scale.t()
         scale_b_u = up.weight_scale.t()
         out_g = torch._scaled_mm(x_q, gate.weight.t(), scale_a, scale_b_g,
