@@ -1,0 +1,11 @@
+{
+  "status": "rejected_before_execution",
+  "classification": "candidate implementation errors",
+  "errors": [
+    "torch.is_cuda(x) nonexistent; use x.is_cuda",
+    "torch.inference_mode_enabled() nonexistent; use torch.is_inference_mode_enabled()",
+    "NVFP4Linear/FP8Linear not imported",
+    "FP8 branch erroneously accesses weight_packed/input_global_scale and has no FP8 preparation"
+  ],
+  "recovery": "Split into NVFP4-only057 and FP8-only058; original raw candidate retained"
+}

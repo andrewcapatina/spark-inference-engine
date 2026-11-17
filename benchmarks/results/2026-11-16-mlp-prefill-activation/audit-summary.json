@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "CPU checkpoint headers/scalar scales only; no model loaded or generation performed",
+  "hidden_size": 5120,
+  "intermediate_size": 17408,
+  "nvfp4_pairs": 56,
+  "nvfp4_equal_input_scales": 56,
+  "fp8_pairs": 8,
+  "baseline_expression": "down_proj(silu(gate_proj(x)) * up_proj(x))",
+  "archival_note": "Full original results retained at paths/hashes in diagnostic-stage-index.json; token IDs/timing sample arrays replaced by counts and compact-JSON SHA256."
+}

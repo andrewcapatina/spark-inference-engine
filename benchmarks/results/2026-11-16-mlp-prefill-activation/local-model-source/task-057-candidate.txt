@@ -1,0 +1,40 @@
+```python
+import torch
+
+def _make_pair_projector(gate, up):
+    from spark_engine.qwen_nvfp4 import NVFP4Linear
+    if not isinstance(gate, NVFP4Linear) or not isinstance(up, NVFP4Linear):
+        return None
+    if gate.weight_packed.device != up.weight_packed.device:
+        return None
+    if gate.weight_packed.shape[0] != up.weight_packed.shape[0]:
+        return None
+    if gate.weight_packed.shape[1] != up.weight_packed.shape[1]:
+        return None
+    if not torch.equal(gate.input_global_scale, up.input_global_scale):
+        return None
+
+    def project(x):
+        assert x.is_cuda and x.is_contiguous() and x.dtype == torch.bfloat16
+        assert torch.is_inference_mode_enabled()
+        assert x.device == gate.weight_packed.device
+        assert x.shape[-1] == gate.weight_packed.shape[1] * 2
+        orig_shape = x.shape
+        x2d = x.reshape(-1, x.shape[-1])
+        import flashinfer
+        a, a_scales = flashinfer.fp4_quantize(x2d, gate.input_global_scale, is_sf_swizzled_layout=True)
+        alpha_g = torch.tensor(1.0 / (gate.input_global_scale * gate.weight_global_scale),
+                               dtype=torch.float32, device=x.device)
+        alpha_u = torch.tensor(1.0 / (up.input_global_scale * up.weight_global_scale),
+                               dtype=torch.float32, device=x.device)
+        out_g = flashinfer.mm_fp4(a, gate.weight_packed.T, a_scales.view(torch.uint8),
+                                  gate.swizzled_scale.view(torch.uint8).T, alpha=alpha_g,
+                                  out_dtype=x.dtype, backend="cutlass")
+        out_u = flashinfer.mm_fp4(a, up.weight_packed.T, a_scales.view(torch.uint8),
+                                  up.swizzled_scale.view(torch.uint8).T, alpha=alpha_u,
+                                  out_dtype=x.dtype, backend="cutlass")
+        return (out_g.reshape(*orig_shape[:-1], out_g.shape[-1]),
+                out_u.reshape(*orig_shape[:-1], out_u.shape[-1]))
+
+    return project
+```

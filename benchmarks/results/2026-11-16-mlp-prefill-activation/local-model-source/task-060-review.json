@@ -1,0 +1,5 @@
+{
+  "status": "rejected_before_engine_placement",
+  "reason": "Missing dependency guard uses message substring instead of ModuleNotFoundError.name; can swallow unrelated import failures",
+  "recovery": "Local Qwen task061 changes only that guard; preserve raw060"
+}

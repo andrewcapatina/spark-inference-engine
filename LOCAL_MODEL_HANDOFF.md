@@ -1,17 +1,36 @@
 # Engine development handoff
 
-Current accepted engine: `f1e760f` (2026-11-16). The user authorized readding
-runtime-stride GDN key preparation and accepting small correct gains. All exact
-real27B output/cache and8x128-ID checks, frozen40answers/446NLL, and56Qwen/15Llama
-protected gates passed. Prefill savings:2.49ms at256tokens,8.26ms at1024tokens
-(~0.96%/~0.82%); no output-token throughput claim. Baseline-only30replies and
-exact older-source4replies were also canonical; historical outlier cause remains
-unresolved. Repeated success is not a repair. Future mismatch captures retain
-logits; user recommends source-snapshot commit peelback, including uncommitted
-rejected trees. See feedback/prefill-readd-main-run.txt and
-benchmarks/results/2026-11-16-gdn-key-readdition/README.md. All containers stopped,
-GPU idle, service inactive, holds retained. Earlier unadopted descriptions below
-are historical; they do not override this accepted checkpoint.
+Current accepted engine: `da80ee6` (MLP activation fusion), following `f1e760f`
+(GDN key preparation). Current report:
+benchmarks/results/2026-11-16-mlp-prefill-activation/README.md.
+Local Qwen authored all MLP implementation: helper059 and forward061, copied
+verbatim after source review. Codex only supervised harness/tests/prompts/placement.
+Single-request CUDA BF16 inference prefill T>=16 uses fused SiLU then multiply
+with explicit BF16 intermediate rounding. Decode/CPU/grad paths keep the original
+expression. Missing Triton fallback is narrow; other errors propagate.
+
+The comparison evaluated preparation reuse and activation separately. All56NVFP4
+gate/up input scales match;8FP8 pairs can share prep. Reuse remains prototype-only.
+Activation was chosen for larger/simple dominantNVFP4 benefits, no module cache.
+Real27B warm prefill:256.0387→251.1717ms at256tokens (save4.8670ms,1.9009%);
+1002.5413→985.9550ms at1024 (save16.5863ms,1.6544%);8/8ABBAblocks positive each.
+These are prompt-processing gains, not output-token throughput measurements.
+
+Validation: all65536BF16gate patterns x9multipliers on both Torch2.13 and2.11
+runtimes,12real-weight layer cases,48integration cases,gradient/import/error
+fallbacks; full real27B prefill+nextdecode logits/allcache and8x128IDs exact;
+frozen40answers/446NLL exact;56Qwen/15Llama protected checks passed including
+original9B/27B numerical and conversation tests. Profiler:64fused launches replace
+128pointwise launches, other majorcounts unchanged; peak allocated memory unchanged.
+All4containers stopped, GPU idle, service MainPID0, sameboot, zero new swap, holds
+retained. Main pointer: feedback/mlp-main-run.txt. Earlier055/056/060drafts were
+retained/rejected; local model repairs supplied the selected source.
+
+Historical generation outlier remains unexplained; no recurrence in this run.
+Future failures retain logits and use the recorded commit/source peelback plan,
+including uncommitted prototypes. Passing repeats do not establish a root-cause fix.
+Earlier completed/unadopted descriptions below are historical and do not override
+this accepted checkpoint. This handoff provides context, not model training.
 
 The user authorized Codex to implement GDN optimization work directly,
 including the subsequent fused-key preparation prototype, as an exception to

@@ -1,0 +1,9 @@
+Return ONLY the complete Python method `def forward(self, x):`, no Markdown or explanation. Local Qwen authors this implementation. Integrate ONLY the already validated activation helper, not projection reuse. About15lines. Globals already contain torch.
+
+Fast path eligibility: x.ndim==3, x.shape[0]==1, x.shape[1]>=16, x.is_cuda, x.dtype==torch.bfloat16, torch.is_inference_mode_enabled(). This is single-request CUDA BF16 inference prefill only; decode/CPU/grad/other shapes keep EXACT original fallback expression and original evaluation order.
+
+Inside eligible branch, lazily import `silu_mul` from spark_engine.qwen_mlp_activation. Catch only ModuleNotFoundError specifically naming triton or a triton submodule; on that missing dependency use original fallback. All other import/runtime/compiler errors must propagate. When import succeeds return self.down_proj(silu_mul(self.gate_proj(x), self.up_proj(x))). Preserve weights/GEMMs and output dtype, no caches or module mutation. Never use invalid torch.inference_mode_enabled().
+
+Original method:
+def forward(self, x):
+        return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))

@@ -1,0 +1,414 @@
+{
+  "status": "complete",
+  "mode": "candidate",
+  "scope": "Tiny GPU/CPU MLP integration, dispatch, gradients and import errors only; not checkpoint validation",
+  "cases": [
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 1,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.float32",
+      "batch": 2,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 16,
+      "fast_calls": 1,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 17,
+      "fast_calls": 1,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 1,
+      "length": 64,
+      "fast_calls": 1,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 0,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 1,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 15,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 16,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 17,
+      "fast_calls": 0,
+      "exact": true
+    },
+    {
+      "device": "cuda",
+      "dtype": "torch.bfloat16",
+      "batch": 2,
+      "length": 64,
+      "fast_calls": 0,
+      "exact": true
+    }
+  ],
+  "gradient_cases": 2,
+  "missing_triton_fallback_cases": 2,
+  "unrelated_import_errors_propagated": 2,
+  "runtime_errors_propagated": true,
+  "released_library_workspaces": {
+    "torch_cublas": true,
+    "flashinfer_cache_keys": [],
+    "flashinfer_retired": 0
+  },
+  "released_memory": {
+    "cuda_allocated_bytes": 0,
+    "cuda_reserved_bytes": 0,
+    "cuda_peak_allocated_bytes": 67154944,
+    "cuda_peak_reserved_bytes": 69206016,
+    "cuda_global_free_bytes": 61314682880,
+    "cuda_total_bytes": 130661003264,
+    "VmHWM_bytes": 1324347392,
+    "VmRSS_bytes": 1324347392,
+    "VmSwap_bytes": 0,
+    "MemAvailable_bytes": 122809769984,
+    "SwapFree_bytes": 17057533952
+  },
+  "archival_note": "Full original results retained at paths/hashes in diagnostic-stage-index.json; token IDs/timing sample arrays replaced by counts and compact-JSON SHA256."
+}

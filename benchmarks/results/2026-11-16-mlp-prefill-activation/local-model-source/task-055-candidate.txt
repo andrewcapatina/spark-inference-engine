@@ -1,0 +1,37 @@
+```python
+def _make_pair_projector(gate, up):
+    import torch
+
+    if not (isinstance(gate, NVFP4Linear) and isinstance(up, NVFP4Linear)):
+        if not (isinstance(gate, FP8Linear) and isinstance(up, FP8Linear)):
+            return None
+
+    if gate.weight_packed.shape[1] != up.weight_packed.shape[1]:
+        return None
+    if gate.weight_packed.shape[0] != up.weight_packed.shape[0]:
+        return None
+    if not torch.equal(gate.input_global_scale, up.input_global_scale):
+        return None
+
+    def project(x):
+        assert torch.is_cuda(x) and x.dtype == torch.bfloat16
+        assert torch.inference_mode_enabled()
+        orig_shape = x.shape
+        x2d = x.reshape(-1, x.shape[-1])
+        import flashinfer
+        a, a_scales = flashinfer.fp4_quantize(x2d, gate.input_global_scale, is_sf_swizzled_layout=True)
+        alpha_g = torch.tensor(1.0 / (gate.input_global_scale * gate.weight_global_scale),
+                               dtype=torch.float32, device=x.device)
+        alpha_u = torch.tensor(1.0 / (up.input_global_scale * up.weight_global_scale),
+                               dtype=torch.float32, device=x.device)
+        out_g = flashinfer.mm_fp4(a, gate.weight_packed.T, a_scales.view(torch.uint8),
+                                  gate.swizzled_scale.view(torch.uint8).T, alpha=alpha_g,
+                                  out_dtype=x.dtype, backend="cutlass")
+        out_u = flashinfer.mm_fp4(a, up.weight_packed.T, a_scales.view(torch.uint8),
+                                  up.swizzled_scale.view(torch.uint8).T, alpha=alpha_u,
+                                  out_dtype=x.dtype, backend="cutlass")
+        return (out_g.reshape(*orig_shape[:-1], out_g.shape[-1]),
+                out_u.reshape(*orig_shape[:-1], out_u.shape[-1]))
+
+    return project
+```

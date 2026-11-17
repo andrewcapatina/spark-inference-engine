@@ -1,0 +1,12 @@
+"""Place reviewed local-model method/module verbatim; never author engine math."""
+from pathlib import Path
+import ast,json,hashlib,textwrap,sys,shutil
+R=Path('/home/cap/spark-inference-overnight-20261113');P=Path('/home/cap/Projects/spark-inference-engine');main=Path((R/'feedback/mlp-main-run.txt').read_text().strip());m=json.loads((main/'manifest.json').read_text());root=P/'benchmark_runs'/main.name
+assert m['engine_before']=={str(p.relative_to(P)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (P/'spark_engine').glob('*.py')}
+number=sys.argv[1];assert number in ['061','062'];raw=(root/f'task-{number}-candidate.txt').read_text();lines=raw.strip().splitlines();body='\n'.join(lines[1:-1])+'\n' if lines[0].strip() in ['```python','```py','```'] and lines[-1].strip()=='```' else raw;newfn=ast.parse(body);assert len(newfn.body)==1 and isinstance(newfn.body[0],ast.FunctionDef) and newfn.body[0].name=='forward';assert [a.arg for a in newfn.body[0].args.args]==['self','x'];assert len(body.splitlines())<=50
+p=P/'spark_engine/qwen_model.py';old=p.read_text();tree=ast.parse(old);cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='QwenMLP');fn=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='forward');lines=old.splitlines(keepends=True);updated=''.join(lines[:fn.lineno-1])+textwrap.indent(body,'    ')+''.join(lines[fn.end_lineno:]);newtree=ast.parse(updated)
+def frozen(t):
+ c=next(n for n in t.body if isinstance(n,ast.ClassDef) and n.name=='QwenMLP');f=next(n for n in c.body if isinstance(n,ast.FunctionDef) and n.name=='forward');f.body=[ast.Pass()];return ast.dump(t,include_attributes=False)
+assert frozen(tree)==frozen(newtree)
+helper=root/'activation.py';placement=json.loads((main/'task-059-placement.json').read_text());assert hashlib.sha256(helper.read_bytes()).hexdigest()==placement['body_sha256']
+p.write_text(updated);shutil.copy2(helper,P/'spark_engine/qwen_mlp_activation.py');m['current_engine_sha256']={str(p.relative_to(P)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (P/'spark_engine').glob('*.py')};m.update(status='integrated_local_candidate_pending_validation',applied_local_model_tasks={'forward':number,'activation_helper':'059'},raw_forward_sha256=hashlib.sha256(raw.encode()).hexdigest(),placed_forward_sha256=hashlib.sha256(body.encode()).hexdigest());(main/'manifest.json').write_text(json.dumps(m,indent=2)+'\n');print('LOCAL_QWEN_ONLY_METHOD_AND_HELPER_PLACED')

@@ -1,0 +1,1 @@
+{"status": "passed", "torch": "2.11.0a0+gita370667", "cuda": "13.0", "bf16_patterns": 65536, "up_cases": 9, "finite_bitwise_and_nan_mask_exact": true}

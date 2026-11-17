@@ -1,0 +1,11 @@
+{
+  "status": "rejected_before_execution",
+  "classification": "candidate implementation errors",
+  "errors": [
+    "torch.inference_mode_enabled() nonexistent",
+    "No explicit enable_fp_fusion=False on Triton launch",
+    "Changes requested direct SiLU division into reciprocal then multiply",
+    "No same-device fast-path guard"
+  ],
+  "recovery": "Focused local-model correction task059; raw source retained"
+}

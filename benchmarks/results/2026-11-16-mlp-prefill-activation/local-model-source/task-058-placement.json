@@ -1,0 +1,10 @@
+{
+  "status": "placed_for_isolated_tests_only",
+  "implementation_author": "local Qwen",
+  "task": "058",
+  "target": "/home/cap/Projects/spark-inference-engine/benchmark_runs/mlp-prefill-study-20261116T175739Z/fp_pair.py",
+  "raw_sha256": "dcd89ed642ff29f9004d7b34ffe50b499c58fb55d78eca4eddbc57639c534b81",
+  "body_sha256": "c076cbfc7dfda0329ad4ec322c9337753030804f89911a4b219741e3fa7abf52",
+  "only_change": "Markdown delimiter removal; Python body preserved verbatim",
+  "engine_writes": false
+}

@@ -1,0 +1,181 @@
+{
+  "status": "mlp_activation_prefill_audit_passed",
+  "scope": "Warm direct model.prefill; repeated small-workload test, no confidence interval or output-token speed claim",
+  "rows": [
+    {
+      "prompt_tokens": 256,
+      "paired_prefill": {
+        "original": {
+          "median_prefill_cuda_ms": 256.0386657714844,
+          "median_prefill_wall_ms": 256.0518935060827,
+          "prompt_tokens_per_second_cuda": 999.8489846392229
+        },
+        "candidate": {
+          "median_prefill_cuda_ms": 251.17169952392578,
+          "median_prefill_wall_ms": 251.1938950046897,
+          "prompt_tokens_per_second_cuda": 1019.2231070826285
+        }
+      },
+      "less_prefill_time_pct": 1.9008715862870451,
+      "abba_blocks": [
+        {
+          "original_ms": 257.14727783203125,
+          "candidate_ms": 252.8995361328125,
+          "less_time_pct": 1.651871151439288
+        },
+        {
+          "original_ms": 254.52725219726562,
+          "candidate_ms": 250.82514190673828,
+          "less_time_pct": 1.454504481766894
+        },
+        {
+          "original_ms": 255.86297607421875,
+          "candidate_ms": 252.53376007080078,
+          "less_time_pct": 1.3011714529781226
+        },
+        {
+          "original_ms": 255.54560089111328,
+          "candidate_ms": 253.0471649169922,
+          "less_time_pct": 0.9776869433121949
+        },
+        {
+          "original_ms": 255.57093048095703,
+          "candidate_ms": 249.7702407836914,
+          "less_time_pct": 2.269698547620169
+        },
+        {
+          "original_ms": 255.31430053710938,
+          "candidate_ms": 251.14329528808594,
+          "less_time_pct": 1.6336747453036593
+        },
+        {
+          "original_ms": 254.64801025390625,
+          "candidate_ms": 251.1379165649414,
+          "less_time_pct": 1.3784100199585203
+        },
+        {
+          "original_ms": 256.33984375,
+          "candidate_ms": 251.92671966552734,
+          "less_time_pct": 1.7215911580162446
+        }
+      ],
+      "median_peak_allocated_bytes": {
+        "original": 23239909888.0,
+        "candidate": 23239909888.0
+      },
+      "mlp_profile_before": {
+        "phase": "prefill",
+        "name": "native.layer.mlp",
+        "kernels": 1160,
+        "gpu_ms": 79.6979469999999
+      },
+      "mlp_profile_after": {
+        "phase": "prefill",
+        "name": "native.layer.mlp",
+        "kernels": 1096,
+        "gpu_ms": 71.0354999999998
+      },
+      "mlp_kernels_removed": 64,
+      "profile_decode_calls": 0
+    },
+    {
+      "prompt_tokens": 1024,
+      "paired_prefill": {
+        "original": {
+          "median_prefill_cuda_ms": 1002.5412902832031,
+          "median_prefill_wall_ms": 1002.5625105045037,
+          "prompt_tokens_per_second_cuda": 1021.4043151387162
+        },
+        "candidate": {
+          "median_prefill_cuda_ms": 985.9550170898438,
+          "median_prefill_wall_ms": 985.9735544887371,
+          "prompt_tokens_per_second_cuda": 1038.5869357635102
+        }
+      },
+      "less_prefill_time_pct": 1.654422950367862,
+      "abba_blocks": [
+        {
+          "original_ms": 1002.7148742675781,
+          "candidate_ms": 985.6887512207031,
+          "less_time_pct": 1.6980024415526485
+        },
+        {
+          "original_ms": 1001.0980834960938,
+          "candidate_ms": 985.9367370605469,
+          "less_time_pct": 1.514471627255498
+        },
+        {
+          "original_ms": 1005.6156005859375,
+          "candidate_ms": 987.4126586914062,
+          "less_time_pct": 1.8101292267070024
+        },
+        {
+          "original_ms": 999.5719604492188,
+          "candidate_ms": 988.3924865722656,
+          "less_time_pct": 1.1184261183085797
+        },
+        {
+          "original_ms": 1005.4977722167969,
+          "candidate_ms": 984.2861633300781,
+          "less_time_pct": 2.10956299186561
+        },
+        {
+          "original_ms": 1002.3632202148438,
+          "candidate_ms": 986.9460754394531,
+          "less_time_pct": 1.5380796566025423
+        },
+        {
+          "original_ms": 1001.7738037109375,
+          "candidate_ms": 987.4053955078125,
+          "less_time_pct": 1.4342966595751627
+        },
+        {
+          "original_ms": 1002.6286010742188,
+          "candidate_ms": 986.2802124023438,
+          "less_time_pct": 1.6305527943606735
+        }
+      ],
+      "median_peak_allocated_bytes": {
+        "original": 24465904128.0,
+        "candidate": 24465904128.0
+      },
+      "mlp_profile_before": {
+        "phase": "prefill",
+        "name": "native.layer.mlp",
+        "kernels": 1160,
+        "gpu_ms": 211.55142599999968
+      },
+      "mlp_profile_after": {
+        "phase": "prefill",
+        "name": "native.layer.mlp",
+        "kernels": 1096,
+        "gpu_ms": 186.3644829999998
+      },
+      "mlp_kernels_removed": 64,
+      "profile_decode_calls": 0
+    }
+  ],
+  "quality_generated_ids_exact_cases": 40,
+  "quality_nll_exact_count": 446,
+  "quality_perplexity": 8.946730084578427,
+  "current_engine_sha256": {
+    "spark_engine/qwen_layers.py": "065694efcd4ff4e0ab9501887412ba5699f2434d151365b346198373a8d5520a",
+    "spark_engine/ops.py": "51f91c3d631e5fb7bcaab239109cc6dc255d9a4c62beb94a79ad2f1fac0e02d3",
+    "spark_engine/qwen_text.py": "5b5bd5957c0da2463358e3a69c5304e4a07c44afc67d7b73fb242f615d15f5ca",
+    "spark_engine/qwen_quantized.py": "74a27bddc81e8a7ba79fb6ce6596bdca361c40fddf6c381487926064d210a645",
+    "spark_engine/qwen_key_prepare.py": "3033054557bfec7dd869cac85eec8ed438e4ac87bb67fcd5ca73b95f3ec8a0ea",
+    "spark_engine/__main__.py": "3d2438ae92f4746e9ffaa1f837b1fe803f6281091d1f31f8c95643716f257d9a",
+    "spark_engine/qwen_config.py": "24442b8ed94b138bdd633754a8240c2c16ac65bc8f5d55d8961427f12c76ef47",
+    "spark_engine/__init__.py": "01a468edbd03074d043283019470cdf0e773d38c04c99c660b4c3708085fe866",
+    "spark_engine/qwen_gguf.py": "de1054b550bff87f2e57c588bfe0ec7a5af498a9d777e184eac3046f0c9e543f",
+    "spark_engine/qwen_gated_norm_tail.py": "b5b5ff986d30ba82f7b7392af8dceb072b7ac073113d3c24cfdb1e5943bf3b76",
+    "spark_engine/qwen_nvfp4.py": "64d6676394c321782fd677f995b02953c606cfa509ca7b98d5d77370524d360b",
+    "spark_engine/qwen_mlp_activation.py": "b8e35950c8a5d7214b21c551e1ad76c3c8c20905c6c93314025884e251823042",
+    "spark_engine/cli.py": "13341300279b14adac78e3cb201f56224ed028393947d4c29abbe3f51654e94b",
+    "spark_engine/qwen_ops.py": "0d363a9a473b1e82d2c3e493cfe110c5113ac921e19ed6a54ca8e950f2b15c16",
+    "spark_engine/model.py": "e9b57bd9243868263582fad29b3479f77790e3c93011d2a1f29d2886ff46e9a6",
+    "spark_engine/qwen_norm_tail.py": "0bb0489438a141c8472da6f67f62fff735c458e62301bc950f84f85186f0a57c",
+    "spark_engine/qwen_fp8.py": "c782a4fe823bf755e764509f0a4f1433a6dd73d488d80d3c6e8b17a8b26083e7",
+    "spark_engine/qwen_model.py": "3a6d604bb4692cdf0694921f14c6e85ced60a265c452bc29ff6548886617a4d3"
+  }
+}

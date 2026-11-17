@@ -14,6 +14,15 @@ On recurrence, retain logits and use the recorded source-snapshot commit peelbac
 uncommitted prototype trees must also be included. Do not label the cause fixed.
 Current report: benchmarks/results/2026-11-16-gdn-key-readdition/README.md.
 All experiment containers stopped, GPU idle, service inactive; holds retained.
+MLP comparison/integration completed: accepted engine da80ee6. Local Qwen alone
+authored qwen_mlp_activation.py (task059) and QwenMLP.forward (task061), selected
+after independent preparation-reuse versus activation tests. All full real-model,
+frozen40/446, legacy-runtime precision and56Qwen/15Llama protected gates passed.
+Only those two engine files changed. Preparation reuse remains prototype-only.
+Warm prefill savings:4.87ms/1.90% at256tokens;16.59ms/1.65% at1024tokens.
+Current report: benchmarks/results/2026-11-16-mlp-prefill-activation/README.md.
+All containers stopped cleanly, GPU idle, service inactive, holds retained.
+Historical outlier cause remains unknown, not labeled repaired.
 Read LOCAL_MODEL_HANDOFF.md before resuming local-model tasks. Historical work
 below used the local-model-only workflow; that remains the default outside this
 authorized work package.

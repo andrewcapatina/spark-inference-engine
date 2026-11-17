@@ -1,0 +1,107 @@
+{
+  "status": "clean",
+  "containers": {
+    "spark-prototype-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:c6812c2105dc541ae2827ca7b740d92decfdcb9cba51d85431e589fb9bf2d3db"
+    },
+    "spark-prototype-model": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:612b43a60a344a4dbbe34142f1cea1668a23c9a3b4367e4abd0f8aa9902880af"
+    },
+    "spark-prototype-vllm-nvfp4": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    },
+    "spark-prototype-quant-agent": {
+      "Running": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "image_id": "sha256:fa7334538384d67c72284edc081c78b1149a36d53aba1fb3c5f7d1d534154ec6"
+    }
+  },
+  "service_main_pid": 0,
+  "gpu_compute_processes": "",
+  "boot_id": "82372567-63ec-4fce-955f-3d7879d0ac89",
+  "same_boot_all_stages": true,
+  "global_gpu_hold_retained": true,
+  "legacy_stop_retained": true,
+  "large_workload_hold_retained": true,
+  "telemetry": {
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/qwen-small-host-memory.jsonl": {
+      "min_available_bytes": 121759531008,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/qwen-real9b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 85769887744,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/generation-budget-repository-host-memory.jsonl": {
+      "min_available_bytes": 123687063552,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/mlp-legacy-kernel-portability-host-memory.jsonl": {
+      "min_available_bytes": 123014205440,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/qwen-real9b-host-memory.jsonl": {
+      "min_available_bytes": 83666276352,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/legacy-runtime-inspection-host-memory.jsonl": {
+      "min_available_bytes": 123586129920,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/qwen-real27b-conversation-host-memory.jsonl": {
+      "min_available_bytes": 54547922944,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/local-qwen-author-host-memory.jsonl": {
+      "min_available_bytes": 91846488064,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/llama-protected-host-memory.jsonl": {
+      "min_available_bytes": 119430447104,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-prefill-study-20261116T175739Z/qwen-real27b-host-memory.jsonl": {
+      "min_available_bytes": 47917010944,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-audit-20261116T175740Z/host-memory.jsonl": {
+      "min_available_bytes": 123641090048,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-accuracy-20261117T011555Z/host-memory.jsonl": {
+      "min_available_bytes": 77539045376,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-integration-20261116T181750Z/host-memory.jsonl": {
+      "min_available_bytes": 122865246208,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-compare-20261116T181234Z/host-memory.jsonl": {
+      "min_available_bytes": 121723944960,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-profile-20261117T011912Z/host-memory.jsonl": {
+      "min_available_bytes": 76964769792,
+      "max_per_worker_swap_growth_bytes": 0
+    },
+    "/home/cap/spark-inference-overnight-20261113/runs/mlp-ab-20261117T010942Z/host-memory.jsonl": {
+      "min_available_bytes": 77816274944,
+      "max_per_worker_swap_growth_bytes": 0
+    }
+  },
+  "maximum_per_worker_swap_growth_bytes": 0
+}

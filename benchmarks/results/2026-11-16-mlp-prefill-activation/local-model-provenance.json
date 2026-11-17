@@ -1,0 +1,100 @@
+[
+  {
+    "task": "055",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 455,
+    "candidate_sha256": "cf62d7bc508c7ac747d6e55fe6bb63bdddbb47b56f87be20d8a36148a2d5b75b",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "b981526cb72d00874a1f98ec162c41d5011d2f0dfa766d53be93f09eb0e3f88a",
+      "task_prompt_sha256": "ea464c5557e8f16a7f0de5a280e97f7a6b7614b05a1722a14434d95a0b447faf",
+      "handoff_bytes": 8446
+    },
+    "role": "rejected broad draft"
+  },
+  {
+    "task": "056",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 448,
+    "candidate_sha256": "4c226ca6da5e4625503e8af8dc401f112351b71b1f42c96d98b940041a0f1d11",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "b981526cb72d00874a1f98ec162c41d5011d2f0dfa766d53be93f09eb0e3f88a",
+      "task_prompt_sha256": "28a3ffec0323b6fcbc674cf2363d4babec66b9be3b8ad4d36ec467928e0cd8b3",
+      "handoff_bytes": 8446
+    },
+    "role": "rejected activation draft"
+  },
+  {
+    "task": "057",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 501,
+    "candidate_sha256": "1d2e7a4a2e6958d0dcbc6b176882c0eb1a5e0ec8d89f5914195761504db64131",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "b981526cb72d00874a1f98ec162c41d5011d2f0dfa766d53be93f09eb0e3f88a",
+      "task_prompt_sha256": "d51169bd36cd6d2ebd981226f8d9fae8314b5b65421e89b01033b28bc2be1b3f",
+      "handoff_bytes": 8446
+    },
+    "role": "NVFP4 reuse prototype only"
+  },
+  {
+    "task": "058",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 542,
+    "candidate_sha256": "dcd89ed642ff29f9004d7b34ffe50b499c58fb55d78eca4eddbc57639c534b81",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "b981526cb72d00874a1f98ec162c41d5011d2f0dfa766d53be93f09eb0e3f88a",
+      "task_prompt_sha256": "a4ae7e8f08f18f294f64789b3f5ffaf4da16b2fb3381a94aca579385d3cc376e",
+      "handoff_bytes": 8446
+    },
+    "role": "FP8 reuse prototype only"
+  },
+  {
+    "task": "059",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 472,
+    "candidate_sha256": "96240528a982b495d0eb0a1bddc6388636fa5225ada765eb490e152cbd5183bc",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "f1df4843ec62c303fad48f54f2595412450efadcc779ed1d8a59560bd57b7183",
+      "task_prompt_sha256": "ffb6fc23cfbc423f6195cecdcd2db3dd6b3ad6600ed3484bee23efc38ca80e67",
+      "handoff_bytes": 8989
+    },
+    "role": "selected engine activation helper"
+  },
+  {
+    "task": "060",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 153,
+    "candidate_sha256": "479786a09070f7700c91eeacbab0d38b8b302c071f994d46e964cbac803f664d",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "f1df4843ec62c303fad48f54f2595412450efadcc779ed1d8a59560bd57b7183",
+      "task_prompt_sha256": "7bffa9fec0af1d5fb2ad3054fb7cb6b0bedd4dabb7ef852787f01e311fb3aae7",
+      "handoff_bytes": 8989
+    },
+    "role": "rejected import guard integration"
+  },
+  {
+    "task": "061",
+    "model": "prototype-qwen27b-q8",
+    "done": true,
+    "eval_count": 167,
+    "candidate_sha256": "612ec271e09366c75b7ca66655ed30aa8f39692e6e882c2f09ae56f140ccfd20",
+    "context": {
+      "handoff_present": true,
+      "handoff_sha256": "f1df4843ec62c303fad48f54f2595412450efadcc779ed1d8a59560bd57b7183",
+      "task_prompt_sha256": "6c8fc6f1e447e9f708671d50015b693a7732865fc48c46275ceba8caade349ed",
+      "handoff_bytes": 8989
+    },
+    "role": "selected engine forward method"
+  }
+]
